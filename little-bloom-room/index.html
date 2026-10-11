@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Little Bloom Room</title>
+<meta name="description" content="The Little Bloom Room">
+<link rel="icon" href="images/bfe43e6b1858503c7167e822dfc49d43.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F4EEE6;color:#2E2724;font-family:'Jost',system-ui,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#8C4A52}a:hover{color:#6E3840}
+.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400}
+.hand{font-family:'Caveat',cursive;font-weight:600}
+em{font-style:italic;color:#8C4A52}
+.dark em{color:#D8C2A3}
+.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#6F655C;font-weight:400}
+.dark .eyebrow{color:#CDBFB4}
+.lineeye{display:flex;align-items:center;gap:14px}
+.lineeye::before{content:"";width:40px;height:1px;background:currentColor;opacity:.6}
+.h2{margin:0;font-size:clamp(40px,7vw,64px);line-height:1.04}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.dark{background:radial-gradient(120% 80% at 50% 0%,#4A3034 0%,#3A2629 45%,#2A1B1E 100%);color:#F4EEE6}
+
+/* loader curtain */
+.curtain{position:fixed;inset:0;z-index:200;background:radial-gradient(90% 60% at 50% 40%,#4A3034,#2A1B1E);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;border-radius:0 0 50% 50%/0 0 0 0;animation:lift 1s cubic-bezier(.76,0,.24,1) 2.7s forwards}
+.curtain img{width:120px;height:120px;border-radius:50%;opacity:0;animation:fadeUp 1s ease .15s forwards;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.curtain .word{font-size:clamp(34px,9vw,52px);color:#F4EEE6;opacity:0;animation:fadeUp 1s ease .55s forwards}
+.curtain .rule{width:0;height:1px;background:#D8C2A3;animation:grow 1.3s cubic-bezier(.65,0,.35,1) .9s forwards}
+.curtain .tag{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:#D8C2A3;opacity:0;animation:fadeUp 1s ease 1.35s forwards}
+.curtain .inner{display:flex;flex-direction:column;align-items:center;gap:18px;animation:fadeOut .5s ease 2.35s forwards}
+@keyframes lift{0%{transform:translateY(0);border-radius:0}100%{transform:translateY(-105%);border-radius:0 0 50% 50%/0 0 22% 22%;visibility:hidden}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fadeOut{to{opacity:0;transform:translateY(-10px)}}
+@keyframes grow{to{width:180px}}
+.enter{opacity:0;animation:fadeUp 1.1s cubic-bezier(.2,.7,.2,1) forwards}
+.e1{animation-delay:3.15s}.e2{animation-delay:3.3s}.e3{animation-delay:3.45s}.e4{animation-delay:3.6s}.e5{animation-delay:3.75s}
+
+/* scroll driven */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:#8C4A52;transform-origin:0 50%;transform:scaleX(0);z-index:60}
+@supports (animation-timeline: view()){
+.reveal{animation:fadeUp linear both;animation-timeline:view();animation-range:entry 0% cover 25%}
+.progress{animation:prog linear both;animation-timeline:scroll(root)}
+}
+@keyframes prog{to{transform:scaleX(1)}}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(244,238,230,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(46,39,36,.08)}
+.navin{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.navlinks{display:flex;gap:28px;align-items:center}
+.navlinks a.l{color:#2E2724;text-decoration:none;font-size:14px;letter-spacing:.06em}
+.navlinks a.l:hover{color:#8C4A52}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;background:#8C4A52;color:#FAF6F0;text-decoration:none;font-size:12px;letter-spacing:.24em;text-transform:uppercase;border:1px solid #8C4A52;cursor:pointer;font-family:inherit;font-weight:400;transition:transform .35s cubic-bezier(.2,.7,.2,1),background .35s ease,box-shadow .35s ease;box-shadow:0 10px 24px rgba(140,74,82,.22)}
+.btn:hover{background:#6E3840;color:#FAF6F0;transform:translateY(-2px);box-shadow:0 14px 30px rgba(140,74,82,.3)}
+.btn .dot{width:6px;height:6px;border-radius:50%;background:#FAF6F0;display:inline-block}
+.ghost{background:transparent;color:#2E2724;border-color:rgba(46,39,36,.4);box-shadow:none}
+.ghost:hover{background:#2E2724;color:#F4EEE6;box-shadow:none}
+.dark .ghost{color:#F4EEE6;border-color:rgba(244,238,230,.45)}
+.dark .ghost:hover{background:#F4EEE6;color:#2A1B1E}
+
+/* hero */
+.hero{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center;padding:56px 0 72px;position:relative}
+.ring{position:absolute;width:560px;height:560px;border-radius:50%;border:1px solid rgba(140,74,82,.18);left:-180px;top:40px;pointer-events:none}
+.archwrap{position:relative;max-width:460px;margin-left:auto;width:100%}
+.arch{width:100%;aspect-ratio:4/5.2;object-fit:cover;border-radius:999px 999px 18px 18px;display:block;box-shadow:0 30px 60px rgba(46,39,36,.18)}
+.archframe{position:absolute;inset:-12px;border:1px solid rgba(140,74,82,.25);border-radius:999px 999px 26px 26px;pointer-events:none}
+.badge{position:absolute;left:-34px;top:70px;width:132px;height:132px}
+.badge svg{width:100%;height:100%;animation:spin 22s linear infinite}
+.badge .core{position:absolute;inset:38px;border-radius:50%;background:#8C4A52}
+@keyframes spin{to{transform:rotate(360deg)}}
+.note{position:absolute;right:-14px;bottom:44px;background:#FBF8F3;padding:16px 22px 14px;transform:rotate(-4deg);box-shadow:0 18px 40px rgba(46,39,36,.18);display:flex;flex-direction:column;gap:4px;animation:bob 6s ease-in-out infinite}
+.note::before{content:"";position:absolute;top:-10px;left:50%;width:58px;height:20px;margin-left:-29px;background:rgba(216,194,163,.55);transform:rotate(3deg)}
+@keyframes bob{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-6px)}}
+.strip{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#6F655C}
+.strip .star{color:#8C4A52}
+.mouse{width:22px;height:36px;border:1px solid rgba(46,39,36,.4);border-radius:12px;position:relative;margin:0 auto}
+.mouse::after{content:"";position:absolute;left:50%;top:7px;width:2px;height:7px;margin-left:-1px;border-radius:2px;background:#2E2724;animation:wheel 1.8s ease-in-out infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+
+/* marquee */
+.ribbon{background:#3A2629;color:#F4EEE6;overflow:hidden;padding:26px 0}
+.track{display:flex;width:max-content;animation:marq 34s linear infinite}
+.track span{display:inline-flex;align-items:center;gap:34px;padding-right:34px;font-size:clamp(26px,4.4vw,38px);font-style:italic;white-space:nowrap}
+.track svg{width:18px;height:18px;color:#D8C2A3}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* image strip */
+.pair{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px;align-items:end}
+.pair img{width:100%;display:block;object-fit:cover;border-radius:18px}
+.inset{position:absolute;right:-18px;bottom:-30px;width:44%;aspect-ratio:1/1;border-radius:50%;object-fit:cover;border:6px solid #F4EEE6;box-shadow:0 20px 40px rgba(46,39,36,.2)}
+
+/* tabs and cards */
+.tabs{display:inline-flex;padding:6px;border-radius:999px;border:1px solid rgba(244,238,230,.18);gap:4px;flex-wrap:wrap}
+.tab{min-height:46px;padding:0 22px;border-radius:999px;background:transparent;border:none;color:#CDBFB4;font-family:inherit;font-size:12px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background .4s ease,color .4s ease}
+.tab.on{background:#E9DDD3;color:#2A1B1E}
+.menu{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start}
+.menuimg{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:18px;display:block;animation:fadeUp .7s ease both}
+.mcard{border:1px solid rgba(244,238,230,.14);border-radius:18px;overflow:hidden;animation:fadeUp .6s ease both}
+.mrow{padding:26px 28px;border-top:1px solid rgba(244,238,230,.12);display:flex;flex-direction:column;gap:10px;transition:background .4s ease}
+.mrow:first-child{border-top:none}
+.mrow:hover{background:rgba(244,238,230,.04)}
+.mtop{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.24em;color:#CDBFB4;text-transform:uppercase}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.step{background:#FAF6F0;border:1px solid rgba(46,39,36,.08);border-radius:22px;padding:40px 32px;display:flex;flex-direction:column;gap:14px;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease}
+.step:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(46,39,36,.1)}
+
+/* packages */
+.packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.pack{background:#FAF6F0;border:1px solid rgba(46,39,36,.1);border-radius:22px;padding:36px 30px;display:flex;flex-direction:column;gap:20px;position:relative}
+.pack.feat{background:#3A2629;color:#F4EEE6;border-color:#3A2629}
+.pack ul{list-style:none;margin:0;padding:18px 0 0;border-top:1px solid rgba(46,39,36,.12);display:flex;flex-direction:column;gap:12px;color:#6F655C;flex-grow:1}
+.pack.feat ul{color:#CDBFB4;border-color:rgba(244,238,230,.16)}
+.flag{position:absolute;top:-13px;right:26px;background:#D8C2A3;color:#2A1B1E;font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding:6px 14px;border-radius:999px;font-weight:500}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.gi{position:relative;overflow:hidden;border-radius:18px}
+.gi img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.gi:hover img{transform:scale(1.05)}
+.gi span{position:absolute;left:20px;bottom:16px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#FAF6F0;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+
+/* booking */
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.cal{background:#E9DDD3;color:#2E2724;border-radius:24px;padding:28px}
+.calhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.round{width:44px;height:44px;border-radius:50%;border:1px solid rgba(46,39,36,.25);background:transparent;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:#2E2724;font-family:inherit;font-size:18px}
+.round:disabled{opacity:.3;cursor:default}
+.grid7{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
+.wd{font-size:10px;letter-spacing:.2em;color:#6F655C;padding:6px 0}
+.day{aspect-ratio:1/1;min-height:40px;border-radius:50%;border:none;background:transparent;font-family:inherit;font-size:15px;color:#2E2724;cursor:pointer;transition:background .25s ease,color .25s ease}
+.day:hover{background:rgba(140,74,82,.12)}
+.day.sel{background:#8C4A52;color:#FAF6F0}
+.day.off{color:rgba(46,39,36,.3);text-decoration:line-through;cursor:default;background:transparent}
+.day.blank{visibility:hidden}
+.legend{display:flex;gap:18px;font-size:12px;color:#6F655C;margin-top:16px;padding-top:16px;border-top:1px solid rgba(46,39,36,.12);flex-wrap:wrap}
+.legend i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.form{border:1px solid rgba(244,238,230,.16);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.picked{display:flex;align-items:center;gap:12px;border:1px solid rgba(244,238,230,.18);border-radius:12px;padding:14px 16px;font-size:14px;color:#E9DDD3}
+.picked i{width:7px;height:7px;border-radius:2px;background:#D8C2A3;display:inline-block}
+.f{display:flex;flex-direction:column;gap:8px}
+.f label,.flab{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#CDBFB4}
+.f input,.f textarea{font:inherit;font-size:16px;font-weight:300;color:#F4EEE6;background:rgba(244,238,230,.05);border:1px solid rgba(244,238,230,.18);border-radius:12px;padding:14px 16px;min-height:50px;outline:none;transition:border-color .25s ease,background .25s ease}
+.f input::placeholder,.f textarea::placeholder{color:rgba(244,238,230,.45)}
+.f input:focus,.f textarea:focus{border-color:#D8C2A3;background:rgba(244,238,230,.08)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(244,238,230,.25);background:transparent;color:#E9DDD3;font-family:inherit;font-size:14px;cursor:pointer;transition:all .25s ease}
+.chip.on{background:#E9DDD3;color:#2A1B1E;border-color:#E9DDD3}
+.stepper{display:flex;align-items:center;gap:16px}
+.stepper .round{color:#F4EEE6;border-color:rgba(244,238,230,.3)}
+.err{color:#F2B8B5;font-size:14px}
+.light{background:#E9DDD3;color:#2A1B1E;border-color:#E9DDD3;box-shadow:none}
+.light:hover{background:#FAF6F0;color:#2A1B1E}
+
+/* faq */
+.qa{border-top:1px solid rgba(46,39,36,.14)}
+.qbtn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;background:transparent;border:none;cursor:pointer;text-align:left;color:#2E2724;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.4vw,28px)}
+.plus{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid rgba(46,39,36,.25);display:inline-flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-size:18px;transition:transform .4s ease,background .4s ease}
+.plus.open{transform:rotate(45deg);background:#8C4A52;color:#FAF6F0;border-color:#8C4A52}
+.ans{margin:0 0 26px;color:#6F655C;line-height:1.75;max-width:640px;animation:fadeUp .5s ease both}
+
+.foot a{color:#F4EEE6;text-decoration:none}
+.foot a:hover{color:#D8C2A3}
+
+@media (max-width:860px){
+.hero,.menu,.book{grid-template-columns:minmax(0,1fr);gap:40px}
+.hero{padding-top:36px}
+.archwrap{margin:0 auto;max-width:400px}
+.badge{left:-14px;top:40px;width:108px;height:108px}
+.badge .core{inset:31px}
+.note{right:-4px}
+.steps,.packs,.two{grid-template-columns:minmax(0,1fr)}
+.gal{grid-template-columns:repeat(2,minmax(0,1fr))}
+.navlinks a.l{display:none}
+.pair{grid-template-columns:minmax(0,1fr)}
+.ring{width:420px;height:420px;left:-200px}
+}
+@media (prefers-reduced-motion:reduce){
+.curtain{animation-duration:.01s;animation-delay:.4s}
+.enter{animation:none;opacity:1}
+.reveal,.progress{animation:none}
+.track,.badge svg,.note{animation:none}
+html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<form name="booking" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field">
+  <input name="email">
+  <textarea name="message"></textarea>
+  <input name="name">
+  <input name="phone">
+  <input name="venue">
+  <input name="date">
+  <input name="looking_for">
+  <input name="bridesmaids">
+  <input name="on_the_day">
+</form>
+<div id="dc-root"></div>
+<template id="dc-tpl">
+<div style="min-height: 100vh; overflow-x: hidden">
+
+  <div class="curtain" aria-hidden="true">
+    <div class="inner">
+      <img src="images/bfe43e6b1858503c7167e822dfc49d43.jpg" alt="">
+      <div class="word serif">the little bloom room</div>
+      <div class="rule"></div>
+      <div class="tag">Bridal florist · East London</div>
+    </div>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <nav class="navin" aria-label="Main">
+      <a href="#top" style="display: flex; flex-direction: column; text-decoration: none; color: #2E2724; line-height: 1">
+        <span class="serif" style="font-size: 24px">the little bloom room</span>
+        <span style="font-size: 9px; letter-spacing: .38em; text-transform: uppercase; color: #6F655C; margin-top: 4px">Bridal florist</span>
+      </a>
+      <div class="navlinks">
+        <a class="l" href="#story">Story</a>
+        <a class="l" href="#flowers">Flowers</a>
+        <a class="l" href="#packages">Packages</a>
+        <a class="l" href="#gallery">Gallery</a>
+        <a class="btn" href="#book">Book <span class="dot"></span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="wrap" style="position: relative">
+      <div class="ring" aria-hidden="true"></div>
+      <div class="hero">
+        <div style="display: flex; flex-direction: column; gap: 26px; position: relative">
+          <div class="eyebrow lineeye enter e1">Bridal florist · East London E1</div>
+          <h1 class="serif enter e2" style="margin: 0; font-size: clamp(54px, 11vw, 92px); line-height: .98">Flowers,<br>made for<br><em>your day.</em></h1>
+          <p class="enter e3" style="margin: 0; font-size: 17px; line-height: 1.8; color: #6F655C; max-width: 440px">Bridal bouquets, bridesmaid flowers and the little details, designed around your outfit and your colours. Made by hand in East London, for a small number of weddings each season.</p>
+          <div class="enter e4" style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px">
+            <a class="btn" href="#book">Check availability</a>
+            <a class="btn ghost" href="#flowers">See the flowers</a>
+          </div>
+          <div class="strip enter e5" style="margin-top: 14px">
+            <span>Bouquets</span><span class="star">✦</span><span>Bridesmaids</span><span class="star">✦</span><span>Buttonholes</span>
+          </div>
+        </div>
+        <div class="archwrap enter e3">
+          <div class="archframe" aria-hidden="true"></div>
+          <img class="arch" src="images/97f08b7c213b2c9b6839146f6595e225.jpg" alt="White calla lily and rose bridal bouquet">
+          <div class="badge" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"></path></defs>
+              <text style="font-family: Jost, sans-serif; font-size: 9.6px; letter-spacing: 3.2px; text-transform: uppercase" fill="#8C4A52"><textPath href="#circ">Bridal florist · Handmade · East London ·</textPath></text>
+            </svg>
+            <div class="core"></div>
+          </div>
+          <div class="note">
+            <div class="hand" style="font-size: 30px; color: #8C4A52; line-height: 1">taking orders!</div>
+            <div style="font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: #6F655C">Limited dates · 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="enter e5" style="padding-bottom: 56px"><div class="mouse" aria-hidden="true"></div></div>
+    </section>
+
+    <section class="ribbon serif" aria-label="What we make">
+      <div class="track">
+        <span>Bridal bouquets <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="2.2"></circle><path d="M12 9.8C10.5 6 13.5 6 12 9.8ZM14.2 12c3.8-1.5 3.8 1.5 0 0ZM12 14.2c1.5 3.8-1.5 3.8 0 0ZM9.8 12c-3.8 1.5-3.8-1.5 0 0Z"></path></g></svg> Bridesmaids <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="2.2"></circle><path d="M12 9.8C10.5 6 13.5 6 12 9.8ZM14.2 12c3.8-1.5 3.8 1.5 0 0ZM12 14.2c1.5 3.8-1.5 3.8 0 0ZM9.8 12c-3.8 1.5-3.8-1.5 0 0Z"></path></g></svg> Buttonholes <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="2.2"></circle><path d="M12 9.8C10.5 6 13.5 6 12 9.8ZM14.2 12c3.8-1.5 3.8 1.5 0 0ZM12 14.2c1.5 3.8-1.5 3.8 0 0ZM9.8 12c-3.8 1.5-3.8-1.5 0 0Z"></path></g></svg> Corsages <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="2.2"></circle><path d="M12 9.8C10.5 6 13.5 6 12 9.8ZM14.2 12c3.8-1.5 3.8 1.5 0 0ZM12 14.2c1.5 3.8-1.5 3.8 0 0ZM9.8 12c-3.8 1.5-3.8-1.5 0 0Z"></path></g></svg> Keepsake ribbons <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="2.2"></circle><path d="M12 9.8C10.5 6 13.5 6 12 9.8ZM14.2 12c3.8-1.5 3.8 1.5 0 0ZM12 14.2c1.5 3.8-1.5 3.8 0 0ZM9.8 12c-3.8 1.5-3.8-1.5 0 0Z"></path></g></svg></span>
+        <span aria-hidden="true">Bridal bouquets <svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="2.2"></circle><path d="M12 9.8C10.5 6 13.5 6 12 9.8ZM14.2 12c3.8-1.5 3.8 1.5 0 0ZM12 14.2c1.5 3.8-1.5 3.8 0 0ZM9.8 12c-3.8 1.5-3.8-1.5 0 0Z"></path></g></svg> Bridesmaids <svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="2.2"></circle><path d="M12 9.8C10.5 6 13.5 6 12 9.8ZM14.2 12c3.8-1.5 3.8 1.5 0 0ZM12 14.2c1.5 3.8-1.5 3.8 0 0ZM9.8 12c-3.8 1.5-3.8-1.5 0 0Z"></path></g></svg> Buttonholes <svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="2.2"></circle><path d="M12 9.8C10.5 6 13.5 6 12 9.8ZM14.2 12c3.8-1.5 3.8 1.5 0 0ZM12 14.2c1.5 3.8-1.5 3.8 0 0ZM9.8 12c-3.8 1.5-3.8-1.5 0 0Z"></path></g></svg> Corsages <svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="2.2"></circle><path d="M12 9.8C10.5 6 13.5 6 12 9.8ZM14.2 12c3.8-1.5 3.8 1.5 0 0ZM12 14.2c1.5 3.8-1.5 3.8 0 0ZM9.8 12c-3.8 1.5-3.8-1.5 0 0Z"></path></g></svg> Keepsake ribbons <svg viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="2.2"></circle><path d="M12 9.8C10.5 6 13.5 6 12 9.8ZM14.2 12c3.8-1.5 3.8 1.5 0 0ZM12 14.2c1.5 3.8-1.5 3.8 0 0ZM9.8 12c-3.8 1.5-3.8-1.5 0 0Z"></path></g></svg></span>
+      </div>
+    </section>
+
+    <section class="wrap" style="padding-top: 96px">
+      <div class="pair">
+        <div class="reveal"><img src="images/56e74566c5444a74f86b0e9d0253ba9a.jpg" alt="Red and peach rose bouquet" style="aspect-ratio: 4/3"></div>
+        <div class="reveal" style="position: relative">
+          <img src="images/0a06d322788f9813268b1b8960a9f440.jpg" alt="Deep red calla lily bouquet" style="aspect-ratio: 4/5">
+          <img class="inset" src="images/e8518f9303f001a0eebeb69f6deb9282.jpg" alt="" aria-hidden="true">
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="wrap" style="padding: 120px 20px 110px">
+      <div style="max-width: 720px; display: flex; flex-direction: column; gap: 26px">
+        <div class="eyebrow reveal">Our story</div>
+        <h2 class="h2 serif reveal">A little room with <em>big</em> blooms.</h2>
+        <p class="reveal" style="margin: 0; font-size: 17px; line-height: 1.85; color: #6F655C">The Little Bloom Room began with a simple belief: your flowers should feel like you. Every bouquet starts with a conversation about your outfit, your colours and the flowers you love, then comes together by hand in our East London studio.</p>
+        <p class="reveal" style="margin: 0; font-size: 17px; line-height: 1.85; color: #6F655C">We keep our diary small on purpose, so each bride gets our full attention, right down to the ribbon carrying your names and your date.</p>
+        <div class="hand reveal" style="font-size: 36px; color: #8C4A52; line-height: 1.2">made by hand, with love</div>
+      </div>
+    </section>
+
+    <section id="flowers" class="dark" style="padding: 110px 0 120px">
+      <div class="wrap" style="display: flex; flex-direction: column; gap: 40px">
+        <div style="display: flex; flex-direction: column; gap: 22px">
+          <div class="eyebrow reveal">The flowers</div>
+          <h2 class="h2 serif reveal">Made to <em>order.</em></h2>
+        </div>
+        <div class="tabs reveal" role="tablist" aria-label="Flower categories">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+            <button class="{{ t.cls }}" type="button" role="tab" aria-selected="{{ t.on }}" onClick="{{ t.pick }}">{{ t.label }}</button>
+          </sc-for>
+        </div>
+        <div class="menu">
+          <img class="menuimg" src="{{ tabImg }}" alt="{{ tabAlt }}" key="{{ tabKey }}">
+          <div class="mcard" key="{{ tabKey }}">
+            <sc-for list="{{ items }}" as="it" hint-placeholder-count="3">
+              <div class="mrow">
+                <div class="mtop"><span>{{ it.no }}</span><span>{{ it.tag }}</span></div>
+                <h3 class="serif" style="margin: 0; font-size: clamp(28px, 4.6vw, 34px)">{{ it.name }}</h3>
+                <p style="margin: 0; color: #CDBFB4; line-height: 1.7">{{ it.desc }}</p>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <p class="reveal" style="margin: 0; color: #CDBFB4; font-size: 14px">Every design is made fresh for your date. Seasonal stems may vary, and we always suggest the closest match.</p>
+      </div>
+    </section>
+
+    <section class="wrap" style="padding: 120px 20px 0">
+      <div style="text-align: center; display: flex; flex-direction: column; gap: 22px; align-items: center; margin-bottom: 56px">
+        <div class="eyebrow reveal">How it works</div>
+        <h2 class="h2 serif reveal">Three steps to <em>your bouquet.</em></h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="serif" style="font-size: 64px; font-style: italic; color: #8C4A52; line-height: 1">01</div>
+          <h3 class="serif" style="margin: 0; font-size: 32px">Enquire</h3>
+          <p style="margin: 0; color: #6F655C; line-height: 1.75">Pick your wedding date below and tell us a little about your plans so we can check availability.</p>
+        </div>
+        <div class="step reveal">
+          <div class="serif" style="font-size: 64px; font-style: italic; color: #8C4A52; line-height: 1">02</div>
+          <h3 class="serif" style="margin: 0; font-size: 32px">Design</h3>
+          <p style="margin: 0; color: #6F655C; line-height: 1.75">We talk through your outfit, colours and favourite flowers, then send you a quote and design plan.</p>
+        </div>
+        <div class="step reveal">
+          <div class="serif" style="font-size: 64px; font-style: italic; color: #8C4A52; line-height: 1">03</div>
+          <h3 class="serif" style="margin: 0; font-size: 32px">Bloom</h3>
+          <p style="margin: 0; color: #6F655C; line-height: 1.75">Your flowers are made fresh for the day and ready for collection or delivery.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages" class="wrap" style="padding: 130px 20px 0">
+      <div style="display: flex; flex-direction: column; gap: 22px; margin-bottom: 64px">
+        <div class="eyebrow reveal">Packages</div>
+        <h2 class="h2 serif reveal">Every stage of <em>the bloom.</em></h2>
+      </div>
+      <div class="packs">
+        <div class="pack reveal">
+          <div class="eyebrow">The Bud</div>
+          <div class="serif" style="font-size: 52px; line-height: 1">[PRICE] <span style="font-size: 20px; font-style: italic; color: #6F655C">starting</span></div>
+          <ul><li>Bridal bouquet</li><li>Personalised names ribbon</li><li>Design consultation</li></ul>
+          <a class="btn ghost" href="#book">Choose The Bud</a>
+        </div>
+        <div class="pack feat reveal">
+          <div class="flag">Our favourite</div>
+          <div class="eyebrow" style="color: #CDBFB4">The Bloom</div>
+          <div class="serif" style="font-size: 52px; line-height: 1">[PRICE] <span style="font-size: 20px; font-style: italic; color: #CDBFB4">starting</span></div>
+          <ul><li>Bridal bouquet</li><li>Bridesmaid bouquets</li><li>Personalised names ribbon</li><li>Design consultation</li></ul>
+          <a class="btn light" href="#book">Choose The Bloom</a>
+        </div>
+        <div class="pack reveal">
+          <div class="eyebrow">Full Bloom</div>
+          <div class="serif" style="font-size: 52px; line-height: 1">[PRICE] <span style="font-size: 20px; font-style: italic; color: #6F655C">starting</span></div>
+          <ul><li>Bridal bouquet</li><li>Bridesmaid bouquets</li><li>Buttonholes and corsages</li><li>Personalised names ribbon</li><li>Delivery on the day</li></ul>
+          <a class="btn ghost" href="#book">Choose Full Bloom</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="wrap" style="padding: 130px 20px 0">
+      <div class="reveal" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 36px">
+        <h2 class="h2 serif">From the <em>studio.</em></h2>
+        <a href="https://instagram.com/thelittlebloomroom" class="eyebrow" style="color: #8C4A52; text-decoration: none; border-bottom: 1px solid rgba(140,74,82,.4); padding-bottom: 6px">@thelittlebloomroom</a>
+      </div>
+      <div class="gal">
+        <div class="gi reveal"><img src="images/9034c23198c12622bca034bb37b0001d.jpg" alt="Calla lily bouquet with names ribbon"><span>Names and date ribbon</span></div>
+        <div class="gi reveal"><img src="images/97f08b7c213b2c9b6839146f6595e225.jpg" alt="White calla and rose bouquet"><span>Calla and rose</span></div>
+        <div class="gi reveal"><img src="images/6aa811d782a0f7c99f4e4fc6093e5377.jpg" alt="Calla lilies with astilbe"><span>Cascading callas</span></div>
+        <div class="gi reveal"><img src="images/0a06d322788f9813268b1b8960a9f440.jpg" alt="Deep red calla lily bouquet"><span>Wine callas</span></div>
+        <div class="gi reveal"><img src="images/e8518f9303f001a0eebeb69f6deb9282.jpg" alt="Blush roses with eucalyptus"><span>Blush and eucalyptus</span></div>
+        <div class="gi reveal"><img src="images/56e74566c5444a74f86b0e9d0253ba9a.jpg" alt="Red and peach rose arrangement"><span>Red and gold</span></div>
+      </div>
+    </section>
+
+    <section id="book" class="dark" style="margin-top: 130px; padding: 110px 0 120px">
+      <div class="wrap" style="display: flex; flex-direction: column; gap: 44px">
+        <div style="display: flex; flex-direction: column; gap: 22px">
+          <div class="eyebrow reveal">Book a consultation</div>
+          <h2 class="h2 serif reveal">Claim your <em>date.</em></h2>
+          <p class="reveal" style="margin: 0; color: #CDBFB4; line-height: 1.8; max-width: 520px">Choose your wedding date, share a few details and we will be in touch to arrange your consultation.</p>
+        </div>
+
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <div class="book">
+            <div class="cal reveal">
+              <div class="calhead">
+                <button class="round" type="button" aria-label="Previous month" disabled="{{ prevOff }}" onClick="{{ prev }}">‹</button>
+                <div class="serif" style="font-size: 26px">{{ monthLabel }}</div>
+                <button class="round" type="button" aria-label="Next month" onClick="{{ next }}">›</button>
+              </div>
+              <div class="grid7">
+                <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="7"><div class="wd">{{ w }}</div></sc-for>
+                <sc-for list="{{ days }}" as="d" hint-placeholder-count="35">
+                  <button class="{{ d.cls }}" type="button" disabled="{{ d.off }}" aria-label="{{ d.aria }}" onClick="{{ d.pick }}">{{ d.label }}</button>
+                </sc-for>
+              </div>
+              <div class="legend">
+                <span><i style="background: #2E2724"></i>Available</span>
+                <span><i style="background: #8C4A52"></i>Selected</span>
+                <span><i style="background: rgba(46,39,36,.3)"></i>Unavailable</span>
+              </div>
+            </div>
+
+            <form class="form reveal" onSubmit="{{ submit }}" novalidate="novalidate">
+              <div class="picked"><i></i>{{ pickedLabel }}</div>
+              <div class="two">
+                <div class="f"><label for="bk-name">Name</label><input id="bk-name" name="name" type="text" placeholder="Your full name" autocomplete="name"></div>
+                <div class="f"><label for="bk-email">Email</label><input id="bk-email" name="email" type="email" placeholder="you@email.com" autocomplete="email"></div>
+              </div>
+              <div class="two">
+                <div class="f"><label for="bk-phone">Phone</label><input id="bk-phone" name="phone" type="tel" placeholder="Your number" autocomplete="tel"></div>
+                <div class="f"><label for="bk-venue">Venue or area</label><input id="bk-venue" name="venue" type="text" placeholder="Where is the wedding"></div>
+              </div>
+              <div class="f">
+                <span class="flab">Looking for</span>
+                <div class="chips">
+                  <sc-for list="{{ wants }}" as="c" hint-placeholder-count="5">
+                    <button class="{{ c.cls }}" type="button" aria-pressed="{{ c.on }}" onClick="{{ c.pick }}">{{ c.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <div class="two">
+                <div class="f">
+                  <span class="flab">Bridesmaids</span>
+                  <div class="stepper">
+                    <button class="round" type="button" aria-label="Fewer bridesmaids" onClick="{{ less }}">−</button>
+                    <span class="serif" style="font-size: 30px; min-width: 28px; text-align: center">{{ maids }}</span>
+                    <button class="round" type="button" aria-label="More bridesmaids" onClick="{{ more }}">+</button>
+                  </div>
+                </div>
+                <div class="f">
+                  <span class="flab">On the day</span>
+                  <div class="chips">
+                    <sc-for list="{{ handover }}" as="h" hint-placeholder-count="2">
+                      <button class="{{ h.cls }}" type="button" aria-pressed="{{ h.on }}" onClick="{{ h.pick }}">{{ h.label }}</button>
+                    </sc-for>
+                  </div>
+                </div>
+              </div>
+              <div class="f"><label for="bk-msg">Colours, outfit, flowers you love</label><textarea id="bk-msg" name="message" rows="4" placeholder="Tell us about your day" style="resize: vertical"></textarea></div>
+              <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}"><div class="err" role="alert">{{ error }}</div></sc-if>
+              <button class="btn light" type="submit" style="align-self: flex-start">Request my consultation</button>
+            </form>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="border: 1px solid rgba(244,238,230,.16); border-radius: 24px; padding: 64px 28px; text-align: center; display: flex; flex-direction: column; gap: 18px; align-items: center; animation: fadeUp .7s ease both">
+            <div class="serif" style="font-size: clamp(44px, 8vw, 64px)">Thank you, <em>{{ firstName }}.</em></div>
+            <p style="margin: 0; color: #CDBFB4; line-height: 1.8; max-width: 440px">Your request for {{ pickedLabel }} is in. We will be in touch soon to arrange your consultation.</p>
+            <button class="btn ghost" type="button" onClick="{{ reset }}">Start another</button>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+
+    <section id="faq" class="wrap" style="padding: 120px 20px 110px; max-width: 900px">
+      <h2 class="h2 serif reveal" style="margin-bottom: 40px">Good <em>questions.</em></h2>
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4">
+        <div class="qa reveal">
+          <button class="qbtn" type="button" aria-expanded="{{ q.open }}" onClick="{{ q.toggle }}">{{ q.q }}<span class="{{ q.plusCls }}" aria-hidden="true">+</span></button>
+          <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}"><p class="ans">{{ q.a }}</p></sc-if>
+        </div>
+      </sc-for>
+    </section>
+
+    <section class="dark" style="padding: 110px 0; text-align: center">
+      <div class="wrap" style="display: flex; flex-direction: column; align-items: center; gap: 26px">
+        <img class="reveal" src="images/bfe43e6b1858503c7167e822dfc49d43.jpg" alt="The Little Bloom Room logo" style="width: 108px; height: 108px; border-radius: 50%">
+        <h2 class="h2 serif reveal">Let your flowers <em>say it first.</em></h2>
+        <a class="btn light reveal" href="#book">Book a consultation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" style="background: #2A1B1E; color: #F4EEE6; padding: 72px 0 36px">
+    <div class="wrap" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px">
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <div class="eyebrow" style="color: #CDBFB4">Explore</div>
+        <a href="#story">Story</a><a href="#flowers">Flowers</a><a href="#packages">Packages</a><a href="#gallery">Gallery</a><a href="#faq">FAQ</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <div class="eyebrow" style="color: #CDBFB4">Contact</div>
+        <a href="https://instagram.com/thelittlebloomroom">Instagram @thelittlebloomroom</a>
+        <span style="color: #CDBFB4">[EMAIL]</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <div class="eyebrow" style="color: #CDBFB4">Studio</div>
+        <span style="color: #CDBFB4; line-height: 1.7">Based in East London E1. Bridal flowers for weddings across London.</span>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,238,230,.12); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 12px; letter-spacing: .14em; color: #CDBFB4">
+      <span>© 2026 The Little Bloom Room</span>
+      <a href="#top" style="display: inline-flex; align-items: center; gap: 12px; letter-spacing: .24em; text-transform: uppercase">Back to top <span class="round" style="width: 40px; height: 40px; color: #F4EEE6; border-color: rgba(244,238,230,.3)">↑</span></a>
+    </div>
+  </footer>
+
+</div>
+</template>
+<noscript><p style="padding:24px">Please enable JavaScript to view this site.</p></noscript>
+<script>(function(global,factory){typeof exports==="object"&&typeof module!=="undefined"?module.exports=factory():typeof define==="function"&&define.amd?define(factory):(global=global||self,global.morphdom=factory())})(this,function(){"use strict";var DOCUMENT_FRAGMENT_NODE=11;function morphAttrs(fromNode,toNode){var toNodeAttrs=toNode.attributes;var attr;var attrName;var attrNamespaceURI;var attrValue;var fromValue;if(toNode.nodeType===DOCUMENT_FRAGMENT_NODE||fromNode.nodeType===DOCUMENT_FRAGMENT_NODE){return}for(var i=toNodeAttrs.length-1;i>=0;i--){attr=toNodeAttrs[i];attrName=attr.name;attrNamespaceURI=attr.namespaceURI;attrValue=attr.value;if(attrNamespaceURI){attrName=attr.localName||attrName;fromValue=fromNode.getAttributeNS(attrNamespaceURI,attrName);if(fromValue!==attrValue){if(attr.prefix==="xmlns"){attrName=attr.name}fromNode.setAttributeNS(attrNamespaceURI,attrName,attrValue)}}else{fromValue=fromNode.getAttribute(attrName);if(fromValue!==attrValue){fromNode.setAttribute(attrName,attrValue)}}}var fromNodeAttrs=fromNode.attributes;for(var d=fromNodeAttrs.length-1;d>=0;d--){attr=fromNodeAttrs[d];attrName=attr.name;attrNamespaceURI=attr.namespaceURI;if(attrNamespaceURI){attrName=attr.localName||attrName;if(!toNode.hasAttributeNS(attrNamespaceURI,attrName)){fromNode.removeAttributeNS(attrNamespaceURI,attrName)}}else{if(!toNode.hasAttribute(attrName)){fromNode.removeAttribute(attrName)}}}}var range;var NS_XHTML="http://www.w3.org/1999/xhtml";var doc=typeof document==="undefined"?undefined:document;var HAS_TEMPLATE_SUPPORT=!!doc&&"content"in doc.createElement("template");var HAS_RANGE_SUPPORT=!!doc&&doc.createRange&&"createContextualFragment"in doc.createRange();function createFragmentFromTemplate(str){var template=doc.createElement("template");template.innerHTML=str;return template.content.childNodes[0]}function createFragmentFromRange(str){if(!range){range=doc.createRange();range.selectNode(doc.body)}var fragment=range.createContextualFragment(str);return fragment.childNodes[0]}function createFragmentFromWrap(str){var fragment=doc.createElement("body");fragment.innerHTML=str;return fragment.childNodes[0]}function toElement(str){str=str.trim();if(HAS_TEMPLATE_SUPPORT){return createFragmentFromTemplate(str)}else if(HAS_RANGE_SUPPORT){return createFragmentFromRange(str)}return createFragmentFromWrap(str)}function compareNodeNames(fromEl,toEl){var fromNodeName=fromEl.nodeName;var toNodeName=toEl.nodeName;var fromCodeStart,toCodeStart;if(fromNodeName===toNodeName){return true}fromCodeStart=fromNodeName.charCodeAt(0);toCodeStart=toNodeName.charCodeAt(0);if(fromCodeStart<=90&&toCodeStart>=97){return fromNodeName===toNodeName.toUpperCase()}else if(toCodeStart<=90&&fromCodeStart>=97){return toNodeName===fromNodeName.toUpperCase()}else{return false}}function createElementNS(name,namespaceURI){return!namespaceURI||namespaceURI===NS_XHTML?doc.createElement(name):doc.createElementNS(namespaceURI,name)}function moveChildren(fromEl,toEl){var curChild=fromEl.firstChild;while(curChild){var nextChild=curChild.nextSibling;toEl.appendChild(curChild);curChild=nextChild}return toEl}function syncBooleanAttrProp(fromEl,toEl,name){if(fromEl[name]!==toEl[name]){fromEl[name]=toEl[name];if(fromEl[name]){fromEl.setAttribute(name,"")}else{fromEl.removeAttribute(name)}}}var specialElHandlers={OPTION:function(fromEl,toEl){var parentNode=fromEl.parentNode;if(parentNode){var parentName=parentNode.nodeName.toUpperCase();if(parentName==="OPTGROUP"){parentNode=parentNode.parentNode;parentName=parentNode&&parentNode.nodeName.toUpperCase()}if(parentName==="SELECT"&&!parentNode.hasAttribute("multiple")){if(fromEl.hasAttribute("selected")&&!toEl.selected){fromEl.setAttribute("selected","selected");fromEl.removeAttribute("selected")}parentNode.selectedIndex=-1}}syncBooleanAttrProp(fromEl,toEl,"selected")},INPUT:function(fromEl,toEl){syncBooleanAttrProp(fromEl,toEl,"checked");syncBooleanAttrProp(fromEl,toEl,"disabled");if(fromEl.value!==toEl.value){fromEl.value=toEl.value}if(!toEl.hasAttribute("value")){fromEl.removeAttribute("value")}},TEXTAREA:function(fromEl,toEl){var newValue=toEl.value;if(fromEl.value!==newValue){fromEl.value=newValue}var firstChild=fromEl.firstChild;if(firstChild){var oldValue=firstChild.nodeValue;if(oldValue==newValue||!newValue&&oldValue==fromEl.placeholder){return}firstChild.nodeValue=newValue}},SELECT:function(fromEl,toEl){if(!toEl.hasAttribute("multiple")){var selectedIndex=-1;var i=0;var curChild=fromEl.firstChild;var optgroup;var nodeName;while(curChild){nodeName=curChild.nodeName&&curChild.nodeName.toUpperCase();if(nodeName==="OPTGROUP"){optgroup=curChild;curChild=optgroup.firstChild;if(!curChild){curChild=optgroup.nextSibling;optgroup=null}}else{if(nodeName==="OPTION"){if(curChild.hasAttribute("selected")){selectedIndex=i;break}i++}curChild=curChild.nextSibling;if(!curChild&&optgroup){curChild=optgroup.nextSibling;optgroup=null}}}fromEl.selectedIndex=selectedIndex}}};var ELEMENT_NODE=1;var DOCUMENT_FRAGMENT_NODE$1=11;var TEXT_NODE=3;var COMMENT_NODE=8;function noop(){}function defaultGetNodeKey(node){if(node){return node.getAttribute&&node.getAttribute("id")||node.id}}function morphdomFactory(morphAttrs){return function morphdom(fromNode,toNode,options){if(!options){options={}}if(typeof toNode==="string"){if(fromNode.nodeName==="#document"||fromNode.nodeName==="HTML"){var toNodeHtml=toNode;toNode=doc.createElement("html");toNode.innerHTML=toNodeHtml}else if(fromNode.nodeName==="BODY"){var toNodeBody=toNode;toNode=doc.createElement("html");toNode.innerHTML=toNodeBody;var bodyElement=toNode.querySelector("body");if(bodyElement){toNode=bodyElement}}else{toNode=toElement(toNode)}}else if(toNode.nodeType===DOCUMENT_FRAGMENT_NODE$1){toNode=toNode.firstElementChild}var getNodeKey=options.getNodeKey||defaultGetNodeKey;var onBeforeNodeAdded=options.onBeforeNodeAdded||noop;var onNodeAdded=options.onNodeAdded||noop;var onBeforeElUpdated=options.onBeforeElUpdated||noop;var onElUpdated=options.onElUpdated||noop;var onBeforeNodeDiscarded=options.onBeforeNodeDiscarded||noop;var onNodeDiscarded=options.onNodeDiscarded||noop;var onBeforeElChildrenUpdated=options.onBeforeElChildrenUpdated||noop;var skipFromChildren=options.skipFromChildren||noop;var addChild=options.addChild||function(parent,child){return parent.appendChild(child)};var childrenOnly=options.childrenOnly===true;var fromNodesLookup=Object.create(null);var keyedRemovalList=[];function addKeyedRemoval(key){keyedRemovalList.push(key)}function walkDiscardedChildNodes(node,skipKeyedNodes){if(node.nodeType===ELEMENT_NODE){var curChild=node.firstChild;while(curChild){var key=undefined;if(skipKeyedNodes&&(key=getNodeKey(curChild))){addKeyedRemoval(key)}else{onNodeDiscarded(curChild);if(curChild.firstChild){walkDiscardedChildNodes(curChild,skipKeyedNodes)}}curChild=curChild.nextSibling}}}function removeNode(node,parentNode,skipKeyedNodes){if(onBeforeNodeDiscarded(node)===false){return}if(parentNode){parentNode.removeChild(node)}onNodeDiscarded(node);walkDiscardedChildNodes(node,skipKeyedNodes)}function indexTree(node){if(node.nodeType===ELEMENT_NODE||node.nodeType===DOCUMENT_FRAGMENT_NODE$1){var curChild=node.firstChild;while(curChild){var key=getNodeKey(curChild);if(key){fromNodesLookup[key]=curChild}indexTree(curChild);curChild=curChild.nextSibling}}}indexTree(fromNode);function handleNodeAdded(el){onNodeAdded(el);var curChild=el.firstChild;while(curChild){var nextSibling=curChild.nextSibling;var key=getNodeKey(curChild);if(key){var unmatchedFromEl=fromNodesLookup[key];if(unmatchedFromEl&&compareNodeNames(curChild,unmatchedFromEl)){curChild.parentNode.replaceChild(unmatchedFromEl,curChild);morphEl(unmatchedFromEl,curChild)}else{handleNodeAdded(curChild)}}else{handleNodeAdded(curChild)}curChild=nextSibling}}function cleanupFromEl(fromEl,curFromNodeChild,curFromNodeKey){while(curFromNodeChild){var fromNextSibling=curFromNodeChild.nextSibling;if(curFromNodeKey=getNodeKey(curFromNodeChild)){addKeyedRemoval(curFromNodeKey)}else{removeNode(curFromNodeChild,fromEl,true)}curFromNodeChild=fromNextSibling}}function morphEl(fromEl,toEl,childrenOnly){var toElKey=getNodeKey(toEl);if(toElKey){delete fromNodesLookup[toElKey]}if(!childrenOnly){var beforeUpdateResult=onBeforeElUpdated(fromEl,toEl);if(beforeUpdateResult===false){return}else if(beforeUpdateResult instanceof HTMLElement){fromEl=beforeUpdateResult;indexTree(fromEl)}morphAttrs(fromEl,toEl);onElUpdated(fromEl);if(onBeforeElChildrenUpdated(fromEl,toEl)===false){return}}if(fromEl.nodeName!=="TEXTAREA"){morphChildren(fromEl,toEl)}else{specialElHandlers.TEXTAREA(fromEl,toEl)}}function morphChildren(fromEl,toEl){var skipFrom=skipFromChildren(fromEl,toEl);var curToNodeChild=toEl.firstChild;var curFromNodeChild=fromEl.firstChild;var curToNodeKey;var curFromNodeKey;var fromNextSibling;var toNextSibling;var matchingFromEl;outer:while(curToNodeChild){toNextSibling=curToNodeChild.nextSibling;curToNodeKey=getNodeKey(curToNodeChild);while(!skipFrom&&curFromNodeChild){fromNextSibling=curFromNodeChild.nextSibling;if(curToNodeChild.isSameNode&&curToNodeChild.isSameNode(curFromNodeChild)){curToNodeChild=toNextSibling;curFromNodeChild=fromNextSibling;continue outer}curFromNodeKey=getNodeKey(curFromNodeChild);var curFromNodeType=curFromNodeChild.nodeType;var isCompatible=undefined;if(curFromNodeType===curToNodeChild.nodeType){if(curFromNodeType===ELEMENT_NODE){if(curToNodeKey){if(curToNodeKey!==curFromNodeKey){if(matchingFromEl=fromNodesLookup[curToNodeKey]){if(fromNextSibling===matchingFromEl){isCompatible=false}else{fromEl.insertBefore(matchingFromEl,curFromNodeChild);if(curFromNodeKey){addKeyedRemoval(curFromNodeKey)}else{removeNode(curFromNodeChild,fromEl,true)}curFromNodeChild=matchingFromEl;curFromNodeKey=getNodeKey(curFromNodeChild)}}else{isCompatible=false}}}else if(curFromNodeKey){isCompatible=false}isCompatible=isCompatible!==false&&compareNodeNames(curFromNodeChild,curToNodeChild);if(isCompatible){morphEl(curFromNodeChild,curToNodeChild)}}else if(curFromNodeType===TEXT_NODE||curFromNodeType==COMMENT_NODE){isCompatible=true;if(curFromNodeChild.nodeValue!==curToNodeChild.nodeValue){curFromNodeChild.nodeValue=curToNodeChild.nodeValue}}}if(isCompatible){curToNodeChild=toNextSibling;curFromNodeChild=fromNextSibling;continue outer}if(curFromNodeKey){addKeyedRemoval(curFromNodeKey)}else{removeNode(curFromNodeChild,fromEl,true)}curFromNodeChild=fromNextSibling}if(curToNodeKey&&(matchingFromEl=fromNodesLookup[curToNodeKey])&&compareNodeNames(matchingFromEl,curToNodeChild)){if(!skipFrom){addChild(fromEl,matchingFromEl)}morphEl(matchingFromEl,curToNodeChild)}else{var onBeforeNodeAddedResult=onBeforeNodeAdded(curToNodeChild);if(onBeforeNodeAddedResult!==false){if(onBeforeNodeAddedResult){curToNodeChild=onBeforeNodeAddedResult}if(curToNodeChild.actualize){curToNodeChild=curToNodeChild.actualize(fromEl.ownerDocument||doc)}addChild(fromEl,curToNodeChild);handleNodeAdded(curToNodeChild)}}curToNodeChild=toNextSibling;curFromNodeChild=fromNextSibling}cleanupFromEl(fromEl,curFromNodeChild,curFromNodeKey);var specialElHandler=specialElHandlers[fromEl.nodeName];if(specialElHandler){specialElHandler(fromEl,toEl)}}var morphedNode=fromNode;var morphedNodeType=morphedNode.nodeType;var toNodeType=toNode.nodeType;if(!childrenOnly){if(morphedNodeType===ELEMENT_NODE){if(toNodeType===ELEMENT_NODE){if(!compareNodeNames(fromNode,toNode)){onNodeDiscarded(fromNode);morphedNode=moveChildren(fromNode,createElementNS(toNode.nodeName,toNode.namespaceURI))}}else{morphedNode=toNode}}else if(morphedNodeType===TEXT_NODE||morphedNodeType===COMMENT_NODE){if(toNodeType===morphedNodeType){if(morphedNode.nodeValue!==toNode.nodeValue){morphedNode.nodeValue=toNode.nodeValue}return morphedNode}else{morphedNode=toNode}}}if(morphedNode===toNode){onNodeDiscarded(fromNode)}else{if(toNode.isSameNode&&toNode.isSameNode(morphedNode)){return}morphEl(morphedNode,toNode,childrenOnly);if(keyedRemovalList){for(var i=0,len=keyedRemovalList.length;i<len;i++){var elToRemove=fromNodesLookup[keyedRemovalList[i]];if(elToRemove){removeNode(elToRemove,elToRemove.parentNode,false)}}}}if(!childrenOnly&&morphedNode!==fromNode&&fromNode.parentNode){if(morphedNode.actualize){morphedNode=morphedNode.actualize(fromNode.ownerDocument||doc)}fromNode.parentNode.replaceChild(morphedNode,fromNode)}return morphedNode}}var morphdom=morphdomFactory(morphAttrs);return morphdom});</script>
+<script>
+/* Minimal runtime for exported Design canvas pages: {{holes}}, <sc-for>, <sc-if>,
+   onClick/onSubmit handlers, setState re-render via DOM patching. */
+(function () {
+  'use strict';
+  var FORM_NAME = 'booking';
+
+  function DCLogic(props) { this.props = props || {}; this.state = {}; }
+  DCLogic.prototype.setState = function (patch) {
+    var p = typeof patch === 'function' ? patch(this.state) : patch;
+    this.state = Object.assign({}, this.state, p);
+    if (this.__render) this.__render();
+  };
+  window.DCLogic = DCLogic;
+
+  var HOLE = /\{\{\s*([^}]+?)\s*\}\}/g;
+  var WHOLE = /^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/;
+
+  function lookup(scope, path) {
+    path = path.trim();
+    if (path === 'true') return true;
+    if (path === 'false') return false;
+    var parts = path.split('.');
+    var v = scope;
+    for (var i = 0; i < parts.length; i++) {
+      if (v == null) return undefined;
+      v = v[parts[i]];
+    }
+    return v;
+  }
+
+  function interp(str, scope) {
+    return str.replace(HOLE, function (_, p) {
+      var v = lookup(scope, p);
+      return v == null || v === false ? '' : String(v);
+    });
+  }
+
+  function child(scope, name, val) {
+    var s = Object.create(scope);
+    s[name] = val;
+    return s;
+  }
+
+  function renderNodes(nodes, scope, out, reg) {
+    for (var i = 0; i < nodes.length; i++) renderNode(nodes[i], scope, out, reg);
+  }
+
+  function renderNode(node, scope, out, reg) {
+    if (node.nodeType === 3) { out.appendChild(document.createTextNode(interp(node.nodeValue, scope))); return; }
+    if (node.nodeType !== 1) return;
+    var tag = node.tagName.toLowerCase();
+
+    if (tag === 'sc-for') {
+      var m = WHOLE.exec(node.getAttribute('list') || '');
+      var list = m ? lookup(scope, m[1]) : null;
+      var as = node.getAttribute('as') || 'item';
+      (list || []).forEach(function (item, idx) {
+        var s = child(scope, as, item);
+        s[as + 'Index'] = idx;
+        renderNodes(node.childNodes, s, out, reg);
+      });
+      return;
+    }
+    if (tag === 'sc-if') {
+      var mv = WHOLE.exec(node.getAttribute('value') || '');
+      if (mv && lookup(scope, mv[1])) renderNodes(node.childNodes, scope, out, reg);
+      return;
+    }
+
+    var el = node.namespaceURI === 'http://www.w3.org/2000/svg'
+      ? document.createElementNS(node.namespaceURI, node.tagName)
+      : document.createElement(tag);
+
+    for (var a = 0; a < node.attributes.length; a++) {
+      var at = node.attributes[a], name = at.name, raw = at.value;
+      if (name.indexOf('hint-') === 0) continue;
+      var whole = WHOLE.exec(raw);
+      if (name.length > 2 && name.indexOf('on') === 0) {
+        var fn = whole ? lookup(scope, whole[1]) : null;
+        if (typeof fn === 'function') {
+          reg.push(fn);
+          el.setAttribute('data-dc-' + name.slice(2), String(reg.length - 1));
+        }
+        continue;
+      }
+      if (name === 'key') name = 'data-key';
+      if (whole) {
+        var v = lookup(scope, whole[1]);
+        if (v == null || v === false) {
+          if (name.indexOf('aria-') === 0) el.setAttribute(name, 'false');
+          continue;
+        }
+        el.setAttribute(name, v === true ? (name.indexOf('aria-') === 0 ? 'true' : '') : String(v));
+      } else {
+        el.setAttribute(name, raw.indexOf('{{') >= 0 ? interp(raw, scope) : raw);
+      }
+    }
+    var kids = tag === 'template' ? node.content.childNodes : node.childNodes;
+    renderNodes(kids, scope, el, reg);
+    out.appendChild(el);
+  }
+
+  function nodeKey(n) {
+    if (!n.getAttribute) return undefined;
+    var k = n.getAttribute('data-key');
+    return k ? k + ':' + n.tagName : (n.id || undefined);
+  }
+
+  function encode(data) {
+    return Object.keys(data).map(function (k) {
+      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+    }).join('&');
+  }
+
+  function sendToNetlify(form, inst) {
+    var data = { 'form-name': FORM_NAME };
+    new FormData(form).forEach(function (v, k) { data[k] = String(v); });
+    var extras = typeof inst.formExtras === 'function' ? inst.formExtras() : {};
+    Object.keys(extras).forEach(function (k) { data[k] = extras[k]; });
+    try {
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: encode(data) })
+        .catch(function () {});
+    } catch (e) { /* offline preview */ }
+  }
+
+  window.DC = {
+    mount: function (Component) {
+      var root = document.getElementById('dc-root');
+      var tpl = document.getElementById('dc-tpl').content;
+      var inst = new Component({});
+      var reg = [];
+
+      inst.__render = function () {
+        var next = [];
+        var vals = inst.renderVals ? inst.renderVals() : {};
+        var fresh = document.createElement('div');
+        fresh.id = 'dc-root';
+        renderNodes(tpl.childNodes, vals, fresh, next);
+        reg = next;
+        morphdom(root, fresh, {
+          childrenOnly: true,
+          getNodeKey: nodeKey,
+          onBeforeElUpdated: function (from, to) {
+            var t = from.tagName;
+            if (t === 'INPUT' || t === 'TEXTAREA' || t === 'SELECT') return false;
+            return !from.isEqualNode(to);
+          }
+        });
+      };
+
+      root.addEventListener('click', function (e) {
+        var el = e.target.closest('[data-dc-click]');
+        if (!el || !root.contains(el) || el.disabled) return;
+        var fn = reg[+el.getAttribute('data-dc-click')];
+        if (fn) fn(e);
+      });
+      root.addEventListener('submit', function (e) {
+        var form = e.target.closest('[data-dc-submit]');
+        if (!form) return;
+        e.preventDefault();
+        var wasSent = !!inst.state.sent;
+        var fn = reg[+form.getAttribute('data-dc-submit')];
+        if (!fn) return;
+        var fd = new FormData(form);
+        var snapshot = {};
+        fd.forEach(function (v, k) { snapshot[k] = v; });
+        fn({ preventDefault: function () {}, target: form, currentTarget: form });
+        if (!wasSent && inst.state.sent) {
+          // The form has been swapped for the thank-you message; send the snapshot.
+          var ghost = document.createElement('form');
+          Object.keys(snapshot).forEach(function (k) {
+            var i = document.createElement('input'); i.name = k; i.value = snapshot[k]; ghost.appendChild(i);
+          });
+          sendToNetlify(ghost, inst);
+        }
+      });
+
+      inst.__render();
+    }
+  };
+})();
+
+</script>
+<script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    var now = new Date();
+    this.state = { tab: 'bride', y: now.getFullYear(), m: now.getMonth(), picked: null, wants: {}, maids: 0, handover: '', open: 0, sent: false, error: '', firstName: '' };
+  }
+  renderVals() {
+    var s = this.state, self = this;
+    var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var IMG = { bride: 'images/97f08b7c213b2c9b6839146f6595e225.jpg', party: 'images/e8518f9303f001a0eebeb69f6deb9282.jpg', details: 'images/9034c23198c12622bca034bb37b0001d.jpg' };
+    var ALT = { bride: 'White calla lily bridal bouquet', party: 'Blush rose bouquet with eucalyptus', details: 'Bouquet with personalised names ribbon' };
+    var MENU = {
+      bride: [
+        { no: '01', tag: 'Signature', name: 'Cascading Callas', desc: 'White calla lilies with soft astilbe and roses, finished with a flowing ribbon.' },
+        { no: '02', tag: 'House favourite', name: 'Calla and Rose', desc: 'A rounded bouquet of white roses and callas, classic and timeless.' },
+        { no: '03', tag: 'Statement', name: 'Wine Callas', desc: 'Deep red callas with dried accents, made for rich colour palettes.' },
+        { no: '04', tag: 'Custom', name: 'Your Bouquet', desc: 'Designed from scratch around your outfit and the flowers you love.' }
+      ],
+      party: [
+        { no: '01', tag: 'Bridesmaids', name: 'Matching Posies', desc: 'Smaller bouquets that echo the bride, tied in the same ribbon.' },
+        { no: '02', tag: 'Bridesmaids', name: 'Blush and Eucalyptus', desc: 'Soft blush roses and textured greenery in a relaxed shape.' },
+        { no: '03', tag: 'Custom', name: 'Your Palette', desc: 'Matching or contrasting tones chosen to suit every outfit.' }
+      ],
+      details: [
+        { no: '01', tag: 'Details', name: 'Buttonholes', desc: 'Made from the same stems as your bouquet for the groom and family.' },
+        { no: '02', tag: 'Details', name: 'Corsages', desc: 'Wrist and pin corsages for mothers, sisters and guests of honour.' },
+        { no: '03', tag: 'Keepsake', name: 'Names Ribbon', desc: 'Your names and wedding date written on the ribbon of your bouquet.' }
+      ]
+    };
+    var TABS = [['bride','The bride'],['party','Bridal party'],['details','Details']];
+    var tabs = TABS.map(function (t) { var on = s.tab === t[0]; return { label: t[1], on: on, cls: on ? 'tab on' : 'tab', pick: function () { self.setState({ tab: t[0] }); } }; });
+
+    var today = new Date(); today.setHours(0,0,0,0);
+    var first = new Date(s.y, s.m, 1);
+    var count = new Date(s.y, s.m + 1, 0).getDate();
+    var days = [];
+    for (var b = 0; b < first.getDay(); b++) days.push({ label: '', cls: 'day blank', off: true, aria: '', pick: null });
+    for (var d = 1; d <= count; d++) {
+      (function (d) {
+        var dt = new Date(s.y, s.m, d);
+        var off = dt < today;
+        var key = s.y + '/' + s.m + '/' + d;
+        var sel = s.picked && s.picked.key === key;
+        days.push({ label: String(d), off: off, cls: off ? 'day off' : (sel ? 'day sel' : 'day'), aria: DAYS[dt.getDay()] + ' ' + d + ' ' + MONTHS[s.m] + (off ? ', unavailable' : ''),
+          pick: function () { if (!off) self.setState({ picked: { key: key, label: DAYS[dt.getDay()] + ' ' + d + ' ' + MONTHS[s.m] + ' ' + s.y }, error: '' }); } });
+      })(d);
+    }
+    var nowM = new Date();
+    var prevOff = s.y < nowM.getFullYear() || (s.y === nowM.getFullYear() && s.m <= nowM.getMonth());
+
+    var WANTS = ['Bridal bouquet','Bridesmaids','Buttonholes','Corsages','Not sure yet'];
+    var wants = WANTS.map(function (w) { var on = !!s.wants[w]; return { label: w, on: on, cls: on ? 'chip on' : 'chip', pick: function () { var n = Object.assign({}, self.state.wants); n[w] = !n[w]; self.setState({ wants: n }); } }; });
+    var handover = ['Collection','Delivery'].map(function (h) { var on = s.handover === h; return { label: h, on: on, cls: on ? 'chip on' : 'chip', pick: function () { self.setState({ handover: on ? '' : h }); } }; });
+
+    var FAQ = [
+      { q: 'How far ahead should I book?', a: 'We take a limited number of weddings each season, so we suggest enquiring as soon as you have your date. Dates for 2026 are filling now.' },
+      { q: 'Can you match my outfit colours?', a: 'Yes. Share photos of your outfit and any inspiration during your consultation and we will design around your palette.' },
+      { q: 'Do you deliver?', a: 'Choose collection or delivery when you enquire and we will confirm the details for your venue with your quote.' },
+      { q: 'How do I lock in my date?', a: 'After your consultation we send a quote. A deposit secures your date, and our full terms and refund policy come with it.' }
+    ];
+    var faqs = FAQ.map(function (f, i) { var open = s.open === i; return { q: f.q, a: f.a, open: open, plusCls: open ? 'plus open' : 'plus', toggle: function () { self.setState({ open: open ? -1 : i }); } }; });
+
+    return {
+      tabs: tabs, items: MENU[s.tab], tabImg: IMG[s.tab], tabAlt: ALT[s.tab], tabKey: s.tab,
+      weekdays: ['S','M','T','W','T','F','S'], days: days, monthLabel: MONTHS[s.m] + ' ' + s.y, prevOff: prevOff,
+      prev: function () { if (prevOff) return; var m = s.m - 1, y = s.y; if (m < 0) { m = 11; y--; } self.setState({ m: m, y: y }); },
+      next: function () { var m = s.m + 1, y = s.y; if (m > 11) { m = 0; y++; } self.setState({ m: m, y: y }); },
+      pickedLabel: s.picked ? s.picked.label : 'Select your wedding date on the calendar',
+      wants: wants, handover: handover, maids: s.maids,
+      less: function () { self.setState({ maids: Math.max(0, self.state.maids - 1) }); },
+      more: function () { self.setState({ maids: Math.min(20, self.state.maids + 1) }); },
+      faqs: faqs, error: s.error, sent: s.sent, notSent: !s.sent, firstName: s.firstName,
+      submit: function (e) {
+        if (e && e.preventDefault) e.preventDefault();
+        var fd = new FormData(e.target);
+        var name = String(fd.get('name') || '').trim(), email = String(fd.get('email') || '').trim();
+        if (!self.state.picked) return self.setState({ error: 'Please choose your wedding date on the calendar.' });
+        if (!name) return self.setState({ error: 'Please add your name.' });
+        if (!/^\S+@\S+\.\S+$/.test(email)) return self.setState({ error: 'Please add a valid email so we can reply.' });
+        self.setState({ sent: true, error: '', firstName: name.split(' ')[0] });
+      },
+      reset: function () { self.setState({ sent: false, picked: null, wants: {}, maids: 0, handover: '', firstName: '' }); }
+    };
+  }
+}
+</script>
+<script>
+Component.prototype.formExtras = function () {
+  var s = this.state;
+  return {
+    date: s.picked ? s.picked.label : '',
+    looking_for: Object.keys(s.wants || {}).filter(function (k) { return s.wants[k]; }).join(', '),
+    bridesmaids: String(s.maids || 0),
+    on_the_day: s.handover || ''
+  };
+};
+
+</script>
+<script>DC.mount(Component);</script>
+</body>
+</html>
