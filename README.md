@@ -4,5 +4,6 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 
 - `little-bloom-room/` — The Little Bloom Room (bridal florist)
 - `brewteaful-matcha/` — BrewTeaful Matcha (Chicago matcha bar)
+- `snaplux/` — SnapLux (GTA 360 photo booth)
 
 `tools/` holds the converter that turns a Claude design canvas into a static page.
