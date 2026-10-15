@@ -8,5 +8,6 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `clean4u-deluxe-living/` — CLEAN4U Deluxe Living (Angle Vale SA home cleaning)
 - `decor-by-shama-bushra/` — Decor by Shama & Bushra (Northern Virginia event décor)
 - `tasso-events/` — Tasso Events (Michigan event coordination)
+- `monarch-marvels/` — Monarch Marvels (Dallas artisan gifts, signage and branding)
 
 `tools/` holds the converter that turns a Claude design canvas into a static page.
