@@ -10,5 +10,6 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `tasso-events/` — Tasso Events (Michigan event coordination)
 - `monarch-marvels/` — Monarch Marvels (Dallas artisan gifts, signage and branding)
 - `elite-event-managements/` — Elite Event Managements (Warren MI wedding décor and event styling)
+- `jashn-by-quadri/` — Jashn by Quadri (Dallas photo booths, balloon décor and party favors)
 
 `tools/` holds the converter that turns a Claude design canvas into a static page.
