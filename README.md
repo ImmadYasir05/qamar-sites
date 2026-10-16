@@ -18,3 +18,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `joseline-yepez/` — Joseline Yepez (Las Vegas realtor, The Moed Team)
 - `beyond-beauty-pmu/` — Beyond Beauty (Palm Beach Gardens permanent makeup and brow bar)
 - `maria-amezcua/` — Maria Amezcua (San Diego residential + commercial realtor, Realty ONE Group Pacific)
+- `pamela-almaguer/` — Pamela Almaguer (San Antonio realtor, bilingual, buyers, sellers, new construction, VA)

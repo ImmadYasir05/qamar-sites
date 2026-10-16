@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pamela Almaguer | San Antonio Realtor</title>
+<meta name="description" content="Pamela Almaguer, bilingual San Antonio realtor for buyers, sellers, new construction and VA buyers. Hablo español.">
+<meta name="theme-color" content="#2A201B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F6F1EA;--paper:#FBF8F3;--sand:#EADFD2;--ink:#231C18;--muted:#6B5F56;
+  --accent:#8A5B3E;--accent2:#6F4730;--deep:#2A201B;--deeper:#1E1713;--gold:#D2B98F;--softd:#CFC2B5;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Jost',system-ui,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:var(--accent)}a:hover{color:var(--accent2)}
+.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400}
+.hand{font-family:'Caveat',cursive;font-weight:600}
+em{font-style:italic;color:var(--accent)}
+.dark em{color:var(--gold)}
+.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.dark .eyebrow{color:var(--softd)}
+.lineeye{display:flex;align-items:center;gap:14px}
+.lineeye::before{content:"";width:40px;height:1px;background:currentColor;opacity:.6}
+.h2{margin:0;font-size:clamp(40px,7vw,64px);line-height:1.04}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.dark{background:radial-gradient(120% 80% at 50% 0%,#3E2F26 0%,#2F241E 45%,#1E1713 100%);color:var(--cream)}
+
+/* loader */
+.curtain{position:fixed;inset:0;z-index:200;background:radial-gradient(90% 60% at 50% 40%,#3E2F26,#1E1713);display:flex;flex-direction:column;align-items:center;justify-content:center;animation:lift 1s cubic-bezier(.76,0,.24,1) 2.7s forwards}
+.curtain .inner{display:flex;flex-direction:column;align-items:center;gap:18px;animation:fadeOut .5s ease 2.35s forwards}
+.mono{width:120px;height:120px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:46px;font-style:italic;color:var(--gold);letter-spacing:.04em}
+.curtain .mono{opacity:0;animation:fadeUp 1s ease .15s forwards;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.curtain .word{font-size:clamp(34px,9vw,52px);color:var(--cream);opacity:0;animation:fadeUp 1s ease .55s forwards;text-align:center}
+.curtain .rule{width:0;height:1px;background:var(--gold);animation:grow 1.3s cubic-bezier(.65,0,.35,1) .9s forwards}
+.curtain .tag{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fadeUp 1s ease 1.35s forwards;text-align:center;padding:0 20px}
+@keyframes lift{0%{transform:translateY(0);border-radius:0}100%{transform:translateY(-105%);border-radius:0 0 50% 50%/0 0 22% 22%;visibility:hidden}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fadeOut{to{opacity:0;transform:translateY(-10px)}}
+@keyframes grow{to{width:180px}}
+.enter{opacity:0;animation:fadeUp 1.1s cubic-bezier(.2,.7,.2,1) forwards}
+.e1{animation-delay:3.15s}.e2{animation-delay:3.3s}.e3{animation-delay:3.45s}.e4{animation-delay:3.6s}.e5{animation-delay:3.75s}
+
+/* reveal + progress */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,234,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(35,28,24,.08)}
+.navin{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.navlinks{display:flex;gap:28px;align-items:center}
+.navlinks a.l{color:var(--ink);text-decoration:none;font-size:14px;letter-spacing:.06em}
+.navlinks a.l:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;background:var(--accent);color:var(--paper);text-decoration:none;font-size:12px;letter-spacing:.24em;text-transform:uppercase;border:1px solid var(--accent);cursor:pointer;font-family:inherit;font-weight:400;transition:transform .35s cubic-bezier(.2,.7,.2,1),background .35s ease,box-shadow .35s ease;box-shadow:0 10px 24px rgba(138,91,62,.22)}
+.btn:hover{background:var(--accent2);color:var(--paper);transform:translateY(-2px);box-shadow:0 14px 30px rgba(138,91,62,.3)}
+.btn .dot{width:6px;height:6px;border-radius:50%;background:var(--paper);display:inline-block}
+.ghost{background:transparent;color:var(--ink);border-color:rgba(35,28,24,.4);box-shadow:none}
+.ghost:hover{background:var(--ink);color:var(--cream);box-shadow:none}
+.dark .ghost{color:var(--cream);border-color:rgba(246,241,234,.45)}
+.dark .ghost:hover{background:var(--cream);color:var(--deeper)}
+.light{background:var(--sand);color:var(--deeper);border-color:var(--sand);box-shadow:none}
+.light:hover{background:var(--paper);color:var(--deeper)}
+
+/* placeholders */
+.ph{position:relative;overflow:hidden;background:linear-gradient(160deg,#EFE6DB 0%,#E2D3C2 55%,rgba(138,91,62,.28) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--accent)}
+.ph::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 30% 20%,rgba(255,255,255,.45),transparent 60%);pointer-events:none}
+.ph svg{width:52px;height:52px;position:relative;z-index:1;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.ph .cap{position:relative;z-index:1;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent2);text-align:center;padding:0 16px}
+.ph.dk{background:linear-gradient(160deg,#4A392F 0%,#3A2C24 55%,rgba(210,185,143,.22) 100%);color:var(--gold)}
+.ph.dk::after{background:radial-gradient(80% 60% at 30% 20%,rgba(210,185,143,.12),transparent 60%)}
+.ph.dk .cap{color:var(--gold)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center;padding:56px 0 72px;position:relative}
+.ring{position:absolute;width:560px;height:560px;border-radius:50%;border:1px solid rgba(138,91,62,.18);left:-180px;top:40px;pointer-events:none}
+.archwrap{position:relative;max-width:460px;margin-left:auto;width:100%}
+.arch{width:100%;aspect-ratio:4/5.2;border-radius:999px 999px 18px 18px;box-shadow:0 30px 60px rgba(35,28,24,.18)}
+.archframe{position:absolute;inset:-12px;border:1px solid rgba(138,91,62,.25);border-radius:999px 999px 26px 26px;pointer-events:none}
+.badge{position:absolute;left:-34px;top:70px;width:132px;height:132px;z-index:2}
+.badge svg{width:100%;height:100%;animation:spin 22s linear infinite}
+.badge .core{position:absolute;inset:38px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--paper)}
+.badge .core svg{width:24px;height:24px;animation:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.note{position:absolute;right:-14px;bottom:44px;background:var(--paper);padding:16px 22px 14px;transform:rotate(-4deg);box-shadow:0 18px 40px rgba(35,28,24,.18);display:flex;flex-direction:column;gap:4px;animation:bob 6s ease-in-out infinite;z-index:2}
+.note::before{content:"";position:absolute;top:-10px;left:50%;width:58px;height:20px;margin-left:-29px;background:rgba(210,185,143,.55);transform:rotate(3deg)}
+@keyframes bob{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-6px)}}
+.strip{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.strip .star{color:var(--accent)}
+.mouse{width:22px;height:36px;border:1px solid rgba(35,28,24,.4);border-radius:12px;position:relative;margin:0 auto}
+.mouse::after{content:"";position:absolute;left:50%;top:7px;width:2px;height:7px;margin-left:-1px;border-radius:2px;background:var(--ink);animation:wheel 1.8s ease-in-out infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+
+/* marquee */
+.ribbon{background:#2F241E;color:var(--cream);overflow:hidden;padding:26px 0}
+.track{display:flex;width:max-content;animation:marq 34s linear infinite}
+.track span{display:inline-flex;align-items:center;gap:34px;padding-right:34px;font-size:clamp(26px,4.4vw,38px);font-style:italic;white-space:nowrap}
+.track svg{width:18px;height:18px;color:var(--gold);flex:none}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* pair */
+.pair{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px;align-items:end}
+.pair .ph{border-radius:18px;width:100%}
+.inset{position:absolute;right:-18px;bottom:-30px;width:44%;aspect-ratio:1/1;border-radius:50%;border:6px solid var(--cream);box-shadow:0 20px 40px rgba(35,28,24,.2);z-index:2}
+.inset svg{width:34px;height:34px}
+
+/* tabs */
+.tabs{display:inline-flex;padding:6px;border-radius:999px;border:1px solid rgba(246,241,234,.18);gap:4px;flex-wrap:wrap}
+.tab{min-height:46px;padding:0 22px;border-radius:999px;background:transparent;border:none;color:var(--softd);font-family:inherit;font-size:12px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background .4s ease,color .4s ease}
+.tab.on{background:var(--sand);color:var(--deeper)}
+.menu{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start}
+.menuimg{width:100%;aspect-ratio:5/4;border-radius:18px}
+.swap{animation:fadeUp .6s ease both}
+.mcard{border:1px solid rgba(246,241,234,.14);border-radius:18px;overflow:hidden}
+.mrow{padding:26px 28px;border-top:1px solid rgba(246,241,234,.12);display:flex;flex-direction:column;gap:10px;transition:background .4s ease}
+.mrow:first-child{border-top:none}
+.mrow:hover{background:rgba(246,241,234,.04)}
+.mtop{display:flex;justify-content:space-between;gap:12px;font-size:11px;letter-spacing:.24em;color:var(--softd);text-transform:uppercase}
+.mrow h3{margin:0;font-size:clamp(28px,4.6vw,34px)}
+.mrow p{margin:0;color:var(--softd);line-height:1.7}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.step{background:var(--paper);border:1px solid rgba(35,28,24,.08);border-radius:22px;padding:40px 32px;display:flex;flex-direction:column;gap:14px;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease,opacity 1s ease}
+.step:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(35,28,24,.1)}
+.num{font-size:64px;font-style:italic;color:var(--accent);line-height:1}
+
+/* paths */
+.packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.pack{background:var(--paper);border:1px solid rgba(35,28,24,.1);border-radius:22px;padding:36px 30px;display:flex;flex-direction:column;gap:20px;position:relative;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease,opacity 1s ease}
+.pack:hover{transform:translateY(-4px);box-shadow:0 24px 50px rgba(35,28,24,.1)}
+.pack.feat{background:#2F241E;color:var(--cream);border-color:#2F241E}
+.pack ul{list-style:none;margin:0;padding:18px 0 0;border-top:1px solid rgba(35,28,24,.12);display:flex;flex-direction:column;gap:12px;color:var(--muted);flex-grow:1}
+.pack ul li{display:flex;gap:10px;align-items:baseline}
+.pack ul li::before{content:"✦";color:var(--accent);font-size:10px}
+.pack.feat ul{color:var(--softd);border-color:rgba(246,241,234,.16)}
+.pack.feat ul li::before{color:var(--gold)}
+.flag{position:absolute;top:-13px;right:26px;background:var(--gold);color:var(--deeper);font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding:6px 14px;border-radius:999px;font-weight:500}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.gi{position:relative;overflow:hidden;border-radius:18px}
+.gi .ph{aspect-ratio:4/5;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.gi:hover .ph{transform:scale(1.05)}
+.gi .meta{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;display:flex;flex-direction:column;gap:4px}
+.gi .meta b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;color:var(--ink)}
+.gi .meta span{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent2)}
+
+/* booking */
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.cal{background:var(--sand);color:var(--ink);border-radius:24px;padding:28px}
+.calhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.round{width:44px;height:44px;border-radius:50%;border:1px solid rgba(35,28,24,.25);background:transparent;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);font-family:inherit;font-size:18px;flex:none}
+.round:disabled{opacity:.3;cursor:default}
+.grid7{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
+.wd{font-size:10px;letter-spacing:.2em;color:var(--muted);padding:6px 0}
+.day{aspect-ratio:1/1;min-height:40px;border-radius:50%;border:none;background:transparent;font-family:inherit;font-size:15px;color:var(--ink);cursor:pointer;transition:background .25s ease,color .25s ease;padding:0}
+.day:hover{background:rgba(138,91,62,.12)}
+.day.sel{background:var(--accent);color:var(--paper)}
+.day.off{color:rgba(35,28,24,.3);text-decoration:line-through;cursor:default;background:transparent}
+.day.blank{visibility:hidden}
+.legend{display:flex;gap:18px;font-size:12px;color:var(--muted);margin-top:16px;padding-top:16px;border-top:1px solid rgba(35,28,24,.12);flex-wrap:wrap}
+.legend i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.form{border:1px solid rgba(246,241,234,.16);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.picked{display:flex;align-items:center;gap:12px;border:1px solid rgba(246,241,234,.18);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--sand)}
+.picked i{width:7px;height:7px;border-radius:2px;background:var(--gold);display:inline-block;flex:none}
+.f{display:flex;flex-direction:column;gap:8px}
+.f label,.flab{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--softd)}
+.f input,.f textarea{font:inherit;font-size:16px;font-weight:300;color:var(--cream);background:rgba(246,241,234,.05);border:1px solid rgba(246,241,234,.18);border-radius:12px;padding:14px 16px;min-height:50px;outline:none;transition:border-color .25s ease,background .25s ease;width:100%}
+.f input::placeholder,.f textarea::placeholder{color:rgba(246,241,234,.45)}
+.f input:focus,.f textarea:focus{border-color:var(--gold);background:rgba(246,241,234,.08)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(246,241,234,.25);background:transparent;color:var(--sand);font-family:inherit;font-size:14px;cursor:pointer;transition:all .25s ease}
+.chip.on{background:var(--sand);color:var(--deeper);border-color:var(--sand)}
+.stepper{display:flex;align-items:center;gap:16px}
+.stepper .round{color:var(--cream);border-color:rgba(246,241,234,.3)}
+.err{color:#F2B8B5;font-size:14px;min-height:0}
+.thanks{border:1px solid rgba(246,241,234,.16);border-radius:24px;padding:64px 28px;text-align:center;display:none;flex-direction:column;gap:18px;align-items:center;animation:fadeUp .7s ease both}
+.hidden{display:none!important}
+
+/* faq */
+.qa{border-top:1px solid rgba(35,28,24,.14)}
+.qa:last-child{border-bottom:1px solid rgba(35,28,24,.14)}
+.qbtn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;background:transparent;border:none;cursor:pointer;text-align:left;color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.4vw,28px)}
+.plus{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid rgba(35,28,24,.25);display:inline-flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-size:18px;transition:transform .4s ease,background .4s ease,color .4s ease}
+.qa.open .plus{transform:rotate(45deg);background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.ans{margin:0 0 26px;color:var(--muted);line-height:1.75;max-width:640px;display:none}
+.qa.open .ans{display:block;animation:fadeUp .5s ease both}
+
+.foot a{color:var(--cream);text-decoration:none}
+.foot a:hover{color:var(--gold)}
+
+@media (max-width:860px){
+  .hero,.menu,.book{grid-template-columns:minmax(0,1fr);gap:40px}
+  .hero{padding-top:36px}
+  .archwrap{margin:0 auto;max-width:400px}
+  .badge{left:-14px;top:40px;width:108px;height:108px}
+  .badge .core{inset:31px}
+  .note{right:-4px}
+  .steps,.packs,.two{grid-template-columns:minmax(0,1fr)}
+  .packs{gap:28px}
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gi .meta b{font-size:18px}
+  .navlinks a.l{display:none}
+  .pair{grid-template-columns:minmax(0,1fr)}
+  .inset{right:-6px}
+  .ring{width:420px;height:420px;left:-200px}
+  .cal,.form{padding:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  .curtain{animation-duration:.01s;animation-delay:.4s}
+  .curtain *{animation:none!important;opacity:1!important;width:auto}
+  .enter{animation:none;opacity:1}
+  .reveal{opacity:1;transform:none;transition:none}
+  .track,.badge svg,.note,.mouse::after{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="house" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><path d="M6 22 24 8l18 14"/><path d="M11 18.5V40h26V18.5"/><path d="M20 40V29h8v11"/><path d="M31 12V8h4v7"/></g></symbol>
+    <symbol id="key" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="16" cy="24" r="7"/><circle cx="16" cy="24" r="2.5"/><path d="M23 24h19M36 24v6M41 24v4"/></g></symbol>
+    <symbol id="heart" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><path d="M6 22 24 8l18 14"/><path d="M11 18.5V40h26V18.5"/><path d="M24 35s-7-4.3-7-9a3.6 3.6 0 0 1 7-1.4A3.6 3.6 0 0 1 31 26c0 4.7-7 9-7 9Z"/></g></symbol>
+    <symbol id="build" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><path d="M4 24 18 13l14 11"/><path d="M8 21v19h20V21"/><path d="M28 40h16V22l-8-6"/><path d="M15 40v-8h6v8"/><path d="M34 26h4v4h-4z"/></g></symbol>
+    <symbol id="star" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" d="M12 3l2.2 6.8H21l-5.5 4 2.1 6.7L12 16.4l-5.6 4.1 2.1-6.7L3 9.8h6.8Z"/></symbol>
+  </defs>
+</svg>
+
+<div class="curtain" aria-hidden="true">
+  <div class="inner">
+    <div class="mono">PA</div>
+    <div class="word serif">Pamela Almaguer</div>
+    <div class="rule"></div>
+    <div class="tag">Realtor · San Antonio, Texas</div>
+  </div>
+</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <nav class="navin" aria-label="Main">
+    <a href="#top" style="display:flex;flex-direction:column;text-decoration:none;color:var(--ink);line-height:1">
+      <span class="serif" style="font-size:24px">Pamela Almaguer</span>
+      <span style="font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--muted);margin-top:4px">San Antonio Realtor</span>
+    </a>
+    <div class="navlinks">
+      <a class="l" href="#about">About</a>
+      <a class="l" href="#services">Services</a>
+      <a class="l" href="#paths">Buy or sell</a>
+      <a class="l" href="#homes">Homes</a>
+      <a class="btn" href="#book">Let's talk <span class="dot"></span></a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="wrap" style="position:relative">
+    <div class="ring" aria-hidden="true"></div>
+    <div class="hero">
+      <div style="display:flex;flex-direction:column;gap:26px;position:relative">
+        <div class="eyebrow lineeye enter e1">Realtor · San Antonio, TX</div>
+        <h1 class="serif enter e2" style="margin:0;font-size:clamp(54px,11vw,92px);line-height:.98">Your keys,<br>your home,<br><em>your story.</em></h1>
+        <p class="enter e3" style="margin:0;font-size:17px;line-height:1.8;color:var(--muted);max-width:440px">Helping buyers, sellers, new construction and VA buyers across San Antonio and the surrounding areas. In English or en español, from the first showing to the day you get your keys.</p>
+        <div class="enter e4" style="display:flex;flex-direction:column;align-items:flex-start;gap:12px">
+          <a class="btn" href="#book">Book a free chat</a>
+          <a class="btn ghost" href="#homes">See recent homes</a>
+        </div>
+        <div class="strip enter e5" style="margin-top:14px">
+          <span>Buyers</span><span class="star">✦</span><span>Sellers</span><span class="star">✦</span><span>New builds</span><span class="star">✦</span><span>VA</span>
+        </div>
+      </div>
+      <div class="archwrap enter e3">
+        <div class="archframe" aria-hidden="true"></div>
+        <div class="arch ph" role="img" aria-label="Photo placeholder: Pamela with clients on closing day">
+          <svg aria-hidden="true"><use href="#key"/></svg>
+          <span class="cap">Pamela with clients<br>on closing day</span>
+        </div>
+        <div class="badge" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+            <text style="font-family:Jost,sans-serif;font-size:9.6px;letter-spacing:3.2px;text-transform:uppercase" fill="#8A5B3E"><textPath href="#circ">Realtor · Bilingual · San Antonio ·</textPath></text>
+          </svg>
+          <div class="core"><svg aria-hidden="true"><use href="#house"/></svg></div>
+        </div>
+        <div class="note">
+          <div class="hand" style="font-size:30px;color:var(--accent);line-height:1">¡bienvenidos a casa!</div>
+          <div style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)">Español &amp; English</div>
+        </div>
+      </div>
+    </div>
+    <div class="enter e5" style="padding-bottom:56px"><div class="mouse" aria-hidden="true"></div></div>
+  </section>
+
+  <section class="ribbon serif" aria-label="What I help with">
+    <div class="track">
+      <span>Buying a home <svg aria-hidden="true"><use href="#star"/></svg> Selling your home <svg aria-hidden="true"><use href="#star"/></svg> New construction <svg aria-hidden="true"><use href="#star"/></svg> VA buyers <svg aria-hidden="true"><use href="#star"/></svg> First homes <svg aria-hidden="true"><use href="#star"/></svg> Hablo español <svg aria-hidden="true"><use href="#star"/></svg></span>
+      <span aria-hidden="true">Buying a home <svg><use href="#star"/></svg> Selling your home <svg><use href="#star"/></svg> New construction <svg><use href="#star"/></svg> VA buyers <svg><use href="#star"/></svg> First homes <svg><use href="#star"/></svg> Hablo español <svg><use href="#star"/></svg></span>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:96px">
+    <div class="pair">
+      <div class="reveal"><div class="ph" style="aspect-ratio:4/3" role="img" aria-label="Photo placeholder: welcome home celebration"><svg aria-hidden="true"><use href="#heart"/></svg><span class="cap">Welcome home celebration</span></div></div>
+      <div class="reveal" style="position:relative">
+        <div class="ph" style="aspect-ratio:4/5" role="img" aria-label="Photo placeholder: new build exterior"><svg aria-hidden="true"><use href="#build"/></svg><span class="cap">New build exterior</span></div>
+        <div class="inset ph" aria-hidden="true"><svg><use href="#key"/></svg><span class="cap" style="font-size:8px">Keys day</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="wrap" style="padding:120px 20px 110px">
+    <div style="max-width:720px;display:flex;flex-direction:column;gap:26px">
+      <div class="eyebrow reveal">Meet Pamela</div>
+      <h2 class="h2 serif reveal">A local agent with a <em>big welcome.</em></h2>
+      <p class="reveal" style="margin:0;font-size:17px;line-height:1.85;color:var(--muted)">I'm Pamela Almaguer, a San Antonio realtor helping families buy, sell and build across the city and the surrounding areas. Whether it's your first home, a brand new build or your next move with a VA loan, I walk you through every step in plain language.</p>
+      <p class="reveal" style="margin:0;font-size:17px;line-height:1.85;color:var(--muted)">I work in English and Spanish, so your whole family can feel at home in the process. And when the keys are finally yours, we celebrate. Every closing deserves a welcome home moment.</p>
+      <div class="hand reveal" style="font-size:36px;color:var(--accent);line-height:1.2">con cariño, Pamela</div>
+    </div>
+  </section>
+
+  <section id="services" class="dark" style="padding:110px 0 120px">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="eyebrow reveal">Services</div>
+        <h2 class="h2 serif reveal">How I can <em>help.</em></h2>
+      </div>
+      <div class="tabs reveal" role="tablist" aria-label="Service categories" id="tabs">
+        <button class="tab on" type="button" role="tab" aria-selected="true" data-tab="buy">Buying</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-tab="sell">Selling</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-tab="new">New build &amp; VA</button>
+      </div>
+      <div class="menu reveal">
+        <div class="menuimg ph dk" id="tabimg" role="img" aria-label="Photo placeholder"><svg aria-hidden="true"><use href="#key"/></svg><span class="cap">Touring a home together</span></div>
+        <div class="mcard" id="tabrows"></div>
+      </div>
+      <p class="reveal" style="margin:0;color:var(--softd);font-size:14px">Not sure where to start? Book a chat below and we'll figure out your next step together.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:120px 20px 0">
+    <div style="text-align:center;display:flex;flex-direction:column;gap:22px;align-items:center;margin-bottom:56px">
+      <div class="eyebrow reveal">How it works</div>
+      <h2 class="h2 serif reveal">Three steps to <em>the keys.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="serif num">01</div>
+        <h3 class="serif" style="margin:0;font-size:32px">Connect</h3>
+        <p style="margin:0;color:var(--muted);line-height:1.75">Pick a day below and tell me what you're looking for. We'll talk through your goals, your budget and your timeline.</p>
+      </div>
+      <div class="step reveal">
+        <div class="serif num">02</div>
+        <h3 class="serif" style="margin:0;font-size:32px">Search or list</h3>
+        <p style="margin:0;color:var(--muted);line-height:1.75">We tour homes that fit your life, or get your home ready and in front of the right buyers.</p>
+      </div>
+      <div class="step reveal">
+        <div class="serif num">03</div>
+        <h3 class="serif" style="margin:0;font-size:32px">Close</h3>
+        <p style="margin:0;color:var(--muted);line-height:1.75">I handle the details through closing, then we celebrate with your keys and a proper welcome home.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="paths" class="wrap" style="padding:130px 20px 0">
+    <div style="display:flex;flex-direction:column;gap:22px;margin-bottom:64px">
+      <div class="eyebrow reveal">Who I help</div>
+      <h2 class="h2 serif reveal">Choose your <em>path.</em></h2>
+    </div>
+    <div class="packs">
+      <div class="pack reveal">
+        <div class="eyebrow">For buyers</div>
+        <div class="serif" style="font-size:44px;line-height:1">Find <em>home</em></div>
+        <ul><li>First time and move up buyers</li><li>Home tours across San Antonio</li><li>Offer strategy and negotiation</li><li>Support through closing</li></ul>
+        <a class="btn ghost" href="#book" data-want="Buying">I'm buying</a>
+      </div>
+      <div class="pack feat reveal">
+        <div class="flag">New builds</div>
+        <div class="eyebrow" style="color:var(--softd)">New construction &amp; VA</div>
+        <div class="serif" style="font-size:44px;line-height:1">Build <em>new</em></div>
+        <ul><li>Guidance with new build communities</li><li>Representation with the builder</li><li>VA buyers welcome</li><li>Español &amp; English</li></ul>
+        <a class="btn light" href="#book" data-want="New construction">I want a new build</a>
+      </div>
+      <div class="pack reveal">
+        <div class="eyebrow">For sellers</div>
+        <div class="serif" style="font-size:44px;line-height:1">Sell <em>well</em></div>
+        <ul><li>Pricing based on your neighborhood</li><li>Photos, video and social reach</li><li>Showings and offer review</li><li>Smooth path to closing</li></ul>
+        <a class="btn ghost" href="#book" data-want="Selling">I'm selling</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="homes" class="wrap" style="padding:130px 20px 0">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:36px">
+      <h2 class="h2 serif">Homes &amp; <em>happy clients.</em></h2>
+      <a href="https://instagram.com/pamtxrealtor" target="_blank" rel="noopener" class="eyebrow" style="color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(138,91,62,.4);padding-bottom:6px">@pamtxrealtor</a>
+    </div>
+    <div class="gal">
+      <div class="gi reveal"><div class="ph" role="img" aria-label="Photo placeholder: North Central San Antonio listing"><svg aria-hidden="true"><use href="#house"/></svg></div><div class="meta"><b>North Central San Antonio</b><span>4 bed · 4.5 bath · 3,600 sq ft</span></div></div>
+      <div class="gi reveal"><div class="ph" role="img" aria-label="Photo placeholder: Selma listing"><svg aria-hidden="true"><use href="#build"/></svg></div><div class="meta"><b>Selma, TX</b><span>3 bed · 2 bath · No HOA</span></div></div>
+      <div class="gi reveal"><div class="ph" role="img" aria-label="Photo placeholder: closing day"><svg aria-hidden="true"><use href="#key"/></svg></div><div class="meta"><b>Got my keys</b><span>Closing day</span></div></div>
+      <div class="gi reveal"><div class="ph" role="img" aria-label="Photo placeholder: welcome home setup"><svg aria-hidden="true"><use href="#heart"/></svg></div><div class="meta"><b>Welcome home</b><span>Client celebration</span></div></div>
+      <div class="gi reveal"><div class="ph" role="img" aria-label="Photo placeholder: new construction"><svg aria-hidden="true"><use href="#build"/></svg></div><div class="meta"><b>New construction</b><span>Fresh build</span></div></div>
+      <div class="gi reveal"><div class="ph" role="img" aria-label="Photo placeholder: sold sign with clients"><svg aria-hidden="true"><use href="#house"/></svg></div><div class="meta"><b>Sold</b><span>Another happy family</span></div></div>
+    </div>
+  </section>
+
+  <section id="book" class="dark" style="margin-top:130px;padding:110px 0 120px">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:44px">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="eyebrow reveal">Book a chat</div>
+        <h2 class="h2 serif reveal">Let's plan your <em>next move.</em></h2>
+        <p class="reveal" style="margin:0;color:var(--softd);line-height:1.8;max-width:520px">Pick a day that works for you, share a few details and I'll reach out to set up a call or a showing. Hablamos en español también.</p>
+      </div>
+
+      <div class="book" id="bookwrap">
+        <div class="cal reveal">
+          <div class="calhead">
+            <button class="round" type="button" id="prev" aria-label="Previous month">‹</button>
+            <div class="serif" style="font-size:26px" id="mlabel"></div>
+            <button class="round" type="button" id="next" aria-label="Next month">›</button>
+          </div>
+          <div class="grid7" id="days"></div>
+          <div class="legend">
+            <span><i style="background:var(--ink)"></i>Available</span>
+            <span><i style="background:var(--accent)"></i>Selected</span>
+            <span><i style="background:rgba(35,28,24,.3)"></i>Unavailable</span>
+          </div>
+        </div>
+
+        <form class="form reveal" id="form" name="pamela-consult" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="pamela-consult">
+          <p class="hidden"><label>Leave this empty <input name="bot-field"></label></p>
+          <input type="hidden" name="date" id="f-date">
+          <input type="hidden" name="looking_for" id="f-want">
+          <input type="hidden" name="bedrooms" id="f-beds">
+          <input type="hidden" name="language" id="f-lang">
+          <div class="picked"><i></i><span id="picked">Select a day on the calendar</span></div>
+          <div class="two">
+            <div class="f"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your full name" autocomplete="name"></div>
+            <div class="f"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" autocomplete="email"></div>
+          </div>
+          <div class="two">
+            <div class="f"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="Your number" autocomplete="tel"></div>
+            <div class="f"><label for="area">Area of interest</label><input id="area" name="area" type="text" placeholder="Neighborhood or city"></div>
+          </div>
+          <div class="f">
+            <span class="flab">I'm interested in</span>
+            <div class="chips" id="wants"></div>
+          </div>
+          <div class="two">
+            <div class="f">
+              <span class="flab">Bedrooms</span>
+              <div class="stepper">
+                <button class="round" type="button" id="minus" aria-label="Fewer bedrooms">−</button>
+                <span class="serif" id="beds" style="font-size:30px;min-width:28px;text-align:center">3</span>
+                <button class="round" type="button" id="plus" aria-label="More bedrooms">+</button>
+              </div>
+            </div>
+            <div class="f">
+              <span class="flab">Preferred language</span>
+              <div class="chips" id="langs"></div>
+            </div>
+          </div>
+          <div class="f"><label for="msg">Tell me about your move</label><textarea id="msg" name="message" rows="4" placeholder="Timeline, must haves, questions" style="resize:vertical"></textarea></div>
+          <div class="err" id="err" role="alert"></div>
+          <button class="btn light" type="submit" id="submit" style="align-self:flex-start">Request my chat</button>
+        </form>
+      </div>
+
+      <div class="thanks" id="thanks">
+        <div class="serif" style="font-size:clamp(44px,8vw,64px)">Thank you, <em id="tname"></em></div>
+        <p style="margin:0;color:var(--softd);line-height:1.8;max-width:440px">Your request for <span id="tdate"></span> is in. I'll be in touch soon. ¡Gracias!</p>
+        <button class="btn ghost" type="button" id="again">Start another</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="wrap" style="padding:120px 20px 110px;max-width:900px">
+    <h2 class="h2 serif reveal" style="margin-bottom:40px">Good <em>questions.</em></h2>
+    <div id="faqs"></div>
+  </section>
+
+  <section class="dark" style="padding:110px 0;text-align:center">
+    <div class="wrap" style="display:flex;flex-direction:column;align-items:center;gap:26px">
+      <div class="mono reveal" style="width:108px;height:108px;font-size:40px">PA</div>
+      <h2 class="h2 serif reveal">Let's get you <em>home.</em></h2>
+      <a class="btn light reveal" href="#book">Book a free chat</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" style="background:var(--deeper);color:var(--cream);padding:72px 0 36px">
+  <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="eyebrow" style="color:var(--softd)">Explore</div>
+      <a href="#about">About</a><a href="#services">Services</a><a href="#paths">Buy or sell</a><a href="#homes">Homes</a><a href="#faq">FAQ</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="eyebrow" style="color:var(--softd)">Contact</div>
+      <a href="tel:+12107183889">(210) 718 3889</a>
+      <a href="https://instagram.com/pamtxrealtor" target="_blank" rel="noopener">Instagram @pamtxrealtor</a>
+      <a href="https://linktr.ee/pamtxrealtor" target="_blank" rel="noopener">linktr.ee/pamtxrealtor</a>
+      <span style="color:var(--softd)">[EMAIL]</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="eyebrow" style="color:var(--softd)">Area</div>
+      <span style="color:var(--softd);line-height:1.7">Serving San Antonio, Texas and the surrounding areas. Bilingual, Español &amp; English.</span>
+      <span style="color:var(--softd);line-height:1.7">[BROKERAGE]</span>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:40px;display:flex;gap:22px;flex-wrap:wrap;font-size:12px;color:var(--softd)">
+    <a href="[IABS LINK]" style="color:var(--softd);text-decoration:underline">Information About Brokerage Services</a>
+    <a href="https://www.trec.texas.gov/forms/consumer-protection-notice" target="_blank" rel="noopener" style="color:var(--softd);text-decoration:underline">TREC Consumer Protection Notice</a>
+  </div>
+  <div class="wrap" style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(246,241,234,.12);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;letter-spacing:.14em;color:var(--softd)">
+    <span>© 2026 Pamela Almaguer</span>
+    <a href="#top" style="display:inline-flex;align-items:center;gap:12px;letter-spacing:.24em;text-transform:uppercase">Back to top <span class="round" style="width:40px;height:40px;color:var(--cream);border-color:rgba(246,241,234,.3)">↑</span></a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // progress bar
+  var bar = document.getElementById('progress');
+  function prog(){ var h = document.documentElement; var max = h.scrollHeight - h.clientHeight; bar.style.transform = 'scaleX(' + (max > 0 ? h.scrollTop / max : 0) + ')'; }
+  window.addEventListener('scroll', prog, { passive: true }); prog();
+
+  // reveal
+  var els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add('in'); }); }
+
+  // tabs
+  var DATA = {
+    buy: { icon: 'key', cap: 'Touring a home together', rows: [
+      ['01','First homes','First time buyers','From preapproval to your first showing, I explain every step so you can buy with confidence.'],
+      ['02','Home tours','Buyers','We tour homes that match your list, and I point out what matters before you fall in love.'],
+      ['03','Offers','Negotiation','A strong, smart offer and steady guidance through inspection, appraisal and closing.']
+    ]},
+    sell: { icon: 'house', cap: 'Your home, ready to list', rows: [
+      ['01','Pricing','Sellers','A clear price based on recent sales in your neighborhood, so your home moves with confidence.'],
+      ['02','Marketing','Listing','Photos, video tours and social reach that show your home at its very best.'],
+      ['03','Offers','Closing','I review every offer with you and keep things moving smoothly to the closing table.']
+    ]},
+    new: { icon: 'build', cap: 'A brand new build', rows: [
+      ['01','New construction','New builds','Guidance on communities, floor plans and upgrades, with someone in your corner at the builder.'],
+      ['02','VA buyers','VA','Support for veterans and military families using their VA benefits to buy a home.'],
+      ['03','En español','Bilingual','Every conversation can happen in Spanish or English, whatever feels most comfortable.']
+    ]}
+  };
+  var tabs = document.querySelectorAll('#tabs .tab'), rows = document.getElementById('tabrows'), img = document.getElementById('tabimg');
+  function showTab(k){
+    var d = DATA[k];
+    tabs.forEach(function(t){ var on = t.dataset.tab === k; t.classList.toggle('on', on); t.setAttribute('aria-selected', on); });
+    img.innerHTML = '<svg aria-hidden="true"><use href="#' + d.icon + '"/></svg><span class="cap">' + d.cap + '</span>';
+    img.setAttribute('aria-label', 'Photo placeholder: ' + d.cap);
+    rows.innerHTML = d.rows.map(function(r){ return '<div class="mrow"><div class="mtop"><span>' + r[0] + '</span><span>' + r[2] + '</span></div><h3 class="serif">' + r[1] + '</h3><p>' + r[3] + '</p></div>'; }).join('');
+    img.classList.remove('swap'); rows.classList.remove('swap'); void rows.offsetWidth; img.classList.add('swap'); rows.classList.add('swap');
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ showTab(t.dataset.tab); }); });
+  showTab('buy');
+
+  // calendar
+  var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var now = new Date(), cy = now.getFullYear(), cm = now.getMonth(), picked = null;
+  var daysEl = document.getElementById('days'), mlabel = document.getElementById('mlabel'), prevB = document.getElementById('prev'), nextB = document.getElementById('next'), pickedEl = document.getElementById('picked');
+  function renderCal(){
+    var today = new Date(); today.setHours(0,0,0,0);
+    var first = new Date(cy, cm, 1), count = new Date(cy, cm + 1, 0).getDate();
+    var html = ['S','M','T','W','T','F','S'].map(function(w){ return '<div class="wd">' + w + '</div>'; }).join('');
+    for (var b = 0; b < first.getDay(); b++) html += '<button class="day blank" type="button" disabled tabindex="-1" aria-hidden="true"></button>';
+    for (var d = 1; d <= count; d++) {
+      var dt = new Date(cy, cm, d), off = dt < today, key = cy + '/' + cm + '/' + d, sel = picked && picked.key === key;
+      var label = DAYS[dt.getDay()] + ' ' + MONTHS[cm] + ' ' + d + ', ' + cy;
+      html += '<button type="button" class="day' + (off ? ' off' : sel ? ' sel' : '') + '"' + (off ? ' disabled' : '') + ' data-key="' + key + '" data-label="' + label + '" aria-label="' + label + (off ? ', unavailable' : '') + '"' + (sel ? ' aria-pressed="true"' : '') + '>' + d + '</button>';
+    }
+    daysEl.innerHTML = html;
+    mlabel.textContent = MONTHS[cm] + ' ' + cy;
+    prevB.disabled = cy < now.getFullYear() || (cy === now.getFullYear() && cm <= now.getMonth());
+  }
+  daysEl.addEventListener('click', function(e){
+    var b = e.target.closest('.day'); if (!b || b.disabled) return;
+    picked = { key: b.dataset.key, label: b.dataset.label };
+    pickedEl.textContent = picked.label; document.getElementById('f-date').value = picked.label; setErr(''); renderCal();
+  });
+  prevB.addEventListener('click', function(){ if (prevB.disabled) return; cm--; if (cm < 0) { cm = 11; cy--; } renderCal(); });
+  nextB.addEventListener('click', function(){ cm++; if (cm > 11) { cm = 0; cy++; } renderCal(); });
+  renderCal();
+
+  // chips
+  var WANTS = ['Buying','Selling','New construction','VA loan','Just exploring'], wantsOn = {};
+  var wantsEl = document.getElementById('wants');
+  function renderWants(){
+    wantsEl.innerHTML = WANTS.map(function(w){ var on = !!wantsOn[w]; return '<button type="button" class="chip' + (on ? ' on' : '') + '" aria-pressed="' + on + '" data-w="' + w + '">' + w + '</button>'; }).join('');
+    document.getElementById('f-want').value = WANTS.filter(function(w){ return wantsOn[w]; }).join(', ');
+  }
+  wantsEl.addEventListener('click', function(e){ var b = e.target.closest('.chip'); if (!b) return; wantsOn[b.dataset.w] = !wantsOn[b.dataset.w]; renderWants(); });
+  renderWants();
+  document.querySelectorAll('[data-want]').forEach(function(a){ a.addEventListener('click', function(){ wantsOn[a.dataset.want] = true; renderWants(); }); });
+
+  var LANGS = ['English','Español'], lang = '', langsEl = document.getElementById('langs');
+  function renderLangs(){
+    langsEl.innerHTML = LANGS.map(function(l){ var on = lang === l; return '<button type="button" class="chip' + (on ? ' on' : '') + '" aria-pressed="' + on + '" data-l="' + l + '">' + l + '</button>'; }).join('');
+    document.getElementById('f-lang').value = lang;
+  }
+  langsEl.addEventListener('click', function(e){ var b = e.target.closest('.chip'); if (!b) return; lang = lang === b.dataset.l ? '' : b.dataset.l; renderLangs(); });
+  renderLangs();
+
+  // stepper
+  var beds = 3, bedsEl = document.getElementById('beds'), bedsIn = document.getElementById('f-beds');
+  function setBeds(n){ beds = Math.max(1, Math.min(8, n)); bedsEl.textContent = beds; bedsIn.value = beds; }
+  document.getElementById('minus').addEventListener('click', function(){ setBeds(beds - 1); });
+  document.getElementById('plus').addEventListener('click', function(){ setBeds(beds + 1); });
+  setBeds(3);
+
+  // form
+  var form = document.getElementById('form'), errEl = document.getElementById('err'), bookwrap = document.getElementById('bookwrap'), thanks = document.getElementById('thanks'), submitB = document.getElementById('submit');
+  function setErr(m){ errEl.textContent = m; }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim(), email = form.email.value.trim();
+    if (!picked) return setErr('Please choose a day on the calendar.');
+    if (!name) return setErr('Please add your name.');
+    if (!/^\S+@\S+\.\S+$/.test(email)) return setErr('Please add a valid email so I can reply.');
+    setErr(''); submitB.disabled = true; submitB.textContent = 'Sending';
+    var body = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+      .then(function(r){ if (!r.ok) throw new Error(); done(name); })
+      .catch(function(){ setErr('Something went wrong. Please try again or call (210) 718 3889.'); })
+      .finally(function(){ submitB.disabled = false; submitB.textContent = 'Request my chat'; });
+  });
+  function done(name){
+    document.getElementById('tname').textContent = name.split(' ')[0] + '.';
+    document.getElementById('tdate').textContent = picked.label;
+    bookwrap.classList.add('hidden'); thanks.style.display = 'flex';
+  }
+  document.getElementById('again').addEventListener('click', function(){
+    form.reset(); picked = null; pickedEl.textContent = 'Select a day on the calendar'; document.getElementById('f-date').value = '';
+    wantsOn = {}; renderWants(); lang = ''; renderLangs(); setBeds(3); renderCal();
+    thanks.style.display = 'none'; bookwrap.classList.remove('hidden');
+  });
+
+  // faq
+  var FAQ = [
+    ['Do you work with VA buyers?', 'Yes. I help veterans and military families buy homes using their VA benefits, and I can connect you with lenders who know the process.'],
+    ['¿Hablas español?', '¡Sí! I work in Spanish and English, so you and your family can go through the whole process in whichever language feels best.'],
+    ['Can you help with a new build?', 'Absolutely. I help buyers choose communities and floor plans, and I represent you with the builder from contract to closing.'],
+    ['What areas do you serve?', 'San Antonio and the surrounding areas. Tell me where you are looking when you book and we will plan from there.']
+  ];
+  var faqEl = document.getElementById('faqs');
+  faqEl.innerHTML = FAQ.map(function(f, i){ return '<div class="qa reveal in' + (i === 0 ? ' open' : '') + '"><button class="qbtn" type="button" aria-expanded="' + (i === 0) + '">' + f[0] + '<span class="plus" aria-hidden="true">+</span></button><p class="ans">' + f[1] + '</p></div>'; }).join('');
+  faqEl.addEventListener('click', function(e){
+    var b = e.target.closest('.qbtn'); if (!b) return;
+    var qa = b.parentNode, open = qa.classList.contains('open');
+    faqEl.querySelectorAll('.qa').forEach(function(q){ q.classList.remove('open'); q.querySelector('.qbtn').setAttribute('aria-expanded', 'false'); });
+    if (!open) { qa.classList.add('open'); b.setAttribute('aria-expanded', 'true'); }
+  });
+})();
+</script>
+</body>
+</html>
