@@ -16,3 +16,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `quality-installation/` — Quality Installation LLC (professional tile work, floors, showers and remodels)
 - `anabel-galvan/` — Anabel Galvan (San Diego realtor, LPT Realty)
 - `joseline-yepez/` — Joseline Yepez (Las Vegas realtor, The Moed Team)
+- `beyond-beauty-pmu/` — Beyond Beauty (Palm Beach Gardens permanent makeup and brow bar)
