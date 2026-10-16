@@ -13,3 +13,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `jashn-by-quadri/` — Jashn by Quadri (Dallas photo booths, balloon décor and party favors)
 
 `tools/` holds the converter that turns a Claude design canvas into a static page.
+- `quality-installation/` — Quality Installation LLC (professional tile work, floors, showers and remodels)
