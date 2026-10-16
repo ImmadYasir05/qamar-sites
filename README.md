@@ -15,3 +15,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 `tools/` holds the converter that turns a Claude design canvas into a static page.
 - `quality-installation/` — Quality Installation LLC (professional tile work, floors, showers and remodels)
 - `anabel-galvan/` — Anabel Galvan (San Diego realtor, LPT Realty)
+- `joseline-yepez/` — Joseline Yepez (Las Vegas realtor, The Moed Team)
