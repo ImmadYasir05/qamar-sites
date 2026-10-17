@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Steep Sites · Client Agreement · Tasso Events</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Karla:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><style>
+:root {
+--cream: #f6f1e4;
+--green: #1f3a24;
+--rust: #be6e42;
+--ink: #4a463f;
+--dark: #2a2924;
+--muted: #8f8a7f;
+--rule: #d8d0bc;
+--box-rule: #3d5842;
+--box-text: #c9d1c4;
+}
+@page { size: 612pt 792pt; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--cream); }
+body { font-family: "Karla", sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+.page {
+width: 612pt; height: 792pt; position: relative; overflow: hidden;
+background: var(--cream); page-break-after: always; break-after: page;
+padding: 0 42pt;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+.page.dark { background: var(--green); }
+/* running header / footer */
+.head { position: absolute; left: 42pt; right: 42pt; top: 42pt; height: 17pt;
+border-bottom: 0.6pt solid var(--rule); display: flex; justify-content: space-between; }
+.foot { position: absolute; left: 42pt; right: 42pt; top: 746.5pt; display: flex; justify-content: space-between; }
+.mono { font-family: "IBM Plex Mono", monospace; font-size: 6.2pt; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); }
+.rust { color: var(--rust); }
+.head .mono, .foot .mono { line-height: 1; }
+.display { font-family: "Playfair Display", serif; font-weight: 900; color: var(--green); letter-spacing: -0.035em; text-transform: uppercase; }
+.bar { width: 58pt; height: 2.4pt; background: var(--rust); }
+p.body { font-size: 9pt; line-height: 14.6pt; color: var(--ink); }
+h3 { font-family: "Playfair Display", serif; font-weight: 700; color: var(--green); font-size: 12.1pt; line-height: 1.15; letter-spacing: -0.005em; }
+.num { font-variant-numeric: oldstyle-nums; }
+/* ---------- logo ---------- */
+.logo { display: flex; align-items: center; gap: 9pt; }
+.logo .mark { width: 27pt; height: 27pt; border: 0.8pt solid var(--rust); border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+font-family: "Playfair Display", serif; font-weight: 700; font-size: 14pt; color: var(--green); }
+.logo .word { font-family: "Playfair Display", serif; line-height: 0.95; }
+.logo .word b { display: block; font-weight: 700; font-size: 19.7pt; color: var(--green); letter-spacing: -0.01em; }
+.logo .word i { display: block; font-weight: 700; font-style: italic; font-size: 13.4pt; color: var(--rust); margin-top: 1pt; }
+.dark .logo .mark { border-color: var(--cream); color: var(--cream); }
+.dark .logo .word b { color: var(--cream); }
+.dark .logo .word i { color: #e0a072; }
+/* ---------- page 1 : welcome ---------- */
+.p1-top { position: absolute; left: 42pt; right: 42pt; top: 40.5pt; height: 48pt;
+border-bottom: 0.6pt solid var(--rule); display: flex; justify-content: space-between; align-items: flex-start; }
+.p1-top .ref { text-align: right; line-height: 11pt; padding-top: 2pt; }
+.p1-title { position: absolute; left: 40pt; top: 117pt; font-size: 79.5pt; line-height: 1; }
+.p1-bar { position: absolute; left: 42pt; top: 212pt; }
+.p1-intro { position: absolute; left: 42pt; top: 246pt; width: 249pt; }
+.p1-intro p.body { font-size: 9.95pt; line-height: 17.6pt; }
+.p1-intro p + p { margin-top: 8pt; }
+.toc { position: absolute; left: 323pt; right: 42pt; top: 249pt; }
+.toc .mono { margin-bottom: 10pt; }
+.toc .row { display: flex; justify-content: space-between; align-items: baseline;
+font-size: 9.6pt; color: var(--dark); padding: 6.4pt 0 6.2pt; border-bottom: 0.6pt solid var(--rule); }
+.toc .row:first-of-type { border-top: 0; }
+.toc .row span:last-child { font-family: "IBM Plex Mono", monospace; font-size: 6.4pt; color: var(--muted); letter-spacing: 0.05em; }
+.prep { position: absolute; top: 664pt; width: 249pt; border-top: 0.6pt solid var(--rule); padding-top: 11pt; }
+.prep.l { left: 42pt; } .prep.r { left: 323pt; width: 247pt; }
+.prep .who { font-family: "Playfair Display", serif; font-weight: 700; font-size: 16.7pt; color: var(--green); margin-top: 9pt; letter-spacing: -0.01em; }
+.prep .sub { font-size: 8pt; color: var(--ink); margin-top: 3pt; }
+/* ---------- page 2 : agreement ---------- */
+.p2-title { position: absolute; left: 40pt; top: 92pt; font-size: 50.8pt; line-height: 43.3pt; }
+.p2-bar { position: absolute; left: 42pt; top: 240pt; }
+.p2-right { position: absolute; left: 323pt; right: 42pt; top: 91pt; }
+.p2-right p + p { margin-top: 10pt; }
+p.body.lg { font-size: 9.8pt; line-height: 15.7pt; }
+.glance { background: var(--green); margin-top: 19pt; padding: 16pt 16.5pt 17pt; }
+.glance .mono { color: var(--rust); margin-bottom: 7pt; }
+.glance .row { display: flex; justify-content: space-between; font-size: 9pt; padding: 7pt 0 7.1pt;
+border-bottom: 0.6pt solid var(--box-rule); }
+.glance .row span:first-child { color: var(--box-text); }
+.glance .row span:last-child { color: var(--cream); }
+.glance .total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 14pt; }
+.glance .total span:first-child { font-family: "Playfair Display", serif; font-size: 12.8pt; color: var(--cream); }
+.glance .total span:last-child { font-family: "Playfair Display", serif; font-weight: 700; font-size: 16.5pt; color: var(--cream); letter-spacing: -0.005em; }
+.sigs { margin-top: 26pt; }
+.sigs .mono { color: var(--rust); }
+.sig { margin-top: 21pt; border-top: 0.6pt solid #bdb39e; padding-top: 6pt; font-size: 8.1pt; color: var(--ink); }
+.sig.first { margin-top: 18pt; }
+.sig .filled { font-family: "Playfair Display", serif; font-style: italic; font-size: 14pt; color: var(--green);
+position: absolute; margin-top: -26pt; }
+/* ---------- section pages ---------- */
+.sec-title { position: absolute; left: 41pt; top: 89pt; font-size: 37pt; line-height: 34.4pt; }
+.lead { position: absolute; left: 42pt; top: 182pt; font-size: 9.6pt; color: var(--ink); }
+/* page 3 scope */
+.stages { position: absolute; left: 42pt; right: 42pt; top: 224pt; display: grid;
+grid-template-columns: 249pt 1fr; column-gap: 32pt; row-gap: 26pt; }
+.stage h3 { display: flex; align-items: baseline; gap: 6pt; font-size: 14.8pt; }
+.stage p.body { font-size: 9.6pt; line-height: 15.6pt; }
+.stage h3 small { font-family: "IBM Plex Mono", monospace; font-weight: 400; font-size: 6.2pt; color: var(--rust); letter-spacing: 0.06em; }
+.stage p { margin-top: 8pt; }
+.stage .mono { margin-top: 7pt; }
+.incl { position: absolute; left: 42pt; right: 42pt; top: 620pt; border-top: 0.6pt solid var(--rule);
+padding-top: 11pt; display: grid; grid-template-columns: 249pt 1fr; column-gap: 32pt; }
+.incl ul { list-style: none; margin-top: 9pt; }
+.incl li { font-size: 9.6pt; line-height: 15.6pt; color: var(--dark); }
+.incl .not li { color: var(--ink); }
+/* page 4 terms */
+.terms { position: absolute; left: 42pt; right: 42pt; top: 184pt; display: grid;
+grid-template-columns: 249pt 1fr; column-gap: 32pt; }
+.terms > div { margin-bottom: 24pt; }
+.terms { grid-template-rows: repeat(5, auto); grid-auto-flow: column; align-content: start; }
+.terms.dense > div { margin-bottom: 15pt; }
+.terms.dense p.body { font-size: 8.5pt; line-height: 13.1pt; }
+.own.dense > div { margin-bottom: 15pt; }
+.own.dense p.body { font-size: 8.9pt; line-height: 14pt; }
+.sig .sigline-ink.pre { position: absolute; left: 0; bottom: 100%; margin-bottom: 1pt; font-family: "Playfair Display", serif; font-style: italic; font-size: 15pt; color: var(--green); white-space: nowrap; line-height: 1; }
+.sig { position: relative; }
+.terms h3 { margin-bottom: 6pt; }
+/* page 5 ownership */
+.own { position: absolute; left: 42pt; top: 184pt; width: 274pt; }
+.own > div { margin-bottom: 21pt; }
+.own h3 { margin-bottom: 7pt; }
+.own p.body { font-size: 9.4pt; line-height: 15.2pt; }
+.access { position: absolute; left: 350pt; right: 42pt; top: 183pt; background: var(--green); padding: 15pt 16.5pt 14pt; }
+.access .mono { color: var(--rust); margin-bottom: 6pt; }
+.access .row { display: flex; justify-content: space-between; gap: 10pt; font-size: 8.4pt; line-height: 10.3pt;
+padding: 6.3pt 0 6.4pt; border-bottom: 0.6pt solid var(--box-rule); }
+.access .row:last-child { border-bottom: 0; padding-bottom: 0; }
+.access .row span:first-child { color: var(--box-text); }
+.access .row span:last-child { color: var(--cream); text-align: right; }
+/* page 6 invoice */
+.inv-title { position: absolute; left: 41pt; top: 40pt; font-size: 43pt; line-height: 1; }
+.from { position: absolute; right: 42pt; top: 39pt; text-align: right; }
+.from .who { font-family: "Playfair Display", serif; font-weight: 700; font-size: 14.6pt; color: var(--green); margin-top: 7pt; letter-spacing: -0.01em; }
+.from .sub { font-size: 7.6pt; color: var(--ink); line-height: 10.4pt; margin-top: 2pt; }
+.meta { position: absolute; left: 42pt; right: 42pt; top: 121pt; height: 76pt;
+border-top: 0.6pt solid var(--rule); border-bottom: 0.6pt solid var(--rule);
+display: grid; grid-template-columns: repeat(4, 1fr); padding-top: 20pt; }
+.meta .v { margin-top: 7pt; font-size: 9pt; color: var(--dark); }
+.meta .v.big { font-family: "Playfair Display", serif; font-size: 12pt; color: var(--green); margin-top: 6pt; letter-spacing: 0.01em; }
+.meta .v b { font-weight: 600; }
+.meta .v small { display: block; font-size: 7.6pt; color: var(--ink); margin-top: 1pt; }
+table.items { position: absolute; left: 42pt; width: 528pt; top: 223pt; border-collapse: collapse; }
+table.items th { background: var(--green); color: var(--box-text); font-family: "IBM Plex Mono", monospace; font-weight: 400;
+font-size: 6.2pt; letter-spacing: 0.2em; text-transform: uppercase; height: 24.5pt; text-align: right; padding: 0 12pt; }
+table.items th:first-child { text-align: left; }
+table.items td { height: 36pt; border-bottom: 0.6pt solid var(--rule); font-size: 9.6pt; color: var(--dark); text-align: right; padding: 0 12pt; }
+table.items td:first-child { text-align: left; }
+table.items td.qty { color: var(--ink); }
+table.items td.rate { color: var(--ink); }
+table.items td.amt { font-weight: 500; }
+table.items th.qty, table.items td.qty { width: 60pt; padding-right: 10pt; }
+table.items th.rate, table.items td.rate { width: 82pt; }
+table.items th.amt, table.items td.amt { width: 82pt; }
+.subtotal { position: absolute; left: 345pt; right: 42pt; display: flex; justify-content: space-between; padding: 0 12pt 0 12pt; font-size: 9.6pt; color: var(--dark); }
+.totalbox { position: absolute; left: 345pt; right: 42pt; height: 50pt; background: var(--green);
+display: flex; justify-content: space-between; align-items: center; padding: 0 12pt; }
+.totalbox .mono { color: var(--box-text); }
+.totalbox .amt { font-family: "Playfair Display", serif; font-weight: 700; font-size: 19.3pt; color: var(--cream); }
+.sched-label { position: absolute; left: 42pt; }
+.sched { position: absolute; left: 42pt; right: 42pt; display: grid; grid-template-columns: 1fr 1fr; column-gap: 30pt; }
+.sched > div { border-top: 1.4pt solid var(--green); padding-top: 18pt; }
+.sched > div.later { border-top-color: var(--rust); }
+.sched .amt { font-family: "Playfair Display", serif; font-weight: 700; font-size: 25.7pt; color: var(--green); line-height: 1; letter-spacing: -0.01em; }
+.sched .desc { font-size: 9.6pt; color: var(--dark); margin-top: 9pt; }
+.sched .mono { margin-top: 7pt; }
+.howpay { position: absolute; left: 42pt; right: 42pt; top: 658pt; border-top: 0.6pt solid var(--rule); padding-top: 18pt; }
+.howpay .mono { color: var(--rust); }
+.howpay .t { font-size: 9.6pt; font-weight: 600; color: var(--dark); margin-top: 8pt; }
+.howpay p { font-size: 8.7pt; line-height: 14.3pt; color: var(--ink); margin-top: 4pt; width: 340pt; }
+.stamp { position: absolute; right: 42pt; top: 674pt; width: 57pt; height: 57pt; border: 0.8pt solid var(--rust);
+border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.stamp b { font-family: "Playfair Display", serif; font-weight: 700; font-size: 13pt; color: var(--green); letter-spacing: -0.02em; line-height: 1; }
+.stamp span { font-family: "IBM Plex Mono", monospace; font-size: 3.9pt; letter-spacing: 0.18em; color: var(--rust); margin-top: 4pt; text-transform: uppercase; }
+/* page 7 thank you */
+.dark .p1-top { border-bottom-color: #3d5842; }
+.ty-title { position: absolute; left: 39pt; top: 202pt; font-size: 80pt; line-height: 66pt; color: var(--cream); }
+.ty-bar { position: absolute; left: 42pt; top: 360pt; background: #d4935f; }
+.ty-cols { position: absolute; left: 42pt; right: 42pt; top: 394pt; display: grid; grid-template-columns: 249pt 1fr; column-gap: 32pt; }
+.ty-cols p { font-size: 9.2pt; line-height: 16.6pt; color: #e6e1d3; }
+.ty-foot { position: absolute; left: 42pt; right: 42pt; top: 690pt; border-top: 0.6pt solid #3d5842; padding-top: 10pt;
+display: grid; grid-template-columns: repeat(3, 1fr); }
+.ty-foot .mono { color: #8fa18f; }
+.ty-foot .v { font-size: 9pt; color: var(--cream); margin-top: 7pt; }
+.dark .foot .mono { color: #8fa18f; }
+/* keep host-page styles (HubSpot) from leaking into the document */
+#doc, #doc * { box-sizing: border-box; }
+:where(#doc) :where(p, h1, h2, h3, ul, li, table) { margin: 0; padding: 0; }
+:where(#doc) :where(table) { border-spacing: 0; }
+:where(#doc) :where(h3) { text-transform: none; }
+@media screen {
+html, body { background: #e9e2d2 !important; margin: 0 !important; }
+body { padding: 64px 0 40px; }
+#doc { display: flex; flex-direction: column; align-items: center; }
+.shell { width: 816px; max-width: 100%; margin: 0 auto 24px; overflow: hidden; box-shadow: 0 2px 18px rgba(31,58,36,.12); }
+.shell .page { transform-origin: top left; }
+.bar-top { position: fixed; top: 0; left: 0; right: 0; height: 52px; z-index: 50; background: var(--green);
+display: flex; align-items: center; justify-content: space-between; padding: 0 16px; gap: 10px; }
+.bar-top span { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #c9d1c4;
+white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.bar-top .acts { display: flex; gap: 8px; flex: none; }
+.btn { font-family: "Karla", sans-serif; font-size: 14px; font-weight: 600; border: 0; padding: 9px 14px; cursor: pointer;
+white-space: nowrap; text-decoration: none; display: inline-block; line-height: 1.2; }
+.btn.light { background: var(--cream); color: var(--green); }
+.btn.ghost { background: transparent; color: var(--cream); box-shadow: inset 0 0 0 1px #6f8a73; }
+.btn.rust { background: var(--rust); color: #fff; }
+.note { width: 816px; max-width: calc(100% - 24px); margin: 0 auto 24px; background: var(--green); color: var(--cream); padding: 22px 28px;
+font-family: "Karla", sans-serif; font-size: 15px; line-height: 1.55; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.note b { font-family: "Playfair Display", serif; font-size: 21px; display: block; margin-bottom: 2px; }
+.note span { color: #d7dccf; }
+.sign { width: 816px; max-width: calc(100% - 24px); margin: 0 auto 40px; background: var(--cream); box-shadow: 0 2px 18px rgba(31,58,36,.12);
+padding: 40px 48px 44px; font-family: "Karla", sans-serif; color: var(--ink); }
+.sign .k { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--rust); }
+.sign h2 { font-family: "Playfair Display", serif; font-weight: 900; text-transform: uppercase; letter-spacing: -.03em; color: var(--green);
+font-size: 44px; line-height: .95; margin: 10px 0 14px; word-spacing: .12em; }
+.sign p.lead2 { font-size: 15px; line-height: 1.6; max-width: 560px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 22px; margin-top: 26px; }
+.fld label { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+.fld input { width: 100%; font-family: "Karla", sans-serif; font-size: 16px; color: var(--dark); background: #fffdf7; border: 1px solid var(--rule);
+padding: 12px 13px; outline: none; border-radius: 0; -webkit-appearance: none; }
+.fld input:focus { border-color: var(--green); }
+.sigpad { margin-top: 22px; border-bottom: 1px solid #bdb39e; min-height: 74px; display: flex; align-items: flex-end; padding-bottom: 6px; }
+.sigpad .ink { font-family: "Playfair Display", serif; font-style: italic; font-weight: 400; font-size: 38px; color: var(--green); line-height: 1; }
+.sigpad .ph { font-size: 14px; color: #b3ab99; }
+.sigcap { font-size: 13px; color: var(--muted); margin-top: 7px; display: flex; justify-content: space-between; }
+.agree { display: flex; gap: 11px; align-items: flex-start; margin-top: 22px; font-size: 14.5px; line-height: 1.5; cursor: pointer; }
+.agree input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--green); flex: none; }
+.go { margin-top: 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.go .btn { font-size: 16px; padding: 15px 22px; background: var(--green); color: var(--cream); }
+.go .btn[disabled] { opacity: .45; cursor: not-allowed; }
+.go small { font-size: 13px; color: var(--muted); max-width: 320px; line-height: 1.45; }
+.err { color: #a5432a; font-size: 13.5px; margin-top: 10px; min-height: 1em; }
+.done { display: none; }
+.signed .done { display: block; }
+.signed .todo { display: none; }
+.done .tick { font-family: "Playfair Display", serif; font-size: 22px; color: var(--green); margin-top: 6px; }
+.sigline-ink { position: absolute; left: 0; bottom: 100%; margin-bottom: 1pt; font-family: "Playfair Display", serif; font-style: italic;
+font-size: 15pt; color: var(--green); white-space: nowrap; line-height: 1; }
+.sig { position: relative; }
+}
+@media screen and (max-width: 640px) {
+.sign { padding: 28px 20px 32px; } .sign h2 { font-size: 34px; } .grid { grid-template-columns: 1fr; }
+.bar-top span { display: none; } .bar-top { justify-content: flex-end; } .note { padding: 18px 20px; }
+}
+@media print {
+.bar-top, .note, .sign { display: none !important; } body { padding: 0 !important; background: var(--cream) !important; }
+.shell { box-shadow: none; margin: 0; width: auto; height: auto !important; overflow: visible; } .shell .page { transform: none !important; }
+.sigline-ink { position: absolute; left: 0; bottom: 100%; margin-bottom: 1pt; font-family: "Playfair Display", serif; font-style: italic; font-size: 17pt; color: var(--green); }
+.sig { position: relative; }
+}
+</style>
+</head>
+<body>
+<div class="bar-top"><span>Steep Sites · Tasso Events</span><div class="acts"><button class="btn ghost" onclick="window.print()">Download PDF</button><a class="btn light" href="#sign">Sign agreement</a></div></div>
+<div id="doc">
+<div class="note todo-note"><div><b>Your agreement is ready</b><span>Read it through, then sign at the bottom of the page.</span></div><a class="btn rust" href="#sign">Go to signing</a></div>
+<div class="shell"><section class="page">
+<div class="p1-top">
+<div class="logo"><div class="mark">S</div><div class="word"><b>Steep</b><i>Sites</i></div></div>
+<div class="ref"><div class="mono">Client agreement</div><div class="mono rust">SS-CF-002</div></div>
+</div>
+<div class="display p1-title">Welcome</div>
+<div class="bar p1-bar"></div>
+<div class="p1-intro">
+<p class="body">Thank you for choosing Steep Sites. This document sets out how we work together: what gets built, when it lands, what it costs, and what each of us is responsible for along the way.</p>
+<p class="body">Read it end to end. If anything reads unclear or does not match the conversation we had, say so before signing. Once signed, this becomes the reference we both work from.</p>
+</div>
+<div class="toc">
+<div class="mono rust">In this document</div>
+<div class="row"><span>Client Agreement</span><span>02</span></div>
+<div class="row"><span>Scope &amp; Deliverables</span><span>03</span></div>
+<div class="row"><span>Terms &amp; Conditions</span><span>04</span></div>
+<div class="row"><span>Ownership &amp; Support</span><span>05</span></div>
+<div class="row"><span>Invoice</span><span>06</span></div>
+</div>
+<div class="prep l"><div class="mono">Prepared for</div><div class="who">Tasso Events</div><div class="sub">Event coordination, Michigan</div></div>
+<div class="prep r"><div class="mono">Prepared by</div><div class="who">Steep Sites</div><div class="sub">Kitchener, Ontario</div></div>
+<div class="foot"><span class="mono">Let's build something great</span><span class="mono">01</span></div>
+</section></div>
+<div class="shell"><section class="page">
+<div class="head"><span class="mono">Steep Sites · 2026</span><span class="mono rust">Section one</span></div>
+<div class="display p2-title">Client<br>Agree<br>ment</div>
+<div class="bar p2-bar"></div>
+<div class="p2-right">
+<p class="body lg">This agreement is between Immad Yasir, operating as Steep Sites, of Kitchener, Ontario, Canada (&#34;the Studio&#34;) and Tasso Events, a Michigan business, together with its owner who signs below (&#34;the Client&#34;). It covers the design and build of the Tasso Events website and takes effect on the date the Client signs it.</p>
+<p class="body lg">The pages that follow set out the scope of work, the schedule, the fee and the terms of the engagement. Together they are the entire agreement between the parties and replace any earlier quotes, messages or conversations about this project.</p>
+<div class="glance">
+<div class="mono">At a glance</div>
+<div class="row"><span>Project</span><span>Tasso Events Website</span></div>
+<div class="row"><span>Start date</span><span>On signing</span></div>
+<div class="row"><span>Delivery</span><span>Weekend of Nov 20 to 22, 2026</span></div>
+<div class="row"><span>Payment</span><span>In full on delivery</span></div>
+<div class="row"><span>Due on signing</span><span>Nothing</span></div>
+<div class="total"><span>Total fee</span><span class="num">$299.00 USD</span></div>
+</div>
+<div class="sigs">
+<div class="mono">Signatures</div>
+<div class="sig first">Owner or authorized representative, Tasso Events, Date</div>
+<div class="sig"><span class="sigline-ink pre">Immad Yasir</span>Immad Yasir, Steep Sites, October 16, 2026</div>
+</div>
+</div>
+<div class="foot"><span class="mono">Client agreement</span><span class="mono">02</span></div>
+</section></div>
+<div class="shell"><section class="page">
+<div class="head"><span class="mono">Steep Sites · 2026</span><span class="mono rust">Scope</span></div>
+<div class="display sec-title">Scope &amp;<br>Deliverables</div>
+<div class="lead">About five weeks from signing to launch, in four stages. Dates assume content and feedback arrive on time.</div>
+<div class="stages">
+<div class="stage">
+<h3><small>01</small>Discovery</h3>
+<p class="body">A short call on Tasso Events&#39; services, past events and the clients you want to reach, then a sitemap and a written plan for the build.</p>
+<div class="mono">Week 1</div>
+</div>
+<div class="stage">
+<h3><small>02</small>Design</h3>
+<p class="body">Page designs for desktop and mobile, a type and color system drawn from the Tasso Events brand, and layouts for services, past events and enquiries.</p>
+<div class="mono">Weeks 1 to 2</div>
+</div>
+<div class="stage">
+<h3><small>03</small>Build</h3>
+<p class="body">Development, an event enquiry form, services, gallery and about pages, basic analytics, and speed and mobile testing.</p>
+<div class="mono">Weeks 2 to 4</div>
+</div>
+<div class="stage">
+<h3><small>04</small>Launch &amp; handoff</h3>
+<p class="body">Final review, domain and hosting setup, a short walkthrough recording, and the ongoing support set out on page 05.</p>
+<div class="mono">Weekend of Nov 20 to 22</div>
+</div>
+</div>
+<div class="incl">
+<div><div class="mono rust">Included</div><ul><li>Home, Services, Past Events, About and Contact pages</li><li>Mobile layouts and an event enquiry form</li><li>Revisions while the project is in progress</li><li>Domain registration, renewed every year at no extra cost</li><li>Basic on-page SEO setup</li></ul></div>
+<div class="not"><div class="mono">Not included</div><ul><li>Online booking, checkout or payment processing</li><li>Event photography or video</li><li>Copywriting beyond light editing</li><li>Paid ads or an ongoing SEO retainer</li></ul></div>
+</div>
+<div class="foot"><span class="mono">Scope &amp; deliverables</span><span class="mono">03</span></div>
+</section></div>
+<div class="shell"><section class="page">
+<div class="head"><span class="mono">Steep Sites · 2026</span><span class="mono rust">Terms</span></div>
+<div class="display sec-title">Terms &amp;<br>Conditions</div>
+<div class="terms dense">
+<div><h3>1 · Fees and payment</h3><p class="body">The total fee is $299.00 USD, a flat fee with no taxes or other charges added. Nothing is due on signing. The full fee is due in one payment by Stripe on delivery, on the weekend of November 20 to 22, 2026, once the Client has reviewed the site and confirmed it works as agreed. Confirmation is not unreasonably withheld. If something does not match this agreement, the Client says so in writing and payment is due once it is fixed.</p></div>
+<div><h3>2 · Revisions</h3><p class="body">Reasonable revisions are included at no extra charge while the project is in progress, as long as they stay within the scope on page 03. New pages or features requested after signing are quoted separately and agreed in writing before work starts.</p></div>
+<div><h3>3 · Client responsibilities</h3><p class="body">The Client supplies text, photos, logos and feedback within 2 business days of each request, and confirms it has the right to use everything it supplies. Delays beyond that move the delivery date back by the same amount.</p></div>
+<div><h3>4 · Schedule</h3><p class="body">Work begins once this agreement is signed. The site is delivered on the weekend of November 20 to 22, 2026, provided content and feedback arrive on time. Any change to the timeline is agreed in writing, which includes email.</p></div>
+<div><h3>5 · Ownership</h3><p class="body">When payment in full clears, the Client owns the delivered website, its design and its domain, as set out on page 05. The Studio keeps its own tools, code libraries and pre-existing work, and grants the Client a permanent, free license to use any of them included in the site.</p></div>
+<div><h3>6 · Portfolio rights</h3><p class="body">The Studio may show the finished website in its portfolio and case studies unless the Client asks otherwise in writing.</p></div>
+<div><h3>7 · Confidentiality</h3><p class="body">Both parties keep non-public business information private and use it only to carry out this agreement. This continues after the project ends.</p></div>
+<div><h3>8 · Termination</h3><p class="body">Either party may end this agreement with 7 days written notice. If the Client ends it, the Client pays 25% of the fee for each stage on page 03 that has started, never more than the total fee, and receives the files completed so far once paid. If the Studio ends it, nothing is owed.</p></div>
+<div><h3>9 · Warranty and liability</h3><p class="body">The Studio does the work with reasonable skill and care. Beyond the commitments in this agreement, the site is provided as is. Each party&#39;s total liability is limited to the fee payable under this agreement, and neither is liable for indirect or consequential loss.</p></div>
+<div><h3>10 · Governing law and general</h3><p class="body">This agreement is governed by the laws of the State of Michigan, without regard to its conflict of law rules. Disputes go first to good-faith discussion, then to mediation. The parties are independent contractors. Notices and changes must be in writing, and email counts. If any term is unenforceable, the rest still applies. Electronic signatures are binding.</p></div>
+</div>
+<div class="foot"><span class="mono">Terms &amp; conditions</span><span class="mono">04</span></div>
+</section></div>
+<div class="shell"><section class="page">
+<div class="head"><span class="mono">Steep Sites · 2026</span><span class="mono rust">Ownership</span></div>
+<div class="display sec-title">Ownership &amp;<br>Support</div>
+<div class="own dense">
+<div><h3>11 · Ownership transfer</h3><p class="body">During the build the Client gets a private preview link, so progress can be checked at any time. Once the Client has confirmed the site works and payment in full clears, the Client owns everything built for it: the full source code, the front end (design and content) and the back end (hosting account and any content management system). The Studio transfers every account and login to the Client within 2 business days. The Client is free to edit the code or hire any developer, with no lock-in to the Studio.</p></div>
+<div><h3>12 · Domain renewal</h3><p class="body">The domain is registered in the Client&#39;s name. The Studio renews it every year at no extra cost for as long as the Client wants it kept. If the Studio ever stops offering this, it gives 60 days written notice and moves the domain to the Client&#39;s own account at no charge. The Client can also move the domain at any time, and the Studio handles that transfer free.</p></div>
+<div><h3>13 · Future updates and fees</h3><p class="body">Anything in the original build that stops working is fixed free for as long as the site is live and the Studio is operating. Small updates, such as swapping text, photos, dates or services, are also free. Larger work, such as new pages or features, gets a fixed-price quote in writing first. Nothing starts until the Client approves it, and the Client never pays more than the approved quote. The Client is never required to use the Studio for updates.</p></div>
+</div>
+<div class="access">
+<div class="mono">Access &amp; ownership</div>
+<div class="row"><span>Site access</span><span>Preview link from day one</span></div>
+<div class="row"><span>Source code and front end</span><span>Client&#39;s on payment</span></div>
+<div class="row"><span>Back end and hosting</span><span>Client&#39;s on payment</span></div>
+<div class="row"><span>Admin logins</span><span>Within 2 business days</span></div>
+<div class="row"><span style="width:60pt">Domain renewal</span><span>Every year, no extra cost</span></div>
+<div class="row"><span>Fixes and small updates</span><span>Free</span></div>
+<div class="row"><span>Larger changes</span><span>Fixed quote, approved first</span></div>
+</div>
+<div class="foot"><span class="mono">Ownership &amp; support</span><span class="mono">05</span></div>
+</section></div>
+<div class="shell"><section class="page">
+<div class="display inv-title">Invoice</div>
+<div class="from">
+<div class="mono">From</div>
+<div class="who">Steep Sites</div>
+<div class="sub">Kitchener, Ontario<br>519-778-7599</div>
+</div>
+<div class="meta">
+<div><div class="mono">Invoice №</div><div class="v big num">SS-0007</div></div>
+<div><div class="mono">Issued</div><div class="v">October 16, 2026</div></div>
+<div><div class="mono">Due</div><div class="v">On delivery</div></div>
+<div><div class="mono">Billed to</div><div class="v"><b>Tasso Events</b><small>Event coordination, Michigan</small></div></div>
+</div>
+<table class="items">
+<thead><tr><th>Description</th><th class="qty">Qty</th><th class="rate">Rate</th><th class="amt">Amount</th></tr></thead>
+<tbody>
+<tr><td>Website Design &amp; Development</td><td class="qty">1</td><td class="rate">$284.00</td><td class="amt">$284.00</td></tr>
+<tr><td>Domain Registration, renewals included</td><td class="qty">1</td><td class="rate">$15.00</td><td class="amt">$15.00</td></tr>
+</tbody>
+</table>
+<div class="subtotal" style="top: 333.5pt"><span>Subtotal</span><span>$299.00</span></div>
+<div class="totalbox" style="top: 357.0pt"><span class="mono">Total USD</span><span class="amt num">$299.00</span></div>
+<div class="mono rust sched-label" style="top: 439.5pt">Payment schedule</div>
+<div class="sched" style="top: 456.5pt">
+<div><div class="amt num">$0.00</div><div class="desc">Nothing is due on signing</div><div class="mono">On signing</div></div>
+<div class="later"><div class="amt num">$299.00</div><div class="desc">100% due on delivery, in one payment</div><div class="mono">Weekend of Nov 20 to 22, 2026</div></div>
+</div>
+<div class="howpay">
+<div class="mono">How to pay</div>
+<div class="t">Stripe</div>
+<p>A Stripe payment link for $299.00 USD (invoice SS-0007) is sent on delivery. Questions: 519-778-7599 or info@steepsites.com.</p>
+</div>
+<div class="stamp"><b>SS</b><span>Steep Sites</span></div>
+<div class="foot"><span class="mono">Invoice SS-0007</span><span class="mono">06</span></div>
+</section></div>
+<div class="shell"><section class="page dark">
+<div class="p1-top">
+<div class="logo"><div class="mark">S</div><div class="word"><b>Steep</b><i>Sites</i></div></div>
+<div class="ref"><div class="mono" style="color:#d4935f">End of document</div></div>
+</div>
+<div class="display ty-title">Thank<br>You</div>
+<div class="bar ty-bar"></div>
+<div class="ty-cols">
+<p>Thank you for trusting Steep Sites with the Tasso Events website. Sign this agreement online. Nothing is charged today, and work begins as soon as it is signed.</p>
+<p>If anything here needs adjusting, reply before signing and a revised version will be issued. Nothing is final until the agreement is signed.</p>
+</div>
+<div class="ty-foot">
+<div><div class="mono">Phone</div><div class="v">519-778-7599</div></div>
+<div><div class="mono">Location</div><div class="v">Kitchener, Ontario</div></div>
+<div><div class="mono">Studio</div><div class="v">Steep Sites</div></div>
+</div>
+<div class="foot"><span class="mono">Let's build something great</span><span class="mono">07</span></div>
+</section></div>
+<div class="sign" id="sign">
+<div class="todo">
+<div class="k">Sign &amp; begin</div>
+<h2>Sign this<br>agreement</h2>
+<p class="lead2">Type your name to sign on behalf of Tasso Events. Nothing is charged today, and the $299.00 USD fee is due on delivery.</p>
+<div class="grid">
+<div class="fld"><label for="sn">Full name</label><input id="sn" autocomplete="name" placeholder="Your full name"></div>
+<div class="fld"><label for="se">Email</label><input id="se" type="email" autocomplete="email" placeholder="you@business.com"></div>
+</div>
+<div class="sigpad"><span class="ph" id="ph">Your signature appears here</span><span class="ink" id="ink"></span></div>
+<div class="sigcap"><span>Owner or authorized representative, Tasso Events</span><span id="sd"></span></div>
+<label class="agree"><input type="checkbox" id="ok"><span>I have read this agreement (SS-CF-002) and agree to its scope, terms and payment schedule. Typing my name above is my signature.</span></label>
+<div class="go"><button class="btn" id="sb" disabled>Sign agreement</button><small>No card needed. Your name, email, the date and agreement SS-CF-002 are recorded securely when you sign.</small></div>
+<div class="err" id="er"></div>
+</div>
+<div class="done">
+<div class="k">Signed</div>
+<h2>Thank you</h2>
+<p class="lead2" id="dm">This agreement is signed and work is underway. Nothing has been charged; the $299.00 USD fee is due on delivery.</p>
+<div class="tick" id="dn"></div>
+<div class="go"><button class="btn" onclick="window.print()">Download signed copy</button></div>
+</div>
+</div>
+</div>
+<form name="agreement-signatures" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="agreement"><input name="invoice"><input name="signer"><input name="email"><input name="signed_on"><input name="signed_at"><input name="page"><input name="agent"></form>
+<script>
+(function(){
+var PAY="", REF="SS-0007", FORM="agreement-signatures", DOC="SS-CF-002", KEY='ss-sign-'+REF;
+function $(i){return document.getElementById(i);}
+function today(){return new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});}
+function store(v){try{if(v===undefined){return JSON.parse(localStorage.getItem(KEY)||'null');}localStorage.setItem(KEY,JSON.stringify(v));}catch(e){return null;}}
+function stamp(name,date){var s=document.querySelector('.sig.first');if(!s||!name)return;var o=s.querySelector('.sigline-ink');if(!o){o=document.createElement('span');o.className='sigline-ink';s.appendChild(o);}
+o.textContent=name;s.childNodes[0].nodeValue=s.childNodes[0].nodeValue.replace(/Date$/,'')+date;}
+function fit(){var w=document.documentElement.clientWidth;var sc=Math.min(1,(w-16)/816);document.querySelectorAll('.shell').forEach(function(sh){var p=sh.firstElementChild;
+p.style.transform=sc<1?'scale('+sc+')':'';sh.style.width=(816*sc)+'px';sh.style.height=(1056*sc)+'px';});}
+window.addEventListener('resize',fit);fit();
+window.addEventListener('beforeprint',function(){document.querySelectorAll('.shell').forEach(function(sh){sh.firstElementChild.style.transform='';sh.style.height='';sh.style.width='';});});
+window.addEventListener('afterprint',fit);
+var n=$('sn'),e=$('se'),ok=$('ok'),b=$('sb');
+function upd(){var v=n.value.trim();$('ink').textContent=v;$('ph').style.display=v?'none':'';$('sd').textContent=v?today():'';
+b.disabled=!(v.length>1&&/.+@.+\..+/.test(e.value.trim())&&ok.checked);}
+[n,e].forEach(function(x){x.addEventListener('input',upd);});ok.addEventListener('change',upd);
+b.addEventListener('click',function(){var v=n.value.trim(),d=today(),em=e.value.trim();
+store({name:v,date:d,email:em});stamp(v,d);
+var id=(REF+'__'+v+'__'+new Date().toISOString().slice(0,10)).replace(/[^A-Za-z0-9_-]+/g,'-').slice(0,200);
+if(!PAY&&FORM){b.disabled=true;$('er').textContent='';
+var body=new URLSearchParams({'form-name':FORM,agreement:DOC,invoice:REF,signer:v,email:em,signed_on:d,signed_at:new Date().toISOString(),page:location.href.split('?')[0],agent:navigator.userAgent}).toString();
+fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(function(r){if(!r.ok)throw 0;
+history.replaceState(null,'',location.pathname+'?signed=1');showDone(store());}).catch(function(){b.disabled=false;$('er').textContent='Something went wrong. Please try again or email info@steepsites.com.';});
+return;}
+if(!PAY){$('er').textContent='Payment link missing. Please contact the studio.';return;}
+location.href=PAY+'?client_reference_id='+encodeURIComponent(id)+'&prefilled_email='+encodeURIComponent(em);});
+var q=new URLSearchParams(location.search),saved=store();
+function showDone(sv){document.getElementById('sign').classList.add('signed');document.querySelectorAll('.todo-note').forEach(function(x){x.style.display='none';});
+if(sv&&sv.name){stamp(sv.name,sv.date);$('dn').textContent='Signed by '+sv.name+' · '+sv.date;}
+setTimeout(function(){$('sign').scrollIntoView({behavior:'smooth'});},300);}
+if(q.get('paid')==='1'||q.get('signed')==='1'){showDone(saved);}
+})();
+</script></body>
+</html>
