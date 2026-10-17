@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dt. Leen Shahin · Nutritionist · Online Consultations</title>
+<meta name="description" content="Dt. Leen Shahin, nutritionist in the UAE. Lose weight while still enjoying your favourite foods. Online consultations in English and Arabic.">
+<meta name="theme-color" content="#44181F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%238C2F3E'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='32' font-style='italic' fill='%23FBF3F1'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#FBF3F1;--paper:#FFFAF8;--tint:#F3E2E0;--ink:#2E1F22;--muted:#6E585B;
+  --accent:#8C2F3E;--accent-dk:#6E2230;--metal:#E4C9AC;--soft:#DCC4C5;
+  --deep1:#5E2632;--deep2:#44181F;--deep3:#2A0E13;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:'Jost',system-ui,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:var(--accent)}
+.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400}
+.ar{font-family:'Amiri','Cormorant Garamond',serif;font-style:normal}
+.hand{font-family:'Caveat',cursive;font-weight:600}
+em{font-style:italic;color:var(--accent)}
+.dark em{color:var(--metal)}
+.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.dark .eyebrow{color:var(--soft)}
+.lineeye{display:flex;align-items:center;gap:14px}
+.lineeye::before{content:"";width:40px;height:1px;background:currentColor;opacity:.6;flex:none}
+.h2{margin:0;font-size:clamp(40px,7vw,66px);line-height:1.04;letter-spacing:-.01em}
+.lead{margin:0;font-size:17px;line-height:1.85;color:var(--muted)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.dark{background:radial-gradient(120% 80% at 50% 0%,var(--deep1) 0%,var(--deep2) 45%,var(--deep3) 100%);color:var(--ground)}
+.dark .lead{color:var(--soft)}
+.mono{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:var(--accent);color:var(--ground);font-family:'Cormorant Garamond',Georgia,serif;font-style:italic}
+
+/* loader */
+#loader{position:fixed;inset:0;z-index:200;background:radial-gradient(90% 60% at 50% 40%,var(--deep1),var(--deep3));display:flex;align-items:center;justify-content:center;transition:transform 1.05s cubic-bezier(.76,0,.24,1),border-radius 1.05s cubic-bezier(.76,0,.24,1)}
+#loader.lift{transform:translateY(-110%);border-radius:0 0 50% 50%/0 0 22% 22%}
+#loader .inner{display:flex;flex-direction:column;align-items:center;gap:18px;transition:opacity .45s ease,transform .45s ease}
+#loader.lift .inner{opacity:0;transform:translateY(-12px)}
+#loader .mono{width:84px;height:84px;font-size:48px;background:transparent;border:1px solid var(--metal);color:var(--metal);opacity:0;animation:fadeUp 1s var(--ease) .15s forwards}
+#loader .word{font-size:clamp(30px,8vw,46px);letter-spacing:.14em;text-transform:uppercase;color:var(--ground);opacity:0;animation:fadeUp 1s var(--ease) .55s forwards}
+#loader .rule{width:0;height:1px;background:var(--metal);animation:grow 1.3s cubic-bezier(.65,0,.35,1) .9s forwards}
+#loader .tag{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--metal);opacity:0;animation:fadeUp 1s ease 1.3s forwards;text-align:center;padding:0 20px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes grow{to{width:180px}}
+.enter{opacity:0;transform:translateY(16px)}
+body.ready .enter{animation:fadeUp 1.1s var(--ease) forwards}
+body.ready .e1{animation-delay:.05s}body.ready .e2{animation-delay:.2s}body.ready .e3{animation-delay:.35s}body.ready .e4{animation-delay:.5s}body.ready .e5{animation-delay:.65s}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:70}
+
+/* nav */
+#nav{position:sticky;top:0;z-index:50;background:rgba(251,243,241,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .4s ease,background .4s ease}
+#nav.solid{border-color:rgba(46,31,34,.08);background:rgba(251,243,241,.9)}
+.navin{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand .mono{width:38px;height:38px;font-size:22px;flex:none}
+.brand .bw{display:flex;flex-direction:column;line-height:1}
+.brand .bw b{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:19px;letter-spacing:.16em;text-transform:uppercase}
+.brand .bw small{font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+.navlinks{display:flex;gap:28px;align-items:center}
+.navlinks a.l{color:var(--ink);text-decoration:none;font-size:14px;letter-spacing:.06em;transition:color .3s ease}
+.navlinks a.l:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;background:var(--accent);color:#FBF3F1;text-decoration:none;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:400;border:1px solid transparent;cursor:pointer;font-family:inherit;transition:transform .4s var(--ease),box-shadow .4s ease,background .3s ease,color .3s ease}
+.btn:hover{background:var(--accent-dk);color:#FBF3F1;transform:translateY(-2px);box-shadow:0 14px 30px rgba(140,47,62,.3)}
+.btn .dot{width:6px;height:6px;border-radius:50%;background:#FBF3F1;display:inline-block}
+.ghost{background:transparent;color:var(--ink);border-color:rgba(46,31,34,.4)}
+.ghost:hover{background:var(--ink);color:var(--ground);box-shadow:none}
+.dark .ghost{color:var(--ground);border-color:rgba(251,243,241,.45)}
+.dark .ghost:hover{background:var(--ground);color:var(--deep3)}
+.light{background:var(--tint);color:var(--deep3)}
+.light:hover{background:var(--paper);color:var(--deep3);box-shadow:none}
+
+/* placeholders */
+.ph{position:relative;overflow:hidden;background:linear-gradient(155deg,#F8ECEA 0%,#F0DCD9 55%,#E2C1C1 100%);display:flex;align-items:center;justify-content:center}
+.ph::before{content:"";position:absolute;width:70%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(140,47,62,.16);top:-20%;right:-18%}
+.ph::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 30% 25%,rgba(255,255,255,.5),transparent 70%)}
+.ph .ic{width:52px;height:52px;color:rgba(110,34,48,.55);position:relative;z-index:1;transition:transform 1.4s var(--ease)}
+.ph .cap{position:absolute;left:12px;right:12px;bottom:18px;text-align:center;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent-dk);z-index:1}
+.ph.deep{background:linear-gradient(155deg,#6A3039 0%,#4A1C24 60%,#321116 100%)}
+.ph.deep::before{border-color:rgba(228,201,172,.2)}
+.ph.deep::after{background:radial-gradient(60% 50% at 30% 25%,rgba(228,201,172,.14),transparent 70%)}
+.ph.deep .ic{color:rgba(228,201,172,.7)}
+.ph.deep .cap{color:var(--metal)}
+
+/* hero */
+.heroSec{position:relative}
+.hero{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center;padding:56px 0 64px;position:relative}
+.ring{position:absolute;width:560px;height:560px;border-radius:50%;border:1px solid rgba(140,47,62,.14);left:-200px;top:40px;pointer-events:none}
+.archwrap{position:relative;max-width:460px;margin-left:auto;width:100%}
+.arch{width:100%;aspect-ratio:4/5.2;border-radius:999px 999px 18px 18px;box-shadow:0 30px 60px rgba(46,31,34,.16)}
+.arch .ic{width:76px;height:76px}
+.archframe{position:absolute;inset:-12px;border:1px solid rgba(140,47,62,.24);border-radius:999px 999px 26px 26px;pointer-events:none}
+.badge{position:absolute;left:-34px;top:70px;width:132px;height:132px;z-index:2}
+.badge svg{width:100%;height:100%;animation:spin 24s linear infinite}
+.badge .core{position:absolute;inset:38px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--ground);font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:30px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.note{position:absolute;right:-14px;bottom:44px;background:var(--paper);padding:16px 22px 14px;transform:rotate(-4deg);box-shadow:0 18px 40px rgba(46,31,34,.16);display:flex;flex-direction:column;gap:4px;animation:bob 6s ease-in-out infinite;z-index:2}
+.note::before{content:"";position:absolute;top:-10px;left:50%;width:58px;height:20px;margin-left:-29px;background:rgba(228,201,172,.65);transform:rotate(3deg)}
+@keyframes bob{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-6px)}}
+.strip{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.strip .star{color:var(--accent)}
+.mouse{width:22px;height:36px;border:1px solid rgba(46,31,34,.4);border-radius:12px;position:relative;margin:0 auto}
+.mouse::after{content:"";position:absolute;left:50%;top:7px;width:2px;height:7px;margin-left:-1px;border-radius:2px;background:var(--ink);animation:wheel 1.8s ease-in-out infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+
+/* marquee */
+.ribbon{background:var(--deep2);color:var(--ground);overflow:hidden;padding:26px 0}
+.track{display:flex;width:max-content;animation:marq 42s linear infinite}
+.track span{display:inline-flex;align-items:center;gap:34px;padding-right:34px;font-size:clamp(26px,4.4vw,38px);font-style:italic;white-space:nowrap}
+.track .ar{font-size:.9em;color:var(--metal)}
+.track svg{width:16px;height:16px;color:var(--metal);flex:none}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* pair */
+.pair{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px;align-items:end}
+.pair .ph{border-radius:18px}
+.inset{position:absolute;right:-18px;bottom:-30px;width:44%;aspect-ratio:1/1;border-radius:50%;border:6px solid var(--ground);box-shadow:0 20px 40px rgba(46,31,34,.18)}
+.inset .ic{width:34px;height:34px}
+.inset .cap{bottom:auto;top:62%;font-size:8px;letter-spacing:.24em}
+
+/* services */
+.tabs{display:inline-flex;padding:6px;border-radius:999px;border:1px solid rgba(251,243,241,.18);gap:4px;flex-wrap:wrap;align-self:flex-start}
+.tabs button{min-height:46px;padding:0 22px;border-radius:999px;background:transparent;border:none;color:var(--soft);font-family:inherit;font-size:12px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background .35s ease,color .35s ease}
+.tabs button.on{background:var(--tint);color:var(--deep3)}
+.panel{display:none;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start}
+.panel.on{display:grid;animation:fadeUp .7s var(--ease) both}
+.panel .ph{border-radius:18px;aspect-ratio:5/4}
+.mcard{border:1px solid rgba(251,243,241,.14);border-radius:18px;overflow:hidden}
+.mrow{padding:26px 28px;border-top:1px solid rgba(251,243,241,.12);display:flex;flex-direction:column;gap:10px;transition:background .4s ease}
+.mrow:first-child{border-top:none}
+.mrow:hover{background:rgba(251,243,241,.04)}
+.mtop{display:flex;justify-content:space-between;gap:12px;font-size:11px;letter-spacing:.24em;color:var(--soft);text-transform:uppercase}
+.mtop .pr{color:var(--metal)}
+.mrow h3{margin:0;font-size:clamp(28px,4.6vw,34px)}
+.mrow p{margin:0;color:var(--soft);line-height:1.7}
+.mrow .bk{align-self:flex-start;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--metal);border-bottom:1px solid rgba(228,201,172,.4);padding:8px 0 4px;margin-top:4px;background:none;border-top:0;border-left:0;border-right:0;cursor:pointer;font-family:inherit;min-height:36px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.step{background:var(--paper);border:1px solid rgba(46,31,34,.08);border-radius:22px;padding:40px 32px;display:flex;flex-direction:column;gap:14px;transition:transform .5s var(--ease),box-shadow .5s ease,opacity 1s var(--ease)}
+.step:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(46,31,34,.08)}
+.step .n{font-size:64px;font-style:italic;color:var(--accent);line-height:1}
+.step h3{margin:0;font-size:32px}
+.step p{margin:0;color:var(--muted);line-height:1.75}
+
+/* packages */
+.packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.pack{background:var(--paper);border:1px solid rgba(46,31,34,.1);border-radius:22px;padding:36px 30px;display:flex;flex-direction:column;gap:20px;position:relative;transition:transform .5s var(--ease),box-shadow .5s ease,opacity 1s var(--ease)}
+.pack:hover{transform:translateY(-4px);box-shadow:0 24px 50px rgba(46,31,34,.08)}
+.pack.feat{background:var(--deep2);color:var(--ground);border-color:var(--deep2)}
+.pack .price{font-size:48px;line-height:1}
+.pack .price span{font-size:18px;font-style:italic;color:var(--muted);margin-left:6px}
+.pack.feat .price span{color:var(--soft)}
+.pack ul{list-style:none;margin:0;padding:18px 0 0;border-top:1px solid rgba(46,31,34,.12);display:flex;flex-direction:column;gap:12px;color:var(--muted);flex-grow:1}
+.pack ul li{display:flex;gap:10px;line-height:1.5}
+.pack ul li::before{content:"✦";color:var(--accent);font-size:10px;margin-top:5px}
+.pack.feat ul{color:var(--soft);border-color:rgba(251,243,241,.16)}
+.pack.feat ul li::before{color:var(--metal)}
+.flag{position:absolute;top:-13px;right:26px;background:var(--metal);color:var(--deep3);font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding:6px 14px;border-radius:999px;font-weight:500}
+.train{margin-top:20px;border:1px solid rgba(46,31,34,.12);border-radius:22px;padding:32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:linear-gradient(120deg,var(--paper),var(--tint))}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.gal .ph{border-radius:18px;aspect-ratio:4/5}
+.gal .ph:hover .ic{transform:scale(1.12)}
+
+/* booking */
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.cal{background:var(--tint);color:var(--ink);border-radius:24px;padding:28px}
+.calhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.round{width:44px;height:44px;border-radius:50%;border:1px solid rgba(46,31,34,.25);background:transparent;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);font-family:inherit;font-size:18px;transition:background .25s ease}
+.round:hover:not(:disabled){background:rgba(46,31,34,.06)}
+.round:disabled{opacity:.3;cursor:default}
+.wds,#days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
+.wds span{font-size:10px;letter-spacing:.2em;color:var(--muted);padding:6px 0}
+#days button{aspect-ratio:1/1;min-height:40px;border-radius:50%;border:none;background:transparent;font-family:inherit;font-size:15px;color:var(--ink);cursor:pointer;transition:background .25s ease,color .25s ease}
+#days button:hover:not(:disabled){background:rgba(140,47,62,.14)}
+#days button.today{box-shadow:inset 0 0 0 1px rgba(140,47,62,.5)}
+#days button.sel{background:var(--accent);color:#FBF3F1}
+#days button:disabled{color:rgba(46,31,34,.3);text-decoration:line-through;cursor:default}
+.legend{display:flex;gap:18px;font-size:12px;color:var(--muted);margin-top:16px;padding-top:16px;border-top:1px solid rgba(46,31,34,.12);flex-wrap:wrap}
+.legend i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:middle}
+#form,#thanks{border:1px solid rgba(251,243,241,.16);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px}
+#picked{display:flex;align-items:center;gap:12px;border:1px solid rgba(251,243,241,.18);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--tint)}
+#picked::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--metal);flex:none}
+.f{display:flex;flex-direction:column;gap:8px}
+.f label,.flab{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.f input,.f textarea{font:inherit;font-size:16px;font-weight:300;color:var(--ground);background:rgba(251,243,241,.05);border:1px solid rgba(251,243,241,.18);border-radius:12px;padding:14px 16px;min-height:50px;outline:none;transition:border-color .25s ease,background .25s ease;width:100%}
+.f input::placeholder,.f textarea::placeholder{color:rgba(251,243,241,.45)}
+.f input:focus,.f textarea:focus{border-color:var(--metal);background:rgba(251,243,241,.08)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(251,243,241,.25);background:transparent;color:var(--tint);font-family:inherit;font-size:14px;cursor:pointer;transition:all .25s ease}
+.chip:hover{border-color:rgba(251,243,241,.5)}
+.chip.on{background:var(--tint);color:var(--deep3);border-color:var(--tint)}
+.stepper{display:flex;align-items:center;gap:16px}
+.stepper .round{color:var(--ground);border-color:rgba(251,243,241,.3)}
+.stepper .round:hover:not(:disabled){background:rgba(251,243,241,.08)}
+#err{color:#F6BDBF;font-size:14px;min-height:1px}
+.hp{position:absolute;left:-9999px}
+
+/* faq */
+.q{border-top:1px solid rgba(46,31,34,.14)}
+.q:last-child{border-bottom:1px solid rgba(46,31,34,.14)}
+.q>button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;background:transparent;border:none;cursor:pointer;text-align:left;color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.6vw,28px)}
+.plus{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid rgba(46,31,34,.25);display:inline-flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-size:18px;transition:transform .4s var(--ease),background .3s ease,color .3s ease,border-color .3s ease}
+.q.open .plus{transform:rotate(45deg);background:var(--accent);color:#FBF3F1;border-color:var(--accent)}
+.ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.ans>div{overflow:hidden}
+.ans p{margin:0 0 26px;color:var(--muted);line-height:1.75;max-width:640px}
+.q.open .ans{grid-template-rows:1fr}
+
+/* footer */
+.foot{background:var(--deep3);color:var(--soft);padding:64px 0 36px}
+.foot a{color:var(--ground);text-decoration:none}
+.foot a:hover{color:var(--metal)}
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+.fgrid h4{margin:0 0 16px;font-weight:400;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--metal)}
+.fgrid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;line-height:1.6}
+.fbot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:52px;padding-top:24px;border-top:1px solid rgba(251,243,241,.1);font-size:13px;flex-wrap:wrap}
+.top{display:inline-flex;align-items:center;gap:12px;min-height:44px}
+.top i{width:40px;height:40px;border-radius:50%;border:1px solid rgba(251,243,241,.3);display:inline-flex;align-items:center;justify-content:center;font-style:normal;transition:transform .4s var(--ease)}
+.top:hover i{transform:translateY(-4px)}
+
+@media (max-width:860px){
+.hero,.panel.on,.book{grid-template-columns:minmax(0,1fr);gap:40px}
+.hero{padding-top:36px}
+.archwrap{margin:0 auto;max-width:380px}
+.badge{left:-10px;top:36px;width:104px;height:104px}
+.badge .core{inset:30px;font-size:24px}
+.note{right:-4px}
+.steps,.packs,.two,.fgrid{grid-template-columns:minmax(0,1fr)}
+.packs{gap:28px}
+.gal{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.navlinks a.l{display:none}
+.pair{grid-template-columns:minmax(0,1fr)}
+.inset{right:-6px}
+.ring{width:420px;height:420px;left:-220px}
+.brand .bw b{font-size:16px}
+.cal,#form,#thanks{padding:20px}
+.mrow{padding:22px 20px}
+.train{padding:26px 22px}
+}
+@media (prefers-reduced-motion:reduce){
+*{animation:none!important;transition:none!important}
+.enter,.rv{opacity:1;transform:none}
+html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-plate" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="24" cy="26" r="14"/><circle cx="24" cy="26" r="9"/><path d="M6 8v10a3 3 0 0 0 6 0V8M9 8v32M42 8c-3 2-4 6-4 10s1 5 4 5v17"/></g></symbol>
+  <symbol id="i-leaf" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 38C8 22 18 10 40 8c1 20-10 31-26 30"/><path d="M10 38C18 28 24 22 32 16M20 28h7M16 23l1 6"/></g></symbol>
+  <symbol id="i-apple" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 16c-4-3-14-3-15 8-1 9 6 18 10 18 2 0 3-1 5-1s3 1 5 1c4 0 11-9 10-18-1-11-11-11-15-8Z"/><path d="M24 16c0-4 1-7 4-9M25 12c3-3 7-3 9-2-2 3-6 4-9 2Z"/></g></symbol>
+  <symbol id="i-heart" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 40S7 30 7 18a8.5 8.5 0 0 1 17-2 8.5 8.5 0 0 1 17 2c0 12-17 22-17 22Z"/><path d="M11 24h7l3-5 4 9 3-4h9"/></g></symbol>
+  <symbol id="i-moon" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M34 32A15 15 0 0 1 20 8a15 15 0 1 0 20 20 15 15 0 0 1-6 4Z"/><path d="M36 10v6M33 13h6"/></g></symbol>
+  <symbol id="i-chat" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h32v20H20l-8 7v-7H8Z"/><path d="M15 20h18M15 25h11"/></g></symbol>
+  <symbol id="i-dumb" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M14 24h20M8 17v14M14 13v22M34 13v22M40 17v14M4 24h4M40 24h4"/></g></symbol>
+  <symbol id="i-screen" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="36" height="24" rx="2"/><path d="M18 39h12M24 33v6"/><path d="M21 17l8 4-8 4Z"/></g></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c.6 5 2.4 7.4 10 10-7.6 2.6-9.4 5-10 10-.6-5-2.4-7.4-10-10 7.6-2.6 9.4-5 10-10Z"/></symbol>
+</svg>
+
+<div id="loader" aria-hidden="true">
+  <div class="inner">
+    <span class="mono">L</span>
+    <div class="word serif">Leen Shahin</div>
+    <div class="rule"></div>
+    <div class="tag">Nutritionist · <span class="ar" style="letter-spacing:0;font-size:14px">اخصائية تغذية</span></div>
+  </div>
+</div>
+<div id="progress" aria-hidden="true"></div>
+
+<header id="nav">
+  <nav class="navin" aria-label="Main">
+    <a href="#top" class="brand" aria-label="Dt. Leen Shahin home">
+      <span class="mono" aria-hidden="true">L</span>
+      <span class="bw"><b>Leen Shahin</b><small>Nutritionist · UAE</small></span>
+    </a>
+    <div class="navlinks">
+      <a class="l" href="#story">About</a>
+      <a class="l" href="#services">Services</a>
+      <a class="l" href="#gallery">Results</a>
+      <a class="l" href="#faq">FAQ</a>
+      <a class="btn" href="#book">Book <span class="dot"></span></a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="wrap heroSec">
+    <div class="ring" aria-hidden="true"></div>
+    <div class="hero">
+      <div style="display:flex;flex-direction:column;gap:26px;position:relative">
+        <div class="eyebrow lineeye enter e1">Online nutrition · UAE</div>
+        <h1 class="serif enter e2" style="margin:0;font-size:clamp(50px,10.5vw,90px);line-height:.98;letter-spacing:-.01em">Lose the weight,<br>keep the foods<br><em>you love.</em></h1>
+        <p class="lead enter e3" style="max-width:460px">Dt. Leen Shahin helps you lose weight while still enjoying your favourite foods. Real plans, real life, and online consultations in English or Arabic, wherever you are.</p>
+        <div class="enter e4" style="display:flex;flex-direction:column;align-items:flex-start;gap:12px">
+          <a class="btn" href="#book">Book a consultation</a>
+          <a class="btn ghost" href="#services">See how it works</a>
+        </div>
+        <div class="strip enter e5" style="margin-top:14px">
+          <span>Weight loss</span><span class="star">✦</span><span>Balance</span><span class="star">✦</span><span>No food guilt</span>
+        </div>
+      </div>
+      <div class="archwrap enter e3">
+        <div class="archframe" aria-hidden="true"></div>
+        <div class="ph arch" role="img" aria-label="Photo placeholder: portrait of Leen">
+          <svg class="ic"><use href="#i-plate"/></svg>
+          <span class="cap">Portrait of Leen</span>
+        </div>
+        <div class="badge" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+            <text style="font-family:Jost,sans-serif;font-size:9.4px;letter-spacing:3.1px;text-transform:uppercase" fill="#8C2F3E"><textPath href="#circ">Eat well · Feel good · Dt. Leen Shahin ·</textPath></text>
+          </svg>
+          <div class="core">L</div>
+        </div>
+        <div class="note">
+          <div class="hand" style="font-size:30px;color:var(--accent);line-height:1">yes, donuts too</div>
+          <div style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)">Balance over restriction</div>
+        </div>
+      </div>
+    </div>
+    <div class="enter e5" style="padding-bottom:56px"><div class="mouse" aria-hidden="true"></div></div>
+  </section>
+
+  <section class="ribbon serif" aria-label="Topics">
+    <div class="track">
+      <span>Weight loss <svg><use href="#i-spark"/></svg> <span class="ar">اخصائية تغذية</span> <svg><use href="#i-spark"/></svg> Insulin resistance <svg><use href="#i-spark"/></svg> Gut comfort <svg><use href="#i-spark"/></svg> Cholesterol <svg><use href="#i-spark"/></svg> Better sleep <svg><use href="#i-spark"/></svg> Balanced living <svg><use href="#i-spark"/></svg></span>
+      <span aria-hidden="true">Weight loss <svg><use href="#i-spark"/></svg> <span class="ar">اخصائية تغذية</span> <svg><use href="#i-spark"/></svg> Insulin resistance <svg><use href="#i-spark"/></svg> Gut comfort <svg><use href="#i-spark"/></svg> Cholesterol <svg><use href="#i-spark"/></svg> Better sleep <svg><use href="#i-spark"/></svg> Balanced living <svg><use href="#i-spark"/></svg></span>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:96px">
+    <div class="pair">
+      <div class="ph rv" style="aspect-ratio:4/3" role="img" aria-label="Photo placeholder: a balanced plate">
+        <svg class="ic"><use href="#i-plate"/></svg><span class="cap">A balanced plate</span>
+      </div>
+      <div class="rv" style="position:relative">
+        <div class="ph" style="aspect-ratio:4/5" role="img" aria-label="Photo placeholder: consultation from home">
+          <svg class="ic"><use href="#i-chat"/></svg><span class="cap">Consult from home</span>
+        </div>
+        <div class="ph inset" aria-hidden="true"><svg class="ic"><use href="#i-leaf"/></svg><span class="cap">Fresh mint</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="story" class="wrap" style="padding:120px 20px 110px;scroll-margin-top:60px">
+    <div style="max-width:720px;display:flex;flex-direction:column;gap:26px">
+      <div class="eyebrow rv">Meet Leen</div>
+      <h2 class="h2 serif rv">A nutritionist with a <em>big</em> love for food.</h2>
+      <p class="lead rv">Leen trained in clinical nutrition and dietetics, and she loves talking about nutrition, health and exercise. She also loves food, which is exactly why her approach works: no banned lists, no all or nothing rules, just a balanced lifestyle you can actually keep.</p>
+      <p class="lead rv">On Instagram she breaks down the things people really ask about, from bloating and sleep to cholesterol numbers and insulin resistance, in plain words and in Arabic. Her consultations bring that same clarity to your own goals.</p>
+      <div class="hand rv" style="font-size:36px;color:var(--accent);line-height:1.2">eat well, enjoy it, Leen</div>
+    </div>
+  </section>
+
+  <section id="services" class="dark" style="padding:110px 0 120px">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="eyebrow rv">Services</div>
+        <h2 class="h2 serif rv">Ways to work <em>together.</em></h2>
+      </div>
+      <div class="tabs rv" role="tablist" aria-label="Service categories">
+        <button class="on" type="button" role="tab" aria-selected="true" data-tab="weight">Weight loss</button>
+        <button type="button" role="tab" aria-selected="false" data-tab="health">Health goals</button>
+        <button type="button" role="tab" aria-selected="false" data-tab="learn">Learn</button>
+      </div>
+
+      <div class="panel on" data-panel="weight">
+        <div class="ph deep" role="img" aria-label="Photo placeholder: favourite foods, balanced"><svg class="ic"><use href="#i-apple"/></svg><span class="cap">Favourite foods, balanced</span></div>
+        <div class="mcard">
+          <div class="mrow"><div class="mtop"><span>01 · Online</span><span class="pr">[PRICE]</span></div><h3 class="serif">Online Consultation</h3><p>A one on one session about your habits, routine and goals, done from wherever you are by video or WhatsApp.</p><button class="bk" type="button" data-pick="Weight loss">Book this</button></div>
+          <div class="mrow"><div class="mtop"><span>02 · Plan</span><span class="pr">[PRICE]</span></div><h3 class="serif">Personalised Plan</h3><p>A realistic way of eating built around the foods you already love, so losing weight never feels like punishment.</p><button class="bk" type="button" data-pick="Weight loss">Book this</button></div>
+          <div class="mrow"><div class="mtop"><span>03 · Support</span><span class="pr">[PRICE]</span></div><h3 class="serif">Follow Ups</h3><p>Regular check ins to adjust your plan, celebrate progress and keep you consistent through busy weeks, holidays and Eid.</p><button class="bk" type="button" data-pick="Weight loss">Book this</button></div>
+        </div>
+      </div>
+
+      <div class="panel" data-panel="health">
+        <div class="ph deep" role="img" aria-label="Photo placeholder: everyday health"><svg class="ic"><use href="#i-heart"/></svg><span class="cap">Everyday health</span></div>
+        <div class="mcard">
+          <div class="mrow"><div class="mtop"><span>01 · Blood sugar</span><span class="pr">[PRICE]</span></div><h3 class="serif">Insulin Resistance</h3><p>Clear guidance on what to eat more of, what to ease off, and how to build meals that keep you steady.</p><button class="bk" type="button" data-pick="Insulin resistance">Book this</button></div>
+          <div class="mrow"><div class="mtop"><span>02 · Heart</span><span class="pr">[PRICE]</span></div><h3 class="serif">Cholesterol</h3><p>Understand your Total, LDL, HDL and triglyceride numbers, and the food changes that matter most.</p><button class="bk" type="button" data-pick="Cholesterol">Book this</button></div>
+          <div class="mrow"><div class="mtop"><span>03 · Comfort</span><span class="pr">[PRICE]</span></div><h3 class="serif">Bloating &amp; Sleep</h3><p>Gentle, practical changes for a calmer stomach and better nights, without overhauling your whole life.</p><button class="bk" type="button" data-pick="Bloating">Book this</button></div>
+        </div>
+      </div>
+
+      <div class="panel" data-panel="learn">
+        <div class="ph deep" role="img" aria-label="Photo placeholder: live webinar"><svg class="ic"><use href="#i-screen"/></svg><span class="cap">Live webinar</span></div>
+        <div class="mcard">
+          <div class="mrow"><div class="mtop"><span>01 · Live</span><span class="pr">[PRICE]</span></div><h3 class="serif">Webinars</h3><p>Group sessions where Leen walks through a nutrition topic step by step and answers your questions live.</p><button class="bk" type="button" data-pick="Webinars">Ask about this</button></div>
+          <div class="mrow"><div class="mtop"><span>02 · Move</span><span class="pr">[PRICE]</span></div><h3 class="serif">Food &amp; Training</h3><p>How to eat around your workouts so you feel strong, recover well and enjoy moving your body.</p><button class="bk" type="button" data-pick="Healthy habits">Ask about this</button></div>
+        </div>
+      </div>
+
+      <p class="rv" style="margin:0;color:var(--soft);font-size:14px;line-height:1.7">All consultations are online, so you can book from anywhere. Sessions are available in English or Arabic.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:120px 20px 0">
+    <div style="text-align:center;display:flex;flex-direction:column;gap:22px;align-items:center;margin-bottom:56px">
+      <div class="eyebrow rv">How it works</div>
+      <h2 class="h2 serif rv">Three steps to <em>balance.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="n serif">01</div><h3 class="serif">Reach out</h3><p>Pick a day below, or send Leen a message on Instagram or WhatsApp with what you want to change.</p></div>
+      <div class="step rv"><div class="n serif">02</div><h3 class="serif">Consult</h3><p>Talk through your routine, your favourite foods and your goals in a relaxed online session.</p></div>
+      <div class="step rv"><div class="n serif">03</div><h3 class="serif">Enjoy</h3><p>Follow a plan that fits your life, and keep enjoying food while the results add up.</p></div>
+    </div>
+  </section>
+
+  <section id="packages" class="wrap" style="padding:130px 20px 0">
+    <div style="display:flex;flex-direction:column;gap:22px;margin-bottom:64px">
+      <div class="eyebrow rv">Packages</div>
+      <h2 class="h2 serif rv">Choose your <em>start.</em></h2>
+    </div>
+    <div class="packs">
+      <div class="pack rv">
+        <div class="eyebrow">First Consultation</div>
+        <div class="price serif">[PRICE]<span>starting</span></div>
+        <ul><li>One on one online session</li><li>Your habits and goals reviewed</li><li>Clear first steps to start with</li></ul>
+        <a class="btn ghost" href="#book" data-pick="Weight loss">Choose this</a>
+      </div>
+      <div class="pack feat rv">
+        <div class="flag">Most chosen</div>
+        <div class="eyebrow">Monthly Programme</div>
+        <div class="price serif">[PRICE]<span>starting</span></div>
+        <ul><li>Initial consultation</li><li>Personalised plan with your favourite foods</li><li>Regular follow ups</li><li>Support by WhatsApp</li></ul>
+        <a class="btn light" href="#book" data-pick="Weight loss">Choose this</a>
+      </div>
+      <div class="pack rv">
+        <div class="eyebrow">Health Focus</div>
+        <div class="price serif">[PRICE]<span>starting</span></div>
+        <ul><li>Insulin resistance, cholesterol or gut comfort</li><li>Food guidance for your results</li><li>Follow up to adjust</li></ul>
+        <a class="btn ghost" href="#book" data-pick="Insulin resistance">Choose this</a>
+      </div>
+    </div>
+    <div class="train rv">
+      <div style="display:flex;flex-direction:column;gap:10px;max-width:560px">
+        <div class="eyebrow">Group learning</div>
+        <div class="serif" style="font-size:clamp(28px,4.6vw,38px);line-height:1.1">Join an upcoming <em>webinar.</em></div>
+        <p style="margin:0;color:var(--muted);line-height:1.7">Learn the why behind good nutrition with Leen and a room full of people asking the same questions.</p>
+      </div>
+      <a class="btn" href="#book" data-pick="Webinars">Ask about webinars</a>
+    </div>
+  </section>
+
+  <section id="gallery" class="wrap" style="padding:130px 20px 0">
+    <div class="rv" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:36px">
+      <h2 class="h2 serif">Real food, real <em>results.</em></h2>
+      <a href="https://instagram.com/dietitianleenshahin" target="_blank" rel="noopener" class="eyebrow" style="color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(140,47,62,.4);padding-bottom:6px">@dietitianleenshahin</a>
+    </div>
+    <div class="gal">
+      <div class="ph rv" role="img" aria-label="Photo placeholder"><svg class="ic"><use href="#i-chat"/></svg><span class="cap">Client results</span></div>
+      <div class="ph rv" role="img" aria-label="Photo placeholder"><svg class="ic"><use href="#i-plate"/></svg><span class="cap">Balanced plates</span></div>
+      <div class="ph rv" role="img" aria-label="Photo placeholder"><svg class="ic"><use href="#i-dumb"/></svg><span class="cap">Train with intention</span></div>
+      <div class="ph rv" role="img" aria-label="Photo placeholder"><svg class="ic"><use href="#i-leaf"/></svg><span class="cap">Mint for bloating</span></div>
+      <div class="ph rv" role="img" aria-label="Photo placeholder"><svg class="ic"><use href="#i-moon"/></svg><span class="cap">Better sleep</span></div>
+      <div class="ph rv" role="img" aria-label="Photo placeholder"><svg class="ic"><use href="#i-screen"/></svg><span class="cap">Webinars</span></div>
+    </div>
+  </section>
+
+  <section id="book" class="dark" style="margin-top:130px;padding:110px 0 120px">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:44px">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="eyebrow rv">Book a consultation</div>
+        <h2 class="h2 serif rv">Start this <em>week.</em></h2>
+        <p class="lead rv" style="max-width:520px">Choose a day that suits you, tell Leen what you would like to change, and she will be in touch to confirm your session.</p>
+      </div>
+      <div class="book">
+        <div class="cal rv">
+          <div class="calhead">
+            <button class="round" id="prev" type="button" aria-label="Previous month">‹</button>
+            <div id="mlabel" class="serif" style="font-size:26px"></div>
+            <button class="round" id="next" type="button" aria-label="Next month">›</button>
+          </div>
+          <div class="wds"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+          <div id="days"></div>
+          <div class="legend">
+            <span><i style="background:var(--accent)"></i>Selected</span>
+            <span><i style="box-shadow:inset 0 0 0 1px rgba(140,47,62,.6)"></i>Today</span>
+            <span><i style="background:rgba(46,31,34,.25)"></i>Past</span>
+          </div>
+        </div>
+
+        <div class="rv">
+          <form id="form" name="leen-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="leen-consultation">
+            <p class="hp"><label>Leave this empty <input name="bot-field"></label></p>
+            <input type="hidden" name="date" id="dateField">
+            <input type="hidden" name="goals" id="svcField">
+            <input type="hidden" name="language" id="expField">
+            <input type="hidden" name="time_window" id="timeField">
+            <input type="hidden" name="people" id="pplField" value="1">
+            <div id="picked">Pick a day on the calendar.</div>
+            <div class="f"><label for="name">Name</label><input id="name" name="name" autocomplete="name" placeholder="Your full name"></div>
+            <div class="two">
+              <div class="f"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com"></div>
+              <div class="f"><label for="phone">WhatsApp</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Best number"></div>
+            </div>
+            <div class="f"><span class="flab">My goals</span>
+              <div class="chips" id="svc" data-multi>
+                <button class="chip" type="button">Weight loss</button><button class="chip" type="button">Insulin resistance</button><button class="chip" type="button">Cholesterol</button><button class="chip" type="button">Bloating</button><button class="chip" type="button">Better sleep</button><button class="chip" type="button">Healthy habits</button><button class="chip" type="button">Webinars</button>
+              </div>
+            </div>
+            <div class="f"><span class="flab">Session language</span>
+              <div class="chips" id="exp"><button class="chip" type="button">English</button><button class="chip ar" type="button" style="font-size:17px">العربية</button><button class="chip" type="button">Either</button></div>
+            </div>
+            <div class="f"><span class="flab">People joining</span>
+              <div class="stepper"><button class="round" type="button" id="minus" aria-label="Fewer people">−</button><span id="ppl" class="serif" style="font-size:28px;min-width:90px;text-align:center">1 person</span><button class="round" type="button" id="plus" aria-label="More people">+</button></div>
+            </div>
+            <div class="f"><span class="flab">Preferred time</span>
+              <div class="chips" id="time"><button class="chip" type="button">Morning</button><button class="chip" type="button">Afternoon</button><button class="chip" type="button">Evening</button></div>
+            </div>
+            <div class="f"><label for="message">Anything else?</label><textarea id="message" name="message" rows="4" placeholder="Your routine, favourite foods, or questions"></textarea></div>
+            <div id="err" role="alert"></div>
+            <button class="btn light" type="submit" style="align-self:flex-start">Request consultation</button>
+            <p style="margin:0;font-size:13px;color:var(--soft)">Prefer to chat first? <a href="https://ig.me/m/dietitianleenshahin" target="_blank" rel="noopener" style="color:var(--metal)">Send Leen a DM</a>.</p>
+          </form>
+          <div id="thanks" style="display:none">
+            <div class="eyebrow">Request received</div>
+            <div class="serif" style="font-size:clamp(40px,7vw,56px);line-height:1.05">Thank you, <em id="tname">friend.</em></div>
+            <p style="margin:0;color:var(--soft);line-height:1.8">Leen will be in touch soon to confirm your consultation. Keep your favourite snack nearby, it might come up.</p>
+            <button class="btn ghost" type="button" id="again" style="align-self:flex-start">Start another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="wrap" style="padding:130px 20px 130px;scroll-margin-top:60px">
+    <div style="display:grid;gap:44px;max-width:860px">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="eyebrow rv">FAQ</div>
+        <h2 class="h2 serif rv">Good <em>questions.</em></h2>
+      </div>
+      <div class="rv">
+        <div class="q"><button type="button" aria-expanded="false">Do I have to give up my favourite foods?<span class="plus">+</span></button><div class="ans"><div><p>No. Leen's whole approach is for people who want to lose weight while still enjoying the foods they love. Your plan is built around them, not against them.</p></div></div></div>
+        <div class="q"><button type="button" aria-expanded="false">Are consultations online?<span class="plus">+</span></button><div class="ans"><div><p>Yes. Consultations happen online, so you can book from home, from work, or from anywhere in the world.</p></div></div></div>
+        <div class="q"><button type="button" aria-expanded="false">Can we talk in Arabic?<span class="plus">+</span></button><div class="ans"><div><p>Of course. Sessions are available in English or Arabic, whichever feels most comfortable for you.</p></div></div></div>
+        <div class="q"><button type="button" aria-expanded="false">Can you help with insulin resistance or cholesterol?<span class="plus">+</span></button><div class="ans"><div><p>Leen offers food guidance for goals like insulin resistance, cholesterol, bloating and sleep. Bring any recent results to your consultation so she can tailor her advice.</p></div></div></div>
+        <div class="q"><button type="button" aria-expanded="false">How do I book?<span class="plus">+</span></button><div class="ans"><div><p>Pick a day on the calendar above and send your request, or message Leen directly on Instagram or WhatsApp. She will confirm your time.</p></div></div></div>
+        <div class="q"><button type="button" aria-expanded="false">Do you run webinars?<span class="plus">+</span></button><div class="ans"><div><p>Yes. Leen hosts webinars on nutrition topics. Send a request and choose Webinars to hear about the next one.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" style="padding:110px 0;text-align:center">
+    <div class="wrap" style="display:flex;flex-direction:column;align-items:center;gap:26px">
+      <span class="mono rv" style="width:84px;height:84px;font-size:48px;background:transparent;border:1px solid var(--metal);color:var(--metal)" aria-hidden="true">L</span>
+      <p class="lead rv" style="max-width:460px">Lose weight without losing the joy of eating. Your first step is one message away.</p>
+      <a class="btn light rv" href="#book">Book a consultation</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><h4>Explore</h4><ul><li><a href="#story">Meet Leen</a></li><li><a href="#services">Services</a></li><li><a href="#gallery">Results</a></li><li><a href="#faq">FAQ</a></li><li><a href="#book">Book</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="https://instagram.com/dietitianleenshahin" target="_blank" rel="noopener">@dietitianleenshahin</a></li><li>WhatsApp [WHATSAPP]</li><li>[EMAIL]</li></ul></div>
+      <div><h4>Area</h4><ul><li>Based in the UAE</li><li>Online consultations worldwide</li><li><span class="ar" style="font-size:18px">اخصائية تغذية</span></li></ul></div>
+    </div>
+    <div class="fbot">
+      <span>© <span id="yr"></span> Dt. Leen Shahin · Nutritionist</span>
+      <a href="#top" class="top">Back to top <i>↑</i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const loader = document.getElementById('loader');
+  const startReveal = () => {
+    document.body.classList.add('ready');
+    const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  };
+  if(reduce){ loader.remove(); startReveal(); }
+  else { setTimeout(()=>{ loader.classList.add('lift'); setTimeout(()=>loader.remove(), 1100); startReveal(); }, 2500); }
+
+  const nav = document.getElementById('nav'), bar = document.getElementById('progress');
+  const onScroll = () => { const h = document.documentElement; const p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight); bar.style.width = (p*100)+'%'; nav.classList.toggle('solid', h.scrollTop > 40); };
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.tabs button').forEach(x => { x.classList.toggle('on', x===b); x.setAttribute('aria-selected', x===b); });
+    document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.dataset.panel === b.dataset.tab));
+  }));
+
+  document.querySelectorAll('.q > button').forEach(b => b.addEventListener('click', () => { const o = b.parentElement.classList.toggle('open'); b.setAttribute('aria-expanded', o); }));
+
+  const days = document.getElementById('days'), mlabel = document.getElementById('mlabel'), picked = document.getElementById('picked'), dateField = document.getElementById('dateField');
+  const today = new Date(); today.setHours(0,0,0,0);
+  let view = new Date(today.getFullYear(), today.getMonth(), 1), sel = null;
+  const fmt = d => d.toLocaleDateString('en-GB',{weekday:'long', day:'numeric', month:'long'});
+  function render(){
+    mlabel.textContent = view.toLocaleDateString('en-GB',{month:'long', year:'numeric'});
+    document.getElementById('prev').disabled = view <= new Date(today.getFullYear(), today.getMonth(), 1);
+    days.innerHTML = '';
+    for(let i=0;i<view.getDay();i++) days.appendChild(document.createElement('span'));
+    const n = new Date(view.getFullYear(), view.getMonth()+1, 0).getDate();
+    for(let d=1; d<=n; d++){
+      const dt = new Date(view.getFullYear(), view.getMonth(), d);
+      const b = document.createElement('button'); b.type='button'; b.textContent=d; b.setAttribute('aria-label', fmt(dt));
+      if(dt < today) b.disabled = true;
+      if(+dt === +today) b.classList.add('today');
+      if(sel && +dt === +sel) b.classList.add('sel');
+      b.addEventListener('click', () => { sel = dt; dateField.value = fmt(dt); picked.innerHTML = 'Consultation on <em>&nbsp;' + fmt(dt) + '</em>'; render(); });
+      days.appendChild(b);
+    }
+  }
+  document.getElementById('prev').onclick = () => { view.setMonth(view.getMonth()-1); render(); };
+  document.getElementById('next').onclick = () => { view.setMonth(view.getMonth()+1); render(); };
+  render();
+
+  function chips(id, field){
+    const g = document.getElementById(id), multi = g.hasAttribute('data-multi');
+    g.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+      if(multi) c.classList.toggle('on'); else g.querySelectorAll('.chip').forEach(x => x.classList.toggle('on', x===c));
+      document.getElementById(field).value = [...g.querySelectorAll('.chip.on')].map(x=>x.textContent).join(', ');
+    }));
+  }
+  chips('svc','svcField'); chips('exp','expField'); chips('time','timeField');
+  document.querySelectorAll('[data-pick]').forEach(a => a.addEventListener('click', () => {
+    const c = [...document.querySelectorAll('#svc .chip')].find(x => x.textContent === a.dataset.pick);
+    if(c && !c.classList.contains('on')) c.click();
+    if(a.tagName === 'BUTTON') document.getElementById('book').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+  }));
+
+  let ppl = 1; const out = document.getElementById('ppl'), pf = document.getElementById('pplField');
+  const setP = v => { ppl = Math.max(1, Math.min(4, v)); out.textContent = ppl + (ppl===1 ? ' person' : ' people'); pf.value = ppl; document.getElementById('minus').disabled = ppl===1; document.getElementById('plus').disabled = ppl===4; };
+  document.getElementById('minus').onclick = () => setP(ppl-1);
+  document.getElementById('plus').onclick = () => setP(ppl+1);
+  setP(1);
+
+  const form = document.getElementById('form'), err = document.getElementById('err'), thanks = document.getElementById('thanks');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = form.elements.name.value.trim(), email = form.elements.email.value.trim(), phone = form.elements.phone.value.trim();
+    if(!sel){ err.textContent = 'Pick a day on the calendar first.'; return; }
+    if(!name){ err.textContent = 'Please add your name.'; form.elements.name.focus(); return; }
+    if(!/^\S+@\S+\.\S+$/.test(email) && phone.replace(/\D/g,'').length < 7){ err.textContent = 'Add an email or WhatsApp number so Leen can reach you.'; return; }
+    if(!document.getElementById('svcField').value){ err.textContent = 'Choose at least one goal.'; return; }
+    err.textContent = '';
+    const body = new URLSearchParams(new FormData(form)).toString();
+    const done = () => { document.getElementById('tname').textContent = name.split(' ')[0] + '.'; form.style.display='none'; thanks.style.display='flex'; };
+    const fail = () => err.textContent = 'Something went wrong. Please send Leen a DM instead.';
+    fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body}).then(r => r.ok ? done() : fail()).catch(fail);
+  });
+  document.getElementById('again').onclick = () => {
+    form.reset(); sel = null; dateField.value=''; render(); picked.textContent = 'Pick a day on the calendar.'; setP(1);
+    document.querySelectorAll('.chip.on').forEach(c => c.classList.remove('on'));
+    ['svcField','expField','timeField'].forEach(i => document.getElementById(i).value='');
+    thanks.style.display='none'; form.style.display='flex';
+  };
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
