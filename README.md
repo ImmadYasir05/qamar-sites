@@ -22,3 +22,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `matcha-on-ice-cafe/` — Matcha On Ice Cafe (San Diego first harvest matcha cafe and event cart)
 - `dietitian-leen-shahin/` — Dt. Leen Shahin (UAE nutritionist, online consultations, English and Arabic)
 - `muriam-rehman-physiotherapy/` — Muriam Rehman Physiotherapy (Peterborough mobile, clinic and remote physio)
+- `cuddles-and-care/` — Cuddles & Care Babysitting by Mimi (Sydney babysitting, nanny care and events creche)
