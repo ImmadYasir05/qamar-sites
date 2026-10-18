@@ -24,3 +24,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `muriam-rehman-physiotherapy/` — Muriam Rehman Physiotherapy (Peterborough mobile, clinic and remote physio)
 - `cuddles-and-care/` — Cuddles & Care Babysitting by Mimi (Sydney babysitting, nanny care and events creche)
 - `the-cake-club/` — The Cake Club (Sydney mobile cake cart for weddings, engagements and events)
+- `zb-fitness/` — ZB Fitness (Zahra, female fitness coach, prenatal and postnatal, group hiking)

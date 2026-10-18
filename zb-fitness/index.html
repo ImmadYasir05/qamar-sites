@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZB Fitness · Zahra, Female Fitness Coach</title>
+<meta name="description" content="Zahra is a female fitness coach offering one to one training, prenatal and postnatal coaching and group hikes. Join the 1% Better Club.">
+<meta name="theme-color" content="#2A2522">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23A69B97'/%3E%3Ctext x='32' y='41' font-family='Georgia,serif' font-size='26' fill='white' text-anchor='middle'%3EZB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#F3EFEA;--card:#FAF8F5;--ink:#1F1C1A;--muted:#6A625D;--brand:#5C4A42;--brandh:#45372F;--deep:#2A2522;--gold:#CBB8A6;--cream:#E9E2DA;--soft:#C9BFB7;--taupe:#A69B97}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:'Jost',system-ui,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:var(--brand)}
+.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400}
+.hand{font-family:'Caveat',cursive;font-weight:600}
+em{font-style:italic;color:var(--brand)}
+.dark em{color:var(--gold)}
+.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.dark .eyebrow{color:var(--soft)}
+.lineeye{display:flex;align-items:center;gap:14px}
+.lineeye::before{content:"";width:40px;height:1px;background:currentColor;opacity:.6}
+.h2{margin:0;font-size:clamp(40px,7vw,64px);line-height:1.04}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.dark{background:radial-gradient(120% 80% at 50% 0%,#4A403B 0%,#2E2825 45%,#1A1715 100%);color:var(--ground)}
+
+/* monogram */
+.mono{border-radius:50%;background:var(--taupe);color:#fff;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:.06em;line-height:.95;text-align:center;flex:none}
+.mono small{font-size:.38em;letter-spacing:.18em;font-weight:500}
+
+/* placeholders */
+.ph{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:radial-gradient(120% 90% at 30% 20%,rgba(203,184,166,.45),transparent 60%),linear-gradient(150deg,#ECE5DE 0%,#DDD3CB 55%,#C8BCB4 100%);color:var(--brand)}
+.ph::after{content:"";position:absolute;inset:14px;border:1px solid rgba(92,74,66,.18);border-radius:inherit;pointer-events:none}
+.ph svg{width:54px;height:54px;opacity:.75}
+.ph span{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(92,74,66,.8);text-align:center;padding:0 18px}
+.ph.deep{background:radial-gradient(120% 90% at 30% 20%,rgba(203,184,166,.2),transparent 60%),linear-gradient(150deg,#4E4440 0%,#332C29 60%,#1F1B19 100%);color:var(--gold)}
+.ph.deep::after{border-color:rgba(203,184,166,.25)}
+.ph.deep span{color:rgba(233,226,218,.8)}
+
+/* loader */
+.curtain{position:fixed;inset:0;z-index:200;background:radial-gradient(90% 60% at 50% 40%,#4A403B,#1A1715);display:flex;align-items:center;justify-content:center;animation:lift 1s cubic-bezier(.76,0,.24,1) 2.7s forwards}
+.curtain .inner{display:flex;flex-direction:column;align-items:center;gap:18px;animation:fadeOut .5s ease 2.35s forwards}
+.curtain .mono{width:124px;height:124px;font-size:40px;opacity:0;animation:fadeUp 1s ease .15s forwards;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.curtain .word{font-size:clamp(34px,9vw,52px);color:var(--cream);opacity:0;animation:fadeUp 1s ease .55s forwards}
+.curtain .rule{width:0;height:1px;background:var(--gold);animation:grow 1.3s cubic-bezier(.65,0,.35,1) .9s forwards}
+.curtain .tag{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fadeUp 1s ease 1.35s forwards;text-align:center;padding:0 20px}
+@keyframes lift{0%{transform:translateY(0);border-radius:0}100%{transform:translateY(-105%);border-radius:0 0 50% 50%/0 0 22% 22%;visibility:hidden}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fadeOut{to{opacity:0;transform:translateY(-10px)}}
+@keyframes grow{to{width:180px}}
+.enter{opacity:0;animation:fadeUp 1.1s cubic-bezier(.2,.7,.2,1) forwards}
+.e1{animation-delay:3.15s}.e2{animation-delay:3.3s}.e3{animation-delay:3.45s}.e4{animation-delay:3.6s}.e5{animation-delay:3.75s}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--brand);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(243,239,234,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(31,28,26,.08)}
+.navin{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brandmark{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brandmark .mono{width:40px;height:40px;font-size:15px}
+.navlinks{display:flex;gap:28px;align-items:center}
+.navlinks a.l{color:var(--ink);text-decoration:none;font-size:14px;letter-spacing:.06em}
+.navlinks a.l:hover{color:var(--brand)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;background:var(--brand);color:#FAF8F5;text-decoration:none;font-size:12px;letter-spacing:.24em;text-transform:uppercase;border:1px solid var(--brand);cursor:pointer;font-family:inherit;font-weight:400;transition:transform .35s cubic-bezier(.2,.7,.2,1),background .35s ease,box-shadow .35s ease;box-shadow:0 10px 24px rgba(92,74,66,.24)}
+.btn:hover{background:var(--brandh);color:#FAF8F5;transform:translateY(-2px);box-shadow:0 14px 30px rgba(92,74,66,.32)}
+.btn .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block}
+.ghost{background:transparent;color:var(--ink);border-color:rgba(31,28,26,.4);box-shadow:none}
+.ghost:hover{background:var(--ink);color:var(--ground);box-shadow:none}
+.dark .ghost{color:var(--ground);border-color:rgba(243,239,234,.45)}
+.dark .ghost:hover{background:var(--ground);color:var(--deep)}
+.light{background:var(--cream);color:var(--deep);border-color:var(--cream);box-shadow:none}
+.light:hover{background:#FAF8F5;color:var(--deep)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center;padding:56px 0 72px;position:relative}
+.ring{position:absolute;width:560px;height:560px;border-radius:50%;border:1px solid rgba(92,74,66,.16);left:-180px;top:40px;pointer-events:none}
+.archwrap{position:relative;max-width:460px;margin-left:auto;width:100%}
+.arch{width:100%;aspect-ratio:4/5.2;border-radius:999px 999px 18px 18px;box-shadow:0 30px 60px rgba(31,28,26,.2)}
+.archframe{position:absolute;inset:-12px;border:1px solid rgba(92,74,66,.25);border-radius:999px 999px 26px 26px;pointer-events:none}
+.badge{position:absolute;left:-34px;top:70px;width:132px;height:132px}
+.badge svg{width:100%;height:100%;animation:spin 22s linear infinite}
+.badge .core{position:absolute;inset:38px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic}
+@keyframes spin{to{transform:rotate(360deg)}}
+.note{position:absolute;right:-14px;bottom:44px;background:var(--card);padding:16px 22px 14px;transform:rotate(-4deg);box-shadow:0 18px 40px rgba(31,28,26,.18);display:flex;flex-direction:column;gap:4px;animation:bob 6s ease-in-out infinite}
+.note::before{content:"";position:absolute;top:-10px;left:50%;width:58px;height:20px;margin-left:-29px;background:rgba(203,184,166,.6);transform:rotate(3deg)}
+@keyframes bob{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-6px)}}
+.strip{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.strip .star{color:var(--brand)}
+.mouse{width:22px;height:36px;border:1px solid rgba(31,28,26,.4);border-radius:12px;position:relative;margin:0 auto}
+.mouse::after{content:"";position:absolute;left:50%;top:7px;width:2px;height:7px;margin-left:-1px;border-radius:2px;background:var(--ink);animation:wheel 1.8s ease-in-out infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+
+/* marquee */
+.ribbon{background:var(--deep);color:var(--cream);overflow:hidden;padding:26px 0}
+.track{display:flex;width:max-content;animation:marq 34s linear infinite}
+.track span{display:inline-flex;align-items:center;gap:34px;padding-right:34px;font-size:clamp(26px,4.4vw,38px);font-style:italic;white-space:nowrap}
+.track svg{width:18px;height:18px;color:var(--gold)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* pair */
+.pair{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px;align-items:end}
+.pair .ph{border-radius:18px;width:100%}
+.inset{position:absolute;right:-18px;bottom:-30px;width:44%;aspect-ratio:1/1;border-radius:50% !important;border:6px solid var(--ground);box-shadow:0 20px 40px rgba(31,28,26,.2)}
+.inset svg{width:34px;height:34px}
+.inset::after{display:none}
+
+/* menu */
+.tabs{display:inline-flex;padding:6px;border-radius:999px;border:1px solid rgba(243,239,234,.18);gap:4px;flex-wrap:wrap;align-self:flex-start}
+.tab{min-height:46px;padding:0 22px;border-radius:999px;background:transparent;border:none;color:var(--soft);font-family:inherit;font-size:12px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background .4s ease,color .4s ease}
+.tab.on{background:var(--cream);color:var(--deep)}
+.menu{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start}
+.menuimg{width:100%;aspect-ratio:5/4;border-radius:18px;animation:fadeUp .7s ease both}
+.mcard{border:1px solid rgba(243,239,234,.14);border-radius:18px;overflow:hidden;animation:fadeUp .6s ease both}
+.mrow{padding:26px 28px;border-top:1px solid rgba(243,239,234,.12);display:flex;flex-direction:column;gap:10px;transition:background .4s ease}
+.mrow:first-child{border-top:none}
+.mrow:hover{background:rgba(243,239,234,.04)}
+.mtop{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.24em;color:var(--soft);text-transform:uppercase}
+
+/* steps, packs */
+.steps,.packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.step{background:var(--card);border:1px solid rgba(31,28,26,.08);border-radius:22px;padding:40px 32px;display:flex;flex-direction:column;gap:14px;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease,opacity 1s cubic-bezier(.2,.7,.2,1)}
+.step:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(31,28,26,.1)}
+.pack{background:var(--card);border:1px solid rgba(31,28,26,.1);border-radius:22px;padding:36px 30px;display:flex;flex-direction:column;gap:20px;position:relative}
+.pack.feat{background:var(--deep);color:var(--ground);border-color:var(--deep)}
+.pack ul{list-style:none;margin:0;padding:18px 0 0;border-top:1px solid rgba(31,28,26,.12);display:flex;flex-direction:column;gap:12px;color:var(--muted);flex-grow:1}
+.pack.feat ul{color:var(--soft);border-color:rgba(243,239,234,.16)}
+.pack li::before{content:"✦";color:var(--brand);margin-right:10px;font-size:10px}
+.pack.feat li::before{color:var(--gold)}
+.flag{position:absolute;top:-13px;right:26px;background:var(--gold);color:var(--deep);font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding:6px 14px;border-radius:999px;font-weight:500}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.gi{border-radius:18px;overflow:hidden}
+.gi .ph{aspect-ratio:4/5;border-radius:18px;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.gi:hover .ph{transform:scale(1.05)}
+
+/* booking */
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.cal{background:var(--cream);color:var(--ink);border-radius:24px;padding:28px}
+.calhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.round{width:44px;height:44px;border-radius:50%;border:1px solid rgba(31,28,26,.25);background:transparent;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);font-family:inherit;font-size:18px}
+.round:disabled{opacity:.3;cursor:default}
+.grid7{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
+.wd{font-size:10px;letter-spacing:.2em;color:var(--muted);padding:6px 0}
+.day{aspect-ratio:1/1;min-height:40px;border-radius:50%;border:none;background:transparent;font-family:inherit;font-size:15px;color:var(--ink);cursor:pointer;transition:background .25s ease,color .25s ease}
+.day:hover{background:rgba(92,74,66,.12)}
+.day.sel{background:var(--brand);color:#FAF8F5}
+.day.off{color:rgba(31,28,26,.3);text-decoration:line-through;cursor:default;background:transparent}
+.day.blank{visibility:hidden}
+.legend{display:flex;gap:18px;font-size:12px;color:var(--muted);margin-top:16px;padding-top:16px;border-top:1px solid rgba(31,28,26,.12);flex-wrap:wrap}
+.legend i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.form{border:1px solid rgba(243,239,234,.16);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.picked{display:flex;align-items:center;gap:12px;border:1px solid rgba(243,239,234,.18);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--cream)}
+.picked i{width:7px;height:7px;border-radius:2px;background:var(--gold);display:inline-block}
+.f{display:flex;flex-direction:column;gap:8px}
+.f label,.flab{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.f input,.f textarea{font:inherit;font-size:16px;font-weight:300;color:var(--ground);background:rgba(243,239,234,.05);border:1px solid rgba(243,239,234,.18);border-radius:12px;padding:14px 16px;min-height:50px;outline:none;transition:border-color .25s ease,background .25s ease;width:100%}
+.f input::placeholder,.f textarea::placeholder{color:rgba(243,239,234,.45)}
+.f input:focus,.f textarea:focus{border-color:var(--gold);background:rgba(243,239,234,.08)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(243,239,234,.25);background:transparent;color:var(--cream);font-family:inherit;font-size:14px;cursor:pointer;transition:all .25s ease}
+.chip.on{background:var(--cream);color:var(--deep);border-color:var(--cream)}
+.stepper{display:flex;align-items:center;gap:16px}
+.stepper .round{color:var(--ground);border-color:rgba(243,239,234,.3)}
+.err{color:#F2C3B9;font-size:14px}
+.thanks{border:1px solid rgba(243,239,234,.16);border-radius:24px;padding:64px 28px;text-align:center;display:flex;flex-direction:column;gap:18px;align-items:center;animation:fadeUp .7s ease both}
+
+/* faq */
+.qa{border-top:1px solid rgba(31,28,26,.14)}
+.qbtn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;background:transparent;border:none;cursor:pointer;text-align:left;color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.4vw,28px)}
+.plus{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid rgba(31,28,26,.25);display:inline-flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-size:18px;transition:transform .4s ease,background .4s ease,color .4s ease}
+.qa.open .plus{transform:rotate(45deg);background:var(--brand);color:#FAF8F5;border-color:var(--brand)}
+.ans{margin:0;color:var(--muted);line-height:1.75;max-width:640px;max-height:0;overflow:hidden;transition:max-height .5s ease,padding .5s ease}
+.qa.open .ans{max-height:260px;padding-bottom:26px}
+
+.foot a{color:var(--ground);text-decoration:none}
+.foot a:hover{color:var(--gold)}
+
+@media (max-width:860px){
+.hero,.menu,.book{grid-template-columns:minmax(0,1fr);gap:40px}
+.hero{padding-top:36px}
+.archwrap{margin:0 auto;max-width:400px}
+.badge{left:-14px;top:40px;width:108px;height:108px}
+.badge .core{inset:31px;font-size:18px}
+.note{right:-4px}
+.steps,.packs,.two{grid-template-columns:minmax(0,1fr)}
+.packs{gap:30px}
+.gal{grid-template-columns:repeat(2,minmax(0,1fr))}
+.navlinks a.l{display:none}
+.pair{grid-template-columns:minmax(0,1fr)}
+.inset{right:-6px}
+.ring{width:420px;height:420px;left:-200px}
+.cal,.form{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){
+.curtain{animation-duration:.01s;animation-delay:.4s}
+.enter{animation:none;opacity:1}
+.reveal{opacity:1;transform:none;transition:none}
+.track,.badge svg,.note{animation:none}
+html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-dumbbell" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="17" width="5" height="14" rx="1.5"/><rect x="12" y="14" width="5" height="20" rx="1.5"/><rect x="31" y="14" width="5" height="20" rx="1.5"/><rect x="36" y="17" width="5" height="14" rx="1.5"/><path d="M17 24h14M4 24h3M41 24h3"/></g></symbol>
+  <symbol id="i-mountain" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 38l13-20 7 10 5-6 15 16Z"/><path d="M13 24l4-6 4 6M34 12a3 3 0 1 0 0.01 0"/><path d="M10 42c6-2 10 1 15-1s9-2 14 0"/></g></symbol>
+  <symbol id="i-bloom" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 38c-6-4-9-10-9-16 4 1 7 4 9 8 2-4 5-7 9-8 0 6-3 12-9 16Z"/><path d="M24 30c-2-6-1-12 0-18 1 6 2 12 0 18Z"/><path d="M14 42h20"/></g></symbol>
+  <symbol id="i-heart" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 38S9 29 9 19a7 7 0 0 1 15-3 7 7 0 0 1 15 3c0 10-15 19-15 19Z"/><path d="M15 24h5l2-4 4 8 2-4h5"/></g></symbol>
+  <symbol id="i-kettle" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20c-2-8 16-8 14 0"/><path d="M14 30a10 10 0 0 1 20 0c0 5-2 8-4 9H18c-2-1-4-4-4-9Z"/><path d="M15 21h18"/></g></symbol>
+  <symbol id="i-glyph" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18" opacity=".55"/><circle cx="12" cy="12" r="2.4"/></g></symbol>
+</svg>
+
+<form name="consult" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="name"><input name="email"><input name="phone"><input name="date"><input name="goals"><input name="sessions_per_week"><input name="preferred_time"><textarea name="message"></textarea>
+</form>
+
+<div class="curtain" aria-hidden="true">
+  <div class="inner">
+    <div class="mono">ZB<small>FITNESS</small></div>
+    <div class="word serif">Zahra Bakari</div>
+    <div class="rule"></div>
+    <div class="tag">Female fitness coach</div>
+  </div>
+</div>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <nav class="navin" aria-label="Main">
+    <a href="#top" class="brandmark">
+      <span class="mono">ZB</span>
+      <span style="display:flex;flex-direction:column;line-height:1">
+        <span class="serif" style="font-size:24px">ZB Fitness</span>
+        <span style="font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--muted);margin-top:4px">Female fitness coach</span>
+      </span>
+    </a>
+    <div class="navlinks">
+      <a class="l" href="#story">About</a>
+      <a class="l" href="#coaching">Coaching</a>
+      <a class="l" href="#packages">Packages</a>
+      <a class="l" href="#gallery">Gallery</a>
+      <a class="btn" href="#book">Start <span class="dot"></span></a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="wrap" style="position:relative">
+    <div class="ring" aria-hidden="true"></div>
+    <div class="hero">
+      <div style="display:flex;flex-direction:column;gap:26px;position:relative">
+        <div class="eyebrow lineeye enter e1">Female fitness coach · [CITY]</div>
+        <h1 class="serif enter e2" style="margin:0;font-size:clamp(54px,11vw,92px);line-height:.98">Stronger,<br>one percent<br><em>every day.</em></h1>
+        <p class="enter e3" style="margin:0;font-size:17px;line-height:1.8;color:var(--muted);max-width:440px">Coaching for women, built around your body, your goals and your real life. One to one training, prenatal and postnatal coaching and group hikes, all with one promise: progress, not perfection.</p>
+        <div class="enter e4" style="display:flex;flex-direction:column;align-items:flex-start;gap:12px">
+          <a class="btn" href="#book">Start your journey</a>
+          <a class="btn ghost" href="#coaching">See the coaching</a>
+        </div>
+        <div class="strip enter e5" style="margin-top:14px">
+          <span>Strength</span><span class="star">✦</span><span>Prenatal</span><span class="star">✦</span><span>Postnatal</span>
+        </div>
+      </div>
+      <div class="archwrap enter e3">
+        <div class="archframe" aria-hidden="true"></div>
+        <div class="ph arch"><svg><use href="#i-dumbbell"/></svg><span>Zahra coaching in the gym</span></div>
+        <div class="badge" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+            <text style="font-family:Jost,sans-serif;font-size:9.4px;letter-spacing:3px;text-transform:uppercase" fill="#5C4A42"><textPath href="#circ">Progress not perfection · ZB Fitness ·</textPath></text>
+          </svg>
+          <div class="core">1%</div>
+        </div>
+        <div class="note">
+          <div class="hand" style="font-size:30px;color:var(--brand);line-height:1">join the 1% club!</div>
+          <div style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)">Women only coaching</div>
+        </div>
+      </div>
+    </div>
+    <div class="enter e5" style="padding-bottom:56px"><div class="mouse" aria-hidden="true"></div></div>
+  </section>
+
+  <section class="ribbon serif" aria-label="What Zahra coaches">
+    <div class="track">
+      <span>One to one coaching <svg><use href="#i-glyph"/></svg> Prenatal <svg><use href="#i-glyph"/></svg> Postnatal <svg><use href="#i-glyph"/></svg> Group hiking <svg><use href="#i-glyph"/></svg> The 1% Better Club <svg><use href="#i-glyph"/></svg></span>
+      <span aria-hidden="true">One to one coaching <svg><use href="#i-glyph"/></svg> Prenatal <svg><use href="#i-glyph"/></svg> Postnatal <svg><use href="#i-glyph"/></svg> Group hiking <svg><use href="#i-glyph"/></svg> The 1% Better Club <svg><use href="#i-glyph"/></svg></span>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:96px">
+    <div class="pair">
+      <div class="reveal"><div class="ph deep" style="aspect-ratio:4/3"><svg><use href="#i-kettle"/></svg><span>Strength session</span></div></div>
+      <div class="reveal" style="position:relative">
+        <div class="ph" style="aspect-ratio:4/5"><svg><use href="#i-mountain"/></svg><span>Group hike on the trail</span></div>
+        <div class="ph inset"><svg><use href="#i-heart"/></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="story" class="wrap" style="padding:120px 20px 110px">
+    <div style="max-width:720px;display:flex;flex-direction:column;gap:26px">
+      <div class="eyebrow reveal">Meet Zahra</div>
+      <h2 class="h2 serif reveal">Small steps, <em>big</em> change.</h2>
+      <p class="reveal" style="margin:0;font-size:17px;line-height:1.85;color:var(--muted)">Zahra is a female fitness coach on a mission to help women feel strong, capable and at home in their bodies. Whether you are picking up weights for the first time, expecting, or finding your way back after baby, she meets you exactly where you are.</p>
+      <p class="reveal" style="margin:0;font-size:17px;line-height:1.85;color:var(--muted)">Her approach is simple. No quick fixes and no chasing perfect. Just one percent better, every day, with a coach in your corner and a community of women cheering you on.</p>
+      <div class="hand reveal" style="font-size:36px;color:var(--brand);line-height:1.2">progress, not perfection</div>
+    </div>
+  </section>
+
+  <section id="coaching" class="dark" style="padding:110px 0 120px">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="eyebrow reveal">The coaching</div>
+        <h2 class="h2 serif reveal">Ways to <em>train.</em></h2>
+      </div>
+      <div class="tabs reveal" role="tablist" aria-label="Coaching options" id="tabs"></div>
+      <div class="menu" id="menuBody"></div>
+      <p class="reveal" style="margin:0;color:var(--soft);font-size:14px">Not sure where to start? Book a call below and Zahra will help you find the right fit.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:120px 20px 0">
+    <div style="text-align:center;display:flex;flex-direction:column;gap:22px;align-items:center;margin-bottom:56px">
+      <div class="eyebrow reveal">How it works</div>
+      <h2 class="h2 serif reveal">Three steps to <em>stronger.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="serif" style="font-size:64px;font-style:italic;color:var(--brand);line-height:1">01</div><h3 class="serif" style="margin:0;font-size:32px">Enquire</h3><p style="margin:0;color:var(--muted);line-height:1.75">Pick a date for your first call and tell Zahra about your goals, your schedule and where you are starting from.</p></div>
+      <div class="step reveal"><div class="serif" style="font-size:64px;font-style:italic;color:var(--brand);line-height:1">02</div><h3 class="serif" style="margin:0;font-size:32px">Plan</h3><p style="margin:0;color:var(--muted);line-height:1.75">Together you map out a plan that fits your body, your season of life and the time you actually have.</p></div>
+      <div class="step reveal"><div class="serif" style="font-size:64px;font-style:italic;color:var(--brand);line-height:1">03</div><h3 class="serif" style="margin:0;font-size:32px">Progress</h3><p style="margin:0;color:var(--muted);line-height:1.75">Train with support every step of the way, celebrating the small wins that add up to real change.</p></div>
+    </div>
+  </section>
+
+  <section id="packages" class="wrap" style="padding:130px 20px 0">
+    <div style="display:flex;flex-direction:column;gap:22px;margin-bottom:64px">
+      <div class="eyebrow reveal">Packages</div>
+      <h2 class="h2 serif reveal">Find your <em>pace.</em></h2>
+    </div>
+    <div class="packs">
+      <div class="pack reveal">
+        <div class="eyebrow">Fresh Start</div>
+        <div class="serif" style="font-size:52px;line-height:1">[PRICE] <span style="font-size:20px;font-style:italic;color:var(--muted)">starting</span></div>
+        <ul><li>One to one sessions</li><li>Goal setting call</li><li>Training plan built for you</li></ul>
+        <a class="btn ghost" href="#book" data-pack="Fresh Start">Choose Fresh Start</a>
+      </div>
+      <div class="pack feat reveal">
+        <div class="flag">Most popular</div>
+        <div class="eyebrow" style="color:var(--soft)">The 1% Club</div>
+        <div class="serif" style="font-size:52px;line-height:1">[PRICE] <span style="font-size:20px;font-style:italic;color:var(--soft)">starting</span></div>
+        <ul><li>One to one sessions</li><li>Personalised training plan</li><li>Regular progress check ins</li><li>Group hikes with the club</li></ul>
+        <a class="btn light" href="#book" data-pack="The 1% Club">Choose The 1% Club</a>
+      </div>
+      <div class="pack reveal">
+        <div class="eyebrow">Mama Strong</div>
+        <div class="serif" style="font-size:52px;line-height:1">[PRICE] <span style="font-size:20px;font-style:italic;color:var(--muted)">starting</span></div>
+        <ul><li>Prenatal or postnatal coaching</li><li>Sessions adapted as you change</li><li>Core and strength rebuild</li><li>Support around your schedule</li></ul>
+        <a class="btn ghost" href="#book" data-pack="Mama Strong">Choose Mama Strong</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="wrap" style="padding:130px 20px 0">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:36px">
+      <h2 class="h2 serif">In the <em>work.</em></h2>
+      <a href="https://instagram.com/zahrabakarii" class="eyebrow" style="color:var(--brand);text-decoration:none;border-bottom:1px solid rgba(92,74,66,.4);padding-bottom:6px">@zahrabakarii</a>
+    </div>
+    <div class="gal">
+      <div class="gi reveal"><div class="ph deep"><svg><use href="#i-dumbbell"/></svg><span>Coaching on the floor</span></div></div>
+      <div class="gi reveal"><div class="ph"><svg><use href="#i-mountain"/></svg><span>Group hiking</span></div></div>
+      <div class="gi reveal"><div class="ph deep"><svg><use href="#i-kettle"/></svg><span>Strength day</span></div></div>
+      <div class="gi reveal"><div class="ph"><svg><use href="#i-bloom"/></svg><span>Prenatal session</span></div></div>
+      <div class="gi reveal"><div class="ph deep"><svg><use href="#i-heart"/></svg><span>Client love</span></div></div>
+      <div class="gi reveal"><div class="ph"><svg><use href="#i-glyph"/></svg><span>The 1% Better Club</span></div></div>
+    </div>
+  </section>
+
+  <section id="book" class="dark" style="margin-top:130px;padding:110px 0 120px">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:44px">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="eyebrow reveal">Book your first call</div>
+        <h2 class="h2 serif reveal">Claim your <em>spot.</em></h2>
+        <p class="reveal" style="margin:0;color:var(--soft);line-height:1.8;max-width:520px">Choose a day that suits you for your first chat, share a little about your goals and Zahra will be in touch to confirm a time.</p>
+      </div>
+
+      <div class="book" id="bookArea">
+        <div class="cal reveal">
+          <div class="calhead">
+            <button class="round" type="button" aria-label="Previous month" id="prev">‹</button>
+            <div class="serif" style="font-size:26px" id="monthLabel"></div>
+            <button class="round" type="button" aria-label="Next month" id="next">›</button>
+          </div>
+          <div class="grid7" id="grid"></div>
+          <div class="legend">
+            <span><i style="background:var(--ink)"></i>Available</span>
+            <span><i style="background:var(--brand)"></i>Selected</span>
+            <span><i style="background:rgba(31,28,26,.3)"></i>Unavailable</span>
+          </div>
+        </div>
+
+        <form class="form reveal" id="bookForm" novalidate>
+          <div class="picked"><i></i><span id="picked">Pick a day on the calendar</span></div>
+          <div class="two">
+            <div class="f"><label for="bk-name">Name</label><input id="bk-name" name="name" type="text" placeholder="Your full name" autocomplete="name"></div>
+            <div class="f"><label for="bk-email">Email</label><input id="bk-email" name="email" type="email" placeholder="you@email.com" autocomplete="email"></div>
+          </div>
+          <div class="f"><label for="bk-phone">Phone</label><input id="bk-phone" name="phone" type="tel" placeholder="Your number" autocomplete="tel"></div>
+          <div class="f"><span class="flab">Your goals</span><div class="chips" id="goals"></div></div>
+          <div class="two">
+            <div class="f">
+              <span class="flab">Sessions per week</span>
+              <div class="stepper">
+                <button class="round" type="button" aria-label="Fewer sessions" id="less">−</button>
+                <span class="serif" style="font-size:30px;min-width:28px;text-align:center" id="count">2</span>
+                <button class="round" type="button" aria-label="More sessions" id="more">+</button>
+              </div>
+            </div>
+            <div class="f"><span class="flab">Best time to train</span><div class="chips" id="ptime"></div></div>
+          </div>
+          <div class="f"><label for="bk-msg">Anything Zahra should know</label><textarea id="bk-msg" name="message" rows="4" placeholder="Injuries, pregnancy stage, what you want to feel" style="resize:vertical"></textarea></div>
+          <div class="err" role="alert" id="err" hidden></div>
+          <button class="btn light" type="submit" style="align-self:flex-start">Request my call</button>
+        </form>
+      </div>
+
+      <div class="thanks" id="thanks" hidden>
+        <div class="serif" style="font-size:clamp(44px,8vw,64px)">Thank you, <em id="fname"></em></div>
+        <p style="margin:0;color:var(--soft);line-height:1.8;max-width:440px">Your request for <span id="pickedThanks"></span> is in. Zahra will be in touch soon to lock in your first call.</p>
+        <button class="btn ghost" type="button" id="again">Start another</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="wrap" style="padding:120px 20px 110px;max-width:900px">
+    <h2 class="h2 serif reveal" style="margin-bottom:40px">Good <em>questions.</em></h2>
+    <div id="faqs"></div>
+  </section>
+
+  <section class="dark" style="padding:110px 0;text-align:center">
+    <div class="wrap" style="display:flex;flex-direction:column;align-items:center;gap:26px">
+      <span class="mono reveal" style="width:108px;height:108px;font-size:34px">ZB<small>FITNESS</small></span>
+      <h2 class="h2 serif reveal">Start your <em>1% today.</em></h2>
+      <a class="btn light reveal" href="#book">Book your first call</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" style="background:#161311;color:var(--ground);padding:72px 0 36px">
+  <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="eyebrow" style="color:var(--soft)">Explore</div>
+      <a href="#story">About</a><a href="#coaching">Coaching</a><a href="#packages">Packages</a><a href="#gallery">Gallery</a><a href="#faq">FAQ</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="eyebrow" style="color:var(--soft)">Contact</div>
+      <a href="https://instagram.com/zahrabakarii">Instagram @zahrabakarii</a>
+      <span style="color:var(--soft)">[EMAIL]</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="eyebrow" style="color:var(--soft)">Train with Zahra</div>
+      <span style="color:var(--soft);line-height:1.7">Coaching in [CITY] at [GYM]. Group hikes on local trails.</span>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:56px;padding-top:24px;border-top:1px solid rgba(243,239,234,.12);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;letter-spacing:.14em;color:var(--soft)">
+    <span>© 2026 ZB Fitness</span>
+    <a href="#top" style="display:inline-flex;align-items:center;gap:12px;letter-spacing:.24em;text-transform:uppercase">Back to top <span class="round" style="width:40px;height:40px;color:var(--ground);border-color:rgba(243,239,234,.3)">↑</span></a>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id)};
+
+var prog=document.querySelector('.progress');
+function onScroll(){var h=document.documentElement;var m=h.scrollHeight-h.clientHeight;prog.style.transform='scaleX('+(m>0?h.scrollTop/m:0)+')'}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+function observe(){
+  var els=document.querySelectorAll('.reveal:not(.in)');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+}
+
+var MENU=[
+  {label:'One to one',icon:'i-dumbbell',cap:'One to one session',deep:true,items:[
+    {tag:'In person',name:'Personal training',desc:'Sessions built around your goals and your schedule, with Zahra coaching every rep.'},
+    {tag:'Foundations',name:'Strength from scratch',desc:'Learn to lift with confidence, from your first squat to your first pull up.'},
+    {tag:'Accountability',name:'Progress check ins',desc:'Regular check ins to track your wins, adjust your plan and keep you moving forward.'}]},
+  {label:'Mums',icon:'i-bloom',cap:'Prenatal training',items:[
+    {tag:'Expecting',name:'Prenatal coaching',desc:'Steady, supported movement through each trimester, adapted as your body changes.'},
+    {tag:'After baby',name:'Postnatal return',desc:'Rebuild your core and your strength at your own pace, once you are cleared and ready.'},
+    {tag:'Real life',name:'Built around you',desc:'Flexible sessions that work around pregnancy, newborn days and everything in between.'}]},
+  {label:'Community',icon:'i-mountain',cap:'Group hike',deep:true,items:[
+    {tag:'Outdoors',name:'Group hiking',desc:'Trail days with women who want to move, talk and get outside together.'},
+    {tag:'Every day',name:'The 1% Better Club',desc:'A community of women choosing small daily wins over quick fixes.'},
+    {tag:'Results',name:'Client love',desc:'Real stories from women in the club. Catch them in the Client Love highlight.'}]}
+];
+var tab=0;
+function renderMenu(){
+  $('tabs').innerHTML=MENU.map(function(t,i){return '<button class="tab'+(i===tab?' on':'')+'" type="button" role="tab" aria-selected="'+(i===tab)+'" data-i="'+i+'">'+t.label+'</button>'}).join('');
+  var t=MENU[tab];
+  $('menuBody').innerHTML='<div class="ph menuimg'+(t.deep?' deep':'')+'"><svg><use href="#'+t.icon+'"/></svg><span>'+t.cap+'</span></div><div class="mcard">'+t.items.map(function(it,i){return '<div class="mrow"><div class="mtop"><span>0'+(i+1)+'</span><span>'+it.tag+'</span></div><h3 class="serif" style="margin:0;font-size:clamp(28px,4.6vw,34px)">'+it.name+'</h3><p style="margin:0;color:var(--soft);line-height:1.7">'+it.desc+'</p></div>'}).join('')+'</div>';
+}
+$('tabs').addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;tab=+b.dataset.i;renderMenu()});
+renderMenu();
+
+var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var today=new Date();today.setHours(0,0,0,0);
+var view=new Date(today.getFullYear(),today.getMonth(),1);
+var sel=null;
+function fmt(d){return d.toLocaleDateString(undefined,{weekday:'long',day:'numeric',month:'long',year:'numeric'})}
+function renderCal(){
+  $('monthLabel').textContent=MONTHS[view.getMonth()]+' '+view.getFullYear();
+  $('prev').disabled=view.getFullYear()===today.getFullYear()&&view.getMonth()===today.getMonth();
+  var html=['M','T','W','T','F','S','S'].map(function(w){return '<div class="wd">'+w+'</div>'}).join('');
+  var first=(view.getDay()+6)%7;
+  for(var i=0;i<first;i++)html+='<button class="day blank" type="button" tabindex="-1" aria-hidden="true"></button>';
+  var n=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+  for(var d=1;d<=n;d++){
+    var dt=new Date(view.getFullYear(),view.getMonth(),d);
+    var off=dt<=today;var on=sel&&dt.getTime()===sel.getTime();
+    html+='<button class="day'+(off?' off':'')+(on?' sel':'')+'" type="button" data-d="'+d+'" aria-label="'+fmt(dt)+'"'+(off?' disabled':'')+(on?' aria-pressed="true"':'')+'>'+d+'</button>';
+  }
+  $('grid').innerHTML=html;
+  $('picked').textContent=sel?fmt(sel):'Pick a day on the calendar';
+}
+$('grid').addEventListener('click',function(e){var b=e.target.closest('.day');if(!b||b.disabled||!b.dataset.d)return;sel=new Date(view.getFullYear(),view.getMonth(),+b.dataset.d);renderCal()});
+$('prev').addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()-1,1);renderCal()});
+$('next').addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()+1,1);renderCal()});
+renderCal();
+
+function chips(id,opts,multi,initial){
+  var state=initial.slice();
+  function r(){$(id).innerHTML=opts.map(function(o){var on=state.indexOf(o)>-1;return '<button class="chip'+(on?' on':'')+'" type="button" aria-pressed="'+on+'" data-v="'+o+'">'+o+'</button>'}).join('')}
+  $(id).addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;var v=b.dataset.v;if(multi){var i=state.indexOf(v);i>-1?state.splice(i,1):state.push(v)}else state=[v];r()});
+  r();return{get:function(){return state},set:function(s){state=s.slice();r()}};
+}
+var goals=chips('goals',['Get stronger','Lose fat','Build confidence','Prenatal','Postnatal','Group hikes'],true,[]);
+var ptime=chips('ptime',['Morning','Evening'],false,['Morning']);
+
+var count=2;
+function c(){$('count').textContent=count}
+$('less').addEventListener('click',function(){count=Math.max(1,count-1);c()});
+$('more').addEventListener('click',function(){count=Math.min(6,count+1);c()});
+
+document.querySelectorAll('[data-pack]').forEach(function(a){a.addEventListener('click',function(){var m=$('bk-msg');if(!m.value)m.value='Interested in '+a.dataset.pack+'. '})});
+
+function err(t){var e=$('err');if(t){e.textContent=t;e.hidden=false}else e.hidden=true}
+$('bookForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var name=$('bk-name').value.trim(),email=$('bk-email').value.trim(),phone=$('bk-phone').value.trim();
+  if(!sel)return err('Please pick a day on the calendar.');
+  if(!name)return err('Please add your name.');
+  if(!/^\S+@\S+\.\S+$/.test(email))return err('Please add a valid email.');
+  if(!phone)return err('Please add a phone number.');
+  if(!goals.get().length)return err('Please choose at least one goal.');
+  err('');
+  var data={'form-name':'consult','bot-field':'',name:name,email:email,phone:phone,date:fmt(sel),goals:goals.get().join(', '),sessions_per_week:String(count),preferred_time:ptime.get().join(''),message:$('bk-msg').value.trim()};
+  var body=Object.keys(data).map(function(k){return encodeURIComponent(k)+'='+encodeURIComponent(data[k])}).join('&');
+  var btn=e.target.querySelector('[type=submit]');btn.disabled=true;btn.textContent='Sending';
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(function(r){
+    if(!r.ok)throw 0;
+    $('fname').textContent=name.split(' ')[0]+'.';$('pickedThanks').textContent=fmt(sel);
+    $('bookArea').hidden=true;$('thanks').hidden=false;
+  }).catch(function(){err('Something went wrong. Please try again or message Zahra on Instagram.')}).finally(function(){btn.disabled=false;btn.textContent='Request my call'});
+});
+$('again').addEventListener('click',function(){$('bookForm').reset();sel=null;goals.set([]);ptime.set(['Morning']);count=2;c();renderCal();$('thanks').hidden=true;$('bookArea').hidden=false});
+
+var FAQ=[
+  {q:'Do I need any experience?',a:'Not at all. Every plan starts from where you are today, whether that is your first time in a gym or a return after a long break.'},
+  {q:'Can I train while pregnant?',a:'With the go ahead from your doctor or midwife, prenatal sessions are adapted to each stage so you can keep moving with confidence.'},
+  {q:'When can I start after having a baby?',a:'Once you have been cleared by your healthcare provider. Postnatal coaching rebuilds your core and strength gradually, at your pace.'},
+  {q:'Where do sessions happen?',a:'One to one sessions run at [GYM] in [CITY], and group hikes head out to local trails. Details are shared when you book.'},
+  {q:'What is the 1% Better Club?',a:'It is the heart of ZB Fitness: a community of women focused on getting a little better every day. Progress, not perfection.'}
+];
+$('faqs').innerHTML=FAQ.map(function(f,i){return '<div class="qa reveal"><button class="qbtn" type="button" aria-expanded="false" aria-controls="a'+i+'">'+f.q+'<span class="plus" aria-hidden="true">+</span></button><p class="ans" id="a'+i+'">'+f.a+'</p></div>'}).join('');
+$('faqs').addEventListener('click',function(e){var b=e.target.closest('.qbtn');if(!b)return;var qa=b.parentNode,o=!qa.classList.contains('open');qa.classList.toggle('open',o);b.setAttribute('aria-expanded',o)});
+
+observe();
+})();
+</script>
+</body>
+</html>
