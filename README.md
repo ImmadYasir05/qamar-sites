@@ -26,3 +26,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `the-cake-club/` — The Cake Club (Sydney mobile cake cart for weddings, engagements and events)
 - `zb-fitness/` — ZB Fitness (Zahra, female fitness coach, prenatal and postnatal, group hiking)
 - `law-with-anoushka/` — Law with Anoushka (Canadian law and politics explainer videos, collaborations and talks)
+- `decor-by-sarah/` — Decor by Sarah LLC (Metro Detroit event designer, backdrops, stages and decor rentals)
