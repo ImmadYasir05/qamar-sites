@@ -29,3 +29,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `decor-by-sarah/` — Decor by Sarah LLC (Metro Detroit event designer, backdrops, stages and decor rentals)
 - `lulu-and-bloom/` — Lulu & Bloom Co (Sydney florist, baskets, bouquets, arrangements and Bloom List subscription)
 - `phylla-matcha/` — Phylla Matcha (London mobile iced matcha cart for events, weddings and pop ups)
+- `noori-nutrition/` — Noori Nutrition (UK registered associate nutritionist, 1:1 coaching, 12 week programme, women's health, workshops)
