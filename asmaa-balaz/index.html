@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Asmaa Balaz | Agente immobilière, Grand Montréal</title>
+<meta name="description" content="Asmaa Balaz, agente immobilière résidentielle chez eXp Realty. Achat, vente et location dans le Grand Montréal et à Laval.">
+<meta name="theme-color" content="#16120F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%2316120F'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='26' fill='%23D6BC91'%3EAB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#F5F0E8;--paper:#FBF8F3;--sand:#ECE3D5;--ink:#16120F;--ink2:#211B16;--ink3:#2E261F;
+  --text:#2A2420;--muted:#695F56;--accent:#7E5E3D;--gold:#D6BC91;--goldsoft:rgba(214,188,145,.35);
+  --line:rgba(42,36,32,.14);--dline:rgba(239,231,219,.14);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;--script:'Caveat',cursive;
+  --gut:20px;--max:1240px;
+}
+*{box-sizing:border-box}
+html{overflow-x:hidden;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ivory);color:var(--text);font:300 17px/1.7 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.loading{overflow:hidden}
+img,svg{display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+::selection{background:var(--gold);color:var(--ink)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+@media(min-width:860px){:root{--gut:48px}}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;margin:0}
+h2{font-size:clamp(40px,7vw,76px);line-height:1.02}
+h2 em,h1 em{font-style:italic;color:var(--accent)}
+.dark h2 em,.dark h1 em{color:var(--gold)}
+p{margin:0}
+.eyebrow{display:flex;align-items:center;gap:14px;font:400 11px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--accent);margin-bottom:26px}
+.eyebrow::before{content:"";width:38px;height:1px;background:currentColor;opacity:.7}
+.dark .eyebrow{color:var(--gold)}
+.lede{color:var(--muted);max-width:560px}
+.dark{background:var(--ink);color:#EFE7DB}
+.dark .lede{color:rgba(239,231,219,.72)}
+section{position:relative}
+.pad{padding:110px 0}
+@media(min-width:860px){.pad{padding:150px 0}}
+
+/* icons */
+.ic{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:0 30px;border-radius:999px;font:400 13px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;transition:transform .5s var(--ease),background .4s,color .4s,box-shadow .5s var(--ease)}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px rgba(22,18,15,.6)}
+.btn-ghost{border:1px solid var(--line);color:var(--text)}
+.btn-ghost:hover{transform:translateY(-3px);background:var(--paper)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 18px 40px -16px rgba(214,188,145,.55)}
+.btn .arr{transition:transform .5s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* loader */
+#loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:radial-gradient(120% 90% at 50% 40%,#2E251D 0%,#16120F 60%,#0E0B09 100%);color:#EFE7DB;transition:clip-path 1.1s var(--ease),opacity .3s 1s;clip-path:ellipse(150% 150% at 50% 0%)}
+body.ready #loader{clip-path:ellipse(150% 0% at 50% 0%);opacity:0;pointer-events:none}
+.ld{text-align:center}
+.ld .mono{width:84px;height:84px;margin:0 auto 22px;border:1px solid var(--goldsoft);border-radius:50%;display:grid;place-items:center;font:italic 400 34px/1 var(--serif);color:var(--gold);opacity:0;transform:scale(.9);animation:ldIn 1s .15s var(--ease) forwards}
+.ld .wm{font:400 clamp(34px,8vw,52px)/1 var(--serif);letter-spacing:.02em;opacity:0;animation:ldIn 1s .45s var(--ease) forwards}
+.ld .rule{height:1px;width:0;margin:22px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:ldRule 1.2s .7s var(--ease) forwards}
+.ld .tg{font:400 10.5px/1 var(--sans);letter-spacing:.42em;text-transform:uppercase;color:rgba(239,231,219,.65);opacity:0;animation:ldIn 1s 1s var(--ease) forwards}
+@keyframes ldIn{to{opacity:1;transform:none}}
+@keyframes ldRule{to{width:180px}}
+
+/* progress */
+#prog{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:90}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:80;transition:background .5s,box-shadow .5s,transform .5s var(--ease)}
+.nav.scrolled{background:rgba(245,240,232,.78);backdrop-filter:saturate(160%) blur(16px);-webkit-backdrop-filter:saturate(160%) blur(16px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:16px}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand b{font:500 25px/1 var(--serif);letter-spacing:.01em}
+.brand small{font:400 9.5px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.links{display:none;gap:34px;font:400 12.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.links a{position:relative;padding:6px 0}
+.links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.links a:hover::after{transform:scaleX(1);transform-origin:left}
+@media(min-width:1000px){.links{display:flex}}
+.nav-r{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;font:500 11px/1 var(--sans);letter-spacing:.14em}
+.lang button{min-width:38px;height:36px;border-radius:999px;transition:background .4s,color .4s}
+.lang button.on{background:var(--ink);color:var(--paper)}
+.pill{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px;border-radius:999px;background:var(--ink);color:var(--paper);font:400 11.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;transition:transform .5s var(--ease)}
+.pill:hover{transform:translateY(-2px)}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(214,188,145,.7);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(214,188,145,0)}100%{box-shadow:0 0 0 0 rgba(214,188,145,0)}}
+@media(max-width:520px){.pill .pt{display:none}.pill{width:44px;padding:0;justify-content:center}}
+
+/* placeholders */
+.ph{position:relative;overflow:hidden;isolation:isolate;display:grid;place-items:center;color:var(--accent);background:#E6DACA}
+.ph::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(90% 70% at 25% 15%,rgba(255,255,255,.55),transparent 60%),
+  repeating-linear-gradient(90deg,rgba(126,94,61,.05) 0 1px,transparent 1px 46px),
+  linear-gradient(155deg,#F0E7DA 0%,#E2D3BE 50%,#CDB594 100%);
+  transition:transform 1.4s var(--ease)}
+.ph:hover::before{transform:scale(1.05)}
+.ph>svg{width:48px;height:48px;stroke:currentColor;fill:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;opacity:.8;transition:transform 1.4s var(--ease)}
+.ph:hover>svg{transform:scale(1.08)}
+.ph .cap{position:absolute;left:0;right:0;bottom:18px;text-align:center;font:400 10px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase;padding:0 14px}
+.dark .ph,.ph.dk{color:var(--gold);background:#2E261F}
+.dark .ph::before,.ph.dk::before{background:
+  radial-gradient(90% 70% at 25% 15%,rgba(214,188,145,.16),transparent 60%),
+  repeating-linear-gradient(90deg,rgba(214,188,145,.05) 0 1px,transparent 1px 46px),
+  linear-gradient(155deg,#2B231C 0%,#3A2F25 55%,#4B3C2D 100%)}
+
+/* hero */
+.hero{min-height:100svh;padding:130px 0 70px;display:flex;align-items:center;overflow:hidden}
+.hero .wrap{display:grid;gap:56px;width:100%}
+@media(min-width:960px){.hero .wrap{grid-template-columns:1.12fr .88fr;align-items:center;gap:40px}}
+.ring{position:absolute;width:760px;height:760px;border:1px solid var(--line);border-radius:50%;top:-220px;left:-320px;pointer-events:none}
+.ring.r2{width:520px;height:520px;top:auto;bottom:-260px;left:auto;right:-180px}
+.hero h1{font-size:clamp(52px,10.5vw,118px);line-height:.95;margin-bottom:30px}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln>span{display:inline-block;transform:translateY(105%);transition:transform 1.2s var(--ease)}
+body.ready .hero h1 .ln>span{transform:none}
+body.ready .hero h1 .ln:nth-child(2)>span{transition-delay:.1s}
+body.ready .hero h1 .ln:nth-child(3)>span{transition-delay:.2s}
+.hero .fade{opacity:0;transform:translateY(22px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+body.ready .hero .fade{opacity:1;transform:none}
+body.ready .hero .fade.d1{transition-delay:.35s}body.ready .hero .fade.d2{transition-delay:.5s}body.ready .hero .fade.d3{transition-delay:.65s}body.ready .hero .fade.d4{transition-delay:.8s}
+.hero .lede{margin-bottom:38px;font-size:18px}
+.ctas{display:flex;flex-direction:column;gap:12px;max-width:340px}
+@media(min-width:560px){.ctas{flex-direction:row;max-width:none}}
+.strip{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-top:42px;font:400 11px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.strip i{font-style:normal;color:var(--accent);font-size:10px}
+.hero-art{position:relative;max-width:470px;width:100%;margin:0 auto}
+.arch-frame{position:absolute;inset:-14px 14px 14px -14px;border:1px solid var(--accent);opacity:.35;border-radius:999px 999px 26px 26px}
+.arch{aspect-ratio:4/5.2;border-radius:999px 999px 26px 26px}
+.arch>svg{width:64px;height:64px}
+.badge{position:absolute;right:-6px;top:22%;width:128px;height:128px;display:grid;place-items:center}
+@media(min-width:960px){.badge{right:-54px}}
+.badge svg.txt{position:absolute;inset:0;width:100%;height:100%;animation:spin 22s linear infinite;fill:var(--text)}
+.badge .core{width:60px;height:60px;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.note{position:absolute;left:-10px;bottom:46px;background:var(--paper);padding:18px 22px 16px;transform:rotate(-4deg);box-shadow:0 20px 40px -22px rgba(22,18,15,.45);animation:bob 5s ease-in-out infinite;max-width:210px}
+@media(min-width:960px){.note{left:-58px}}
+.note::before{content:"";position:absolute;top:-11px;left:50%;width:74px;height:22px;transform:translateX(-50%) rotate(3deg);background:rgba(214,188,145,.55)}
+.note p{font:600 25px/1.05 var(--script);color:var(--text)}
+.note span{display:block;font:500 19px/1 var(--script);color:var(--accent);margin-top:6px;text-align:right}
+@keyframes bob{50%{transform:rotate(-2deg) translateY(-8px)}}
+.scroll-cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:24px;height:38px;border:1px solid var(--line);border-radius:14px;display:none}
+.scroll-cue::after{content:"";position:absolute;left:50%;top:8px;width:2px;height:7px;border-radius:2px;background:var(--accent);transform:translateX(-50%);animation:cue 2s var(--ease) infinite}
+@keyframes cue{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+@media(min-width:960px){.scroll-cue{display:block}}
+
+/* marquee */
+.marquee{background:var(--ink);color:#EFE7DB;overflow:hidden;padding:26px 0;border-block:1px solid rgba(214,188,145,.18)}
+.mq{display:flex;width:max-content;animation:mq 38s linear infinite}
+.mq div{display:flex;align-items:center;flex-shrink:0}
+.mq span{font:italic 400 clamp(26px,4vw,40px)/1 var(--serif);padding:0 26px;white-space:nowrap}
+.mq svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.2;flex-shrink:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* image pair */
+.pair{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:860px){.pair{grid-template-columns:1.45fr 1fr;gap:26px;align-items:end}}
+.pair .big{aspect-ratio:4/3.1;border-radius:26px}
+.pair .tallw{position:relative}
+.pair .tall{aspect-ratio:3/4;border-radius:26px}
+@media(min-width:860px){.pair .tall{aspect-ratio:3/4.4}}
+.pair .inset{position:absolute;width:44%;aspect-ratio:1;border-radius:50%;left:-12%;bottom:-8%;border:8px solid var(--ivory)}
+.pair .inset>svg{width:34px;height:34px}
+.pair .inset .cap{bottom:auto;top:62%;font-size:9px}
+@media(max-width:859px){.pair .inset{left:auto;right:-4%;width:38%}}
+
+/* story */
+.story{display:grid;gap:44px}
+@media(min-width:960px){.story{grid-template-columns:1fr 1fr;gap:90px;align-items:end}}
+.story .cols p+p{margin-top:20px}
+.sign{font:600 34px/1.1 var(--script);color:var(--accent);margin-top:30px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-top:52px}
+.facts div{background:var(--ivory);padding:22px 14px;text-align:center}
+.facts b{display:block;font:italic 400 26px/1.1 var(--serif);color:var(--accent)}
+.facts small{display:block;font:400 9.5px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+/* services dark */
+.svc-head{display:flex;flex-direction:column;gap:26px;margin-bottom:52px}
+@media(min-width:960px){.svc-head{flex-direction:row;justify-content:space-between;align-items:end}}
+.tabs{display:inline-flex;gap:4px;padding:5px;border:1px solid var(--dline);border-radius:999px;align-self:flex-start}
+.tabs button{height:46px;padding:0 24px;border-radius:999px;font:400 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(239,231,219,.7);transition:background .4s,color .4s}
+.tabs button.on{background:var(--gold);color:var(--ink)}
+.svc{display:grid;gap:36px}
+@media(min-width:960px){.svc{grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}}
+.svc .ph{aspect-ratio:4/4.6;border-radius:24px;transition:opacity .5s}
+.rows{border-top:1px solid var(--dline)}
+.row{display:grid;grid-template-columns:44px 1fr;gap:6px 18px;padding:26px 0;border-bottom:1px solid var(--dline);opacity:0;transform:translateY(14px);animation:rowIn .8s var(--ease) forwards}
+.row .n{font:italic 400 22px/1.2 var(--serif);color:var(--gold)}
+.row .tg{font:400 10px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:rgba(239,231,219,.55);margin-bottom:10px}
+.row h3{font-size:30px;line-height:1.1;margin-bottom:8px}
+.row p{color:rgba(239,231,219,.72);font-size:16px}
+@keyframes rowIn{to{opacity:1;transform:none}}
+.foot-note{margin-top:30px;font:500 24px/1.2 var(--script);color:var(--gold)}
+
+/* process */
+.steps{display:grid;gap:18px;margin-top:56px}
+@media(min-width:860px){.steps{grid-template-columns:repeat(3,1fr);gap:22px}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:36px 30px;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -36px rgba(22,18,15,.4)}
+.card .big{font:italic 400 72px/1 var(--serif);color:var(--accent);opacity:.9}
+.card h3{font-size:32px;margin:22px 0 10px}
+.card p{color:var(--muted);font-size:16px}
+
+/* spotlight */
+.spot{background:var(--sand)}
+.spot-grid{display:grid;gap:44px}
+@media(min-width:960px){.spot-grid{grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}}
+.spot .hero-ph{aspect-ratio:4/4.4;border-radius:26px}
+.spot .hero-ph>svg{width:70px;height:70px}
+.tagline{position:absolute;top:18px;left:18px;background:var(--ink);color:var(--gold);font:400 10px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;padding:10px 14px;border-radius:999px}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:36px 0}
+.spec{display:flex;gap:12px;align-items:center;background:var(--paper);border-radius:16px;padding:16px;font-size:15px;line-height:1.3}
+.spec .ic{flex-shrink:0;color:var(--accent);width:24px;height:24px}
+.incl h4{font:400 10.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{border:1px solid var(--line);border-radius:999px;padding:9px 15px;font-size:14px;line-height:1}
+.excl{margin-top:16px;font-size:14px;color:var(--muted)}
+.spot .ctas{margin-top:34px}
+
+/* packages */
+.pk{display:grid;gap:18px;margin-top:56px}
+@media(min-width:960px){.pk{grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}}
+.pkc{position:relative;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:40px 32px;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.pkc:hover{transform:translateY(-6px);box-shadow:0 30px 60px -36px rgba(22,18,15,.45)}
+.pkc.feat{background:var(--ink);color:#EFE7DB;border-color:var(--ink)}
+@media(min-width:960px){.pkc.feat{transform:translateY(-14px)}.pkc.feat:hover{transform:translateY(-20px)}}
+.flag{position:absolute;top:-13px;left:32px;background:var(--gold);color:var(--ink);font:500 10px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;padding:9px 14px;border-radius:999px}
+.pkc .ic{width:30px;height:30px;color:var(--accent)}
+.pkc.feat .ic{color:var(--gold)}
+.pkc h3{font-size:38px;margin:22px 0 6px}
+.pkc .sub{font-size:15px;color:var(--muted);margin-bottom:26px}
+.pkc.feat .sub{color:rgba(239,231,219,.65)}
+.pkc ul{list-style:none;margin:0 0 34px;padding:0;flex:1}
+.pkc li{position:relative;padding:12px 0 12px 28px;border-top:1px solid var(--line);font-size:15.5px}
+.pkc.feat li{border-color:var(--dline)}
+.pkc li::before{content:"✦";position:absolute;left:0;top:12px;font-size:11px;color:var(--accent)}
+.pkc.feat li::before{color:var(--gold)}
+.pkc .btn{width:100%}
+
+/* gallery */
+.gal-head{display:flex;flex-direction:column;gap:18px;margin-bottom:46px}
+@media(min-width:760px){.gal-head{flex-direction:row;justify-content:space-between;align-items:end}}
+.handle{font:400 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:6px;align-self:flex-start;color:var(--accent)}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:860px){.gal{grid-template-columns:repeat(3,1fr);gap:18px}}
+.gal .ph{aspect-ratio:4/5;border-radius:20px}
+.gal .ph:nth-child(1){grid-column:span 2;aspect-ratio:16/10}
+@media(min-width:860px){.gal .ph:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}}
+.gal .ph .cap{font-size:9px;letter-spacing:.24em}
+
+/* calculator */
+.calc{display:grid;gap:30px;margin-top:52px}
+@media(min-width:960px){.calc{grid-template-columns:1.1fr .9fr;gap:26px}}
+.calc .in{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:34px 28px;display:grid;gap:30px}
+.fld label,.lbl{display:flex;justify-content:space-between;align-items:baseline;font:400 10.5px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.fld label output{font:italic 400 24px/1 var(--serif);letter-spacing:0;text-transform:none;color:var(--text)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:linear-gradient(90deg,var(--accent) var(--p,50%),var(--line) var(--p,50%));outline:none;margin:14px 0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--ink);border:4px solid var(--paper);box-shadow:0 0 0 1px var(--accent);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--ink);border:4px solid var(--paper);box-shadow:0 0 0 1px var(--accent);cursor:pointer}
+.calc .out{background:var(--ink);color:#EFE7DB;border-radius:26px;padding:40px 32px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.out .k{font:400 10.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:rgba(239,231,219,.6)}
+.out .v{font:400 clamp(54px,9vw,84px)/1 var(--serif);color:var(--gold);margin:16px 0 6px}
+.out .per{font:italic 400 20px/1 var(--serif);color:rgba(239,231,219,.7)}
+.out dl{margin:0;display:grid;gap:0;border-top:1px solid var(--dline)}
+.out dl div{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--dline);font-size:15px}
+.out dd{margin:0;font-family:var(--serif);font-size:21px}
+.out small{color:rgba(239,231,219,.55);font-size:13px;line-height:1.5}
+
+/* chips (shared) */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);font:400 14px/1 var(--sans);transition:background .35s,color .35s,border-color .35s,transform .35s var(--ease)}
+.chip:hover{transform:translateY(-2px)}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.dark .chip{border-color:var(--dline);color:#EFE7DB}
+.dark .chip.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+/* booking */
+.book{display:grid;gap:30px;margin-top:56px}
+@media(min-width:1000px){.book{grid-template-columns:.85fr 1.15fr;gap:30px;align-items:start}}
+.panel{background:var(--ink2);border:1px solid var(--dline);border-radius:26px;padding:30px 24px}
+@media(min-width:860px){.panel{padding:38px 36px}}
+.cal-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.cal-h b{font:400 30px/1 var(--serif);text-transform:capitalize}
+.cal-h button{width:44px;height:44px;border-radius:50%;border:1px solid var(--dline);display:grid;place-items:center;transition:background .3s}
+.cal-h button:hover{background:var(--ink3)}
+.cal-h button:disabled{opacity:.3;pointer-events:none}
+.cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal-g .wd{font:400 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(239,231,219,.5);padding:8px 0 12px}
+.cal-g button{aspect-ratio:1;min-height:40px;border-radius:50%;font:400 15px/1 var(--sans);transition:background .3s,color .3s}
+.cal-g button:hover:not(:disabled){background:var(--ink3)}
+.cal-g button.today{box-shadow:inset 0 0 0 1px var(--goldsoft)}
+.cal-g button.sel{background:var(--gold);color:var(--ink)}
+.cal-g button:disabled{color:rgba(239,231,219,.25);text-decoration:line-through;cursor:default}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:12.5px;color:rgba(239,231,219,.6)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:middle}
+.picked{margin-top:24px;padding-top:22px;border-top:1px solid var(--dline)}
+.picked small{display:block;font:400 10px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:rgba(239,231,219,.55);margin-bottom:10px}
+.picked b{font:italic 400 28px/1.1 var(--serif);color:var(--gold)}
+form .grid{display:grid;gap:18px}
+@media(min-width:640px){form .grid.two{grid-template-columns:1fr 1fr}}
+.f label,.dark .lbl{display:block;font:400 10.5px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;color:rgba(239,231,219,.6);margin-bottom:12px}
+.f input,.f textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--dline);color:#EFE7DB;font:300 17px/1.4 var(--sans);padding:10px 0 12px;border-radius:0;outline:none;transition:border-color .3s}
+.f input:focus,.f textarea:focus{border-color:var(--gold)}
+.f textarea{resize:vertical;min-height:90px}
+.f.err input{border-color:#E2A08A}
+.f .em{display:none;font-size:13px;color:#E8B19E;margin-top:8px}
+.f.err .em{display:block}
+.blk{margin-top:30px}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--dline);border-radius:999px}
+.stepper button{width:48px;height:48px;font-size:22px;border-radius:50%}
+.stepper output{min-width:56px;text-align:center;font:400 26px/1 var(--serif)}
+.submit{margin-top:36px;width:100%}
+.form-err{display:none;margin-top:14px;color:#E8B19E;font-size:14px}
+.thanks{display:none;text-align:center;padding:50px 10px}
+.thanks .seal{width:76px;height:76px;margin:0 auto 26px;border-radius:50%;background:var(--gold);color:var(--ink);display:grid;place-items:center}
+.thanks h3{font-size:clamp(42px,7vw,60px);line-height:1}
+.thanks h3 em{color:var(--gold)}
+.thanks p{color:rgba(239,231,219,.72);margin:18px auto 30px;max-width:420px}
+.done .thanks{display:block}.done form{display:none}
+.hp{position:absolute;left:-9999px}
+
+/* faq */
+.faq{display:grid;gap:40px}
+@media(min-width:960px){.faq{grid-template-columns:.8fr 1.2fr;gap:80px}}
+.qa{border-top:1px solid var(--line)}
+.qa:last-child{border-bottom:1px solid var(--line)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;text-align:left;padding:26px 0;font:400 clamp(22px,3vw,28px)/1.2 var(--serif)}
+.qa .pl{flex-shrink:0;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);position:relative;transition:background .4s,transform .5s var(--ease),border-color .4s}
+.qa .pl::before,.qa .pl::after{content:"";position:absolute;left:50%;top:50%;width:13px;height:1px;background:currentColor;transform:translate(-50%,-50%)}
+.qa .pl::after{transform:translate(-50%,-50%) rotate(90deg)}
+.qa.open .pl{background:var(--accent);border-color:var(--accent);color:var(--paper);transform:rotate(135deg)}
+.qa .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease)}
+.qa.open .a{grid-template-rows:1fr}
+.qa .a>div{overflow:hidden}
+.qa .a p{padding:0 50px 26px 0;color:var(--muted)}
+
+/* footer */
+.fcta{text-align:center;overflow:hidden}
+.fcta .mono{width:78px;height:78px;margin:0 auto 30px;border-radius:50%;border:1px solid var(--goldsoft);display:grid;place-items:center;font:italic 400 30px/1 var(--serif);color:var(--gold)}
+.fcta h2{max-width:900px;margin:0 auto 38px}
+footer{background:var(--ink);color:rgba(239,231,219,.75);padding:70px 0 40px;border-top:1px solid var(--dline);font-size:15px}
+.fgrid{display:grid;gap:40px;grid-template-columns:1fr 1fr}
+@media(min-width:860px){.fgrid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+.fgrid .brand{grid-column:1/-1}
+@media(min-width:860px){.fgrid .brand{grid-column:auto}}
+.fgrid .brand b{color:#EFE7DB;font-size:30px}
+.fgrid .brand small{color:rgba(239,231,219,.5)}
+.fgrid .brand p{margin-top:20px;font:500 22px/1.2 var(--script);color:var(--gold)}
+footer h5{margin:0 0 18px;font:400 10.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+footer a:hover{color:#EFE7DB}
+.fbot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;margin-top:60px;padding-top:28px;border-top:1px solid var(--dline);font-size:13px}
+.top{display:inline-flex;align-items:center;gap:12px;font:400 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.top span{width:44px;height:44px;border-radius:50%;border:1px solid var(--dline);display:grid;place-items:center;transition:background .4s,transform .5s var(--ease)}
+.top:hover span{background:var(--gold);color:var(--ink);transform:translateY(-3px)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .rv,.hero .fade{opacity:1;transform:none}
+  .hero h1 .ln>span{transform:none}
+}
+</style>
+</head>
+<body class="loading">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-house" viewBox="0 0 24 24"><path d="M3.5 10.5 12 4l8.5 6.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-5.5h4V20"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4.2"/><circle cx="8" cy="15" r="1.2"/><path d="m11 12 8.5-8.5"/><path d="m16.5 6.5 2.2 2.2"/><path d="m14.2 8.8 1.8 1.8"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V4.5h10V21"/><path d="M14 9h6v12"/><path d="M2.5 21h19"/><path d="M7 8h4M7 11.5h4M7 15h4M16.5 12.5h1M16.5 16h1"/></symbol>
+  <symbol id="i-window" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="7"/><path d="M12 3v18M5 12h14"/></symbol>
+  <symbol id="i-door" viewBox="0 0 24 24"><path d="M6 21V5a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v16"/><path d="M3.5 21h17"/><circle cx="14.5" cy="12.5" r=".6"/></symbol>
+  <symbol id="i-bath" viewBox="0 0 24 24"><path d="M3 12h18v2.5A5.5 5.5 0 0 1 15.5 20h-7A5.5 5.5 0 0 1 3 14.5Z"/><path d="M6 12V6a2 2 0 0 1 4 0"/><path d="M7 20l-1 2M17 20l1 2"/></symbol>
+  <symbol id="i-height" viewBox="0 0 24 24"><path d="M3 3.5h18M3 20.5h18"/><path d="M12 6.5v11"/><path d="m9.5 9 2.5-2.5L14.5 9M9.5 15l2.5 2.5 2.5-2.5"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.5 5.5 13.5H11L10 21.5l8.5-12H13Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+  <symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 3.5h12l3.5 5L12 20.5 2.5 8.5Z"/><path d="M2.5 8.5h19M9 3.5l3 17 3-17"/></symbol>
+  <symbol id="i-sofa" viewBox="0 0 24 24"><path d="M5 11V7.5A2.5 2.5 0 0 1 7.5 5h9A2.5 2.5 0 0 1 19 7.5V11"/><path d="M3 12.5a2 2 0 0 1 4 0V15h10v-2.5a2 2 0 0 1 4 0V18H3Z"/><path d="M5.5 18v2M18.5 18v2"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3.5 20.5h17"/><path d="M6 17V12M10.5 17V8M15 17v-6M19.5 17V5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3c.4 4.6 4.4 8.6 9 9-4.6.4-8.6 4.4-9 9-.4-4.6-4.4-8.6-9-9 4.6-.4 8.6-4.4 9-9Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13.5 6.5 19 12l-5.5 5.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 4.5 4.5L19.5 6.5"/></symbol>
+</svg>
+
+<div id="loader" aria-hidden="true">
+  <div class="ld">
+    <div class="mono">AB</div>
+    <div class="wm">Asmaa Balaz</div>
+    <div class="rule"></div>
+    <div class="tg" data-en="Real estate with confidence">L'immobilier en toute confiance</div>
+  </div>
+</div>
+<div id="prog"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#accueil" class="brand" aria-label="Asmaa Balaz">
+      <b>Asmaa Balaz</b>
+      <small data-en="Real estate agent">Agente immobilière</small>
+    </a>
+    <nav class="links" aria-label="Navigation">
+      <a href="#apropos" data-en="About">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#rosiers">Les Rosiers</a>
+      <a href="#proprietes" data-en="Listings">Propriétés</a>
+      <a href="#calcul" data-en="Calculator">Calculateur</a>
+    </nav>
+    <div class="nav-r">
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button type="button" data-l="fr" class="on">FR</button>
+        <button type="button" data-l="en">EN</button>
+      </div>
+      <a href="#contact" class="pill" aria-label="Consultation"><span class="dot"></span><span class="pt" data-en="Book">Réserver</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="ring"></div><div class="ring r2"></div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow fade d1" data-en="Real estate agent · Greater Montréal">Agente immobilière · Grand Montréal</div>
+      <h1>
+        <span class="ln"><span data-en="Your next">Votre prochaine</span></span>
+        <span class="ln"><span data-en="address, found">adresse, en toute</span></span>
+        <span class="ln"><span data-en="with <em>confidence.</em>"><em>confiance.</em></span></span>
+      </h1>
+      <p class="lede fade d2" data-en="Buying, selling or renting in Montréal and Laval. Thoughtful, clear and personal guidance, from the very first visit to the moment the keys are in your hand.">Achat, vente ou location à Montréal et à Laval. Un accompagnement attentif, clair et humain, de la toute première visite jusqu'à la remise des clés.</p>
+      <div class="ctas fade d3">
+        <a href="#contact" class="btn btn-fill"><span data-en="Book a consultation">Réserver une consultation</span> <svg class="ic arr"><use href="#i-arrow"/></svg></a>
+        <a href="#proprietes" class="btn btn-ghost" data-en="See the listings">Voir les propriétés</a>
+      </div>
+      <div class="strip fade d4">
+        <span data-en="Buy">Achat</span><i>✦</i><span data-en="Sell">Vente</span><i>✦</i><span data-en="Rent">Location</span><i>✦</i><span data-en="New builds">Projets neufs</span>
+      </div>
+    </div>
+    <div class="hero-art fade d3">
+      <div class="arch-frame"></div>
+      <div class="ph arch">
+        <svg><use href="#i-key"/></svg>
+        <span class="cap" data-en="Portrait of Asmaa">Portrait d'Asmaa</span>
+      </div>
+      <div class="badge" aria-hidden="true">
+        <svg class="txt" viewBox="0 0 128 128"><defs><path id="circ" d="M64,64 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs><text font-family="Jost,sans-serif" font-size="9.6" letter-spacing="3.1"><textPath href="#circ">ASMAA BALAZ ✦ GRAND MONTRÉAL ✦ EXP REALTY ✦</textPath></text></svg>
+        <div class="core"><svg class="ic"><use href="#i-house"/></svg></div>
+      </div>
+      <div class="note">
+        <p data-en="Welcome home!">Bienvenue chez vous!</p>
+        <span>Asmaa ✦</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true"><div class="mq" id="mq"></div></div>
+
+<!-- PAIR -->
+<section class="pad" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="pair">
+      <div class="ph big rv"><svg><use href="#i-sofa"/></svg><span class="cap" data-en="A bright living room">Un salon lumineux</span></div>
+      <div class="tallw rv d2">
+        <div class="ph tall"><svg><use href="#i-building"/></svg><span class="cap" data-en="Brick facade, Laval">Façade de brique, Laval</span></div>
+        <div class="ph inset dk"><svg><use href="#i-key"/></svg><span class="cap" data-en="The keys">Les clés</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="pad" id="apropos">
+  <div class="wrap story">
+    <div>
+      <div class="eyebrow rv" data-en="About">À propos</div>
+      <h2 class="rv d1" data-en="A real estate agent who listens, with a <em>clear approach.</em>">Une agente à votre écoute, une approche <em>limpide.</em></h2>
+    </div>
+    <div class="cols">
+      <p class="rv d1" data-en="I'm Asmaa Balaz, a residential real estate agent with eXp Realty. I guide buyers, sellers and renters across Greater Montréal, from Laval to the island.">Je m'appelle Asmaa Balaz, agente immobilière résidentielle chez eXp Realty. J'accompagne acheteurs, vendeurs et locataires partout dans le Grand Montréal, de Laval jusqu'à l'île.</p>
+      <p class="rv d2" data-en="To me, a great move starts with trust: honest answers, a clear plan and someone who stays reachable at every step. Your project deserves my full attention.">Pour moi, une transaction réussie commence par la confiance : des réponses franches, une stratégie claire et une personne disponible à chaque étape. Votre projet mérite toute mon attention.</p>
+      <div class="sign rv d3" data-en="Looking forward to meeting you, Asmaa">Au plaisir de vous rencontrer, Asmaa</div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="facts rv">
+      <div><b>eXp</b><small>Realty</small></div>
+      <div><b data-en="Greater">Grand</b><small>Montréal</small></div>
+      <div><b>FR</b><small data-en="Residential">Résidentiel</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="pad dark" id="services">
+  <div class="wrap">
+    <div class="svc-head">
+      <div>
+        <div class="eyebrow rv">Services</div>
+        <h2 class="rv d1" data-en="Your project, <em>my expertise.</em>">Votre projet, <em>mon expertise.</em></h2>
+      </div>
+      <div class="tabs rv d2" role="tablist">
+        <button type="button" role="tab" class="on" data-tab="buy" data-en="Buy">Acheter</button>
+        <button type="button" role="tab" data-tab="sell" data-en="Sell">Vendre</button>
+        <button type="button" role="tab" data-tab="rent" data-en="Rent">Louer</button>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="ph rv" id="svcPh"><svg><use href="#i-house"/></svg><span class="cap"></span></div>
+      <div>
+        <div class="rows" id="rows"></div>
+        <div class="foot-note" data-en="Every project starts with a conversation, never with pressure.">Chaque projet commence par une conversation, jamais par de la pression.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="pad">
+  <div class="wrap">
+    <div class="eyebrow rv" data-en="How it works">Comment ça fonctionne</div>
+    <h2 class="rv d1" data-en="Three steps to <em>your keys.</em>">Trois étapes vers <em>vos clés.</em></h2>
+    <div class="steps">
+      <div class="card rv"><div class="big">01</div><h3>Consultation</h3><p data-en="We talk through your goals, your budget and your timeline, simply and honestly.">On discute de vos objectifs, de votre budget et de votre échéancier, simplement et franchement.</p></div>
+      <div class="card rv d1"><div class="big">02</div><h3 data-en="Strategy">Stratégie</h3><p data-en="Search, visits or marketing your home: a clear plan, built around you.">Recherche, visites ou mise en marché : un plan clair, construit autour de vous.</p></div>
+      <div class="card rv d2"><div class="big">03</div><h3 data-en="Keys in hand">Clés en main</h3><p data-en="Negotiation, conditions, notary: I stay by your side right to the end.">Négociation, conditions, notaire : je reste à vos côtés jusqu'au bout.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPOTLIGHT -->
+<section class="pad spot" id="rosiers">
+  <div class="wrap spot-grid">
+    <div class="rv" style="position:relative">
+      <div class="ph hero-ph"><svg><use href="#i-building"/></svg><span class="cap" data-en="Les Rosiers at dusk">Les Rosiers au crépuscule</span></div>
+      <span class="tagline" data-en="New build">Projet neuf</span>
+    </div>
+    <div>
+      <div class="eyebrow rv" data-en="Featured · Sainte Rose, Laval">En vedette · Sainte Rose, Laval</div>
+      <h2 class="rv d1" data-en="Les Rosiers, modern <em>elegance.</em>">Les Rosiers, l'élégance <em>moderne.</em></h2>
+      <p class="lede rv d2" style="margin-top:22px" data-en="A high end new development in Sainte Rose, in a sought after area close to services, shops and major roads. Luxury, elegance and modern living, together.">Un projet neuf haut de gamme à Sainte Rose, dans un secteur recherché, à proximité des services, des commerces et des grands axes routiers. Luxe, élégance et modernité réunis.</p>
+      <div class="specs rv d2">
+        <div class="spec"><svg class="ic"><use href="#i-bath"/></svg><span data-en="2 bathrooms">2 salles de bain</span></div>
+        <div class="spec"><svg class="ic"><use href="#i-height"/></svg><span data-en="9 foot ceilings">Plafonds de 9 pieds</span></div>
+        <div class="spec"><svg class="ic"><use href="#i-bolt"/></svg><span data-en="Indoor parking with EV charger">Stationnement intérieur, borne de recharge</span></div>
+        <div class="spec"><svg class="ic"><use href="#i-sun"/></svg><span data-en="Natural light">Luminosité naturelle</span></div>
+        <div class="spec"><svg class="ic"><use href="#i-gem"/></svg><span data-en="Refined design and finishes">Design et finitions soignés</span></div>
+        <div class="spec"><svg class="ic"><use href="#i-star"/></svg><span data-en="Brand new, high end">Neuf, haut de gamme</span></div>
+      </div>
+      <div class="incl rv d3">
+        <h4>Inclusions</h4>
+        <div class="tags">
+          <span data-en="Fridge">Réfrigérateur</span><span data-en="Oven">Four</span><span data-en="Dishwasher">Lave vaisselle</span><span data-en="Washer and dryer">Laveuse et sécheuse</span><span data-en="Light fixtures">Luminaires</span><span data-en="Wall air conditioner">Climatiseur mural</span><span data-en="Garage door opener">Ouvre porte de garage</span>
+        </div>
+        <p class="excl" data-en="Not included: storage space, $75 per month.">Exclusion : espace de rangement, 75 $ par mois.</p>
+      </div>
+      <div class="ctas rv d3">
+        <a href="#contact" class="btn btn-fill" data-pre="neuf"><span data-en="Book a visit">Planifier une visite</span> <svg class="ic arr"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="pad">
+  <div class="wrap">
+    <div class="eyebrow rv" data-en="Who I help">Pour qui</div>
+    <h2 class="rv d1" data-en="Guidance for <em>every stage.</em>">Un accompagnement pour <em>chaque étape.</em></h2>
+    <div class="pk">
+      <div class="pkc rv">
+        <svg class="ic"><use href="#i-key"/></svg>
+        <h3 data-en="Buyers">Acheteurs</h3>
+        <p class="sub" data-en="First home, upsizing or a new build.">Premier achat, agrandissement ou projet neuf.</p>
+        <ul>
+          <li data-en="Budget and financing plan">Plan de budget et de financement</li>
+          <li data-en="Tailored property search">Recherche de propriétés sur mesure</li>
+          <li data-en="Guided visits and honest advice">Visites guidées et conseils francs</li>
+          <li data-en="Offer and negotiation">Offre et négociation</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost" data-pre="acheter" data-en="Choose">Choisir</a>
+      </div>
+      <div class="pkc feat rv d1">
+        <span class="flag" data-en="Featured">En vedette</span>
+        <svg class="ic"><use href="#i-chart"/></svg>
+        <h3 data-en="Sellers">Vendeurs</h3>
+        <p class="sub" data-en="Sell well, with a clear strategy.">Vendre au juste prix, avec une stratégie claire.</p>
+        <ul>
+          <li data-en="Comparative market analysis">Analyse comparative du marché</li>
+          <li data-en="Staging and presentation advice">Conseils de mise en valeur</li>
+          <li data-en="Elegant listing sheets and social media">Fiches élégantes et réseaux sociaux</li>
+          <li data-en="Offer follow up through to the notary">Suivi des offres jusqu'au notaire</li>
+        </ul>
+        <a href="#contact" class="btn btn-gold" data-pre="vendre" data-en="Choose">Choisir</a>
+      </div>
+      <div class="pkc rv d2">
+        <svg class="ic"><use href="#i-door"/></svg>
+        <h3 data-en="Renters">Location</h3>
+        <p class="sub" data-en="Tenants and owners renting out.">Locataires et propriétaires qui louent.</p>
+        <ul>
+          <li data-en="Rentals matched to your needs">Logements selon vos critères</li>
+          <li data-en="Listing and marketing your unit">Mise en marché de votre unité</li>
+          <li data-en="Showings and screening">Visites et sélection</li>
+          <li data-en="Lease signing support">Accompagnement à la signature</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost" data-pre="louer" data-en="Choose">Choisir</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="pad" id="proprietes" style="padding-top:0">
+  <div class="wrap">
+    <div class="gal-head">
+      <div>
+        <div class="eyebrow rv" data-en="Listings">Propriétés</div>
+        <h2 class="rv d1" data-en="Recent <em>properties.</em>">Propriétés <em>récentes.</em></h2>
+      </div>
+      <a class="handle rv d2" href="https://www.instagram.com/asmaa.balaz/" target="_blank" rel="noopener">@asmaa.balaz</a>
+    </div>
+    <div class="gal">
+      <div class="ph rv"><svg><use href="#i-building"/></svg><span class="cap">Les Rosiers · Sainte Rose, Laval</span></div>
+      <div class="ph rv d1"><svg><use href="#i-house"/></svg><span class="cap" data-en="Modern brick townhomes">Maisons de ville en brique</span></div>
+      <div class="ph rv d2"><svg><use href="#i-window"/></svg><span class="cap" data-en="Condo with balconies">Condo avec balcons</span></div>
+      <div class="ph rv"><svg><use href="#i-building"/></svg><span class="cap" data-en="Condo tower · Laval">Tour à condos · Laval</span></div>
+      <div class="ph rv d1"><svg><use href="#i-door"/></svg><span class="cap" data-en="5½ for rent">5½ à louer</span></div>
+      <div class="ph rv d2"><svg><use href="#i-sofa"/></svg><span class="cap" data-en="Bright interior">Intérieur lumineux</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="pad spot" id="calcul">
+  <div class="wrap">
+    <div class="eyebrow rv" data-en="Mortgage calculator">Calculateur hypothécaire</div>
+    <h2 class="rv d1" data-en="Picture your <em>payment.</em>">Calculez votre <em>paiement.</em></h2>
+    <div class="calc">
+      <div class="in rv">
+        <div class="fld">
+          <label for="cPrice"><span data-en="Property price">Prix de la propriété</span><output id="oPrice"></output></label>
+          <input type="range" id="cPrice" min="200000" max="2000000" step="5000" value="550000">
+        </div>
+        <div class="fld">
+          <label for="cDown"><span data-en="Down payment">Mise de fonds</span><output id="oDown"></output></label>
+          <input type="range" id="cDown" min="5" max="50" step="1" value="20">
+        </div>
+        <div class="fld">
+          <label for="cRate"><span data-en="Interest rate">Taux d'intérêt</span><output id="oRate"></output></label>
+          <input type="range" id="cRate" min="1" max="9" step="0.05" value="4.5">
+        </div>
+        <div>
+          <span class="lbl" data-en="Amortization">Amortissement</span>
+          <div class="chips" id="amort">
+            <button type="button" class="chip on" data-v="25" data-en="25 years">25 ans</button>
+            <button type="button" class="chip" data-v="30" data-en="30 years">30 ans</button>
+          </div>
+        </div>
+      </div>
+      <div class="out rv d1">
+        <div>
+          <div class="k" data-en="Estimated payment">Paiement estimé</div>
+          <div class="v" id="oPay">0 $</div>
+          <div class="per" data-en="per month">par mois</div>
+        </div>
+        <dl>
+          <div><dt data-en="Mortgage amount">Montant du prêt</dt><dd id="oLoan"></dd></div>
+          <div><dt data-en="Down payment">Mise de fonds</dt><dd id="oDownAmt"></dd></div>
+        </dl>
+        <small data-en="Estimate for reference only, before mortgage insurance and taxes. Confirm with your lender.">Estimation à titre indicatif seulement, avant assurance hypothécaire et taxes. Validez avec votre institution financière.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="pad dark" id="contact">
+  <div class="wrap">
+    <div class="eyebrow rv">Consultation</div>
+    <h2 class="rv d1" data-en="Book your <em>consultation.</em>">Réservez votre <em>consultation.</em></h2>
+    <p class="lede rv d2" style="margin-top:22px" data-en="Pick a day that suits you and tell me about your project. Asmaa will get back to you to confirm.">Choisissez une journée qui vous convient et parlez moi de votre projet. Asmaa vous reviendra pour confirmer.</p>
+    <div class="book">
+      <div class="panel rv">
+        <div class="cal-h">
+          <button type="button" id="prev" aria-label="Previous"><svg class="ic" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+          <b id="calT"></b>
+          <button type="button" id="next" aria-label="Next"><svg class="ic"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="cal-g" id="calG"></div>
+        <div class="legend">
+          <span><i style="background:var(--gold)"></i><span data-en="Selected">Choisi</span></span>
+          <span><i style="box-shadow:inset 0 0 0 1px var(--goldsoft)"></i><span data-en="Today">Aujourd'hui</span></span>
+          <span><i style="background:rgba(239,231,219,.2)"></i><span data-en="Past">Passé</span></span>
+        </div>
+        <div class="picked"><small data-en="Your date">Votre date</small><b id="pickedT"></b></div>
+      </div>
+      <div class="panel rv d1" id="formWrap">
+        <form name="consultation-asmaa-balaz" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="bf" novalidate>
+          <input type="hidden" name="form-name" value="consultation-asmaa-balaz">
+          <p class="hp"><label>Ne pas remplir <input name="bot-field"></label></p>
+          <input type="hidden" name="date" id="hDate">
+          <input type="hidden" name="projet" id="hProj">
+          <input type="hidden" name="chambres" id="hBeds">
+          <input type="hidden" name="moment" id="hTime">
+          <input type="hidden" name="langue" id="hLang" value="fr">
+          <div class="grid two">
+            <div class="f" id="fName"><label for="name" data-en="Full name">Nom complet</label><input id="name" name="name" autocomplete="name"><div class="em" data-en="Please enter your name.">Veuillez entrer votre nom.</div></div>
+            <div class="f" id="fEmail"><label for="email" data-en="Email">Courriel</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email"><div class="em" data-en="Please enter a valid email.">Veuillez entrer un courriel valide.</div></div>
+            <div class="f" id="fPhone"><label for="phone" data-en="Phone">Téléphone</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"><div class="em" data-en="Please enter your phone number.">Veuillez entrer votre numéro.</div></div>
+            <div class="f"><label for="area" data-en="Area you're interested in">Secteur recherché</label><input id="area" name="secteur" data-en-ph="Laval, Plateau, Rive Nord..." placeholder="Laval, Plateau, Rive Nord..."></div>
+          </div>
+          <div class="blk">
+            <span class="lbl" data-en="Your project">Votre projet</span>
+            <div class="chips" id="proj">
+              <button type="button" class="chip" data-v="acheter" data-en="Buy">Acheter</button>
+              <button type="button" class="chip" data-v="vendre" data-en="Sell">Vendre</button>
+              <button type="button" class="chip" data-v="louer" data-en="Rent">Louer</button>
+              <button type="button" class="chip" data-v="investir" data-en="Invest">Investir</button>
+              <button type="button" class="chip" data-v="neuf" data-en="New build">Projet neuf</button>
+            </div>
+          </div>
+          <div class="blk">
+            <span class="lbl" data-en="Bedrooms">Chambres</span>
+            <div class="stepper"><button type="button" id="bm" aria-label="moins">−</button><output id="beds">2</output><button type="button" id="bp" aria-label="plus">+</button></div>
+          </div>
+          <div class="blk">
+            <span class="lbl" data-en="Best time to reach you">Meilleur moment pour vous joindre</span>
+            <div class="chips" id="tm">
+              <button type="button" class="chip on" data-v="matin" data-en="Morning">Matin</button>
+              <button type="button" class="chip" data-v="apres-midi" data-en="Afternoon">Après midi</button>
+              <button type="button" class="chip" data-v="soir" data-en="Evening">Soir</button>
+            </div>
+          </div>
+          <div class="blk f"><label for="msg">Message</label><textarea id="msg" name="message" data-en-ph="Budget, timeline, must haves..." placeholder="Budget, échéancier, essentiels..."></textarea></div>
+          <button class="btn btn-gold submit" type="submit"><span data-en="Send my request">Envoyer ma demande</span> <svg class="ic arr"><use href="#i-arrow"/></svg></button>
+          <p class="form-err" id="ferr" data-en="Something went wrong. Please try again.">Une erreur est survenue. Veuillez réessayer.</p>
+        </form>
+        <div class="thanks">
+          <div class="seal"><svg class="ic" style="width:30px;height:30px"><use href="#i-check"/></svg></div>
+          <h3 id="tyH"></h3>
+          <p data-en="Your request is in. Asmaa will reach out very soon to confirm your consultation.">Votre demande est bien reçue. Asmaa vous contactera très bientôt pour confirmer votre consultation.</p>
+          <button type="button" class="btn btn-ghost" id="again" style="color:#EFE7DB;border-color:var(--dline)" data-en="Start another">Nouvelle demande</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="pad">
+  <div class="wrap faq">
+    <div>
+      <div class="eyebrow rv">FAQ</div>
+      <h2 class="rv d1" data-en="Good <em>questions.</em>">Bonnes <em>questions.</em></h2>
+      <p class="lede rv d2" style="margin-top:22px" data-en="Don't see yours? Ask it during your consultation.">Vous ne voyez pas la vôtre? Posez la lors de votre consultation.</p>
+    </div>
+    <div class="rv d1" id="faq"></div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="pad dark fcta">
+  <div class="wrap">
+    <div class="mono rv">AB</div>
+    <h2 class="rv d1" data-en="Your next address <em>is waiting.</em>">Votre prochaine adresse <em>vous attend.</em></h2>
+    <a href="#contact" class="btn btn-gold rv d2"><span data-en="Book a consultation">Réserver une consultation</span> <svg class="ic arr"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="brand"><b>Asmaa Balaz</b><small data-en="Residential real estate agent">Agente immobilière résidentielle</small><p data-en="Real estate with confidence">L'immobilier en toute confiance</p></div>
+      <div>
+        <h5 data-en="Explore">Explorer</h5>
+        <ul><li><a href="#apropos" data-en="About">À propos</a></li><li><a href="#services">Services</a></li><li><a href="#rosiers">Les Rosiers</a></li><li><a href="#proprietes" data-en="Listings">Propriétés</a></li><li><a href="#calcul" data-en="Calculator">Calculateur</a></li></ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul><li><a href="tel:[PHONE]">[TÉLÉPHONE]</a></li><li><a href="mailto:[EMAIL]">[COURRIEL]</a></li><li><a href="https://www.instagram.com/asmaa.balaz/" target="_blank" rel="noopener">@asmaa.balaz</a></li></ul>
+      </div>
+      <div>
+        <h5 data-en="Area">Secteur</h5>
+        <ul><li data-en="Greater Montréal">Grand Montréal</li><li>Laval</li><li><a href="https://www.exprealty.ca/fr-CA" target="_blank" rel="noopener">eXp Realty</a></li></ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© <span id="yr">2026</span> Asmaa Balaz · <span data-en="Real estate agent, eXp Realty">Agente immobilière, eXp Realty</span></span>
+      <a href="#accueil" class="top"><span data-en="Back to top">Haut de page</span><span><svg class="ic" style="transform:rotate(-90deg)"><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var L='fr';
+  try{var s=localStorage.getItem('ab-lang');if(s==='en'||s==='fr')L=s;}catch(e){}
+  var T=function(fr,en){return L==='en'?en:fr};
+  var $=function(s,c){return(c||document).querySelector(s)},$$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  /* i18n */
+  $$('[data-en]').forEach(function(el){el.dataset.fr=el.innerHTML});
+  $$('[data-en-ph]').forEach(function(el){el.dataset.frPh=el.placeholder});
+  function applyLang(){
+    document.documentElement.lang=L;
+    $$('[data-en]').forEach(function(el){el.innerHTML=L==='en'?el.dataset.en:el.dataset.fr});
+    $$('[data-en-ph]').forEach(function(el){el.placeholder=L==='en'?el.dataset.enPh:el.dataset.frPh});
+    $$('.lang button').forEach(function(b){b.classList.toggle('on',b.dataset.l===L)});
+    $('#hLang').value=L;
+    renderMarquee();renderTab();renderCal();renderFaq();calc();
+    try{localStorage.setItem('ab-lang',L)}catch(e){}
+  }
+  $$('.lang button').forEach(function(b){b.addEventListener('click',function(){L=b.dataset.l;applyLang()})});
+
+  /* loader */
+  setTimeout(function(){document.body.classList.add('ready');document.body.classList.remove('loading')},2700);
+
+  /* nav + progress */
+  var nav=$('#nav'),prog=$('#prog');
+  function onScroll(){var h=document.documentElement,max=h.scrollHeight-h.clientHeight;prog.style.transform='scaleX('+(max>0?h.scrollTop/max:0)+')';nav.classList.toggle('scrolled',h.scrollTop>30)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  /* reveal */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    $$('.rv').forEach(function(el){io.observe(el)});
+  }else{$$('.rv').forEach(function(el){el.classList.add('in')})}
+
+  /* marquee */
+  var glyph='<svg viewBox="0 0 24 24"><use href="#i-star"/></svg>';
+  function renderMarquee(){
+    var items=L==='en'?['Buying','Selling','Renting','New condos','First home','Laval','Montréal','North Shore','Investment']:['Achat','Vente','Location','Condos neufs','Premier achat','Laval','Montréal','Rive Nord','Investissement'];
+    var one='<div>'+items.map(function(t){return '<span>'+t+'</span>'+glyph}).join('')+'</div>';
+    $('#mq').innerHTML=one+one;
+  }
+
+  /* services tabs */
+  var SV={
+    buy:{icon:'i-key',cap:['Une visite guidée','A guided visit'],rows:[
+      ['Premier achat','First home','Premier achat guidé','Your first home, guided','On clarifie budget, préapprobation et quartiers avant la toute première visite.','We sort out budget, pre approval and neighbourhoods before the very first visit.'],
+      ['Recherche','Search','Recherche sur mesure','A tailored search','Des propriétés ciblées selon votre style de vie, vos trajets et vos priorités.','Homes shortlisted around your lifestyle, your commute and your priorities.'],
+      ['Négociation','Negotiation','Offre et négociation','Offer and negotiation','Une offre réfléchie, défendue avec rigueur pour protéger vos intérêts.','A thoughtful offer, firmly negotiated to protect your interests.'],
+      ['Projets neufs','New builds','Condos neufs','New condos','Accompagnement pour les projets neufs, comme Les Rosiers à Laval.','Guidance on new developments, like Les Rosiers in Laval.']]},
+    sell:{icon:'i-chart',cap:['Votre propriété, mise en valeur','Your home, beautifully presented'],rows:[
+      ['Évaluation','Pricing','Analyse du marché','Market analysis','Une lecture claire des ventes comparables pour fixer le bon prix.','A clear read of comparable sales to set the right price.'],
+      ['Mise en valeur','Presentation','Préparation et présentation','Preparation and staging','Des conseils concrets pour présenter votre propriété sous son meilleur jour.','Practical advice to show your home at its very best.'],
+      ['Marketing','Marketing','Mise en marché soignée','Polished marketing','Fiches élégantes, belles photos et diffusion sur les réseaux sociaux.','Elegant listing sheets, beautiful photos and social media reach.'],
+      ['Clôture','Closing','Jusqu’à la signature','Through to closing','Suivi des offres, des conditions et des délais jusqu’à la remise des clés.','Offers, conditions and deadlines handled until the keys change hands.']]},
+    rent:{icon:'i-door',cap:['Un 5½ lumineux','A bright 5½'],rows:[
+      ['Locataires','Tenants','Trouver votre logement','Find your rental','Des logements comme ce 5½ à louer, choisis selon vos critères.','Rentals like this 5½, matched to what matters to you.'],
+      ['Propriétaires','Owners','Louer votre unité','Rent out your unit','Mise en marché, visites et sélection de candidats sérieux.','Marketing, showings and screening for serious applicants.'],
+      ['Investisseurs','Investors','Immeubles à revenus','Income properties','Repérer et analyser des occasions dans le Grand Montréal.','Spotting and assessing opportunities across Greater Montréal.']]}
+  };
+  var cur='buy';
+  function renderTab(){
+    var d=SV[cur],e=L==='en'?1:0,ph=$('#svcPh');
+    ph.querySelector('use').setAttribute('href','#'+d.icon);
+    ph.querySelector('.cap').textContent=d.cap[e];
+    $('#rows').innerHTML=d.rows.map(function(r,i){return '<div class="row" style="animation-delay:'+(i*.09)+'s"><div class="n">0'+(i+1)+'</div><div><div class="tg">'+r[0+e]+'</div><h3>'+r[2+e]+'</h3><p>'+r[4+e]+'</p></div></div>'}).join('');
+  }
+  $$('.tabs button').forEach(function(b){b.addEventListener('click',function(){cur=b.dataset.tab;$$('.tabs button').forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-selected',x===b)});renderTab()})});
+
+  /* calculator */
+  var amort=25;
+  function money(n){return new Intl.NumberFormat(L==='en'?'en-CA':'fr-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0}).format(n)}
+  function fill(r){var p=(r.value-r.min)/(r.max-r.min)*100;r.style.setProperty('--p',p+'%')}
+  function calc(){
+    var P=+$('#cPrice').value,dp=+$('#cDown').value,rt=+$('#cRate').value;
+    var down=P*dp/100,loan=P-down,n=amort*12,r=Math.pow(1+rt/100/2,2/12)-1;
+    var pay=r>0?loan*r/(1-Math.pow(1+r,-n)):loan/n;
+    $('#oPrice').textContent=money(P);$('#oDown').textContent=dp+' %';$('#oRate').textContent=rt.toFixed(2).replace('.',L==='en'?'.':',')+' %';
+    $('#oPay').textContent=money(pay);$('#oLoan').textContent=money(loan);$('#oDownAmt').textContent=money(down);
+    $$('.calc input[type=range]').forEach(fill);
+  }
+  $$('.calc input[type=range]').forEach(function(r){r.addEventListener('input',calc)});
+  $$('#amort .chip').forEach(function(c){c.addEventListener('click',function(){amort=+c.dataset.v;$$('#amort .chip').forEach(function(x){x.classList.toggle('on',x===c)});calc()})});
+
+  /* calendar */
+  var today=new Date();today.setHours(0,0,0,0);
+  var view=new Date(today.getFullYear(),today.getMonth(),1),sel=null;
+  function renderCal(){
+    var M=L==='en'?['January','February','March','April','May','June','July','August','September','October','November','December']:['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+    var W=L==='en'?['Mo','Tu','We','Th','Fr','Sa','Su']:['Lu','Ma','Me','Je','Ve','Sa','Di'];
+    $('#calT').textContent=M[view.getMonth()]+' '+view.getFullYear();
+    $('#prev').disabled=view.getFullYear()===today.getFullYear()&&view.getMonth()===today.getMonth();
+    var h=W.map(function(w){return '<div class="wd">'+w+'</div>'}).join('');
+    var off=(view.getDay()+6)%7,days=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+    for(var i=0;i<off;i++)h+='<span></span>';
+    for(var d=1;d<=days;d++){
+      var dt=new Date(view.getFullYear(),view.getMonth(),d),past=dt<today,cls=[];
+      if(+dt===+today)cls.push('today');if(sel&&+dt===+sel)cls.push('sel');
+      h+='<button type="button" data-d="'+d+'" class="'+cls.join(' ')+'"'+(past?' disabled':'')+'>'+d+'</button>';
+    }
+    $('#calG').innerHTML=h;
+    $$('#calG button[data-d]').forEach(function(b){b.addEventListener('click',function(){sel=new Date(view.getFullYear(),view.getMonth(),+b.dataset.d);renderCal()})});
+    var fmt=sel?sel.toLocaleDateString(L==='en'?'en-CA':'fr-CA',{weekday:'long',day:'numeric',month:'long'}):T('Choisissez une date','Choose a date');
+    $('#pickedT').textContent=sel?fmt.charAt(0).toUpperCase()+fmt.slice(1):fmt;
+    $('#hDate').value=sel?sel.toISOString().slice(0,10):'';
+  }
+  $('#prev').addEventListener('click',function(){view.setMonth(view.getMonth()-1);renderCal()});
+  $('#next').addEventListener('click',function(){view.setMonth(view.getMonth()+1);renderCal()});
+
+  /* chips + stepper */
+  function syncProj(){$('#hProj').value=$$('#proj .chip.on').map(function(c){return c.dataset.v}).join(', ')}
+  $$('#proj .chip').forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('on');syncProj()})});
+  $$('#tm .chip').forEach(function(c){c.addEventListener('click',function(){$$('#tm .chip').forEach(function(x){x.classList.toggle('on',x===c)});$('#hTime').value=c.dataset.v})});
+  $('#hTime').value='matin';
+  var beds=2;function setBeds(v){beds=Math.max(1,Math.min(6,v));$('#beds').textContent=beds+(beds===6?'+':'');$('#hBeds').value=$('#beds').textContent}
+  $('#bm').addEventListener('click',function(){setBeds(beds-1)});$('#bp').addEventListener('click',function(){setBeds(beds+1)});setBeds(2);
+  $$('[data-pre]').forEach(function(a){a.addEventListener('click',function(){var c=$('#proj .chip[data-v="'+a.dataset.pre+'"]');if(c&&!c.classList.contains('on')){c.classList.add('on');syncProj()}})});
+
+  /* form */
+  var form=$('#bf');
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var ok=true,nm=$('#name').value.trim(),em=$('#email').value.trim(),ph=$('#phone').value.trim();
+    $('#fName').classList.toggle('err',!nm);if(!nm)ok=false;
+    var ev2=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);$('#fEmail').classList.toggle('err',!ev2);if(!ev2)ok=false;
+    $('#fPhone').classList.toggle('err',ph.replace(/\D/g,'').length<7);if(ph.replace(/\D/g,'').length<7)ok=false;
+    if(!ok){var f=$('.f.err input');if(f)f.focus();return}
+    $('#ferr').style.display='none';
+    var body=new URLSearchParams(new FormData(form)).toString();
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
+      .then(function(r){if(!r.ok)throw 0;var first=nm.split(/\s+/)[0];$('#tyH').innerHTML=T('Merci, ','Thank you, ')+'<em></em>.';$('#tyH em').textContent=first;$('#formWrap').classList.add('done');$('#formWrap').scrollIntoView({behavior:'smooth',block:'center'})})
+      .catch(function(){$('#ferr').style.display='block'});
+  });
+  $$('#bf input').forEach(function(i){i.addEventListener('input',function(){var p=i.closest('.f');if(p)p.classList.remove('err')})});
+  $('#again').addEventListener('click',function(){form.reset();sel=null;$$('#proj .chip').forEach(function(c){c.classList.remove('on')});syncProj();setBeds(2);renderCal();$('#formWrap').classList.remove('done')});
+
+  /* faq */
+  var FQ=[
+    ['Vous travaillez dans quels secteurs?','Which areas do you cover?','Partout dans le Grand Montréal, incluant Laval, l’île de Montréal et les environs.','All of Greater Montréal, including Laval, the island of Montréal and nearby areas.'],
+    ['C’est mon premier achat. Par où commencer?','It’s my first purchase. Where do I start?','Par une consultation : on fait le point sur votre budget, votre préapprobation hypothécaire et vos priorités, puis on bâtit un plan simple.','With a consultation: we look at your budget, your mortgage pre approval and your priorities, then build a simple plan.'],
+    ['Combien vaut ma propriété?','What is my home worth?','Je prépare une analyse comparative basée sur les ventes récentes de votre secteur, pour fixer un prix juste et stratégique.','I prepare a comparative analysis based on recent sales in your area, so we can set a fair and strategic price.'],
+    ['Vous aidez aussi pour la location?','Do you help with rentals too?','Oui. J’accompagne les locataires dans leur recherche et les propriétaires qui souhaitent louer leur unité.','Yes. I help tenants find their next place and owners who want to rent out their unit.'],
+    ['Et les projets neufs?','What about new builds?','Absolument, comme Les Rosiers à Sainte Rose. Je vous aide à comparer les unités, les inclusions et les échéanciers.','Absolutely, like Les Rosiers in Sainte Rose. I help you compare units, inclusions and timelines.'],
+    ['Comment se passe la première rencontre?','What is the first meeting like?','Une conversation simple, en personne ou à distance, pour bien comprendre votre projet. Aucune pression.','A relaxed conversation, in person or remotely, to understand your project. No pressure at all.']
+  ];
+  var openI=0;
+  function renderFaq(){
+    var e=L==='en'?1:0;
+    $('#faq').innerHTML=FQ.map(function(q,i){return '<div class="qa'+(i===openI?' open':'')+'"><button type="button" aria-expanded="'+(i===openI)+'">'+q[e]+'<span class="pl"></span></button><div class="a"><div><p>'+q[2+e]+'</p></div></div></div>'}).join('');
+    $$('#faq .qa').forEach(function(qa,i){qa.querySelector('button').addEventListener('click',function(){openI=openI===i?-1:i;$$('#faq .qa').forEach(function(x,j){x.classList.toggle('open',j===openI);x.querySelector('button').setAttribute('aria-expanded',j===openI)})})});
+  }
+
+  $('#yr').textContent=new Date().getFullYear();
+  applyLang();
+})();
+</script>
+</body>
+</html>
