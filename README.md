@@ -31,3 +31,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `phylla-matcha/` — Phylla Matcha (London mobile iced matcha cart for events, weddings and pop ups)
 - `noori-nutrition/` — Noori Nutrition (UK registered associate nutritionist, 1:1 coaching, 12 week programme, women's health, workshops)
 - `asmaa-balaz/` — Asmaa Balaz (Grand Montréal residential realtor, eXp Realty, bilingual FR/EN, Les Rosiers spotlight, mortgage calculator)
+- `jas-thandi/` — Jas Thandi (Toronto/GTA realtor, buy, sell, invest, lease, finance led, payment calculator)

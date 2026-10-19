@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jas Thandi | Toronto & GTA Realtor</title>
+<meta name="description" content="Jas Thandi, Toronto and GTA realtor. Buy, sell and invest with a background in accounting and data analysis.">
+<meta name="theme-color" content="#0c0f12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0c0f12; --ink2:#12171c; --ink3:#1a2128;
+  --line:rgba(255,255,255,.09); --line2:rgba(12,15,18,.1);
+  --lake:#8ea4b6; --lake2:#5d7487; --mist:#dce3e9;
+  --bone:#f3f2ee; --paper:#e9e7e1; --text:#15191d; --muted:#5b636b; --dmuted:#9aa6b1;
+  --brass:#cdb48c; --brass2:#a88e66;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --sans:"Inter Tight",system-ui,sans-serif; --serif:"Instrument Serif",Georgia,serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{overflow-x:hidden;background:var(--bone);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+.dark .eyebrow{color:var(--dmuted)}
+h2{font-weight:400;font-size:clamp(38px,5.6vw,76px);line-height:1;letter-spacing:-.035em;margin-top:22px}
+h2 em{color:var(--lake2)}
+.dark h2 em{color:var(--brass)}
+.lede{font-size:clamp(16px,1.4vw,19px);color:var(--muted);max-width:560px;margin-top:22px}
+.dark .lede{color:var(--dmuted)}
+.pad{padding:140px 0}
+.dark{background:var(--ink);color:var(--bone)}
+
+/* loader */
+#loader{position:fixed;inset:0;z-index:100;background:radial-gradient(120% 80% at 50% 40%,#1b2631 0%,var(--ink) 70%);display:grid;place-items:center;transition:clip-path 1s var(--ease);clip-path:ellipse(150% 150% at 50% 0%)}
+#loader.up{clip-path:ellipse(150% 0% at 50% 0%)}
+.ld{text-align:center;color:var(--bone)}
+.ld .mk{width:64px;height:64px;margin:0 auto 22px;opacity:0;animation:fin .9s .1s var(--ease) forwards}
+.ld .nm{font-size:34px;letter-spacing:-.03em;font-weight:400;opacity:0;animation:fin .9s .35s var(--ease) forwards}
+.ld .rule{width:0;height:1px;background:var(--brass);margin:18px auto;animation:grow 1.1s .7s var(--ease) forwards}
+.ld .tg{opacity:0;animation:fin .8s 1.1s var(--ease) forwards;color:var(--dmuted)}
+@keyframes fin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes grow{to{width:140px}}
+
+/* progress + nav */
+#prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--brass);z-index:60}
+nav.top{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:calc(100% - 28px);max-width:1220px;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:10px 10px 10px 22px;border-radius:999px;background:rgba(12,15,18,.55);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border:1px solid var(--line);color:var(--bone);transition:background .4s}
+nav.top.light{background:rgba(243,242,238,.72);color:var(--text);border-color:var(--line2)}
+.brand{display:flex;flex-direction:column;line-height:1.1}
+.brand b{font-weight:500;font-size:17px;letter-spacing:-.02em}
+.brand span{font-family:var(--mono);font-size:9px;letter-spacing:.2em;opacity:.6;text-transform:uppercase;margin-top:3px}
+.links{display:flex;gap:30px;font-size:14px}
+.links a{opacity:.7;transition:opacity .3s}.links a:hover{opacity:1}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 22px;border-radius:999px;font-size:14px;font-weight:400;cursor:pointer;border:1px solid transparent;transition:transform .4s var(--ease),background .3s,color .3s,border-color .3s}
+.pill:hover{transform:translateY(-2px)}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 4px rgba(205,180,140,.18)}
+.pill.fill{background:var(--bone);color:var(--ink)}
+nav.top.light .pill.fill{background:var(--ink);color:var(--bone)}
+.pill.ghost{border-color:rgba(255,255,255,.22);color:var(--bone)}
+.pill.ghost:hover{border-color:var(--bone)}
+.pill.inkf{background:var(--ink);color:var(--bone)}
+.pill.inkg{border-color:var(--line2)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;background:var(--ink);color:var(--bone);overflow:hidden;display:flex;align-items:center;padding:150px 0 90px}
+.hero::before{content:"";position:absolute;width:900px;height:900px;right:-260px;top:-200px;background:radial-gradient(circle,rgba(142,164,182,.28) 0%,transparent 62%);filter:blur(10px);animation:drift 14s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;width:700px;height:700px;left:-280px;bottom:-320px;background:radial-gradient(circle,rgba(205,180,140,.14) 0%,transparent 60%)}
+@keyframes drift{to{transform:translate(-60px,60px) scale(1.08)}}
+.grain{position:absolute;inset:0;opacity:.06;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hgrid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+.hero h1{font-weight:400;font-size:clamp(52px,8.4vw,128px);line-height:.92;letter-spacing:-.05em;margin:26px 0 0}
+.hero h1 .l{display:block;overflow:hidden}
+.hero h1 .l span{display:block;transform:translateY(105%);transition:transform 1.2s var(--ease)}
+.ready .hero h1 .l span{transform:none}
+.ready .hero h1 .l:nth-child(2) span{transition-delay:.1s}
+.ready .hero h1 .l:nth-child(3) span{transition-delay:.2s}
+.hero h1 em{color:var(--brass)}
+.hero .lede{color:var(--dmuted)}
+.fade{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.ready .fade{opacity:1;transform:none}
+.ready .f2{transition-delay:.35s}.ready .f3{transition-delay:.5s}.ready .f4{transition-delay:.65s}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.strip{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:46px;color:var(--dmuted);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.strip i{font-style:normal;color:var(--brass)}
+.ring{position:absolute;right:8%;bottom:-180px;width:520px;height:520px;border:1px solid var(--line);border-radius:50%;z-index:1}
+.vis{position:relative;justify-self:end;width:100%;max-width:440px}
+.arch{position:relative;aspect-ratio:4/5.2;border-radius:240px 240px 26px 26px;overflow:hidden;background:linear-gradient(170deg,#2a3946 0%,#17212a 55%,#10161c 100%)}
+.arch::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.frame{position:absolute;inset:-14px;border:1px solid rgba(205,180,140,.35);border-radius:254px 254px 34px 34px;pointer-events:none}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 0 26px}
+.ph svg{position:absolute;left:0;right:0;bottom:0;width:100%}
+.ph .cap{position:relative;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(243,242,238,.55);text-transform:uppercase;background:rgba(12,15,18,.4);padding:7px 12px;border-radius:99px;backdrop-filter:blur(6px)}
+.badge{position:absolute;left:-46px;top:38%;width:128px;height:128px;z-index:3}
+.badge svg{width:100%;height:100%;animation:spin 22s linear infinite}
+.badge .core{position:absolute;inset:38px;border-radius:50%;background:var(--brass);display:grid;place-items:center;color:var(--ink)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.card{position:absolute;right:-18px;bottom:44px;z-index:3;background:rgba(243,242,238,.94);color:var(--ink);border-radius:18px;padding:16px 18px;width:220px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);animation:bob 5s ease-in-out infinite}
+.card .mono{font-size:9px;color:var(--muted)}
+.card b{display:block;font-weight:500;font-size:17px;letter-spacing:-.02em;margin-top:6px;line-height:1.2}
+.card .row{display:flex;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px solid var(--line2);font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted)}
+.card .live{display:inline-flex;align-items:center;gap:6px;color:#2f6b4f}
+.card .live::before{content:"";width:6px;height:6px;border-radius:50%;background:#3c8c66;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.3}}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.scue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;width:22px;height:36px;border:1px solid rgba(255,255,255,.3);border-radius:12px}
+.scue::after{content:"";position:absolute;left:50%;top:7px;width:2px;height:7px;margin-left:-1px;border-radius:2px;background:var(--bone);animation:sc 1.8s infinite}
+@keyframes sc{0%{opacity:0;transform:translateY(0)}40%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+
+/* marquee */
+.marq{background:var(--ink2);color:var(--bone);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:24px 0}
+.mtrack{display:flex;width:max-content;animation:mq 40s linear infinite}
+.mtrack div{display:flex;align-items:center;gap:34px;padding-right:34px;white-space:nowrap}
+.mtrack span{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3vw,40px);letter-spacing:-.01em}
+.mtrack svg{width:16px;height:16px;color:var(--brass);flex:none}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* image pair */
+.pair{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:end;margin-top:70px}
+.tile{position:relative;border-radius:26px;overflow:hidden;background:linear-gradient(160deg,#cfd8df 0%,#b3c1cc 60%,#9fb0bd 100%)}
+.tile.warm{background:linear-gradient(160deg,#ece4d6 0%,#d9ccb6 60%,#c8b79b 100%)}
+.tile.deep{background:linear-gradient(165deg,#2b3a47 0%,#18222b 100%)}
+.tile .ph .cap{color:rgba(12,15,18,.6);background:rgba(243,242,238,.55)}
+.tile.deep .ph .cap{color:rgba(243,242,238,.6);background:rgba(12,15,18,.4)}
+.tile .ph svg{color:rgba(12,15,18,.32)}
+.tile.deep .ph svg{color:rgba(243,242,238,.25)}
+.tile .zoom{position:absolute;inset:0;transition:transform 1.4s var(--ease)}
+.tile:hover .zoom{transform:scale(1.05)}
+.big{aspect-ratio:16/11}
+.tall{aspect-ratio:4/5.4}
+.inset{position:absolute;width:42%;aspect-ratio:1;border-radius:50%;left:-16%;bottom:12%;border:6px solid var(--bone);overflow:hidden;background:linear-gradient(160deg,#e3d9c8,#c9b89c)}
+.inset .ph{padding:0;justify-content:center}
+.inset .ph svg{position:static;width:46%;color:rgba(12,15,18,.4)}
+
+/* story */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.story p{color:var(--muted);font-size:17px;margin-top:20px;max-width:520px}
+.story p:first-of-type{margin-top:34px}
+.sig{font-family:var(--serif);font-style:italic;font-size:34px;color:var(--lake2);margin-top:30px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line2);border-radius:22px;overflow:hidden;border:1px solid var(--line2);margin-top:40px}
+.facts div{background:var(--bone);padding:24px}
+.facts .mono{color:var(--muted);font-size:10px}
+.facts b{display:block;font-weight:400;font-size:22px;letter-spacing:-.02em;margin-top:8px;line-height:1.2}
+
+/* services tabs */
+.svhead{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.tabs{display:inline-flex;gap:4px;padding:5px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.tabs button{border:0;background:none;cursor:pointer;min-height:42px;padding:0 20px;border-radius:999px;font-size:14px;color:var(--dmuted);transition:background .4s var(--ease),color .3s}
+.tabs button.on{background:var(--bone);color:var(--ink)}
+.panel{display:none;grid-template-columns:.9fr 1.1fr;gap:50px;margin-top:60px;align-items:start}
+.panel.on{display:grid;animation:fin .7s var(--ease)}
+.panel .tile{aspect-ratio:4/4.6}
+.rows{border-top:1px solid var(--line)}
+.r{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:26px 0;border-bottom:1px solid var(--line)}
+.r .n{font-family:var(--mono);font-size:12px;color:var(--brass);padding-top:6px}
+.r .tg{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--dmuted);text-transform:uppercase}
+.r h3{font-weight:400;font-size:26px;letter-spacing:-.025em;margin:4px 0 6px;line-height:1.15}
+.r p{color:var(--dmuted);font-size:15px}
+.foot{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--dmuted);margin-top:30px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:60px}
+.st{background:#fff;border:1px solid var(--line2);border-radius:26px;padding:34px 30px 38px;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.st:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(12,15,18,.25)}
+.st .num{font-family:var(--serif);font-style:italic;font-size:76px;line-height:1;color:var(--lake2)}
+.st h3{font-weight:500;font-size:22px;letter-spacing:-.02em;margin-top:26px}
+.st p{color:var(--muted);margin-top:10px;font-size:15px}
+
+/* listings */
+.lhead{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.lhead a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;border-bottom:1px solid currentColor;padding-bottom:3px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:40px}
+.chip{border:1px solid var(--line2);background:transparent;cursor:pointer;min-height:40px;padding:0 16px;border-radius:999px;font-size:13px;transition:all .3s var(--ease)}
+.chip.on{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.li{border-radius:24px;overflow:hidden;background:#fff;border:1px solid var(--line2);transition:transform .5s var(--ease)}
+.li:hover{transform:translateY(-4px)}
+.li .tile{border-radius:0;aspect-ratio:4/3.2}
+.li .tile .stat{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:7px 11px;border-radius:99px;background:var(--ink);color:var(--bone)}
+.li .tile .stat.g{background:var(--brass);color:var(--ink)}
+.li .tile .stat.w{background:var(--bone);color:var(--ink)}
+.li .b{padding:20px 22px 22px}
+.li h3{font-weight:500;font-size:19px;letter-spacing:-.02em;line-height:1.25}
+.li .m{display:flex;justify-content:space-between;gap:10px;margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.li.hide{display:none}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;margin-top:60px}
+.cbox{background:var(--ink2);border:1px solid var(--line);border-radius:28px;padding:34px}
+.fld{margin-bottom:28px}
+.fld .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.fld label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--dmuted);text-transform:uppercase}
+.fld output{font-size:22px;letter-spacing:-.02em}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:var(--line);margin-top:16px;border-radius:2px;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--bone);border:6px solid var(--brass);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--bone);border:6px solid var(--brass);cursor:pointer}
+.seg{display:flex;gap:6px;margin-top:14px}
+.seg button{flex:1;min-height:44px;border-radius:14px;border:1px solid var(--line);background:none;color:var(--dmuted);cursor:pointer;transition:all .3s}
+.seg button.on{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.res{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(160deg,#20303d 0%,#141b22 100%);position:relative;overflow:hidden}
+.res::before{content:"";position:absolute;width:380px;height:380px;right:-120px;top:-120px;background:radial-gradient(circle,rgba(205,180,140,.22),transparent 65%)}
+.res .pay{font-size:clamp(52px,6vw,80px);letter-spacing:-.05em;line-height:1;margin-top:14px;position:relative}
+.res .pay small{font-size:18px;letter-spacing:0;color:var(--dmuted);margin-left:6px}
+.res dl{margin-top:34px;position:relative}
+.res dl div{display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);font-size:15px}
+.res dt{color:var(--dmuted)}
+.res .note{font-size:12px;color:var(--dmuted);margin-top:24px;position:relative}
+
+/* booking */
+.book{display:grid;grid-template-columns:.95fr 1.05fr;gap:20px;margin-top:60px}
+.cal{background:var(--ink2);border:1px solid var(--line);border-radius:28px;padding:30px}
+.calh{display:flex;justify-content:space-between;align-items:center}
+.calh b{font-weight:400;font-size:22px;letter-spacing:-.02em}
+.calh button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--bone);cursor:pointer;font-size:18px}
+.calh button:disabled{opacity:.25;cursor:default}
+.dow,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.dow{margin-top:24px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--dmuted)}
+.days{margin-top:10px}
+.days button{aspect-ratio:1;min-height:40px;border-radius:12px;border:0;background:none;color:var(--bone);cursor:pointer;font-size:14px;transition:background .25s}
+.days button:hover:not(:disabled){background:rgba(255,255,255,.07)}
+.days button:disabled{color:rgba(243,242,238,.22);text-decoration:line-through;cursor:default}
+.days button.today{box-shadow:inset 0 0 0 1px rgba(205,180,140,.5)}
+.days button.sel{background:var(--brass);color:var(--ink)}
+.legend{display:flex;gap:18px;margin-top:20px;font-size:12px;color:var(--dmuted);flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.picked{margin-top:24px;padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.04);border:1px dashed var(--line)}
+.picked .mono{color:var(--dmuted);font-size:10px}
+.picked b{display:block;font-weight:400;font-size:20px;margin-top:6px;letter-spacing:-.02em}
+.times{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+form.fm{background:var(--ink2);border:1px solid var(--line);border-radius:28px;padding:30px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.in{margin-bottom:12px}
+.in label,.gl{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--dmuted);text-transform:uppercase;margin-bottom:8px}
+.in input,.in textarea,.in select{width:100%;min-height:50px;padding:13px 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--bone);outline:none;transition:border-color .3s;font-size:16px}
+.in textarea{min-height:100px;resize:vertical}
+.in input:focus,.in textarea:focus{border-color:var(--brass)}
+.in.err input{border-color:#d98a7a}
+.in .e{display:none;font-size:12px;color:#e2a294;margin-top:6px}
+.in.err .e{display:block}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.dark .chip{border-color:var(--line);color:var(--dmuted)}
+.dark .chip.on{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.stepper{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.stepper button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--bone);cursor:pointer;font-size:18px}
+.stepper output{min-width:120px;text-align:center;font-size:18px}
+.submit{width:100%;margin-top:8px;background:var(--brass);color:var(--ink);border:0;font-weight:500}
+.hp{position:absolute;left:-9999px}
+.thanks{display:none;text-align:center;padding:60px 20px}
+.thanks.on{display:block;animation:fin .7s var(--ease)}
+.thanks h3{font-weight:400;font-size:44px;letter-spacing:-.04em}
+.thanks h3 em{color:var(--brass)}
+.thanks p{color:var(--dmuted);margin:14px auto 28px;max-width:360px}
+
+/* faq */
+.faqg{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+.q{border-bottom:1px solid var(--line2)}
+.q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;text-align:left;background:none;border:0;cursor:pointer;padding:26px 0;font-size:20px;letter-spacing:-.02em;font-weight:400;min-height:44px}
+.q .pl{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line2);position:relative;transition:transform .5s var(--ease),background .3s,border-color .3s}
+.q .pl::before,.q .pl::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1px;background:currentColor;transform:translate(-50%,-50%)}
+.q .pl::after{transform:translate(-50%,-50%) rotate(90deg)}
+.q.on .pl{transform:rotate(45deg);background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.q.on .a{grid-template-rows:1fr}
+.q .a>div{overflow:hidden}
+.q .a p{color:var(--muted);padding-bottom:26px;max-width:620px}
+
+/* footer */
+.fcta{text-align:center;position:relative;overflow:hidden}
+.fcta::before{content:"";position:absolute;left:50%;top:-40%;width:900px;height:900px;transform:translateX(-50%);background:radial-gradient(circle,rgba(142,164,182,.2),transparent 60%)}
+.fcta .wrap{position:relative}
+.fcta h2{font-size:clamp(46px,8vw,120px);margin-top:26px}
+.fcta p{color:var(--dmuted);margin:22px auto 36px;max-width:440px}
+footer{background:var(--ink);color:var(--dmuted);border-top:1px solid var(--line);padding:70px 0 40px;font-size:14px}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.fg h4{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--bone);margin-bottom:16px}
+.fg a,.fg p{display:block;margin-bottom:8px}
+.fg a:hover{color:var(--bone)}
+.big-n{font-size:clamp(60px,15vw,210px);letter-spacing:-.06em;line-height:.85;color:var(--bone);opacity:.07;margin-top:60px;white-space:nowrap;font-weight:500}
+.fb{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:24px;flex-wrap:wrap;font-size:12px}
+.totop{display:inline-flex;align-items:center;gap:12px;color:var(--bone)}
+.totop i{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-style:normal;transition:transform .4s var(--ease)}
+.totop:hover i{transform:translateY(-4px)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+@media (max-width:860px){
+  .wrap{padding:0 20px}
+  .pad{padding:96px 0}
+  .links{display:none}
+  nav.top{top:10px;width:calc(100% - 20px);padding:8px 8px 8px 18px}
+  .pill{padding:0 18px}
+  .hgrid,.story,.panel,.calc,.book,.faqg{grid-template-columns:1fr}
+  .hgrid{gap:70px}
+  .vis{justify-self:center;max-width:330px;margin-right:14px}
+  .badge{left:-24px;width:104px;height:104px}.badge .core{inset:31px}
+  .card{right:-14px;width:196px}
+  .btns{flex-direction:column}.btns .pill{width:100%}
+  .ring{display:none}
+  .pair{grid-template-columns:1fr;gap:18px}
+  .pair .tall{width:78%;margin-left:auto}
+  .story{gap:20px}
+  .steps,.grid{grid-template-columns:1fr}
+  .tabs{width:100%;overflow-x:auto}
+  .tabs button{flex:1;padding:0 12px}
+  .two{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr 1fr}
+  .fg>div:first-child{grid-column:1/-1}
+  .cbox,.cal,form.fm{padding:24px 20px;border-radius:24px}
+  .q button{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.fade{opacity:1;transform:none}
+  .hero h1 .l span{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <div class="ld">
+    <svg class="mk" viewBox="0 0 64 64" fill="none" stroke="#cdb48c" stroke-width="1.2"><circle cx="32" cy="32" r="30" opacity=".5"/><path d="M14 44h36M20 44V26l6-4v22M30 44V16l6 3v25M40 44V24l5 3v17"/></svg>
+    <div class="nm">Jas Thandi</div>
+    <div class="rule"></div>
+    <div class="tg mono">Toronto · GTA · Real Estate</div>
+  </div>
+</div>
+<div id="prog"></div>
+
+<nav class="top" id="nav">
+  <a href="#top" class="brand"><b>Jas Thandi</b><span>Real Estate · GTA</span></a>
+  <div class="links">
+    <a href="#about">About</a><a href="#services">Services</a><a href="#listings">Listings</a><a href="#calculator">Calculator</a><a href="#faq">FAQ</a>
+  </div>
+  <a href="#book" class="pill fill"><span class="dot"></span>Book a call</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="grain"></div>
+  <div class="ring"></div>
+  <div class="wrap hgrid">
+    <div>
+      <div class="eyebrow fade">Realtor · Toronto & the GTA</div>
+      <h1><span class="l"><span>Toronto real</span></span><span class="l"><span>estate, read</span></span><span class="l"><span><em>by the numbers.</em></span></span></h1>
+      <p class="lede fade f2">Buy, sell or invest with an agent who brings an accounting and data analysis background to every decision. Clear numbers, honest advice and a smooth path to your keys.</p>
+      <div class="btns fade f3">
+        <a href="#book" class="pill fill"><span class="dot"></span>Book a free consultation</a>
+        <a href="#listings" class="pill ghost">See recent activity</a>
+      </div>
+      <div class="strip fade f4"><span>Buy</span><i>✦</i><span>Sell</span><i>✦</i><span>Invest</span><i>✦</i><span>Lease</span></div>
+    </div>
+    <div class="vis fade f3">
+      <div class="frame"></div>
+      <div class="arch">
+        <div class="ph">
+          <svg viewBox="0 0 400 300" fill="none" stroke="rgba(243,242,238,.28)" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M0 260h400"/><path d="M30 260V170h30v90M70 260V130h26v130M106 260V150h22v110M140 260V90h30v170M150 90V60M184 260V120h28v140M222 260V40l6-20 6 20v220M246 260V140h24v120M282 260V110h30v150M322 260V160h26v100M356 260V185h26v75"/><path d="M0 275c40-6 80 6 120 0s80-6 120 0 80 6 120 0 40-4 40-4M0 290c50-5 100 5 150 0s100-5 150 0 100 5 100 0" opacity=".6"/></svg>
+          <span class="cap">Portrait of Jas</span>
+        </div>
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 120 120"><defs><path id="c" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text font-family="JetBrains Mono" font-size="9.4" letter-spacing="3.2" fill="#f3f2ee"><textPath href="#c">BUY ✦ SELL ✦ INVEST ✦ TORONTO GTA ✦ </textPath></text></svg>
+        <div class="core"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg></div>
+      </div>
+      <div class="card">
+        <div class="mono">Just closed</div>
+        <b>1910 Lakeshore Blvd W</b>
+        <div class="row"><span>Toronto, ON</span><span class="live">Sold</span></div>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="scue" aria-label="Scroll down"></a>
+</header>
+
+<div class="marq" aria-hidden="true">
+  <div class="mtrack">
+    <div><span>Downtown Toronto</span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 6.2L16 8l-6.2 1.8L8 16l-1.8-6.2L0 8l6.2-1.8z"/></svg><span>Etobicoke Waterfront</span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 6.2L16 8l-6.2 1.8L8 16l-1.8-6.2L0 8l6.2-1.8z"/></svg><span>Scarborough</span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 6.2L16 8l-6.2 1.8L8 16l-1.8-6.2L0 8l6.2-1.8z"/></svg><span>Brampton</span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 6.2L16 8l-6.2 1.8L8 16l-1.8-6.2L0 8l6.2-1.8z"/></svg><span>Vaughan</span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 6.2L16 8l-6.2 1.8L8 16l-1.8-6.2L0 8l6.2-1.8z"/></svg><span>The Queensway</span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 6.2L16 8l-6.2 1.8L8 16l-1.8-6.2L0 8l6.2-1.8z"/></svg></div>
+    <div><span>Downtown Toronto</span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 6.2L16 8l-6.2 1.8L8 16l-1.8-6.2L0 8l6.2-1.8z"/></svg><span>Etobicoke Waterfront</span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 6.2L16 8l-6.2 1.8L8 16l-1.8-6.2L0 8l6.2-1.8z"/></svg><span>Scarborough</span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 6.2L16 8l-6.2 1.8L8 16l-1.8-6.2L0 8l6.2-1.8z"/></svg><span>Brampton</span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 6.2L16 8l-6.2 1.8L8 16l-1.8-6.2L0 8l6.2-1.8z"/></svg><span>Vaughan</span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 6.2L16 8l-6.2 1.8L8 16l-1.8-6.2L0 8l6.2-1.8z"/></svg><span>The Queensway</span><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 6.2L16 8l-6.2 1.8L8 16l-1.8-6.2L0 8l6.2-1.8z"/></svg></div>
+  </div>
+</div>
+
+<section class="pad" id="about">
+  <div class="wrap">
+    <div class="story">
+      <div>
+        <div class="eyebrow rv">About Jas</div>
+        <h2 class="rv d1">A realtor with a <em>head for numbers.</em></h2>
+        <div class="facts rv d2">
+          <div><span class="mono">Based in</span><b>Toronto & GTA</b></div>
+          <div><span class="mono">Focus</span><b>Buy, sell, invest</b></div>
+          <div><span class="mono">Background</span><b>Accounting & data</b></div>
+          <div><span class="mono">Brokerage</span><b>Veridian Realty Inc.</b></div>
+        </div>
+      </div>
+      <div>
+        <p class="rv">Choosing a realtor means choosing who sits beside you for one of the biggest financial decisions you will make. Jas pairs a deep understanding of the Toronto and GTA markets with a strong background in accounting and data analysis.</p>
+        <p class="rv d1">That finance lens shapes everything: how a home is priced, which offer makes sense, and whether an investment property truly pencils out. Personal service, real numbers and a calm hand from first showing to closing day.</p>
+        <div class="sig rv d2">Jas Thandi</div>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="tile big rv"><div class="zoom"><div class="ph">
+        <svg viewBox="0 0 400 220" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M0 200h400"/><path d="M140 200V70l60-40 60 40v130"/><path d="M160 200v-60h30v60M215 110h28v28h-28zM158 85h28v24h-28z"/><path d="M200 30v-12h14v22"/></svg>
+        <span class="cap">Signature listing exterior</span></div></div></div>
+      <div class="tile deep tall rv d2" style="position:relative;overflow:visible">
+        <div style="position:absolute;inset:0;border-radius:26px;overflow:hidden"><div class="zoom"><div class="ph">
+          <svg viewBox="0 0 300 380" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M60 380V60h180v320"/><path d="M60 100h180M60 140h180M60 180h180M60 220h180M60 260h180M60 300h180M60 340h180M120 60v320M180 60v320"/></svg>
+          <span class="cap">Condo tower at dusk</span></div></div></div>
+        <div class="inset"><div class="ph"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="24" r="8"/><path d="M24 24h20M38 24v6M33 24v4"/></svg></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad dark" id="services">
+  <div class="wrap">
+    <div class="svhead">
+      <div>
+        <div class="eyebrow rv">Services</div>
+        <h2 class="rv d1">Every move, <em>mapped out.</em></h2>
+      </div>
+      <div class="tabs rv d2" role="tablist">
+        <button class="on" data-t="buy">Buy</button><button data-t="sell">Sell</button><button data-t="invest">Invest</button><button data-t="lease">Lease</button>
+      </div>
+    </div>
+
+    <div class="panel on" data-p="buy">
+      <div class="tile deep"><div class="zoom"><div class="ph"><svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M40 280h220M70 280V150l80-60 80 60v130M130 280v-70h40v70"/><circle cx="150" cy="140" r="12"/></svg><span class="cap">Buyer walkthrough</span></div></div></div>
+      <div class="rows">
+        <div class="r"><span class="n">01</span><div><span class="tg">Plan</span><h3>Budget built on real math</h3><p>Know what you can comfortably carry before you fall for a home, with every cost laid out.</p></div></div>
+        <div class="r"><span class="n">02</span><div><span class="tg">Search</span><h3>Condos, towns and detached</h3><p>Curated showings across Toronto and the GTA that match how you actually want to live.</p></div></div>
+        <div class="r"><span class="n">03</span><div><span class="tg">Offer</span><h3>Pricing you can defend</h3><p>Comparable sales and value analysis so every offer is grounded, not guessed.</p></div></div>
+      </div>
+    </div>
+    <div class="panel" data-p="sell">
+      <div class="tile deep"><div class="zoom"><div class="ph"><svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M40 280h220M150 280V120M150 120h80v50h-80"/><path d="M70 280V200l40-30 40 30"/></svg><span class="cap">Listing photography</span></div></div></div>
+      <div class="rows">
+        <div class="r"><span class="n">01</span><div><span class="tg">Price</span><h3>A data led list price</h3><p>Market analysis that positions your home to attract strong buyers from day one.</p></div></div>
+        <div class="r"><span class="n">02</span><div><span class="tg">Market</span><h3>Social first marketing</h3><p>Video tours, open houses and reels that put your home in front of the right audience.</p></div></div>
+        <div class="r"><span class="n">03</span><div><span class="tg">Close</span><h3>Calm negotiation</h3><p>Every offer reviewed line by line so you can choose with total clarity.</p></div></div>
+      </div>
+    </div>
+    <div class="panel" data-p="invest">
+      <div class="tile deep"><div class="zoom"><div class="ph"><svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M40 260h220M40 260V60"/><path d="M60 230l50-40 40 20 50-60 50-30"/><circle cx="250" cy="120" r="5"/></svg><span class="cap">Investment analysis</span></div></div></div>
+      <div class="rows">
+        <div class="r"><span class="n">01</span><div><span class="tg">Analyse</span><h3>Cash flow, not hype</h3><p>Rent, carrying costs and return mapped out clearly before you commit to anything.</p></div></div>
+        <div class="r"><span class="n">02</span><div><span class="tg">Source</span><h3>Pre construction and resale</h3><p>Opportunities across the GTA, from new detached homes to downtown condos.</p></div></div>
+        <div class="r"><span class="n">03</span><div><span class="tg">Grow</span><h3>A plan for the long run</h3><p>Advice that looks past one purchase to the portfolio you want to build.</p></div></div>
+      </div>
+    </div>
+    <div class="panel" data-p="lease">
+      <div class="tile deep"><div class="zoom"><div class="ph"><svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><circle cx="110" cy="150" r="34"/><path d="M144 150h110M226 150v26M198 150v18"/></svg><span class="cap">Keys handover</span></div></div></div>
+      <div class="rows">
+        <div class="r"><span class="n">01</span><div><span class="tg">Tenants</span><h3>Find the right rental</h3><p>One bedrooms to family sized units, with quick video previews before you visit.</p></div></div>
+        <div class="r"><span class="n">02</span><div><span class="tg">Landlords</span><h3>Lease it with confidence</h3><p>Pricing, marketing and screening support to fill your unit with the right tenant.</p></div></div>
+        <div class="r"><span class="n">03</span><div><span class="tg">Paperwork</span><h3>Every detail handled</h3><p>Clear agreements and a smooth move in from application to keys.</p></div></div>
+      </div>
+    </div>
+    <p class="foot rv">Not sure where to start? A quick call will point you in the right direction.</p>
+  </div>
+</section>
+
+<section class="pad">
+  <div class="wrap">
+    <div class="eyebrow rv">How it works</div>
+    <h2 class="rv d1">Three steps to <em>your keys.</em></h2>
+    <div class="steps">
+      <div class="st rv"><div class="num">01</div><h3>Consult</h3><p>A relaxed conversation about your goals, timeline and the numbers that matter to you.</p></div>
+      <div class="st rv d1"><div class="num">02</div><h3>Strategy</h3><p>A tailored plan with pricing, neighbourhoods and the steps to get you there.</p></div>
+      <div class="st rv d2"><div class="num">03</div><h3>Close</h3><p>Negotiation, paperwork and closing day handled, so you can simply move forward.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="listings" style="padding-top:0">
+  <div class="wrap">
+    <div class="lhead">
+      <div>
+        <div class="eyebrow rv">Recent activity</div>
+        <h2 class="rv d1">Closed, listed <em>and leased.</em></h2>
+      </div>
+      <a href="https://instagram.com/jas.thandi" target="_blank" rel="noopener" class="rv d2">@jas.thandi ↗</a>
+    </div>
+    <div class="filters rv">
+      <button class="chip on" data-f="all">All</button><button class="chip" data-f="sold">Sold</button><button class="chip" data-f="sale">For sale</button><button class="chip" data-f="lease">Lease</button>
+    </div>
+    <div class="grid" id="lgrid">
+      <article class="li rv" data-k="sold"><div class="tile deep"><span class="stat g">Just closed</span><div class="zoom"><div class="ph"><svg viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M0 210h300M90 210V50h60v160M150 210V90h50v120"/><path d="M0 200c50-6 100 6 150 0s100-6 150 0"/></svg><span class="cap">Waterfront condo</span></div></div></div><div class="b"><h3>1910 Lakeshore Blvd W</h3><div class="m"><span>Toronto</span><span>Condo</span></div></div></article>
+      <article class="li rv d1" data-k="sold"><div class="tile"><span class="stat g">Just closed</span><div class="zoom"><div class="ph"><svg viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M0 210h300M100 210V40h100v170M100 70h100M100 100h100M100 130h100M100 160h100"/></svg><span class="cap">Downtown condo</span></div></div></div><div class="b"><h3>5 Richardson Street</h3><div class="m"><span>Toronto</span><span>Condo</span></div></div></article>
+      <article class="li rv d2" data-k="sold"><div class="tile warm"><span class="stat g">Closed</span><div class="zoom"><div class="ph"><svg viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M0 210h300M60 210V80h180v130M60 110h180M60 140h180M60 170h180"/></svg><span class="cap">Midrise residence</span></div></div></div><div class="b"><h3>801 The Queensway</h3><div class="m"><span>Toronto</span><span>Condo</span></div></div></article>
+      <article class="li rv" data-k="sold"><div class="tile warm"><span class="stat">Offer accepted</span><div class="zoom"><div class="ph"><svg viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M0 210h300M80 210V110l70-50 70 50v100M130 210v-50h40v50"/></svg><span class="cap">Family home</span></div></div></div><div class="b"><h3>95 Nightstar Road</h3><div class="m"><span>Scarborough</span><span>Detached</span></div></div></article>
+      <article class="li rv d1" data-k="sale"><div class="tile"><span class="stat w">Just listed</span><div class="zoom"><div class="ph"><svg viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M0 210h300M70 210V110l80-55 80 55v100M110 130h30v26h-30zM160 130h30v26h-30z"/></svg><span class="cap">Brick home</span></div></div></div><div class="b"><h3>14 Gramercy Square</h3><div class="m"><span>Scarborough</span><span>Detached</span></div></div></article>
+      <article class="li rv d2" data-k="sale"><div class="tile deep"><span class="stat w">New build</span><div class="zoom"><div class="ph"><svg viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M0 210h300M60 210V100l50-36 50 36M160 100l40-30 40 30v110H60M120 210v-50h30v50"/></svg><span class="cap">Detached exterior</span></div></div></div><div class="b"><h3>Brampton West, 6 bedroom</h3><div class="m"><span>Brampton</span><span>$1.2M</span></div></div></article>
+      <article class="li rv" data-k="sale"><div class="tile deep"><span class="stat w">Penthouse</span><div class="zoom"><div class="ph"><svg viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M0 210h300M110 210V20h80v190M110 40h80M110 60h80"/><path d="M40 120h40v90M220 140h40v70"/></svg><span class="cap">Skyline views</span></div></div></div><div class="b"><h3>Two storey penthouse at Shangri La</h3><div class="m"><span>Toronto</span><span>3 bed · 4 bath</span></div></div></article>
+      <article class="li rv d1" data-k="sale"><div class="tile warm"><span class="stat w">For sale</span><div class="zoom"><div class="ph"><svg viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M0 210h300M90 210V60h120v150M90 60l60-30 60 30M130 210v-60h40v60"/></svg><span class="cap">Bright interior</span></div></div></div><div class="b"><h3>4 bed, 3 bath home</h3><div class="m"><span>Brampton</span><span>$979,000</span></div></div></article>
+      <article class="li rv d2" data-k="lease"><div class="tile"><span class="stat">For lease</span><div class="zoom"><div class="ph"><svg viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1.2" preserveAspectRatio="xMidYMax meet"><path d="M0 210h300M60 210V60h180v150"/><path d="M90 90h50v60H90zM160 90h50v60h-50z"/></svg><span class="cap">Suite tour</span></div></div></div><div class="b"><h3>3 bed, 3 bath suite</h3><div class="m"><span>Toronto</span><span>$4,000 / mo</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="pad dark" id="calculator">
+  <div class="wrap">
+    <div class="eyebrow rv">Payment calculator</div>
+    <h2 class="rv d1">Picture your <em>payment.</em></h2>
+    <p class="lede rv d2">A quick estimate using Canadian semi annual compounding. Move the sliders, then book a call to walk through the full picture.</p>
+    <div class="calc">
+      <div class="cbox rv">
+        <div class="fld"><div class="top"><label for="cp">Purchase price</label><output id="op"></output></div><input type="range" id="cp" min="300000" max="3000000" step="5000" value="899000"></div>
+        <div class="fld"><div class="top"><label for="cd">Down payment</label><output id="od"></output></div><input type="range" id="cd" min="5" max="50" step="1" value="20"></div>
+        <div class="fld"><div class="top"><label for="cr">Your interest rate</label><output id="or"></output></div><input type="range" id="cr" min="1" max="9" step="0.05" value="4.5"></div>
+        <div class="fld" style="margin-bottom:0"><label>Amortization</label><div class="seg" id="am"><button data-y="20">20 yrs</button><button class="on" data-y="25">25 yrs</button><button data-y="30">30 yrs</button></div></div>
+      </div>
+      <div class="cbox res rv d1">
+        <div><span class="mono" style="color:var(--dmuted)">Estimated monthly payment</span><div class="pay" id="pay">$0<small>/ mo</small></div></div>
+        <dl>
+          <div><dt>Down payment</dt><dd id="rdp"></dd></div>
+          <div><dt>Mortgage amount</dt><dd id="rma"></dd></div>
+          <div><dt>Total interest</dt><dd id="rti"></dd></div>
+        </dl>
+        <p class="note">Estimate only. Excludes mortgage insurance, property tax, condo fees and closing costs. Speak with a lender for your exact figures.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad dark" id="book" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow rv">Book a consultation</div>
+    <h2 class="rv d1">Let's find your <em>next address.</em></h2>
+    <div class="book">
+      <div class="cal rv">
+        <div class="calh"><button type="button" id="prev" aria-label="Previous month">‹</button><b id="mlabel"></b><button type="button" id="next" aria-label="Next month">›</button></div>
+        <div class="dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+        <div class="days" id="days"></div>
+        <div class="legend"><span><i style="background:var(--brass)"></i>Selected</span><span><i style="box-shadow:inset 0 0 0 1px rgba(205,180,140,.6)"></i>Today</span><span><i style="background:rgba(243,242,238,.15)"></i>Unavailable</span></div>
+        <div class="picked"><span class="mono">Your preferred date</span><b id="pk">Pick a day above</b>
+          <div class="times" id="times"><button type="button" class="chip on" data-v="Morning">Morning</button><button type="button" class="chip" data-v="Afternoon">Afternoon</button><button type="button" class="chip" data-v="Evening">Evening</button></div>
+        </div>
+      </div>
+      <div class="rv d1">
+        <form class="fm" id="fm" name="jas-thandi-consult" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="jas-thandi-consult">
+          <p class="hp"><label>Leave empty <input name="bot-field"></label></p>
+          <input type="hidden" name="date" id="h-date"><input type="hidden" name="time" id="h-time" value="Morning"><input type="hidden" name="goals" id="h-goals" value="Buy"><input type="hidden" name="areas" id="h-areas"><input type="hidden" name="bedrooms" id="h-beds" value="2"><input type="hidden" name="timeline" id="h-tl" value="Within 3 months">
+          <div class="two">
+            <div class="in" data-req><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"><span class="e">Please add your name.</span></div>
+            <div class="in" data-req data-mail><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"><span class="e">Please add a valid email.</span></div>
+          </div>
+          <div class="in" data-req><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"><span class="e">Please add a phone number.</span></div>
+          <span class="gl">I want to</span>
+          <div class="chips" data-multi="h-goals"><button type="button" class="chip on">Buy</button><button type="button" class="chip">Sell</button><button type="button" class="chip">Invest</button><button type="button" class="chip">Lease</button></div>
+          <span class="gl">Areas of interest</span>
+          <div class="chips" data-multi="h-areas"><button type="button" class="chip">Toronto</button><button type="button" class="chip">Scarborough</button><button type="button" class="chip">Etobicoke</button><button type="button" class="chip">Brampton</button><button type="button" class="chip">Vaughan</button><button type="button" class="chip">Mississauga</button></div>
+          <span class="gl">Bedrooms</span>
+          <div class="stepper"><button type="button" id="bm" aria-label="Fewer">−</button><output id="bo">2 bedrooms</output><button type="button" id="bp" aria-label="More">+</button></div>
+          <span class="gl">Timeline</span>
+          <div class="chips" data-single="h-tl"><button type="button" class="chip on">Within 3 months</button><button type="button" class="chip">3 to 6 months</button><button type="button" class="chip">Just exploring</button></div>
+          <div class="in"><label for="f-msg">Anything else</label><textarea id="f-msg" name="message" placeholder="Budget, must haves, questions..."></textarea></div>
+          <button class="pill submit" type="submit">Request my consultation</button>
+        </form>
+        <div class="thanks fm" id="ty" style="background:var(--ink2);border:1px solid var(--line);border-radius:28px">
+          <h3>Thank you, <em id="tyn">friend.</em></h3>
+          <p>Your request is in. Jas will reach out shortly to confirm your consultation.</p>
+          <button class="pill ghost" type="button" id="again">Start another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="faq">
+  <div class="wrap faqg">
+    <div>
+      <div class="eyebrow rv">FAQ</div>
+      <h2 class="rv d1">Good <em>questions.</em></h2>
+      <p class="lede rv d2">Something else on your mind? Call or text <a href="tel:6479638091" style="border-bottom:1px solid">647 963 8091</a>.</p>
+    </div>
+    <div class="rv d1">
+      <div class="q"><button type="button">Do you work with first time buyers?<span class="pl"></span></button><div class="a"><div><p>Absolutely. Jas walks you through budgeting, mortgage pre approval, closing costs and every step in between so nothing feels unfamiliar.</p></div></div></div>
+      <div class="q"><button type="button">Which areas do you cover?<span class="pl"></span></button><div class="a"><div><p>Toronto and the wider GTA, including Scarborough, Etobicoke, Brampton and Vaughan.</p></div></div></div>
+      <div class="q"><button type="button">How does your finance background help me?<span class="pl"></span></button><div class="a"><div><p>It means clear analysis of pricing, carrying costs and returns, so your decisions are based on numbers, not pressure.</p></div></div></div>
+      <div class="q"><button type="button">Can you help me lease a condo?<span class="pl"></span></button><div class="a"><div><p>Yes. Jas helps tenants find rentals and helps landlords price, market and lease their units.</p></div></div></div>
+      <div class="q"><button type="button">What does a consultation cost?<span class="pl"></span></button><div class="a"><div><p>Your first consultation is a free, no pressure conversation about your goals and options.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad dark fcta">
+  <div class="wrap">
+    <div class="eyebrow rv" style="justify-content:center">Ready when you are</div>
+    <h2 class="rv d1">Your next move <em>starts here.</em></h2>
+    <p class="rv d2">Buying, selling or investing in the GTA, let's talk it through.</p>
+    <div class="rv d3" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a href="#book" class="pill fill"><span class="dot"></span>Book a consultation</a><a href="tel:6479638091" class="pill ghost">Call 647 963 8091</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div><div class="brand" style="color:var(--bone)"><b>Jas Thandi</b><span>Real Estate · GTA</span></div><p style="margin-top:18px;max-width:280px">Your favourite GTA real estate agent. Buy, sell and invest with clarity.</p></div>
+      <div><h4>Explore</h4><a href="#about">About</a><a href="#services">Services</a><a href="#listings">Listings</a><a href="#calculator">Calculator</a></div>
+      <div><h4>Contact</h4><a href="tel:6479638091">647 963 8091</a><a href="mailto:[EMAIL]">[EMAIL]</a><a href="https://instagram.com/jas.thandi" target="_blank" rel="noopener">@jas.thandi</a></div>
+      <div><h4>Area</h4><p>Toronto & GTA</p><p>Veridian Realty Inc., Brokerage</p></div>
+    </div>
+    <div class="big-n">Jas Thandi</div>
+    <div class="fb"><span>© <span id="yr"></span> Jas Thandi. All rights reserved.</span><a href="#top" class="totop">Back to top<i>↑</i></a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var body=document.body, loader=document.getElementById('loader');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setTimeout(function(){loader.classList.add('up');body.classList.add('ready');setTimeout(function(){loader.style.display='none'},1000)}, reduce?50:2400);
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // progress + nav theme
+  var prog=document.getElementById('prog'), nav=document.getElementById('nav'), hero=document.querySelector('.hero');
+  var darks=[].slice.call(document.querySelectorAll('.dark,.hero,footer'));
+  function onScroll(){
+    var h=document.documentElement; prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+    var y=nav.getBoundingClientRect().top+nav.offsetHeight/2, onDark=false;
+    darks.forEach(function(s){var r=s.getBoundingClientRect();if(r.top<=y&&r.bottom>=y)onDark=true});
+    nav.classList.toggle('light',!onDark);
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // reveal
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  // tabs
+  document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){
+    document.querySelectorAll('.tabs button').forEach(function(x){x.classList.toggle('on',x===b)});
+    document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.dataset.p===b.dataset.t)});
+  }});
+
+  // listing filter
+  document.querySelectorAll('.filters .chip').forEach(function(c){c.onclick=function(){
+    document.querySelectorAll('.filters .chip').forEach(function(x){x.classList.toggle('on',x===c)});
+    document.querySelectorAll('#lgrid .li').forEach(function(li){li.classList.toggle('hide',c.dataset.f!=='all'&&li.dataset.k!==c.dataset.f);li.classList.add('in')});
+  }});
+
+  // calculator
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-CA')};
+  var cp=document.getElementById('cp'),cd=document.getElementById('cd'),cr=document.getElementById('cr'),yrs=25;
+  function calc(){
+    var P=+cp.value,dp=+cd.value,rate=+cr.value/100;
+    var down=P*dp/100,L=P-down,n=yrs*12,r=Math.pow(1+rate/2,1/6)-1;
+    var M=r?L*r/(1-Math.pow(1+r,-n)):L/n;
+    document.getElementById('op').textContent=fmt(P);
+    document.getElementById('od').textContent=dp+'%';
+    document.getElementById('or').textContent=(+cr.value).toFixed(2)+'%';
+    document.getElementById('pay').innerHTML=fmt(M)+'<small>/ mo</small>';
+    document.getElementById('rdp').textContent=fmt(down);
+    document.getElementById('rma').textContent=fmt(L);
+    document.getElementById('rti').textContent=fmt(M*n-L);
+  }
+  [cp,cd,cr].forEach(function(i){i.oninput=calc});
+  document.querySelectorAll('#am button').forEach(function(b){b.onclick=function(){
+    document.querySelectorAll('#am button').forEach(function(x){x.classList.toggle('on',x===b)});yrs=+b.dataset.y;calc();
+  }});
+  calc();
+
+  // calendar
+  var today=new Date();today.setHours(0,0,0,0);
+  var view=new Date(today.getFullYear(),today.getMonth(),1),sel=null;
+  var daysEl=document.getElementById('days'),ml=document.getElementById('mlabel'),pk=document.getElementById('pk'),prev=document.getElementById('prev');
+  function draw(){
+    ml.textContent=view.toLocaleDateString('en-CA',{month:'long',year:'numeric'});
+    prev.disabled=view<=new Date(today.getFullYear(),today.getMonth(),1);
+    daysEl.innerHTML='';
+    var first=new Date(view.getFullYear(),view.getMonth(),1).getDay(),dim=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+    for(var i=0;i<first;i++)daysEl.appendChild(document.createElement('span'));
+    for(var d=1;d<=dim;d++){
+      var dt=new Date(view.getFullYear(),view.getMonth(),d),b=document.createElement('button');
+      b.type='button';b.textContent=d;
+      if(dt<today)b.disabled=true;
+      if(+dt===+today)b.classList.add('today');
+      if(sel&&+dt===+sel)b.classList.add('sel');
+      (function(dt){b.onclick=function(){sel=dt;draw();
+        var s=dt.toLocaleDateString('en-CA',{weekday:'long',month:'long',day:'numeric'});
+        pk.textContent=s;document.getElementById('h-date').value=s;}})(dt);
+      daysEl.appendChild(b);
+    }
+  }
+  prev.onclick=function(){view.setMonth(view.getMonth()-1);draw()};
+  document.getElementById('next').onclick=function(){view.setMonth(view.getMonth()+1);draw()};
+  draw();
+
+  // time chips
+  document.querySelectorAll('#times .chip').forEach(function(c){c.onclick=function(){
+    document.querySelectorAll('#times .chip').forEach(function(x){x.classList.toggle('on',x===c)});
+    document.getElementById('h-time').value=c.dataset.v;
+  }});
+  // multi / single chips
+  document.querySelectorAll('[data-multi]').forEach(function(g){
+    var h=document.getElementById(g.dataset.multi);
+    g.querySelectorAll('.chip').forEach(function(c){c.onclick=function(){c.classList.toggle('on');
+      h.value=[].map.call(g.querySelectorAll('.chip.on'),function(x){return x.textContent}).join(', ');}});
+  });
+  document.querySelectorAll('[data-single]').forEach(function(g){
+    var h=document.getElementById(g.dataset.single);
+    g.querySelectorAll('.chip').forEach(function(c){c.onclick=function(){
+      g.querySelectorAll('.chip').forEach(function(x){x.classList.toggle('on',x===c)});h.value=c.textContent;}});
+  });
+  // stepper
+  var beds=2,bo=document.getElementById('bo'),hb=document.getElementById('h-beds');
+  function setB(v){beds=Math.max(1,Math.min(6,v));bo.textContent=beds+(beds===6?'+ bedrooms':beds===1?' bedroom':' bedrooms');hb.value=beds+(beds===6?'+':'');}
+  document.getElementById('bm').onclick=function(){setB(beds-1)};
+  document.getElementById('bp').onclick=function(){setB(beds+1)};
+
+  // form
+  var fm=document.getElementById('fm'),ty=document.getElementById('ty');
+  fm.addEventListener('submit',function(e){
+    e.preventDefault();var ok=true;
+    fm.querySelectorAll('[data-req]').forEach(function(w){
+      var v=w.querySelector('input').value.trim(),bad=!v||(w.hasAttribute('data-mail')&&!/^\S+@\S+\.\S+$/.test(v));
+      w.classList.toggle('err',bad);if(bad)ok=false;
+    });
+    if(!ok)return;
+    var data=new URLSearchParams(new FormData(fm)).toString();
+    var done=function(){document.getElementById('tyn').textContent=fm.querySelector('#f-name').value.trim().split(' ')[0]+'.';fm.style.display='none';ty.classList.add('on');};
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data}).then(done).catch(done);
+  });
+  fm.querySelectorAll('[data-req] input').forEach(function(i){i.oninput=function(){i.parentNode.classList.remove('err')}});
+  document.getElementById('again').onclick=function(){fm.reset();fm.style.display='';ty.classList.remove('on');};
+
+  // faq
+  document.querySelectorAll('.q button').forEach(function(b){b.onclick=function(){b.parentNode.classList.toggle('on')}});
+})();
+</script>
+</body>
+</html>
