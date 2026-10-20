@@ -34,3 +34,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `jas-thandi/` — Jas Thandi (Toronto/GTA realtor, buy, sell, invest, lease, finance led, payment calculator)
 - `bakerbenzz/` — Baker Benzz by Lenicia (custom cakes and desserts, weddings, birthdays, delivery)
 - `miami-lovely-bites/` — Miami Lovely Bites (Miami charcuterie boards, grazing tables, cups and pavlova)
+- `ashley-aliesha-interiors/` — Ashley Aliesha Interiors (Southern Ontario painting, cleaning and organizing, 21 years experience)
