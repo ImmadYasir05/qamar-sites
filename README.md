@@ -33,3 +33,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `asmaa-balaz/` — Asmaa Balaz (Grand Montréal residential realtor, eXp Realty, bilingual FR/EN, Les Rosiers spotlight, mortgage calculator)
 - `jas-thandi/` — Jas Thandi (Toronto/GTA realtor, buy, sell, invest, lease, finance led, payment calculator)
 - `bakerbenzz/` — Baker Benzz by Lenicia (custom cakes and desserts, weddings, birthdays, delivery)
+- `miami-lovely-bites/` — Miami Lovely Bites (Miami charcuterie boards, grazing tables, cups and pavlova)
