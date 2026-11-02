@@ -36,3 +36,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `miami-lovely-bites/` — Miami Lovely Bites (Miami charcuterie boards, grazing tables, cups and pavlova)
 - `ashley-aliesha-interiors/` — Ashley Aliesha Interiors (Southern Ontario painting, cleaning and organizing, 21 years experience)
 - `pillar-law/` — Pillar Law (Toronto commercial real estate lawyer Sara Haider, institutional and private lending, consultation booking)
+- `rapid-services-group/` — Rapid Services Group (UK wedding and event security, phone pouches, photography prevention, male and female teams)
