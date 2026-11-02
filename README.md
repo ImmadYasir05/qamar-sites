@@ -38,3 +38,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `pillar-law/` — Pillar Law (Toronto commercial real estate lawyer Sara Haider, institutional and private lending, consultation booking)
 - `rapid-services-group/` — Rapid Services Group (UK wedding and event security, phone pouches, photography prevention, male and female teams)
 - `fudgecravingss/` — Fudgecravingss (Liverpool, Sydney custom fudge brownies, gift slabs, bites, mini tins, catering, pickup and delivery)
+- `studio-ri-co/` — Studio Ri Co. (Michigan custom banners and party details, birthdays, brides, grads, baby showers, local pickup and U.S. shipping)
