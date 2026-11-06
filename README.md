@@ -40,3 +40,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `fudgecravingss/` — Fudgecravingss (Liverpool, Sydney custom fudge brownies, gift slabs, bites, mini tins, catering, pickup and delivery)
 - `studio-ri-co/` — Studio Ri Co. (Michigan custom banners and party details, birthdays, brides, grads, baby showers, local pickup and U.S. shipping)
 - `fresh-bites-co/` — Fresh Bites Co (GTA catering, styled food tables, halal, veg and gluten free options)
+- `sweet-sip-cafe/` — Sweet Sip Cafe (Woodbridge mobile café, South Asian inspired drinks, matcha, mojitos, all halal, pop ups and event cart)
