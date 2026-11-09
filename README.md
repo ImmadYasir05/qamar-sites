@@ -42,3 +42,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `fresh-bites-co/` — Fresh Bites Co (GTA catering, styled food tables, halal, veg and gluten free options)
 - `sweet-sip-cafe/` — Sweet Sip Cafe (Woodbridge mobile café, South Asian inspired drinks, matcha, mojitos, all halal, pop ups and event cart)
 - `dipped-by-nina/` — Dipped by Nina (Howell, NJ home bakery, stuffed cookies, cake pops, dipped strawberries and treats, seasonal drops, pickup only)
+- `floristry-by-fatima/` — Floristry by Fatima (Teaneck, NJ custom florist, bouquets, monogram roses, baskets, pickup and North Jersey delivery, 4 day notice)
