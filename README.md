@@ -45,3 +45,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `floristry-by-fatima/` — Floristry by Fatima (Teaneck, NJ custom florist, bouquets, monogram roses, baskets, pickup and North Jersey delivery, 4 day notice)
 - `misu-tiramisu-bar/` — MISÙ (DMV mobile tiramisu bar, handcrafted by Sarwat, live scooping for weddings, parties and events)
 - `jaels-pasteles/` — Jael's Pasteles (Phoenix, AZ custom cakes, vintage heart cakes, themed birthday cakes, flower pot cakes, bilingual)
+- `cas-events/` — CAS Events (New Jersey event decor and styling, backdrops, 3D seating charts, centerpieces, artificial florals; Orisen style)
