@@ -51,3 +51,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `from-the-bee-to-the-jar/` — From the Bee to the Jar (Brooklyn raw unfiltered wildflower honey, DM or form orders, Brooklyn pickup, pop ups, gifting; Orisen style)
 - `velveti-sips/` — Velveti Sips (Staten Island coffee, matcha and refreshers, pickup and events)
 - `baked-with-blessings/` — Baked with Blessings (Elmont NY halal custom cakes, vintage and wedding cakes, pastries)
+- `baked-with-blessings-v2/` — Baked with Blessings v2 (Orisen style modern minimal version)

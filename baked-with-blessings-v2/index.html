@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baked with Blessings · Custom Cakes in Elmont, NY</title>
+<meta name="description" content="Custom vintage cakes, wedding cakes, pastries and dessert tables. 100% halal and handmade from scratch in Elmont, NY.">
+<meta name="theme-color" content="#FAF7F5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF7F5;--card:#FFFFFF;--ink:#141012;--muted:#6E666A;--faint:#A39A9E;
+  --line:rgba(20,16,18,.08);--line2:rgba(20,16,18,.14);
+  --wine:#7A1F2B;--wine2:#5A1520;--blush:#F2D9E0;--champ:#E8D2AE;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --head:"Inter Tight",system-ui,sans-serif;--body:"Inter",system-ui,sans-serif;--serif:"Instrument Serif",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+@media(max-width:760px){.wrap{padding:0 20px}}
+section{padding:120px 0;position:relative}
+@media(max-width:760px){section{padding:80px 0}}
+h1,h2,h3,h4{font-family:var(--head);font-weight:600;letter-spacing:-.045em;line-height:1}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--wine)}
+h2{font-size:clamp(38px,5.6vw,68px);margin:18px 0 18px}
+.sub{color:var(--muted);font-size:18px;max-width:560px}
+.center{text-align:center}.center .sub{margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;color:var(--muted);box-shadow:0 1px 2px rgba(20,16,18,.04)}
+.tag i{width:6px;height:6px;border-radius:50%;background:var(--wine)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;font-family:var(--head);font-weight:500;font-size:15px;letter-spacing:-.01em;transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--ink);color:#fff;box-shadow:0 8px 24px -10px rgba(20,16,18,.5),inset 0 1px 0 rgba(255,255,255,.15)}
+.btn-dark:hover{box-shadow:0 14px 30px -12px rgba(20,16,18,.55)}
+.btn-light{background:var(--card);border:1px solid var(--line2)}
+.btn .arr{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;font-size:13px;transition:transform .4s var(--ease)}
+.btn:hover .arr{transform:translateX(3px)}
+
+/* loader */
+#loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:opacity .8s var(--ease),visibility .8s}
+#loader.done{opacity:0;visibility:hidden}
+#loader img{width:min(300px,64vw);opacity:0;filter:blur(8px);animation:in 1.2s .1s var(--ease) forwards}
+@keyframes in{to{opacity:1;filter:none}}
+
+/* nav */
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;width:min(1100px,calc(100% - 24px));display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px;padding:0 8px 0 20px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);box-shadow:0 10px 30px -18px rgba(20,16,18,.25)}
+.nav .logo{font-family:var(--head);font-weight:600;letter-spacing:-.03em;font-size:17px;display:flex;align-items:center;gap:10px}
+.nav .logo b{width:28px;height:28px;border-radius:50%;background:var(--wine);color:var(--champ);display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-weight:400;font-size:17px}
+.nav .links{display:flex;gap:4px}
+.nav .links a{padding:8px 14px;border-radius:999px;font-size:14px;color:var(--muted);transition:background .3s,color .3s}
+.nav .links a:hover{background:rgba(20,16,18,.05);color:var(--ink)}
+.nav .btn{height:44px;padding:0 20px;font-size:14px}
+@media(max-width:900px){.nav .links{display:none}}
+@media(max-width:420px){.nav .logo span{display:none}}
+
+/* hero */
+.hero{padding:170px 0 60px;text-align:center;overflow:hidden}
+.glow{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:-1}
+.g1{width:620px;height:620px;background:radial-gradient(circle,#F2D2DC 0%,transparent 70%);top:-120px;left:50%;transform:translateX(-70%)}
+.g2{width:480px;height:480px;background:radial-gradient(circle,#F3E3C9 0%,transparent 70%);top:40px;left:50%;transform:translateX(10%)}
+.grain{position:absolute;inset:0;z-index:-1;opacity:.35;background-image:radial-gradient(rgba(20,16,18,.07) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000,transparent)}
+.hero h1{font-size:clamp(50px,9vw,116px);margin:26px auto 24px;max-width:1000px}
+.hero h1 .it{letter-spacing:-.02em}
+.hero .sub{margin:0 auto;font-size:19px}
+.hero .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:36px 0 18px}
+.hero small{color:var(--faint);font-size:13px}
+.reel{margin-top:70px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.reel .track{display:flex;gap:18px;width:max-content;animation:slide 50s linear infinite}
+.reel:hover .track{animation-play-state:paused}
+.reel figure{position:relative;width:280px;aspect-ratio:3/4;border-radius:24px;overflow:hidden;flex:none;background:var(--blush)}
+.reel figure:nth-child(odd){margin-top:36px}
+.reel img{width:100%;height:100%;object-fit:cover}
+.reel figcaption,.chip{position:absolute;left:12px;bottom:12px;height:30px;padding:0 12px;display:flex;align-items:center;border-radius:999px;background:rgba(255,255,255,.82);backdrop-filter:blur(8px);font-size:12px;font-weight:500;color:var(--ink)}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media(max-width:760px){.reel figure{width:200px;border-radius:18px}.hero{padding:130px 0 40px}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{padding:34px 24px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-family:var(--head);font-weight:600;font-size:clamp(34px,4vw,48px);letter-spacing:-.05em;line-height:1}
+.stats span{font-size:14px;color:var(--muted)}
+@media(max-width:760px){.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(180px,auto);gap:16px;margin-top:56px}
+.box{position:relative;background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;padding:28px;display:flex;flex-direction:column;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.box:hover{transform:translateY(-4px);box-shadow:0 30px 60px -40px rgba(20,16,18,.35)}
+.box h3{font-size:26px;letter-spacing:-.035em;margin-bottom:8px}
+.box p{color:var(--muted);font-size:15px;max-width:380px}
+.box .ico{width:44px;height:44px;border-radius:14px;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:auto}
+.box .ico svg{width:22px;height:22px;stroke:var(--wine);fill:none;stroke-width:1.5}
+.box.img{padding:0;color:#fff}
+.box.img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.box.img:hover img{transform:scale(1.05)}
+.box.img .over{position:relative;margin-top:auto;padding:28px;background:linear-gradient(transparent,rgba(20,10,12,.72))}
+.box.img p{color:rgba(255,255,255,.82)}
+.b1{grid-column:span 4;grid-row:span 2;min-height:440px}
+.b2{grid-column:span 2;grid-row:span 2}
+.b3,.b4,.b5{grid-column:span 2}
+.b3 .ico,.b4 .ico,.b5 .ico{margin-bottom:28px}
+.dark{background:var(--ink);color:#fff;border-color:transparent}
+.dark p{color:rgba(255,255,255,.65)}
+.dark .ico{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
+.dark .ico svg{stroke:var(--champ)}
+@media(max-width:900px){.bento{grid-template-columns:1fr 1fr}.b1{grid-column:span 2;min-height:380px}.b2{grid-column:span 2;min-height:420px}.b3,.b4{grid-column:span 1}.b5{grid-column:span 2}}
+@media(max-width:560px){.b3,.b4{grid-column:span 2}}
+
+/* creds */
+.creds{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+.creds div{padding:22px;border-radius:20px;background:rgba(255,255,255,.55);border:1px solid var(--line);font-size:14px;color:var(--muted)}
+.creds b{display:block;font-family:var(--head);font-weight:600;font-size:16px;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px}
+@media(max-width:900px){.creds{grid-template-columns:1fr 1fr}}
+
+/* menu */
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px;padding:5px;border-radius:999px;background:rgba(20,16,18,.05);margin:36px 0 34px}
+.seg button{height:42px;padding:0 20px;border-radius:999px;font-family:var(--head);font-weight:500;font-size:14px;color:var(--muted);transition:background .3s,color .3s,box-shadow .3s}
+.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 2px 8px -2px rgba(20,16,18,.15)}
+@media(max-width:760px){.seg{display:flex;border-radius:20px}.seg button{flex:1 1 auto;padding:0 12px}}
+.panel{display:none}
+.panel.on{display:block;animation:up .6s var(--ease) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}}
+.ghead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:26px 0 14px}
+.ghead h3{font-size:22px;letter-spacing:-.03em}
+.pill-price{height:30px;padding:0 12px;display:inline-flex;align-items:center;border-radius:999px;background:var(--blush);color:var(--wine2);font-size:13px;font-weight:500;white-space:nowrap}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 22px;display:flex;justify-content:space-between;gap:16px;transition:border-color .3s,transform .4s var(--ease)}
+.item:hover{border-color:var(--line2);transform:translateY(-2px)}
+.item h4{font-size:18px;letter-spacing:-.025em;font-weight:600}
+.item p{font-size:14px;color:var(--muted);margin-top:4px}
+.item .r{font-family:var(--head);font-weight:600;font-size:18px;white-space:nowrap}
+.item .ex{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--wine);white-space:nowrap;padding-top:3px}
+.note{margin-top:22px;padding:16px 20px;border-radius:16px;border:1px dashed var(--line2);font-size:14px;color:var(--muted)}
+.note b{color:var(--ink);font-weight:500}
+@media(max-width:760px){.items{grid-template-columns:1fr}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px;counter-reset:s}
+.step{padding:30px;border-radius:28px;background:var(--card);border:1px solid var(--line)}
+.step .n{width:40px;height:40px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--head);font-weight:600;font-size:15px;margin-bottom:60px}
+.step h3{font-size:24px;letter-spacing:-.035em;margin-bottom:8px}
+.step p{color:var(--muted);font-size:15px}
+@media(max-width:860px){.steps{grid-template-columns:1fr}.step .n{margin-bottom:28px}}
+
+/* pricing */
+.price{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.plan{padding:32px;border-radius:28px;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column}
+.plan .k{font-size:14px;color:var(--muted);font-weight:500}
+.plan .amt{font-family:var(--head);font-weight:600;font-size:56px;letter-spacing:-.06em;line-height:1;margin:18px 0 4px}
+.plan .amt small{font-size:15px;letter-spacing:-.01em;color:var(--muted);font-weight:400;margin-left:6px}
+.plan ul{list-style:none;margin:24px 0 28px;flex:1;border-top:1px solid var(--line)}
+.plan li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.plan li span:last-child{color:var(--muted);white-space:nowrap}
+.plan.dark{background:var(--ink)}
+.plan.dark .k,.plan.dark .amt small,.plan.dark li span:last-child{color:rgba(255,255,255,.6)}
+.plan.dark ul,.plan.dark li{border-color:rgba(255,255,255,.1)}
+.plan.dark .btn-light{background:#fff;color:var(--ink);border:0}
+.plan .top{display:flex;justify-content:space-between;align-items:center}
+.badge{height:28px;padding:0 12px;border-radius:999px;background:linear-gradient(90deg,var(--champ),#F2D9E0);color:var(--ink);font-size:12px;font-weight:500;display:inline-flex;align-items:center}
+@media(max-width:900px){.price{grid-template-columns:1fr}}
+
+/* story */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.story .ph{border-radius:28px;overflow:hidden;min-height:560px;position:relative;background:var(--blush)}
+.story .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.story .tx{border-radius:28px;background:var(--card);border:1px solid var(--line);padding:48px;display:flex;flex-direction:column;justify-content:center}
+.story .tx p{color:var(--muted);margin-bottom:16px}
+.story .sig{display:flex;align-items:center;gap:14px;margin-top:14px;padding-top:22px;border-top:1px solid var(--line)}
+.story .sig img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 15%}
+.story .sig b{display:block;font-family:var(--head);font-weight:600;letter-spacing:-.02em}
+.story .sig span{font-size:14px;color:var(--muted)}
+@media(max-width:900px){.story{grid-template-columns:1fr}.story .ph{min-height:420px}.story .tx{padding:30px}}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:16px;margin-top:56px}
+.gal figure{position:relative;border-radius:24px;overflow:hidden;background:var(--blush)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal .t2{grid-row:span 2}.gal .w2{grid-column:span 2}
+@media(max-width:860px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:180px;gap:12px}.gal .w2{grid-column:span 2}}
+
+/* reviews */
+.rrow{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);margin-top:16px}
+.rrow .track{display:flex;gap:16px;width:max-content;animation:slide 60s linear infinite}
+.rrow.rev .track{animation-direction:reverse}
+.rcard{width:360px;flex:none;padding:26px;border-radius:24px;background:var(--card);border:1px solid var(--line)}
+.rcard .stars{color:var(--wine);letter-spacing:2px;font-size:14px;margin-bottom:12px}
+.rcard p{font-size:16px;line-height:1.5}
+.rcard span{display:block;margin-top:16px;font-size:13px;color:var(--muted)}
+@media(max-width:760px){.rcard{width:290px}}
+
+/* order */
+.order{display:grid;grid-template-columns:.9fr 1.1fr;gap:16px;margin-top:56px;align-items:start}
+.panelbox{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:28px}
+@media(max-width:960px){.order{grid-template-columns:1fr}}
+.cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.cal-h b{font-family:var(--head);font-weight:600;font-size:20px;letter-spacing:-.03em}
+.cal-h button{width:40px;height:40px;border-radius:12px;border:1px solid var(--line2);font-size:16px;transition:background .3s}
+.cal-h button:hover{background:var(--bg)}
+.cal-h button:disabled{opacity:.3;cursor:default}
+.dow,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.dow span{font-size:12px;color:var(--faint);padding-bottom:6px;font-weight:500}
+.days button{aspect-ratio:1;border-radius:12px;font-size:14.5px;min-height:38px;font-weight:500;transition:background .25s,color .25s}
+.days button:hover:not(:disabled){background:var(--bg)}
+.days button:disabled{color:#CFC8CB;text-decoration:line-through;cursor:default}
+.days button.rush{color:var(--faint);background:repeating-linear-gradient(45deg,transparent 0 4px,rgba(20,16,18,.035) 4px 8px)}
+.days button.sel{background:var(--ink);color:#fff}
+.days button.today{box-shadow:inset 0 0 0 1px var(--line2)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px;font-size:12.5px;color:var(--muted)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+.picked{margin-top:18px;padding:16px;border-radius:16px;background:var(--bg);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.picked small{font-size:12.5px;color:var(--muted)}
+.picked b{font-family:var(--head);font-weight:600;letter-spacing:-.02em;text-align:right}
+.rushnote{margin-top:12px;font-size:14px;color:var(--wine)}
+.rushnote a{text-decoration:underline}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.g2{grid-template-columns:1fr}}
+.f{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.f label,.lbl{font-size:13px;font-weight:500;color:var(--ink)}
+.lbl{display:block;margin-bottom:8px}
+.f input,.f select,.f textarea{width:100%;height:50px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:0 14px;font:inherit;font-size:16px;color:var(--ink);transition:border-color .25s,box-shadow .25s,background .25s}
+.f textarea{height:auto;min-height:100px;padding:12px 14px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;background:#fff;border-color:var(--ink);box-shadow:0 0 0 4px rgba(20,16,18,.06)}
+.f input::placeholder,.f textarea::placeholder{color:var(--faint)}
+.f.err input,.f.err select{border-color:#C2410C;box-shadow:0 0 0 4px rgba(194,65,12,.08)}
+.f .msg{font-size:12.5px;color:#C2410C;display:none}
+.f.err .msg{display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chips button{height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);font-size:14px;font-weight:500;color:var(--muted);transition:all .25s}
+.chips button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--line2);border-radius:999px;margin-bottom:18px}
+.stepper button{width:46px;height:46px;font-size:18px}
+.stepper output{min-width:56px;text-align:center;font-family:var(--head);font-weight:600;font-size:18px}
+.agree{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:16px;background:var(--bg);border:1px solid var(--line);margin:6px 0 18px;cursor:pointer;font-size:14.5px}
+.agree input{width:20px;height:20px;accent-color:var(--ink);flex:none;margin-top:1px}
+.agree a{text-decoration:underline}
+.agree.err{border-color:#C2410C}
+.hidden{display:none!important}
+.thanks{text-align:center;padding:50px 20px}
+.thanks .ok{width:56px;height:56px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;margin:0 auto 20px;font-size:22px}
+.thanks h3{font-size:clamp(32px,4vw,44px);margin-bottom:12px}
+.thanks p{color:var(--muted);max-width:420px;margin:0 auto 24px}
+
+/* faq */
+.faq{max-width:820px;margin:56px auto 0}
+.qa{border:1px solid var(--line);background:var(--card);border-radius:20px;margin-bottom:10px;transition:border-color .3s}
+.qa.open{border-color:var(--line2)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;padding:20px 22px;font-family:var(--head);font-weight:500;font-size:17px;letter-spacing:-.02em;min-height:44px}
+.qa .plus{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);position:relative;transition:transform .5s var(--ease),background .3s}
+.qa .plus:before,.qa .plus:after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%)}
+.qa .plus:after{transform:translate(-50%,-50%) rotate(90deg)}
+.qa.open .plus{transform:rotate(45deg);background:var(--ink)}
+.qa.open .plus:before,.qa.open .plus:after{background:#fff}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.qa.open .ans{grid-template-rows:1fr}
+.qa .ans>div{overflow:hidden}
+.qa .ans p{color:var(--muted);padding:0 22px 12px;font-size:15px}
+.qa .ans p:last-child{padding-bottom:22px}
+.qa .ans b{color:var(--ink);font-weight:500}
+
+/* cta */
+.cta{position:relative;border-radius:36px;overflow:hidden;background:var(--ink);color:#fff;padding:90px 30px;text-align:center}
+.cta:before{content:"";position:absolute;width:700px;height:700px;left:50%;top:-360px;transform:translateX(-50%);background:radial-gradient(circle,rgba(201,140,156,.55),transparent 65%);filter:blur(30px)}
+.cta>*{position:relative}
+.cta h2{color:#fff;max-width:760px;margin:0 auto 18px}
+.cta .it{color:var(--champ)}
+.cta p{color:rgba(255,255,255,.7);margin-bottom:30px}
+.cta .btn-light{background:#fff;color:var(--ink);border:0}
+.cta img{width:200px;margin:0 auto 18px;opacity:.95}
+
+footer{padding:60px 0 40px;font-size:14px;color:var(--muted)}
+footer .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;padding-bottom:40px;border-bottom:1px solid var(--line)}
+footer h5{font-family:var(--head);font-weight:600;font-size:14px;color:var(--ink);margin-bottom:12px;letter-spacing:-.01em}
+footer li{list-style:none;margin-bottom:8px}
+footer a:hover{color:var(--ink)}
+footer .base{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px}
+.totop{display:inline-flex;align-items:center;gap:10px;color:var(--ink);font-weight:500}
+.totop i{width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;font-style:normal;transition:transform .4s var(--ease)}
+.totop:hover i{transform:translateY(-3px)}
+@media(max-width:760px){footer .cols{grid-template-columns:1fr 1fr}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);filter:blur(6px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)}
+.rv.in{opacity:1;transform:none;filter:none}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}#loader{display:none}}
+</style>
+</head>
+<body>
+<div id="loader" aria-hidden="true"><img src="img/logo.png" alt=""></div>
+
+<nav class="nav">
+  <a href="#top" class="logo"><b>B</b><span>Baked with Blessings</span></a>
+  <div class="links"><a href="#services">Services</a><a href="#menu">Menu</a><a href="#story">Story</a><a href="#reviews">Reviews</a><a href="#faq">Policy</a></div>
+  <a href="#order" class="btn btn-dark">Place order</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="glow g1"></div><div class="glow g2"></div><div class="grain"></div>
+  <div class="wrap">
+    <span class="tag rv"><i></i>100% halal · Made from scratch · Elmont, NY</span>
+    <h1 class="rv">Cakes baked with <span class="it">blessings.</span></h1>
+    <p class="sub rv">Custom vintage cakes, wedding tiers, pastries and dessert tables. Handcrafted with love so every celebration feels a little sweeter.</p>
+    <div class="ctas rv"><a href="#order" class="btn btn-dark">Place an order <span class="arr">→</span></a><a href="#menu" class="btn btn-light">Explore the menu</a></div>
+    <small class="rv">Order at least 2 weeks ahead · Eggless, vegan &amp; gluten free on request</small>
+  </div>
+  <div class="reel rv"><div class="track" id="reel"></div></div>
+</header>
+
+<div class="wrap">
+  <div class="stats rv">
+    <div><b>3+ yrs</b><span>Baking for the community</span></div>
+    <div><b>100%</b><span>Halal &amp; alcohol free</span></div>
+    <div><b>15</b><span>Signature cake flavors</span></div>
+    <div><b>NYC &amp; LI</b><span>Based in Elmont, NY</span></div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>What we offer</span><h2 class="rv">Made for your <span class="it">celebration.</span></h2><p class="sub rv">Every item is 100% halal, handmade from scratch with high quality ingredients, so your desserts taste as unforgettable as they look.</p></div>
+    <div class="bento">
+      <a href="#order" class="box img b1 rv"><img src="img/three-tier-florals.jpg" alt="Three tier wedding cake with wafer paper sails and baby's breath" loading="lazy"><div class="over"><h3>Multi tiered wedding cakes</h3><p>Designed around your day, with a contract for large orders so every detail is agreed.</p></div></a>
+      <a href="#menu" class="box img b2 rv"><img src="img/pink-heart.jpg" alt="Pink vintage heart cake" loading="lazy"><div class="over"><h3>Custom vintage cakes</h3><p>Ruffles, pearls and piped roses.</p></div></a>
+      <div class="box b3 rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 11h12l-1.5 9h-9z"/><path d="M5 11a7 7 0 0 1 14 0"/></svg></div><h3>Small desserts</h3><p>Cupcakes, verrines and danishes by the dozen.</p></div>
+      <div class="box dark b4 rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div><h3>Custom requests</h3><p>A flavor not on the menu? We would love to cater to your ideas.</p></div>
+      <div class="box b5 rv"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M7 8V6a5 5 0 0 1 10 0v2"/></svg></div><h3>Dessert tables</h3><p>Full spreads for weddings, showers and pop ups.</p></div>
+    </div>
+    <div class="creds">
+      <div class="rv"><b>Pastry trained</b>Degree in Baking and Pastry Arts</div>
+      <div class="rv"><b>Hospitality led</b>Bachelor's in Hospitality Management</div>
+      <div class="rv"><b>Food safety certified</b>Fully certified in safe handling</div>
+      <div class="rv"><b>Venue ready</b>Commercially insured for event venues</div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="padding-top:40px">
+  <div class="wrap">
+    <span class="tag rv"><i></i>Menu</span>
+    <h2 class="rv">Sweet things to <span class="it">order.</span></h2>
+    <p class="sub rv">Classic and exclusive flavors, every size, plus treats by the dozen.</p>
+    <div class="seg rv" id="seg" role="tablist"></div>
+    <div id="panels"></div>
+  </div>
+</section>
+
+<section id="how" style="padding-top:40px">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>How it works</span><h2 class="rv">Three steps to <span class="it">sweet.</span></h2></div>
+    <div class="steps">
+      <div class="step rv"><div class="n">01</div><h3>Send your order</h3><p>Submit the form at least 2 weeks before your event with size, flavor, design and date.</p></div>
+      <div class="step rv"><div class="n">02</div><h3>Confirm &amp; deposit</h3><p>I'll confirm your order and send deposit details. A 50% deposit secures your date.</p></div>
+      <div class="step rv"><div class="n">03</div><h3>Pick up or delivery</h3><p>Collect in Elmont or arrange delivery. The balance is due 24 hours before.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="sizes" style="padding-top:40px">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>Cake sizes</span><h2 class="rv">Pick your <span class="it">size.</span></h2><p class="sub rv">Starting prices below. Edible images and premium florals are an additional fee.</p></div>
+    <div class="price">
+      <div class="plan rv"><div class="top"><span class="k">Single tier</span></div><div class="amt">$75<small>starting</small></div>
+        <ul><li><span>5″ round, 2 layer</span><span>5 to 8</span></li><li><span>6″ round, 3 layer</span><span>14 to 16</span></li><li><span>8″ heart, 2 layer</span><span>18 to 24</span></li><li><span>9″ round, 3 layer</span><span>30 to 35</span></li></ul>
+        <a href="#order" class="btn btn-light" data-size="5″ round, 2 layer · $75">Choose single tier</a></div>
+      <div class="plan dark rv"><div class="top"><span class="k">Two tier</span><span class="badge">Nikahs &amp; showers</span></div><div class="amt">$180<small>starting</small></div>
+        <ul><li><span>6″ + 4″</span><span>16 to 20</span></li><li><span>7″ + 5″, 2 layer</span><span>24 to 30</span></li><li><span>8″ + 6″ heart, 3 layer</span><span>35 to 45</span></li><li><span>9″ + 7″, 3 layer</span><span>50 to 60</span></li></ul>
+        <a href="#order" class="btn btn-light" data-size="Two tier 6″ + 4″, 3 layer base, 2 layer top · $180">Choose two tier</a></div>
+      <div class="plan rv"><div class="top"><span class="k">Three tier</span></div><div class="amt">$350<small>starting</small></div>
+        <ul><li><span>8″ + 6″ + 4″, 2 layer</span><span>45 to 60</span></li><li><span>8″ + 6″ + 4″, 3 layer</span><span>60 to 70</span></li><li><span>9″ + 7″ + 5″, 2 layer</span><span>50 to 65</span></li><li><span>9″ + 7″ + 5″, 3 layer</span><span>70 to 90</span></li></ul>
+        <a href="#order" class="btn btn-light" data-size="Three tier 8″ + 6″ + 4″, all 2 layer · $350">Choose three tier</a></div>
+    </div>
+    <p class="center rv" style="margin-top:20px;font-size:13px;color:var(--faint)">Guest counts are approximate servings.</p>
+  </div>
+</section>
+
+<section id="story" style="padding-top:40px">
+  <div class="wrap story">
+    <div class="ph rv"><img src="img/barakah.jpg" alt="Barakah Junaid at a Baked with Blessings pop up" loading="lazy"><span class="chip">Our first pop up</span></div>
+    <div class="tx rv">
+      <span class="tag" style="align-self:flex-start"><i></i>Our story</span>
+      <h2 style="font-size:clamp(34px,4.4vw,52px)">Barakah means <span class="it">blessings.</span></h2>
+      <p>Hi, I'm Barakah Junaid. For the last three years I have run Baked with Blessings on my own, with one goal: to bless the people around me and my community with quality baked goods.</p>
+      <p>I grew up making the craziest concoctions and learning from every Food Network show. What I rarely saw was a fellow Muslim woman. In a male dominated field, I want to show what a Muslim woman can do, serving halal and hospitality.</p>
+      <p>While earning my degrees I became Head Pastry Chef at Four Corners. Now this bakery is my main focus, and I'm grateful to God, my family, my supporters, and my siblings for being my free workers.</p>
+      <div class="sig"><img src="img/barakah.jpg" alt=""><div><b>Barakah Junaid</b><span>Founder &amp; pastry chef</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" style="padding-top:40px">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>Gallery</span><h2 class="rv">Recent <span class="it">bakes.</span></h2><p class="sub rv">More on Instagram at <a href="https://instagram.com/bakedwithblessings.co" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline">@bakedwithblessings.co</a></p></div>
+    <div class="gal">
+      <figure class="t2 rv"><img src="img/hero-vintage-ivory.jpg" alt="Ivory two tier vintage cake" loading="lazy"><span class="chip">Ivory &amp; gold</span></figure>
+      <figure class="w2 rv"><img src="img/danishes.jpg" alt="Tray of danishes" loading="lazy" style="object-position:50% 35%"><span class="chip">Pop up danishes</span></figure>
+      <figure class="t2 rv"><img src="img/wedding-red-roses.jpg" alt="Wedding cake with red roses" loading="lazy"><span class="chip">Wedding</span></figure>
+      <figure class="rv"><img src="img/oh-baby.jpg" alt="Oh baby mini cake" loading="lazy"><span class="chip">Baby shower</span></figure>
+      <figure class="rv"><img src="img/sugar-sails.jpg" alt="Cake with pink sugar sails" loading="lazy"><span class="chip">Sugar sails</span></figure>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-top:40px">
+  <div class="wrap center"><span class="tag rv"><i></i>Reviews</span><h2 class="rv">Loved at every <span class="it">bite.</span></h2></div>
+  <div class="rrow rv"><div class="track" id="r1"></div></div>
+  <div class="rrow rev rv"><div class="track" id="r2"></div></div>
+</section>
+
+<section id="order" style="padding-top:40px">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>Place an order</span><h2 class="rv">Claim your <span class="it">date.</span></h2><p class="sub rv">I'll confirm by email with deposit details. Instagram and text are quickest for chatting, so pick your favorite.</p></div>
+    <div class="order">
+      <div class="panelbox rv">
+        <div class="cal-h"><button type="button" id="prev" aria-label="Previous month">‹</button><b id="mlabel"></b><button type="button" id="next" aria-label="Next month">›</button></div>
+        <div class="dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+        <div class="days" id="days"></div>
+        <div class="legend"><span><i style="background:var(--ink)"></i>Selected</span><span><i style="background:repeating-linear-gradient(45deg,#eee 0 3px,#fff 3px 6px);border:1px solid var(--line2)"></i>Under 2 weeks, DM first</span><span><i style="background:#E9E4E6"></i>Past</span></div>
+        <div class="picked"><small>Event date</small><b id="pickedTxt">Choose a date</b></div>
+        <p class="rushnote" id="rush" hidden>Short notice! Please DM <a href="https://instagram.com/bakedwithblessings.co" target="_blank" rel="noopener">@bakedwithblessings.co</a> with your details to check availability.</p>
+      </div>
+      <div class="panelbox rv">
+        <form name="order" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="orderForm" novalidate>
+          <input type="hidden" name="form-name" value="order">
+          <p class="hidden"><label>Leave empty <input name="bot-field"></label></p>
+          <input type="hidden" name="event_date" id="event_date">
+          <input type="hidden" name="design" id="design">
+          <input type="hidden" name="contact_preference" id="contact_pref">
+          <input type="hidden" name="fulfilment" id="fulfil">
+          <input type="hidden" name="guests" id="guests">
+          <div class="g2">
+            <div class="f" data-req><label for="name">Name</label><input id="name" name="name" autocomplete="name" placeholder="Your full name"><span class="msg">Please add your name.</span></div>
+            <div class="f" data-req="email"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com"><span class="msg">Please add a valid email.</span></div>
+            <div class="f" data-req><label for="phone">Number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Your phone number"><span class="msg">Please add your number.</span></div>
+            <div class="f"><label for="ig">Instagram (optional)</label><input id="ig" name="instagram" placeholder="@yourhandle"></div>
+          </div>
+          <div class="f hidden" id="dateErr"><span class="msg" style="display:block">Please pick your event date on the calendar.</span></div>
+          <div class="g2">
+            <div class="f" data-req><label for="size">Size</label><select id="size" name="size"></select><span class="msg">Please choose a size.</span></div>
+            <div class="f" data-req><label for="flavor">Flavor</label><select id="flavor" name="flavor"></select><span class="msg">Please choose a flavor.</span></div>
+            <div class="f" data-req><label for="event">Event</label><input id="event" name="event" placeholder="Birthday, nikah, shower…"><span class="msg">Please add the occasion.</span></div>
+            <div class="f"><label for="writing">Writing on the cake</label><input id="writing" name="writing" placeholder="e.g. Happy birthday Amira"></div>
+          </div>
+          <span class="lbl">Design</span>
+          <div class="chips" data-multi data-target="design"><button type="button">Vintage</button><button type="button">Floral</button><button type="button">Fruit forward</button><button type="button">Rustic</button><button type="button">Minimal</button><button type="button">Something else</button></div>
+          <span class="lbl">Approximate guests</span>
+          <div class="stepper"><button type="button" id="gm" aria-label="Fewer guests">−</button><output id="gout">20</output><button type="button" id="gp" aria-label="More guests">+</button></div>
+          <div class="f"><label for="diet">Dietary restrictions / allergens</label><input id="diet" name="dietary" placeholder="Eggless, vegan, gluten free, nut allergy…"></div>
+          <span class="lbl">Preferred contact</span>
+          <div class="chips" data-target="contact_pref"><button type="button" class="on">Instagram</button><button type="button">Number</button><button type="button">Email</button></div>
+          <span class="lbl">Pickup or delivery</span>
+          <div class="chips" data-target="fulfil" id="fulfilChips"><button type="button" class="on">Pickup in Elmont</button><button type="button">Delivery</button></div>
+          <div class="g2">
+            <div class="f"><label for="time" id="timeLbl">Pickup time</label><input id="time" name="time" type="time"></div>
+            <div class="f hidden" id="addrWrap"><label for="addr">Delivery address</label><input id="addr" name="delivery_address" placeholder="Venue or street address"></div>
+          </div>
+          <div class="f"><label for="notes">Anything else</label><textarea id="notes" name="notes" placeholder="Inspiration links, colors, questions…"></textarea></div>
+          <label class="agree" id="agreeBox"><input type="checkbox" name="agreed_policies" value="yes" id="agree"><span>I have read and agreed to the Baked with Blessings <a href="#faq">policies</a>.</span></label>
+          <button class="btn btn-dark" type="submit" style="width:100%" id="submitBtn">Place order <span class="arr">→</span></button>
+        </form>
+        <div class="thanks hidden" id="thanks"><div class="ok">✓</div><h3>Thank you, <span class="it" id="tname">friend</span>.</h3><p>Your order request is in. I'll confirm the details and send deposit info shortly. A 50% deposit secures your date.</p><button type="button" class="btn btn-light" id="again">Start another</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:40px">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>Policy &amp; FAQ</span><h2 class="rv">Good <span class="it">questions.</span></h2><p class="sub rv">Please read before ordering. Wedding cakes and bulk orders include a contract.</p></div>
+    <div class="faq" id="faqList"></div>
+  </div>
+</section>
+
+<section style="padding-top:20px;padding-bottom:40px">
+  <div class="wrap">
+    <div class="cta rv">
+      <h2>Let's make it a little <span class="it">sweeter.</span></h2>
+      <p>Custom cakes and desserts, blessed with every bite.</p>
+      <a href="#order" class="btn btn-light">Place an order →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><a href="#top" class="logo" style="display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:600;color:var(--ink);font-size:17px;letter-spacing:-.03em"><b style="width:28px;height:28px;border-radius:50%;background:var(--wine);color:var(--champ);display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-weight:400">B</b>Baked with Blessings</a><p style="margin-top:14px;max-width:280px">Custom cakes, artisanal pastries and dessert tables. 100% halal, handmade from scratch.</p></div>
+      <div><h5>Explore</h5><ul><li><a href="#services">Services</a></li><li><a href="#menu">Menu</a></li><li><a href="#order">Place order</a></li><li><a href="#faq">Policy &amp; FAQ</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a href="https://instagram.com/bakedwithblessings.co" target="_blank" rel="noopener">Instagram</a></li><li><a href="#order">Order form</a></li></ul></div>
+      <div><h5>Area</h5><ul><li>Pickup in Elmont, NY</li><li>NYC &amp; Long Island</li><li>Delivery priced by distance</li></ul></div>
+    </div>
+    <div class="base"><span>© <span id="yr"></span> Baked with Blessings</span><a href="#top" class="totop">Back to top <i>↑</i></a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$('#yr').textContent=new Date().getFullYear();
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+setTimeout(()=>$('#loader').classList.add('done'),reduce?0:1500);
+
+/* hero reel */
+const pics=[['hero-vintage-ivory','Vintage ivory'],['pink-heart','Heart cake'],['wedding-red-roses','Wedding'],['danishes','Danishes'],['three-tier-florals','Three tier'],['oh-baby','Oh baby'],['ribbed-arabic-topper','Nikah'],['sugar-sails','Sugar sails']];
+const reel=pics.map(p=>`<figure><img src="img/${p[0]}.jpg" alt="${p[1]} by Baked with Blessings" loading="lazy"><figcaption>${p[1]}</figcaption></figure>`).join('');
+$('#reel').innerHTML=reel+reel;
+
+/* reviews */
+const R=[['The cakes were not only beautiful but delicious!!!!','Client'],['Loved it, we got obsessed with your Matilda cake at first bite.','Client'],["Barakah's desserts were TOO FIRE.",'Client'],["I didn't try it at the wedding but had some leftover and it was soo moist and yummy. Everyone was raving about it. May Allah put barakat in your business girl, you are so talented mashAllah ❤",'Wedding guest'],['Hi queen!! You absolutely ate down with this cake!! Everyone was raving about it! Thank you for making this day all the more special.','Client'],['The cake was soooo good, everyone loved it. I took so many pics of the cake!','Client']];
+const rc=a=>a.map(r=>`<div class="rcard"><div class="stars">★★★★★</div><p>${r[0]}</p><span>${r[1]}</span></div>`).join('');
+const a1=rc(R.slice(0,3).concat(R.slice(3,4))),a2=rc(R.slice(3).concat(R.slice(0,1)));
+$('#r1').innerHTML=a1+a1;$('#r2').innerHTML=a2+a2;
+
+/* menu */
+const cakes=[['Classic vanilla','A vanilla sponge with Russian buttercream'],['Chocolate','A fluffy, moist chocolate sponge with chocolate ganache filling'],['Strawberry shortcake','A vanilla sponge layered with strawberries and cream'],['Salted caramel','A vanilla sponge filled with layers of salted caramel'],['Dulce de leche','Vanilla sponge with dulce de leche and dulce de leche cream'],['Red velvet','Red velvet sponge, Russian buttercream and a hint of cream cheese'],['Lemon','A moist lemon sponge filled with Russian buttercream'],['Biscoff','A vanilla sponge with layers of Biscoff and Russian buttercream'],['Cookies and cream','Chocolate sponge, vanilla Russian buttercream and crushed cookies']];
+const exclusive=[['Tiramisu','Espresso soaked vanilla sponge, mascarpone chantilly and chocolate ganache'],['Berries and cream','Vanilla sponge with whipped custard and fresh berries'],['Carrot cake','Filled with Russian buttercream and a hint of cream cheese'],['Raspberry bliss','Vanilla sponge, freeze dried raspberry buttercream and chocolate ganache'],['Cosmic brownie','Chocolate sponge with cosmic brownie chunks and sprinkles'],['Matilda cake','Multiple thin layers of chocolate cake with chocolate ganache']];
+const cup=[['Vanilla','Vanilla sponge with vanilla buttercream'],['Chocolate','Chocolate sponge with chocolate buttercream'],['Strawberry','Vanilla sponge with freeze dried strawberry buttercream'],['Salted caramel','Vanilla sponge with salted caramel buttercream and drizzle']];
+const cupEx=[['Biscoff','Biscoff buttercream topped with Biscoff crunch'],['Chocolate strawberry','Chocolate chunks and freeze dried strawberry buttercream'],['Fruits of Jannah','Figs, grapes and fresh fruits on a flavor of your choice']];
+const verr=[['Classic tiramisu',''],['Chocolate hazelnut',''],['Strawberries and cream',''],['Classic cheesecake',''],['Biscoff cheesecake','']];
+const past=[['Black sesame danish','Black sesame cream with a white chocolate ganache'],['Berry chantilly danish','Almond cream with fresh berries on top'],['Turkey and cheese danish','Turkey and cheese in a flaky danish'],['Samosa danish','A spiced potato pastry']];
+const sizes={'Single tier':[['5″ round','2 layer · feeds 5 to 8',75],['6″ round','2 layer · feeds 8 to 10',120],['6″ round','3 layer · feeds 14 to 16',150],['7″ round','2 layer · feeds 10 to 14',140],['7″ round','3 layer · feeds 15 to 20',165],['8″ round','2 layer · feeds 20 to 25',160],['8″ heart','2 layer · feeds 18 to 24',175],['8″ heart','3 layer · feeds 24 to 30',200],['9″ round','2 layer · feeds 24 to 30',185],['9″ round','3 layer · feeds 30 to 35',225]],
+'Two tier':[['6″ + 4″','3 layer base, 2 layer top · feeds 16 to 20',180],['7″ + 5″','both 2 layer · feeds 24 to 30',215],['8″ + 6″','both 2 layer · feeds 32 to 40',300],['8″ + 6″ heart','both 3 layer · feeds 35 to 45',350],['9″ + 7″','both 3 layer · feeds 50 to 60',400]],
+'Three tier':[['8″ + 6″ + 4″','all 2 layer · feeds 45 to 60',350],['8″ + 6″ + 4″','all 3 layer · feeds 60 to 70',450],['9″ + 7″ + 5″','all 2 layer · feeds 50 to 65',450],['9″ + 7″ + 5″','all 3 layer · feeds 70 to 90',525]]};
+const items=(arr,right)=>`<div class="items">${arr.map(r=>`<div class="item"><div><h4>${r[0]}</h4>${r[1]?`<p>${r[1]}</p>`:''}</div>${right?right(r):''}</div>`).join('')}</div>`;
+const gh=(t,p)=>`<div class="ghead"><h3>${t}</h3>${p?`<span class="pill-price">${p}</span>`:''}</div>`;
+const P=[
+ {l:'Cakes',h:gh('Classic flavors','Any size')+items(cakes)+gh('Exclusive flavors','+$10 per tier')+items(exclusive,()=>'<span class="ex">Exclusive</span>')+'<div class="note"><b>Not on the menu?</b> Request any flavor. Eggless, vegan and gluten free cakes are available on request.</div>'},
+ {l:'Sizes',h:Object.entries(sizes).map(([k,v])=>gh(k)+items(v.map(r=>[r[0],r[1].replace(' · ',', '),r[2]]),r=>`<span class="r">$${r[2]}</span>`)).join('')+'<div class="note">Edible images, premium florals and other additional designs are an <b>additional fee</b>.</div>'},
+ {l:'Cupcakes',h:gh('Cupcakes','$50 a dozen')+items(cup)+gh('Exclusive cupcakes','$65 a dozen')+items(cupEx,()=>'<span class="ex">Exclusive</span>')},
+ {l:'Verrines',h:gh('Verrines','$65 a dozen')+items(verr)},
+ {l:'Pastries',h:gh('Pastries','$72 a dozen')+items(past)}];
+$('#seg').innerHTML=P.map((p,i)=>`<button role="tab" class="${i?'':'on'}" data-i="${i}">${p.l}</button>`).join('');
+$('#panels').innerHTML=P.map((p,i)=>`<div class="panel ${i?'':'on'}">${p.h}</div>`).join('');
+$$('#seg button').forEach(b=>b.onclick=()=>{$$('#seg button').forEach(x=>x.classList.toggle('on',x===b));$$('.panel').forEach((p,i)=>p.classList.toggle('on',i==b.dataset.i))});
+
+/* selects */
+const sz=$('#size');sz.innerHTML='<option value="">Choose a size</option>'+Object.entries(sizes).map(([k,v])=>`<optgroup label="${k}">${v.map(r=>`<option>${k==='Single tier'?'':k+' '}${r[0]}, ${r[1].split(' · ')[0]} · $${r[2]}</option>`).join('')}</optgroup>`).join('')+'<optgroup label="Other"><option>Cupcakes (dozen)</option><option>Verrines (dozen)</option><option>Pastries (dozen)</option><option>Dessert table / custom</option></optgroup>';
+$('#flavor').innerHTML='<option value="">Choose a flavor</option>'+`<optgroup label="Classic">${cakes.map(c=>`<option>${c[0]}</option>`).join('')}</optgroup><optgroup label="Exclusive (+$10 per tier)">${exclusive.map(c=>`<option>${c[0]}</option>`).join('')}</optgroup><optgroup label="Other"><option>Mixed / multiple items</option><option>Custom request</option></optgroup>`;
+$$('[data-size]').forEach(a=>a.addEventListener('click',()=>{sz.value=a.dataset.size}));
+
+/* calendar */
+const today=new Date();today.setHours(0,0,0,0);const minD=new Date(today);minD.setDate(minD.getDate()+14);
+let view=new Date(today.getFullYear(),today.getMonth(),1),sel=null;
+const fmt=d=>d.toLocaleDateString('en-US',{weekday:'short',month:'long',day:'numeric',year:'numeric'});
+function draw(){$('#mlabel').textContent=view.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+ $('#prev').disabled=view<=new Date(today.getFullYear(),today.getMonth(),1);
+ let h='';for(let i=0;i<view.getDay();i++)h+='<span></span>';
+ const n=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+ for(let d=1;d<=n;d++){const dt=new Date(view.getFullYear(),view.getMonth(),d),past=dt<today,rush=!past&&dt<minD;
+  h+=`<button type="button" data-d="${+dt}" class="${rush?'rush ':''}${sel&&+sel===+dt?'sel ':''}${+dt===+today?'today':''}" ${past?'disabled':''} aria-label="${fmt(dt)}">${d}</button>`}
+ $('#days').innerHTML=h;
+ $$('#days button[data-d]').forEach(b=>b.onclick=()=>{sel=new Date(+b.dataset.d);$('#event_date').value=fmt(sel);$('#pickedTxt').textContent=fmt(sel);$('#rush').hidden=!(sel<minD);$('#dateErr').classList.add('hidden');draw()})}
+$('#prev').onclick=()=>{view.setMonth(view.getMonth()-1);draw()};$('#next').onclick=()=>{view.setMonth(view.getMonth()+1);draw()};draw();
+
+/* chips, stepper */
+const syncChips=g=>{$('#'+g.dataset.target).value=[...g.querySelectorAll('.on')].map(b=>b.textContent).join(', ')};
+function fulfil(){const del=$('#fulfil').value==='Delivery';$('#addrWrap').classList.toggle('hidden',!del);$('#timeLbl').textContent=del?'Deliver by (time)':'Pickup time'}
+$$('.chips').forEach(g=>{const multi=g.hasAttribute('data-multi');g.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(multi)b.classList.toggle('on');else g.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));syncChips(g);if(g.id==='fulfilChips')fulfil()});syncChips(g)});
+let gN=20;const gs=()=>{$('#gout').textContent=gN;$('#guests').value=gN};gs();
+$('#gm').onclick=()=>{gN=Math.max(5,gN-5);gs()};$('#gp').onclick=()=>{gN=Math.min(300,gN+5);gs()};
+
+/* form */
+const form=$('#orderForm');
+form.addEventListener('submit',e=>{e.preventDefault();let ok=true,bad=null;
+ $$('#orderForm [data-req]').forEach(f=>{const i=f.querySelector('input,select'),v=i.value.trim(),b=!v||(f.dataset.req==='email'&&!/^\S+@\S+\.\S+$/.test(v));f.classList.toggle('err',b);if(b){ok=false;bad=bad||i}});
+ if(!sel){ok=false;$('#dateErr').classList.remove('hidden');bad=bad||$('#days')}
+ const ag=$('#agree').checked;$('#agreeBox').classList.toggle('err',!ag);if(!ag){ok=false;bad=bad||$('#agreeBox')}
+ if(!ok){bad.scrollIntoView({behavior:'smooth',block:'center'});return}
+ const btn=$('#submitBtn');btn.textContent='Sending…';btn.disabled=true;
+ fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+  .then(r=>{if(!r.ok)throw 0;$('#tname').textContent=$('#name').value.trim().split(' ')[0];form.classList.add('hidden');$('#thanks').classList.remove('hidden')})
+  .catch(()=>{btn.textContent='Something went wrong, try again';btn.disabled=false})});
+$$('#orderForm input,#orderForm select').forEach(i=>i.addEventListener('input',()=>{const f=i.closest('.f');f&&f.classList.remove('err')}));
+$('#again').onclick=()=>{form.reset();sel=null;$('#event_date').value='';$('#pickedTxt').textContent='Choose a date';$('#rush').hidden=true;draw();
+ $$('.chips').forEach(c=>{c.querySelectorAll('button').forEach((b,i)=>b.classList.toggle('on',!c.hasAttribute('data-multi')&&i===0));syncChips(c)});fulfil();gN=20;gs();
+ const btn=$('#submitBtn');btn.innerHTML='Place order <span class="arr">→</span>';btn.disabled=false;form.classList.remove('hidden');$('#thanks').classList.add('hidden')};
+
+/* faq */
+const F=[
+ ['How far in advance should I order?','<p>Custom cakes and event desserts need at least <b>2 to 3 weeks</b> notice. Tiered wedding cakes and large events need at least <b>4 to 6 weeks</b>.</p><p>Orders with less than 10 days notice are best placed by Instagram DM at @bakedwithblessings.co, since communication is quicker. Please have all your details ready.</p>'],
+ ['How do deposits and payments work?','<p>A <b>50% non refundable deposit</b> is required at booking to secure your date and begin sourcing ingredients and custom materials.</p><p>The remaining balance is due within 24 hours before pickup or delivery. Orders are not started or released until paid in full.</p>'],
+ ['What if I need to cancel or reschedule?','<p><b>Cancellations:</b> each order is made from scratch with ingredients bought for you, so deposits are not refundable if cancelled within 7 days of the order. Cancel more than 14 days before your event and the deposit will be refunded.</p><p><b>Rescheduling:</b> with at least 10 days notice, we are happy to move your deposit to a new date, subject to availability.</p><p><b>Design changes:</b> minor changes to colors, flavors or sizing can be requested up to 7 days before your event. Later changes may not be possible or may incur fees.</p>'],
+ ['Is everything halal?','<p>Yes. Every item uses strictly <b>100% halal and alcohol free</b> ingredients, including extracts, flavorings, gelatins and edible lusters.</p>'],
+ ['Do you handle allergies?','<p>Please share any allergies when you enquire. We take every precaution against cross contamination, but our kitchen regularly handles wheat/gluten, dairy, eggs, soy, tree nuts and peanuts, so we cannot guarantee any item is free of trace allergens.</p><p>Eggless, vegan and gluten free cakes are available on request.</p>'],
+ ['Do you offer pickup and delivery?','<p><b>Pickup</b> is in Elmont, NY, with the exact address shared on booking. Pickups more than 30 minutes late without notice may need to be rescheduled.</p><p><b>Delivery and setup</b> are available for an additional fee based on mileage and setup complexity. Our team is not always available to deliver, so an Uber courier is also an option. Once delivered and set up, we are not responsible for damage caused by venue staff, guests or room temperature.</p>'],
+ ['How should I transport and store my cake?','<p>Once your order leaves our hands, we are not liable for transport damage such as sudden braking, uneven surfaces or heat. Keep cakes on a flat surface like the floorboard or a flat trunk, never a slanted seat, with the AC running.</p><p>Buttercream and mousse desserts must stay refrigerated until 1 to 2 hours before serving, away from sunlight, humidity and heat.</p>'],
+ ['Will my cake match my inspiration photo?','<p>We love inspiration photos, but every cake is handcrafted art and never an exact replica. Colors may vary slightly from screens due to lighting and ingredients.</p><p>Tiered and tall cakes and toppers contain food safe dowels, rods, boards or floral wires. Please remove all non edible supports and fresh or wafer florals before cutting.</p>'],
+ ['Will you post photos of my cake?','<p>We may photograph creations for our website and social media. If you would like your design kept private until after your event, just let us know.</p>'],
+ ['Do large orders need a contract?','<p>Yes. Wedding cakes and bulk orders include a contract so every detail is agreed in writing.</p>']];
+$('#faqList').innerHTML=F.map((q,i)=>`<div class="qa rv${i?'':' open'}"><button type="button" aria-expanded="${!i}">${q[0]}<span class="plus"></span></button><div class="ans"><div>${q[1]}</div></div></div>`).join('');
+$$('.qa button').forEach(b=>b.onclick=()=>{const q=b.parentElement,o=!q.classList.contains('open');q.classList.toggle('open',o);b.setAttribute('aria-expanded',o)});
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+$$('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*60+'ms';io.observe(el)});
+})();
+</script>
+</body>
+</html>
