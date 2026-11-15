@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fudgecravingss · Fudge brownies in Liverpool, Sydney</title>
+<meta name="description" content="Brownie boxes, heart shaped gift slabs, brownie bites and mini tins, made to order in Liverpool, Sydney. Pickup, delivery and catering.">
+<meta name="theme-color" content="#FBF6F0">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF6F0;--card:#FFFFFF;--ink:#24150E;--muted:#6F6158;--faint:#A5978D;
+  --line:rgba(36,21,14,.08);--line2:rgba(36,21,14,.15);
+  --choc:#3B2418;--choc2:#2A170F;--pink:#E7849E;--pinksoft:#F8DDE4;--beige:#EBDCCB;--pist:#B9C47A;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --head:"Inter Tight",system-ui,sans-serif;--body:"Inter",system-ui,sans-serif;--serif:"Instrument Serif",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+@media(max-width:760px){.wrap{padding:0 20px}}
+section{padding:110px 0;position:relative}
+@media(max-width:760px){section{padding:76px 0}}
+h1,h2,h3,h4{font-family:var(--head);font-weight:600;letter-spacing:-.045em;line-height:1}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--pink)}
+h2{font-size:clamp(38px,5.6vw,68px);margin:18px 0 18px}
+.sub{color:var(--muted);font-size:18px;max-width:560px}
+.center{text-align:center}.center .sub{margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;color:var(--muted);box-shadow:0 1px 2px rgba(36,21,14,.04)}
+.tag i{width:6px;height:6px;border-radius:50%;background:var(--pink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;font-family:var(--head);font-weight:500;font-size:15px;letter-spacing:-.01em;transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--choc);color:#fff;box-shadow:0 8px 24px -10px rgba(42,23,15,.55),inset 0 1px 0 rgba(255,255,255,.15)}
+.btn-light{background:var(--card);border:1px solid var(--line2)}
+.btn .arr{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;font-size:13px;transition:transform .4s var(--ease)}
+.btn:hover .arr{transform:translateX(3px)}
+
+#loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:opacity .8s var(--ease),visibility .8s}
+#loader.done{opacity:0;visibility:hidden}
+#loader img{width:150px;opacity:0;transform:scale(.92);filter:blur(8px);animation:in 1.1s .1s var(--ease) forwards}
+@keyframes in{to{opacity:1;transform:none;filter:none}}
+
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;width:min(1100px,calc(100% - 24px));display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px;padding:0 8px 0 10px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid var(--line);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);box-shadow:0 10px 30px -18px rgba(36,21,14,.25)}
+.nav .logo{font-family:var(--head);font-weight:600;letter-spacing:-.03em;font-size:17px;display:flex;align-items:center;gap:10px}
+.nav .logo img{width:42px;height:42px;border-radius:50%}
+.nav .links{display:flex;gap:4px}
+.nav .links a{padding:8px 14px;border-radius:999px;font-size:14px;color:var(--muted);transition:background .3s,color .3s}
+.nav .links a:hover{background:rgba(36,21,14,.05);color:var(--ink)}
+.nav .btn{height:44px;padding:0 20px;font-size:14px}
+@media(max-width:900px){.nav .links{display:none}}
+@media(max-width:400px){.nav .logo span{display:none}}
+
+.hero{padding:170px 0 60px;text-align:center;overflow:hidden}
+.glow{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:-1}
+.g1{width:620px;height:620px;background:radial-gradient(circle,#F6CFD9 0%,transparent 70%);top:-120px;left:50%;transform:translateX(-72%)}
+.g2{width:500px;height:500px;background:radial-gradient(circle,#EBD6BD 0%,transparent 70%);top:30px;left:50%;transform:translateX(8%)}
+.grain{position:absolute;inset:0;z-index:-1;opacity:.35;background-image:radial-gradient(rgba(36,21,14,.08) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000,transparent);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000,transparent)}
+.hero h1{font-size:clamp(52px,9.4vw,124px);margin:26px auto 24px;max-width:1000px}
+.hero .sub{margin:0 auto;font-size:19px}
+.hero .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:36px 0 18px}
+.hero small{color:var(--faint);font-size:13px}
+.reel{margin-top:70px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.reel .track{display:flex;gap:18px;width:max-content;animation:slide 50s linear infinite}
+.reel:hover .track{animation-play-state:paused}
+.reel figure{position:relative;width:270px;aspect-ratio:3/4;border-radius:24px;overflow:hidden;flex:none;background:var(--beige)}
+.reel figure:nth-child(odd){margin-top:36px}
+.reel img{width:100%;height:100%;object-fit:cover}
+.chip{position:absolute;left:12px;bottom:12px;height:30px;padding:0 12px;display:flex;align-items:center;border-radius:999px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);font-size:12px;font-weight:500;color:var(--ink)}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media(max-width:760px){.reel figure{width:196px;border-radius:18px}.hero{padding:130px 0 40px}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{padding:32px 24px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-family:var(--head);font-weight:600;font-size:clamp(34px,4vw,48px);letter-spacing:-.05em;line-height:1;margin-bottom:6px}
+.stats span{font-size:14px;color:var(--muted)}
+@media(max-width:760px){.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+.bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(190px,auto);gap:16px;margin-top:56px}
+.box{position:relative;background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;padding:28px;display:flex;flex-direction:column;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.box:hover{transform:translateY(-4px);box-shadow:0 30px 60px -40px rgba(36,21,14,.4)}
+.box h3{font-size:26px;letter-spacing:-.035em;margin-bottom:8px}
+.box p{color:var(--muted);font-size:15px;max-width:380px}
+.box .pr{position:absolute;top:20px;right:20px;height:30px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.9);color:var(--ink);font-size:13px;font-weight:500;display:flex;align-items:center;z-index:2}
+.box .ico{width:46px;height:46px;border-radius:14px;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:28px}
+.box .ico svg{width:22px;height:22px;stroke:var(--pink);fill:none;stroke-width:1.6}
+.box.img{padding:0;color:#fff}
+.box.img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.box.img:hover img{transform:scale(1.05)}
+.box.img .over{position:relative;margin-top:auto;padding:28px;background:linear-gradient(transparent,rgba(28,14,8,.8))}
+.box.img p{color:rgba(255,255,255,.85)}
+.b1{grid-column:span 4;grid-row:span 2;min-height:460px}
+.b2{grid-column:span 2;grid-row:span 2}
+.b3,.b4,.b5{grid-column:span 2}
+.dark{background:var(--choc);color:#fff;border-color:transparent}
+.dark p{color:rgba(255,255,255,.68)}
+.dark .ico{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.1)}
+.pinkbox{background:var(--pinksoft);border-color:transparent}
+.pinkbox .ico{background:#fff}
+@media(max-width:900px){.bento{grid-template-columns:1fr 1fr}.b1{grid-column:span 2;min-height:400px}.b2{grid-column:span 2;min-height:440px}.b3,.b4{grid-column:span 1}.b5{grid-column:span 2}}
+@media(max-width:560px){.b3,.b4{grid-column:span 2}}
+
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px;padding:5px;border-radius:999px;background:rgba(36,21,14,.05);margin:36px 0 34px}
+.seg button{height:42px;padding:0 20px;border-radius:999px;font-family:var(--head);font-weight:500;font-size:14px;color:var(--muted);transition:background .3s,color .3s,box-shadow .3s}
+.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 2px 8px -2px rgba(36,21,14,.15)}
+@media(max-width:760px){.seg{display:flex;border-radius:20px}.seg button{flex:1 1 auto;padding:0 12px}}
+.panel{display:none}
+.panel.on{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;animation:up .6s var(--ease) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}}
+.panel .pic{position:relative;border-radius:28px;overflow:hidden;min-height:420px;background:var(--beige)}
+.panel .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:900px){.panel.on{grid-template-columns:1fr}.panel .pic{min-height:320px;order:-1}}
+.ghead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:0 0 14px}
+.ghead h3{font-size:22px;letter-spacing:-.03em}
+.pill-price{height:30px;padding:0 12px;display:inline-flex;align-items:center;border-radius:999px;background:var(--pinksoft);color:#8E3550;font-size:13px;font-weight:500;white-space:nowrap}
+.items{display:grid;gap:10px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:border-color .3s,transform .4s var(--ease)}
+.item:hover{border-color:var(--line2);transform:translateY(-2px)}
+.item h4{font-size:18px;letter-spacing:-.025em}
+.item p{font-size:14px;color:var(--muted);margin-top:3px}
+.item .r{font-family:var(--head);font-weight:600;font-size:19px;white-space:nowrap}
+.note{margin-top:14px;padding:16px 20px;border-radius:16px;border:1px dashed var(--line2);font-size:14px;color:var(--muted)}
+.note b{color:var(--ink);font-weight:500}
+
+.spot{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.spot .ph{position:relative;border-radius:28px;overflow:hidden;min-height:560px;background:var(--beige)}
+.spot .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.spot .tx{border-radius:28px;background:var(--choc);color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:center}
+.spot .tx .it{color:var(--pink)}
+.spot .tx p{color:rgba(255,255,255,.72)}
+.flv{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:28px 0}
+.flv div{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:10px;font-size:15px}
+.flv span{color:rgba(255,255,255,.6)}
+.flv .k span{color:var(--pist)}
+.spot .btn-light{background:#fff;color:var(--ink);border:0;align-self:flex-start}
+@media(max-width:900px){.spot{grid-template-columns:1fr}.spot .ph{min-height:420px}.spot .tx{padding:30px}}
+@media(max-width:420px){.flv{grid-template-columns:1fr}}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.step{padding:30px;border-radius:28px;background:var(--card);border:1px solid var(--line)}
+.step .n{width:40px;height:40px;border-radius:12px;background:var(--choc);color:#fff;display:grid;place-items:center;font-family:var(--head);font-weight:600;font-size:15px;margin-bottom:60px}
+.step h3{font-size:24px;letter-spacing:-.035em;margin-bottom:8px}
+.step p{color:var(--muted);font-size:15px}
+@media(max-width:860px){.steps{grid-template-columns:1fr}.step .n{margin-bottom:28px}}
+
+.price{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.plan{padding:32px;border-radius:28px;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column}
+.plan .k{font-size:14px;color:var(--muted);font-weight:500}
+.plan .amt{font-family:var(--head);font-weight:600;font-size:56px;letter-spacing:-.06em;line-height:1;margin:18px 0 4px}
+.plan .amt small{font-size:15px;letter-spacing:-.01em;color:var(--muted);font-weight:400;margin-left:6px}
+.plan ul{list-style:none;margin:24px 0 28px;flex:1;border-top:1px solid var(--line)}
+.plan li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.plan li span:last-child{color:var(--muted);white-space:nowrap}
+.plan.dark{background:var(--choc)}
+.plan.dark .k,.plan.dark .amt small,.plan.dark li span:last-child{color:rgba(255,255,255,.6)}
+.plan.dark ul,.plan.dark li{border-color:rgba(255,255,255,.1)}
+.plan.dark .btn-light{background:#fff;color:var(--ink);border:0}
+.plan .top{display:flex;justify-content:space-between;align-items:center}
+.badge{height:28px;padding:0 12px;border-radius:999px;background:var(--pink);color:#fff;font-size:12px;font-weight:500;display:inline-flex;align-items:center}
+@media(max-width:900px){.price{grid-template-columns:1fr}}
+
+.popup{display:grid;grid-template-columns:.9fr 1.1fr;gap:16px;margin-top:56px}
+.popup .card{border-radius:28px;background:var(--pinksoft);padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.popup .card h3{font-size:clamp(30px,3.4vw,42px);letter-spacing:-.04em}
+.popup .card p{color:#6B4A52}
+.popup dl{display:grid;gap:12px}
+.popup dl div{background:#fff;border-radius:16px;padding:16px 18px}
+.popup dt{font-size:12px;color:var(--muted);font-weight:500}
+.popup dd{font-family:var(--head);font-weight:600;letter-spacing:-.02em;font-size:17px}
+.popup .ph{position:relative;border-radius:28px;overflow:hidden;min-height:520px;background:var(--beige)}
+.popup .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:900px){.popup{grid-template-columns:1fr}.popup .ph{min-height:380px}.popup .card{padding:28px}}
+
+.rrow{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);margin-top:16px}
+.rrow .track{display:flex;gap:16px;width:max-content;animation:slide 60s linear infinite}
+.rrow.rev .track{animation-direction:reverse}
+.rcard{width:370px;flex:none;padding:26px;border-radius:24px;background:var(--card);border:1px solid var(--line)}
+.rcard .stars{color:var(--pink);letter-spacing:2px;font-size:14px;margin-bottom:12px}
+.rcard p{font-size:16px;line-height:1.5}
+.rcard span{display:block;margin-top:16px;font-size:13px;color:var(--muted)}
+@media(max-width:760px){.rcard{width:290px}}
+
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:16px;margin-top:56px}
+.gal figure{position:relative;border-radius:24px;overflow:hidden;background:var(--beige)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal .t2{grid-row:span 2}.gal .w2{grid-column:span 2}
+@media(max-width:860px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:180px;gap:12px}}
+
+.order{display:grid;grid-template-columns:.9fr 1.1fr;gap:16px;margin-top:56px;align-items:start}
+.panelbox{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:28px}
+@media(max-width:960px){.order{grid-template-columns:1fr}}
+.cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.cal-h b{font-family:var(--head);font-weight:600;font-size:20px;letter-spacing:-.03em}
+.cal-h button{width:40px;height:40px;border-radius:12px;border:1px solid var(--line2);font-size:16px}
+.cal-h button:disabled{opacity:.3;cursor:default}
+.dow,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.dow span{font-size:12px;color:var(--faint);padding-bottom:6px;font-weight:500}
+.days button{aspect-ratio:1;border-radius:12px;font-size:14.5px;min-height:38px;font-weight:500;transition:background .25s,color .25s}
+.days button:hover:not(:disabled){background:var(--bg)}
+.days button:disabled{color:#D3C8C1;text-decoration:line-through;cursor:default}
+.days button.sel{background:var(--choc);color:#fff}
+.days button.today{box-shadow:inset 0 0 0 1px var(--line2)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px;font-size:12.5px;color:var(--muted)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+.picked{margin-top:18px;padding:16px;border-radius:16px;background:var(--bg);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.picked small{font-size:12.5px;color:var(--muted)}
+.picked b{font-family:var(--head);font-weight:600;letter-spacing:-.02em;text-align:right}
+.side-note{margin-top:16px;font-size:14px;color:var(--muted)}
+.side-note a{color:var(--ink);text-decoration:underline}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.g2{grid-template-columns:1fr}}
+.f{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.f label,.lbl{font-size:13px;font-weight:500;color:var(--ink)}
+.lbl{display:block;margin-bottom:8px}
+.f input,.f select,.f textarea{width:100%;height:50px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:0 14px;font:inherit;font-size:16px;color:var(--ink);transition:border-color .25s,box-shadow .25s,background .25s}
+.f textarea{height:auto;min-height:100px;padding:12px 14px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;background:#fff;border-color:var(--choc);box-shadow:0 0 0 4px rgba(59,36,24,.07)}
+.f input::placeholder,.f textarea::placeholder{color:var(--faint)}
+.f.err input,.f.err select{border-color:#C2410C;box-shadow:0 0 0 4px rgba(194,65,12,.08)}
+.f .msg{font-size:12.5px;color:#C2410C;display:none}
+.f.err .msg{display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chips button{height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);font-size:14px;font-weight:500;color:var(--muted);transition:all .25s}
+.chips button.on{background:var(--choc);border-color:var(--choc);color:#fff}
+.chips.err button{border-color:#C2410C}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--line2);border-radius:999px;margin-bottom:18px}
+.stepper button{width:46px;height:46px;font-size:18px}
+.stepper output{min-width:56px;text-align:center;font-family:var(--head);font-weight:600;font-size:18px}
+.hidden{display:none!important}
+.thanks{text-align:center;padding:50px 20px}
+.thanks .ok{width:56px;height:56px;border-radius:50%;background:var(--choc);color:#fff;display:grid;place-items:center;margin:0 auto 20px;font-size:22px}
+.thanks h3{font-size:clamp(32px,4vw,44px);margin-bottom:12px}
+.thanks p{color:var(--muted);max-width:420px;margin:0 auto 24px}
+
+.faq{max-width:820px;margin:56px auto 0}
+.qa{border:1px solid var(--line);background:var(--card);border-radius:20px;margin-bottom:10px;transition:border-color .3s}
+.qa.open{border-color:var(--line2)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;padding:20px 22px;font-family:var(--head);font-weight:500;font-size:17px;letter-spacing:-.02em;min-height:44px}
+.qa .plus{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);position:relative;transition:transform .5s var(--ease),background .3s}
+.qa .plus:before,.qa .plus:after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%)}
+.qa .plus:after{transform:translate(-50%,-50%) rotate(90deg)}
+.qa.open .plus{transform:rotate(45deg);background:var(--choc)}
+.qa.open .plus:before,.qa.open .plus:after{background:#fff}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.qa.open .ans{grid-template-rows:1fr}
+.qa .ans>div{overflow:hidden}
+.qa .ans p{color:var(--muted);padding:0 22px 22px;font-size:15px}
+
+.cta{position:relative;border-radius:36px;overflow:hidden;background:var(--choc2);color:#fff;padding:90px 30px;text-align:center}
+.cta:before{content:"";position:absolute;width:720px;height:720px;left:50%;top:-380px;transform:translateX(-50%);background:radial-gradient(circle,rgba(231,132,158,.55),transparent 65%);filter:blur(30px)}
+.cta>*{position:relative}
+.cta img{width:110px;margin:0 auto 22px;border-radius:50%}
+.cta h2{color:#fff;max-width:760px;margin:0 auto 18px}
+.cta p{color:rgba(255,255,255,.7);margin-bottom:30px}
+.cta .btn-light{background:#fff;color:var(--ink);border:0}
+
+footer{padding:60px 0 40px;font-size:14px;color:var(--muted)}
+footer .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;padding-bottom:40px;border-bottom:1px solid var(--line)}
+footer h5{font-family:var(--head);font-weight:600;font-size:14px;color:var(--ink);margin-bottom:12px}
+footer li{list-style:none;margin-bottom:8px}
+footer a:hover{color:var(--ink)}
+footer .base{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px}
+.totop{display:inline-flex;align-items:center;gap:10px;color:var(--ink);font-weight:500}
+.totop i{width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;font-style:normal;transition:transform .4s var(--ease)}
+.totop:hover i{transform:translateY(-3px)}
+@media(max-width:760px){footer .cols{grid-template-columns:1fr 1fr}}
+
+.rv{opacity:0;transform:translateY(24px);filter:blur(6px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)}
+.rv.in{opacity:1;transform:none;filter:none}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}#loader{display:none}}
+</style>
+</head>
+<body>
+<div id="loader" aria-hidden="true"><img src="img/logo.png" alt=""></div>
+
+<nav class="nav">
+  <a href="#top" class="logo"><img src="img/logo.png" alt="Fudgecravingss logo"><span>fudgecravingss</span></a>
+  <div class="links"><a href="#menu">Menu</a><a href="#tins">Mini tins</a><a href="#popups">Pop ups</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a></div>
+  <a href="#order" class="btn btn-dark">Order now</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="glow g1"></div><div class="glow g2"></div><div class="grain"></div>
+  <div class="wrap">
+    <span class="tag rv"><i></i>Fudge brownies · Liverpool, Sydney</span>
+    <h1 class="rv">Delight in every <span class="it">bite.</span></h1>
+    <p class="sub rv">Brownie boxes, heart shaped gift slabs, brownie bites and mini tins, made to order and loaded with your favourite toppings.</p>
+    <div class="ctas rv"><a href="#order" class="btn btn-dark">Place an order <span class="arr">→</span></a><a href="#menu" class="btn btn-light">See the menu</a></div>
+    <small class="rv">Pickup, delivery &amp; catering available</small>
+  </div>
+  <div class="reel rv"><div class="track" id="reel"></div></div>
+</header>
+
+<div class="wrap">
+  <div class="stats rv">
+    <div><b>$8</b><span>Mini tins from</span></div>
+    <div><b>16</b><span>Bites in every bite box</span></div>
+    <div><b>6</b><span>Mini tin flavours</span></div>
+    <div><b>Any</b><span>Theme for your gift slab</span></div>
+  </div>
+</div>
+
+<section id="what">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>What we bake</span><h2 class="rv">Whatever the <span class="it">craving.</span></h2><p class="sub rv">Rich fudge brownies, finished by hand with sauces, crunch and a whole lot of love.</p></div>
+    <div class="bento">
+      <a href="#menu" class="box img b1 rv"><img src="img/boxes-market.jpg" alt="Rows of pink brownie boxes loaded with pistachio, Biscoff and m&amp;m's toppings" loading="lazy"><span class="pr">From $12</span><div class="over"><h3>Brownie boxes</h3><p>Boxes of 3, 6, 12 or 20, with mixed toppings for sharing (or not).</p></div></a>
+      <a href="#menu" class="box img b2 rv"><img src="img/bites.jpg" alt="Brownie bites drizzled with Biscoff and pistachio sauce" loading="lazy"><span class="pr">$15</span><div class="over"><h3>Brownie bites</h3><p>16 mini bites with a sauce and topping of your choice.</p></div></a>
+      <a href="#tins" class="box img b3 rv" style="min-height:260px"><img src="img/kataifi-ribbon.jpg" alt="Mini brownie tins with pink ribbons" loading="lazy"><span class="pr">From $8</span><div class="over"><h3>Mini tins</h3></div></a>
+      <div class="box pinkbox b4 rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></div><h3>Heart gift slabs</h3><p>Any theme, your toppings, plus edible glitter or gold foil. From $55.</p></div>
+      <div class="box dark b5 rv"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="2"/><path d="M3 13h18M8 9V6h8v3"/></svg></div><h3>Catering</h3><p>Brownie tables for parties, events and pop ups. Tell us your date and numbers.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="padding-top:30px">
+  <div class="wrap">
+    <span class="tag rv"><i></i>Menu &amp; prices</span>
+    <h2 class="rv">Brownies to <span class="it">order.</span></h2>
+    <p class="sub rv">Simple prices, loads of flavour. Custom orders always welcome.</p>
+    <div class="seg rv" id="seg" role="tablist"></div>
+    <div id="panels"></div>
+  </div>
+</section>
+
+<section id="tins" style="padding-top:30px">
+  <div class="wrap spot">
+    <div class="ph rv"><img src="img/tins-granite.jpg" alt="Mini brownie tins topped with Nutella m&amp;m's, hazelnut and pistachio" loading="lazy"><span class="chip">Fresh from the kitchen</span></div>
+    <div class="tx rv">
+      <span class="tag" style="align-self:flex-start"><i></i>The mini tin</span>
+      <h2 style="font-size:clamp(34px,4.4vw,54px)">A little tin, all to <span class="it">yourself.</span></h2>
+      <p>Our mini brownie tins are the perfect treat or gift. Plain tins are $8, and our Dubai style kataifi tins are $10. More flavours coming soon.</p>
+      <div class="flv">
+        <div><b>Biscoff</b><span>$8</span></div>
+        <div><b>Nutella m&amp;m's</b><span>$8</span></div>
+        <div><b>White hazelnut</b><span>$8</span></div>
+        <div><b>Peanut butter</b><span>$8</span></div>
+        <div class="k"><b>Pistachio kataifi</b><span>$10</span></div>
+        <div class="k"><b>Biscoff kataifi</b><span>$10</span></div>
+      </div>
+      <a href="#order" class="btn btn-light" data-pick="Mini tin">Order mini tins →</a>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="padding-top:30px">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>How it works</span><h2 class="rv">Three steps to your <span class="it">box.</span></h2></div>
+    <div class="steps">
+      <div class="step rv"><div class="n">01</div><h3>Choose</h3><p>Pick your brownies, toppings and date, then send your order below.</p></div>
+      <div class="step rv"><div class="n">02</div><h3>Customise</h3><p>We reply to confirm your order, theme, toppings and total.</p></div>
+      <div class="step rv"><div class="n">03</div><h3>Enjoy</h3><p>Pick up from Liverpool or choose delivery. Try to save some for later.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ways" style="padding-top:30px">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>Ways to order</span><h2 class="rv">For you, them, or <span class="it">everyone.</span></h2></div>
+    <div class="price">
+      <div class="plan rv"><div class="top"><span class="k">For yourself</span></div><div class="amt">$8<small>starting</small></div>
+        <ul><li><span>Plain mini tin</span><span>$8</span></li><li><span>Dubai kataifi tin</span><span>$10</span></li><li><span>Box of 3 brownies</span><span>$12</span></li><li><span>16 brownie bites</span><span>$15</span></li></ul>
+        <a href="#order" class="btn btn-light" data-pick="Mini tin">Treat yourself</a></div>
+      <div class="plan dark rv"><div class="top"><span class="k">For someone special</span><span class="badge">Made custom</span></div><div class="amt">$55<small>starting</small></div>
+        <ul><li><span>Heart shaped gift slab</span><span>$55 to $60</span></li><li><span>Any theme you like</span><span>✓</span></li><li><span>Toppings of your choice</span><span>✓</span></li><li><span>Edible glitter or gold foil</span><span>$1</span></li></ul>
+        <a href="#order" class="btn btn-light" data-pick="Gift slab">Design a slab</a></div>
+      <div class="plan rv"><div class="top"><span class="k">For a crowd</span></div><div class="amt">$64<small>box of 20</small></div>
+        <ul><li><span>Box of 12 brownies</span><span>$40</span></li><li><span>Box of 20 brownies</span><span>$64</span></li><li><span>Catering tables</span><span>Ask us</span></li><li><span>Pickup or delivery</span><span>✓</span></li></ul>
+        <a href="#order" class="btn btn-light" data-pick="Catering">Ask about catering</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="popups" style="padding-top:30px">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>Pop ups</span><h2 class="rv">Find us in <span class="it">person.</span></h2></div>
+    <div class="popup">
+      <div class="card rv">
+        <div><h3>Spring Popup Market with Sisterhood Sydney</h3><p style="margin-top:12px">Our latest pop up, for women and children only. Follow <a href="https://instagram.com/fudgecravingss" target="_blank" rel="noopener" style="text-decoration:underline">@fudgecravingss</a> to hear about the next one first.</p></div>
+        <dl>
+          <div><dt>When</dt><dd>Saturday 7 November 2026, 10am to 4pm</dd></div>
+          <div><dt>Where</dt><dd>The Granville Centre, 2A Memorial Drive, Granville</dd></div>
+        </dl>
+      </div>
+      <div class="ph rv"><img src="img/popup-table.jpg" alt="Fudgecravingss pop up table with brownie cups and ribboned mini tins" loading="lazy"><span class="chip">Our pop up table</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-top:30px">
+  <div class="wrap center"><span class="tag rv"><i></i>Reviews</span><h2 class="rv">Gone before the <span class="it">photo.</span></h2><p class="sub rv">Real messages from real brownie lovers.</p></div>
+  <div class="rrow rv"><div class="track" id="r1"></div></div>
+  <div class="rrow rev rv"><div class="track" id="r2"></div></div>
+</section>
+
+<section id="gallery" style="padding-top:30px">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>Gallery</span><h2 class="rv">From the <span class="it">kitchen.</span></h2><p class="sub rv">More on Instagram at <a href="https://instagram.com/fudgecravingss" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline">@fudgecravingss</a></p></div>
+    <div class="gal">
+      <figure class="t2 rv"><img src="img/kataifi-open.jpg" alt="Open kataifi brownie tins" loading="lazy" style="object-position:50% 50%"><span class="chip">Kataifi tins</span></figure>
+      <figure class="w2 rv"><img src="img/tins-menu.jpg" alt="Six mini brownie tin flavours" loading="lazy" style="object-position:50% 40%"><span class="chip">The mini tin range</span></figure>
+      <figure class="t2 rv"><img src="img/mixed-box.jpg" alt="Mixed brownie box with peanut butter cups and pistachio" loading="lazy"><span class="chip">Mixed box</span></figure>
+      <figure class="rv"><img src="img/twin-box.jpg" alt="Custom 18th birthday brownie box" loading="lazy"><span class="chip">Custom 18th</span></figure>
+      <figure class="rv"><img src="img/bites-rows.jpg" alt="Rows of topped brownies" loading="lazy"><span class="chip">Fresh batch</span></figure>
+    </div>
+  </div>
+</section>
+
+<section id="order" style="padding-top:30px">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>Place an order</span><h2 class="rv">Claim your <span class="it">box.</span></h2><p class="sub rv">Choose your date, share a few details and we will be in touch to confirm your order.</p></div>
+    <div class="order">
+      <div class="panelbox rv">
+        <div class="cal-h"><button type="button" id="prev" aria-label="Previous month">‹</button><b id="mlabel"></b><button type="button" id="next" aria-label="Next month">›</button></div>
+        <div class="dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+        <div class="days" id="days"></div>
+        <div class="legend"><span><i style="background:var(--choc)"></i>Selected</span><span><i style="border:1px solid var(--line2)"></i>Open</span><span><i style="background:#EDE6E1"></i>Passed</span></div>
+        <div class="picked"><small>Needed by</small><b id="pickedTxt">Choose a date</b></div>
+        <p class="side-note">Quick question first? Message us on Instagram at <a href="https://instagram.com/fudgecravingss" target="_blank" rel="noopener">@fudgecravingss</a>.</p>
+      </div>
+      <div class="panelbox rv">
+        <form name="fudgecravingss-order" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="orderForm" novalidate>
+          <input type="hidden" name="form-name" value="fudgecravingss-order">
+          <p class="hidden"><label>Leave this empty <input name="bot-field"></label></p>
+          <input type="hidden" name="date" id="date">
+          <input type="hidden" name="items" id="items">
+          <input type="hidden" name="tin_flavours" id="tinflv">
+          <input type="hidden" name="getting_it_by" id="getby">
+          <input type="hidden" name="quantity" id="qty">
+          <div class="g2">
+            <div class="f" data-req><label for="name">Name</label><input id="name" name="name" autocomplete="name" placeholder="Your name"><span class="msg">Please add your name.</span></div>
+            <div class="f" data-req="email"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com"><span class="msg">Please add a valid email.</span></div>
+            <div class="f" data-req><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Your mobile"><span class="msg">Please add your phone.</span></div>
+            <div class="f"><label for="suburb">Suburb</label><input id="suburb" name="suburb" autocomplete="address-level2" placeholder="e.g. Liverpool"></div>
+          </div>
+          <div class="f hidden" id="dateErr"><span class="msg" style="display:block">Please choose a date on the calendar.</span></div>
+          <span class="lbl">I would love</span>
+          <div class="chips" data-multi data-target="items" id="itemChips"><button type="button">Brownie box</button><button type="button">Gift slab</button><button type="button">Brownie bites</button><button type="button">Mini tin</button><button type="button">Catering</button></div>
+          <div class="f hidden" id="itemErr"><span class="msg" style="display:block">Please choose at least one item.</span></div>
+          <div class="f hidden" id="boxWrap"><label for="box">Box size</label><select id="box" name="box_size"><option value="">Choose a box</option><option>Box of 3 · $12</option><option>Box of 6 · $20</option><option>Box of 12 · $40</option><option>Box of 20 · $64</option></select></div>
+          <div id="tinWrap" class="hidden"><span class="lbl">Mini tin flavours</span>
+          <div class="chips" data-multi data-target="tinflv"><button type="button">Biscoff</button><button type="button">Nutella m&amp;m's</button><button type="button">White hazelnut</button><button type="button">Peanut butter</button><button type="button">Pistachio kataifi</button><button type="button">Biscoff kataifi</button></div></div>
+          <span class="lbl">How many</span>
+          <div class="stepper"><button type="button" id="qm" aria-label="Less">−</button><output id="qout">1</output><button type="button" id="qp" aria-label="More">+</button></div>
+          <span class="lbl">Getting it by</span>
+          <div class="chips" data-target="getby"><button type="button" class="on">Pickup</button><button type="button">Delivery</button></div>
+          <div class="f"><label for="details">Theme, toppings &amp; details</label><textarea id="details" name="details" placeholder="Slab theme, sauces and toppings, colours, any allergies…"></textarea></div>
+          <button class="btn btn-dark" type="submit" style="width:100%" id="submitBtn">Send my order <span class="arr">→</span></button>
+        </form>
+        <div class="thanks hidden" id="thanks"><div class="ok">✓</div><h3>Thank you, <span class="it" id="tname">friend</span>.</h3><p>Your order request is in. We will be in touch soon to confirm everything.</p><button type="button" class="btn btn-light" id="again">Start another</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:30px">
+  <div class="wrap">
+    <div class="center"><span class="tag rv"><i></i>FAQ</span><h2 class="rv">Good <span class="it">questions.</span></h2></div>
+    <div class="faq" id="faqList"></div>
+  </div>
+</section>
+
+<section style="padding-top:10px;padding-bottom:40px">
+  <div class="wrap">
+    <div class="cta rv">
+      <img src="img/logo.png" alt="">
+      <h2>Go on, <span class="it">give in.</span></h2>
+      <p>Fudge brownies made for your cravings.</p>
+      <a href="#order" class="btn btn-light">Place an order →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><a href="#top" style="display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:600;color:var(--ink);font-size:17px;letter-spacing:-.03em"><img src="img/logo.png" alt="" style="width:40px;border-radius:50%">fudgecravingss</a><p style="margin-top:14px;max-width:280px">Custom fudge brownies from Liverpool, Sydney. Delight in every bite.</p></div>
+      <div><h5>Explore</h5><ul><li><a href="#menu">Menu</a></li><li><a href="#tins">Mini tins</a></li><li><a href="#popups">Pop ups</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a href="https://instagram.com/fudgecravingss" target="_blank" rel="noopener">Instagram @fudgecravingss</a></li><li><a href="#order">Order form</a></li></ul></div>
+      <div><h5>Area</h5><ul><li>Based in Liverpool, Sydney</li><li>Pickup and delivery</li><li>Catering available</li></ul></div>
+    </div>
+    <div class="base"><span>© <span id="yr"></span> Fudgecravingss</span><a href="#top" class="totop">Back to top <i>↑</i></a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$('#yr').textContent=new Date().getFullYear();
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+setTimeout(()=>$('#loader').classList.add('done'),reduce?0:1400);
+
+const pics=[['bites','Brownie bites'],['kataifi-ribbon','Ribboned tins'],['boxes-market','Brownie boxes'],['tins-granite','Mini tins'],['mixed-box','Mixed box'],['kataifi-open','Kataifi tins'],['popup-table','Pop up table'],['twin-box','Custom box']];
+const reel=pics.map(p=>`<figure><img src="img/${p[0]}.jpg" alt="${p[1]} by Fudgecravingss" loading="lazy"><figcaption class="chip">${p[1]}</figcaption></figure>`).join('');
+$('#reel').innerHTML=reel+reel;
+
+const R=[["The brownie slab was so nice, everyone loved it. It was so well presented and tasted amazing mashallah. I'd highly recommend it especially for occasions or gifts, or even if you just want some good brownies.",'Gift slab customer'],
+["Just wanted to say the brownies were a hit in my household and delicious 👌 I wanted to take a picture and send you a review but MashAllah they ate them all before I even got a chance.",'Brownie box customer'],
+["Your brownies from last time were delicious and my family really liked them. Keep it up, you're going to do great in your business ❤️",'Repeat customer'],
+["Thanks for the brownies, they were very nice and flavourful.",'Customer'],
+["The cake looks soo good mashallah. You will see later how good they match with the dress, subhanallah. I'm very happy wallah.",'Custom order customer']];
+const rc=a=>a.map(r=>`<div class="rcard"><div class="stars">★★★★★</div><p>${r[0]}</p><span>${r[1]}</span></div>`).join('');
+const a1=rc([R[0],R[3],R[1]]),a2=rc([R[2],R[4],R[3]]);
+$('#r1').innerHTML=a1+a1;$('#r2').innerHTML=a2+a2;
+
+const it=(n,d,p)=>`<div class="item"><div><h4>${n}</h4>${d?`<p>${d}</p>`:''}</div><span class="r">${p}</span></div>`;
+const gh=(t,p)=>`<div class="ghead"><h3>${t}</h3>${p?`<span class="pill-price">${p}</span>`:''}</div>`;
+const P=[
+ {l:'Brownie boxes',img:'boxes-market',h:gh('Single brownie boxes','Mixed toppings')+`<div class="items">${it('Box of 3','','$12')+it('Box of 6','','$20')+it('Box of 12','','$40')+it('Box of 20','Great for sharing and catering','$64')}</div>`},
+ {l:'Gift slabs',img:'twin-box',h:gh('Heart gift slabs','Made custom')+`<div class="items">${it('Heart shaped gift slab','Any theme, with toppings of your choice','$55 to $60')+it('Edible glitter','Add on','$1')+it('Edible gold foil','Add on','$1')}</div>`},
+ {l:'Brownie bites',img:'bites',h:gh('Brownie bites','16 pieces')+`<div class="items">${it('16 mini brownie bites','With 1 sauce and 1 topping','$15')+it('Extra sauce','','$1')+it('Extra topping','','$2')+it('Kataifi topping','','$1')}</div>`},
+ {l:'Mini tins',img:'tins-menu',h:gh('Mini brownie tins','Plain $8 · Kataifi $10')+`<div class="items">${it('Biscoff','Plain','$8')+it("Nutella m&amp;m's",'Plain','$8')+it('White hazelnut','Plain','$8')+it('Peanut butter','Plain','$8')+it('Pistachio kataifi','Dubai style','$10')+it('Biscoff kataifi','Dubai style','$10')}</div><div class="note"><b>More flavours</b> coming soon.</div>`}];
+$('#seg').innerHTML=P.map((p,i)=>`<button role="tab" class="${i?'':'on'}" data-i="${i}">${p.l}</button>`).join('');
+$('#panels').innerHTML=P.map((p,i)=>`<div class="panel ${i?'':'on'}"><div>${p.h}<div class="note">Something else in mind? <b>Custom orders and catering</b> are available, just ask in the order form.</div></div><div class="pic"><img src="img/${p.img}.jpg" alt="${p.l}" loading="lazy"></div></div>`).join('');
+$$('#seg button').forEach(b=>b.onclick=()=>{$$('#seg button').forEach(x=>x.classList.toggle('on',x===b));$$('.panel').forEach((p,i)=>p.classList.toggle('on',i==b.dataset.i))});
+
+/* calendar */
+const today=new Date();today.setHours(0,0,0,0);
+let view=new Date(today.getFullYear(),today.getMonth(),1),sel=null;
+const fmt=d=>d.toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'long',year:'numeric'});
+function draw(){$('#mlabel').textContent=view.toLocaleDateString('en-AU',{month:'long',year:'numeric'});
+ $('#prev').disabled=view<=new Date(today.getFullYear(),today.getMonth(),1);
+ let h='';for(let i=0;i<view.getDay();i++)h+='<span></span>';
+ const n=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+ for(let d=1;d<=n;d++){const dt=new Date(view.getFullYear(),view.getMonth(),d),past=dt<today;
+  h+=`<button type="button" data-d="${+dt}" class="${sel&&+sel===+dt?'sel ':''}${+dt===+today?'today':''}" ${past?'disabled':''} aria-label="${fmt(dt)}">${d}</button>`}
+ $('#days').innerHTML=h;
+ $$('#days button[data-d]').forEach(b=>b.onclick=()=>{sel=new Date(+b.dataset.d);$('#date').value=fmt(sel);$('#pickedTxt').textContent=fmt(sel);$('#dateErr').classList.add('hidden');draw()})}
+$('#prev').onclick=()=>{view.setMonth(view.getMonth()-1);draw()};$('#next').onclick=()=>{view.setMonth(view.getMonth()+1);draw()};draw();
+
+/* chips */
+const sync=g=>{$('#'+g.dataset.target).value=[...g.querySelectorAll('.on')].map(b=>b.textContent).join(', ')};
+function deps(){const v=$('#items').value;$('#boxWrap').classList.toggle('hidden',!v.includes('Brownie box'));$('#tinWrap').classList.toggle('hidden',!v.includes('Mini tin'));if(v)$('#itemErr').classList.add('hidden')}
+$$('.chips').forEach(g=>{const multi=g.hasAttribute('data-multi');g.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(multi)b.classList.toggle('on');else g.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));sync(g);deps()});sync(g)});
+$$('[data-pick]').forEach(a=>a.addEventListener('click',()=>{const b=[...$$('#itemChips button')].find(x=>x.textContent===a.dataset.pick);if(b&&!b.classList.contains('on')){b.classList.add('on');sync($('#itemChips'));deps()}}));
+let q=1;const qs=()=>{$('#qout').textContent=q;$('#qty').value=q};qs();
+$('#qm').onclick=()=>{q=Math.max(1,q-1);qs()};$('#qp').onclick=()=>{q=Math.min(200,q+1);qs()};
+
+/* form */
+const form=$('#orderForm');
+form.addEventListener('submit',e=>{e.preventDefault();let ok=true,bad=null;
+ $$('#orderForm [data-req]').forEach(f=>{const i=f.querySelector('input'),v=i.value.trim(),b=!v||(f.dataset.req==='email'&&!/^\S+@\S+\.\S+$/.test(v));f.classList.toggle('err',b);if(b){ok=false;bad=bad||i}});
+ if(!sel){ok=false;$('#dateErr').classList.remove('hidden');bad=bad||$('#days')}
+ if(!$('#items').value){ok=false;$('#itemErr').classList.remove('hidden');bad=bad||$('#itemChips')}
+ if(!ok){bad.scrollIntoView({behavior:'smooth',block:'center'});return}
+ const btn=$('#submitBtn');btn.textContent='Sending…';btn.disabled=true;
+ fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+  .then(r=>{if(!r.ok)throw 0;$('#tname').textContent=$('#name').value.trim().split(' ')[0];form.classList.add('hidden');$('#thanks').classList.remove('hidden')})
+  .catch(()=>{btn.textContent='Something went wrong, try again';btn.disabled=false})});
+$$('#orderForm input').forEach(i=>i.addEventListener('input',()=>{const f=i.closest('.f');f&&f.classList.remove('err')}));
+$('#again').onclick=()=>{form.reset();sel=null;$('#date').value='';$('#pickedTxt').textContent='Choose a date';draw();
+ $$('.chips').forEach(c=>{c.querySelectorAll('button').forEach((b,i)=>b.classList.toggle('on',!c.hasAttribute('data-multi')&&i===0));sync(c)});deps();q=1;qs();
+ const btn=$('#submitBtn');btn.innerHTML='Send my order <span class="arr">→</span>';btn.disabled=false;form.classList.remove('hidden');$('#thanks').classList.add('hidden')};
+
+/* faq */
+const F=[
+ ['Can I customise my order?','Yes. Heart shaped gift slabs come in any theme with toppings of your choice, and you can add edible glitter or gold foil for $1 each. Share your idea in the order form.'],
+ ['What comes in a brownie bite box?','16 mini brownie bites with 1 sauce and 1 topping, for $15. Extra sauce is $1, extra topping is $2 and kataifi topping is $1.'],
+ ['What is a Dubai brownie tin?','Our Dubai style mini tins are topped with crispy kataifi, in pistachio or Biscoff, for $10. Plain mini tins are $8.'],
+ ['Do you offer pickup and delivery?','Both. We are based in Liverpool, Sydney. Mention your suburb in the order form and we will confirm the details when we reply.'],
+ ['Do you cater events?','We do. Choose catering in the order form with your date and numbers, and we will reply with the details.'],
+ ['How far ahead should I order?','As early as you can, especially for custom slabs and catering. For anything last minute, message us on Instagram.'],
+ ['What about allergies?','Please mention any allergies in your order details so we can talk it through before you order.']];
+$('#faqList').innerHTML=F.map((q,i)=>`<div class="qa rv${i?'':' open'}"><button type="button" aria-expanded="${!i}">${q[0]}<span class="plus"></span></button><div class="ans"><div><p>${q[1]}</p></div></div></div>`).join('');
+$$('.qa button').forEach(b=>b.onclick=()=>{const qa=b.parentElement,o=!qa.classList.contains('open');qa.classList.toggle('open',o);b.setAttribute('aria-expanded',o)});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+$$('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*60+'ms';io.observe(el)});
+})();
+</script>
+</body>
+</html>

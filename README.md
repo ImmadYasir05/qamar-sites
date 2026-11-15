@@ -52,3 +52,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `velveti-sips/` — Velveti Sips (Staten Island coffee, matcha and refreshers, pickup and events)
 - `baked-with-blessings/` — Baked with Blessings (Elmont NY halal custom cakes, vintage and wedding cakes, pastries)
 - `baked-with-blessings-v2/` — Baked with Blessings v2 (Orisen style modern minimal version)
+- `fudgecravingss-v2/` — Fudgecravingss v2 (Orisen style modern version, Liverpool Sydney brownies)
