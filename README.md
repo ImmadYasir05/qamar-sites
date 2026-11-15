@@ -49,3 +49,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `cas-events/` — CAS Events (New Jersey event decor and styling, backdrops, 3D seating charts, centerpieces, artificial florals; Orisen style)
 - `gulabi-cup/` — Gulabi Cup (NYC South Asian fusion mobile matcha cart, weddings, private events, pop ups, Thrift4Gaza collabs; booking + pop up forms; Orisen style)
 - `from-the-bee-to-the-jar/` — From the Bee to the Jar (Brooklyn raw unfiltered wildflower honey, DM or form orders, Brooklyn pickup, pop ups, gifting; Orisen style)
+- `velveti-sips/` — Velveti Sips (Staten Island coffee, matcha and refreshers, pickup and events)
