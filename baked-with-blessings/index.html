@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baked with Blessings · Custom Cakes & Pastries in Elmont, NY</title>
+<meta name="description" content="Custom vintage cakes, multi tiered wedding cakes, pastries and dessert tables. 100% halal, handmade from scratch in Elmont, NY.">
+<meta name="theme-color" content="#F7F1F5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#F7F1F5; --paper:#FCF9F8; --blush:#EFDDE3; --rose:#C98C9C;
+  --deep:#5E1823; --deeper:#3F0F17; --wine:#7A1F2B; --champ:#E6CDA3;
+  --ink:#2B1A1E; --muted:#6E5A60; --line:rgba(94,24,35,.14);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Jost",system-ui,sans-serif; --hand:"Caveat",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+@media(max-width:860px){.wrap{padding:0 20px}}
+em{font-style:italic}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--wine);font-weight:400}
+.eyebrow:before{content:"";width:34px;height:1px;background:currentColor;opacity:.6}
+.dark .eyebrow{color:var(--champ)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(42px,6vw,78px);margin:18px 0 22px}
+h2 em,h1 em{color:var(--wine)}
+.dark h2 em{color:var(--champ)}
+.lead{color:var(--muted);max-width:560px}
+.dark{background:var(--deep);color:#F6EAE6}
+.dark .lead{color:rgba(246,234,230,.78)}
+section{padding:120px 0;position:relative}
+@media(max-width:860px){section{padding:84px 0}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 30px;border-radius:999px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:400;transition:transform .5s var(--ease),background .4s,color .4s,box-shadow .5s var(--ease)}
+.btn:hover{transform:translateY(-3px)}
+.btn-fill{background:var(--wine);color:#fff;box-shadow:0 10px 30px -12px rgba(122,31,43,.6)}
+.btn-fill:hover{background:var(--deep)}
+.btn-ghost{border:1px solid var(--line);color:var(--wine)}
+.btn-ghost:hover{background:#fff}
+.dark .btn-fill{background:var(--champ);color:var(--deeper)}
+.dark .btn-ghost{border-color:rgba(230,205,163,.4);color:var(--champ)}
+
+/* loader */
+#loader{position:fixed;inset:0;z-index:100;background:radial-gradient(120% 80% at 50% 40%,#FBF6F8 0%,var(--ground) 55%,#EBDCE2 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:clip-path 1.1s var(--ease);clip-path:ellipse(150% 140% at 50% 0%)}
+#loader.up{clip-path:ellipse(150% 0% at 50% 0%);pointer-events:none}
+#loader img{width:min(360px,72vw);opacity:0;transform:translateY(10px);animation:fadeUp 1.1s .2s var(--ease) forwards;mix-blend-mode:multiply}
+#loader .rule{height:1px;background:linear-gradient(90deg,transparent,var(--rose),transparent);width:0;animation:grow 1.2s .8s var(--ease) forwards}
+#loader small{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--wine);opacity:0;animation:fadeUp .9s 1.2s var(--ease) forwards}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+@keyframes grow{to{width:220px}}
+
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--wine);z-index:60}
+
+/* nav */
+nav.top{position:sticky;top:0;z-index:50;background:rgba(247,241,245,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid transparent;transition:border-color .4s}
+nav.top.scrolled{border-color:var(--line)}
+nav .bar{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand b{font-family:var(--serif);font-weight:500;font-size:26px;color:var(--wine);font-style:italic}
+.brand small{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+nav .links{display:flex;gap:34px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+nav .links a{position:relative;padding:6px 0}
+nav .links a:after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--wine);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+nav .links a:hover:after{transform:scaleX(1);transform-origin:left}
+.pill{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 22px;border-radius:999px;background:var(--wine);color:#fff;font-size:12px;letter-spacing:.2em;text-transform:uppercase;transition:transform .4s var(--ease)}
+.pill:hover{transform:translateY(-2px)}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--champ);box-shadow:0 0 0 4px rgba(230,205,163,.25)}
+@media(max-width:960px){nav .links{display:none}}
+
+/* hero */
+.hero{padding:70px 0 110px;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(54px,8.4vw,118px);margin:26px 0 26px}
+.hero h1 span{display:block}
+.hero .lead{font-size:18px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin:36px 0 40px}
+.strip{display:flex;flex-wrap:wrap;gap:12px 18px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.strip b{color:var(--rose);font-weight:400}
+.ring{position:absolute;width:640px;height:640px;border:1px solid var(--line);border-radius:50%;right:-180px;top:-120px;pointer-events:none}
+.ring.two{width:420px;height:420px;right:-60px;top:20px;opacity:.6}
+.arch{position:relative;justify-self:center;width:min(460px,100%)}
+.arch .frame{position:absolute;inset:-16px -16px 16px 16px;border:1px solid var(--rose);border-radius:260px 260px 26px 26px;opacity:.7}
+.arch .img{position:relative;aspect-ratio:4/5.3;border-radius:240px 240px 22px 22px;overflow:hidden;background:var(--blush)}
+.arch .img img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform 1.4s var(--ease)}
+.arch:hover .img img{transform:scale(1.08)}
+.badge{position:absolute;left:-48px;bottom:70px;width:132px;height:132px}
+.badge svg{width:100%;height:100%;animation:spin 18s linear infinite}
+.badge text{font-family:var(--sans);font-size:10.4px;letter-spacing:3.2px;fill:var(--wine);text-transform:uppercase}
+.badge .core{position:absolute;inset:38px;border-radius:50%;background:var(--wine);display:grid;place-items:center;color:var(--champ);font-family:var(--serif);font-size:26px;font-style:italic}
+@keyframes spin{to{transform:rotate(360deg)}}
+.note{position:absolute;right:-26px;top:54px;background:#FFFDF9;padding:18px 20px 16px;width:190px;transform:rotate(4deg);box-shadow:0 18px 40px -20px rgba(63,15,23,.35);font-family:var(--hand);font-size:23px;line-height:1.15;color:var(--deep);animation:bob 5s ease-in-out infinite}
+.note:before{content:"";position:absolute;top:-11px;left:50%;width:74px;height:22px;transform:translateX(-50%) rotate(-3deg);background:rgba(201,140,156,.45)}
+@keyframes bob{50%{transform:rotate(2deg) translateY(-8px)}}
+.cue{position:absolute;left:50%;bottom:28px;width:24px;height:38px;border:1px solid var(--line);border-radius:14px;transform:translateX(-50%)}
+.cue:after{content:"";position:absolute;left:50%;top:8px;width:3px;height:7px;border-radius:2px;background:var(--wine);transform:translateX(-50%);animation:cue 1.8s infinite}
+@keyframes cue{70%{opacity:0;transform:translate(-50%,10px)}100%{opacity:0}}
+@media(max-width:860px){
+  .hero{padding:36px 0 90px}
+  .hero .grid{grid-template-columns:1fr;gap:56px}
+  .hero .ctas .btn{flex:1 1 100%}
+  .badge{left:-6px;bottom:30px;width:112px;height:112px}.badge .core{inset:32px;font-size:22px}
+  .note{right:-4px;top:24px;width:160px;font-size:20px}
+  .ring{display:none}.cue{display:none}
+}
+
+/* marquee */
+.marquee{background:var(--deep);color:#F6EAE6;padding:26px 0;overflow:hidden;white-space:nowrap}
+.marquee .track{display:inline-flex;animation:mq 38s linear infinite}
+.marquee span{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3.4vw,40px);padding:0 28px;display:inline-flex;align-items:center;gap:56px}
+.marquee span:after{content:"✦";font-style:normal;font-size:14px;color:var(--champ)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* services */
+.svc-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:60px}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.svc article{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.svc article:hover{transform:translateY(-6px);box-shadow:0 30px 60px -36px rgba(63,15,23,.45)}
+.svc .ph{aspect-ratio:4/4.4;overflow:hidden;background:var(--blush)}
+.svc .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.svc article:hover .ph img{transform:scale(1.05)}
+.svc .tx{padding:22px 22px 26px}
+.svc small{font-size:11px;letter-spacing:.26em;color:var(--rose);text-transform:uppercase}
+.svc h3{font-size:28px;margin:8px 0 8px}
+.svc p{font-size:15px;color:var(--muted)}
+@media(max-width:1000px){.svc{grid-template-columns:1fr 1fr}}
+@media(max-width:860px){.svc-head{grid-template-columns:1fr;gap:0}}
+@media(max-width:560px){.svc{grid-template-columns:1fr}}
+
+.diff{margin-top:90px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.diff div{padding:30px 26px 0 0}
+.diff b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;color:var(--wine);margin-bottom:6px}
+.diff p{font-size:14.5px;color:var(--muted)}
+@media(max-width:860px){.diff{grid-template-columns:1fr 1fr;gap:10px}}
+
+/* pair */
+.pair{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:end}
+.pair .a,.pair .b{border-radius:26px;overflow:hidden;position:relative}
+.pair .a{aspect-ratio:5/5.2}.pair .b{aspect-ratio:3/4.6}
+.pair img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.pair div:hover>img{transform:scale(1.05)}
+.pair .inset{position:absolute;width:44%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--ground);left:-22%;bottom:-8%;z-index:2}
+.pair .bw{position:relative}
+.cap{position:absolute;left:18px;bottom:16px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#fff;background:rgba(63,15,23,.42);backdrop-filter:blur(6px);padding:7px 12px;border-radius:999px}
+@media(max-width:860px){.pair{grid-template-columns:1fr 1fr;gap:14px}.pair .inset{left:-30%;border-width:5px}}
+
+/* story */
+.story .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}
+.story .photo{border-radius:240px 240px 24px 24px;overflow:hidden;aspect-ratio:4/5.4;background:var(--blush)}
+.story .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.story p{color:var(--muted);margin-bottom:18px;max-width:600px}
+.story .sign{font-family:var(--hand);font-size:34px;color:var(--wine);margin-top:10px}
+.story .sign small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:860px){.story .grid{grid-template-columns:1fr;gap:44px}.story .photo{max-width:420px}}
+
+/* menu */
+#menu{background:radial-gradient(90% 60% at 80% 0%,#74202C 0%,var(--deep) 50%,var(--deeper) 100%)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;padding:6px;border:1px solid rgba(230,205,163,.25);border-radius:999px;width:max-content;max-width:100%;margin:10px 0 50px}
+.tabs button{min-height:44px;padding:0 22px;border-radius:999px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,234,230,.75);transition:background .4s,color .4s}
+.tabs button.on{background:var(--champ);color:var(--deeper)}
+@media(max-width:860px){.tabs{border-radius:22px;width:100%}.tabs button{flex:1 1 auto;padding:0 14px}}
+.panel{display:none;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+.panel.on{display:grid;animation:fadeUp .7s var(--ease) both;opacity:0;transform:translateY(14px)}
+.panel .pic{position:sticky;top:110px;border-radius:200px 200px 22px 22px;overflow:hidden;aspect-ratio:4/5;background:rgba(255,255,255,.05)}
+.panel .pic img{width:100%;height:100%;object-fit:cover}
+.ph-art{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:linear-gradient(160deg,rgba(230,205,163,.16),rgba(201,140,156,.18));color:var(--champ)}
+.ph-art svg{width:82px;height:82px;stroke:currentColor;fill:none;stroke-width:1}
+.ph-art span{font-size:11px;letter-spacing:.32em;text-transform:uppercase}
+.group-t{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--champ);margin:6px 0 4px;display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+.group-t small{font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:rgba(246,234,230,.7)}
+.group-t+.rows{margin-bottom:36px}
+.row{display:grid;grid-template-columns:44px 1fr auto;gap:16px;padding:20px 0;border-bottom:1px solid rgba(230,205,163,.16)}
+.row .n{font-family:var(--serif);font-style:italic;color:var(--champ);font-size:20px}
+.row h4{font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.15}
+.row p{font-size:14.5px;color:rgba(246,234,230,.72);margin-top:4px}
+.row .tag{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);align-self:start;padding-top:6px;white-space:nowrap}
+.row .pr{font-family:var(--serif);font-size:24px;color:var(--champ);white-space:nowrap}
+.foot{margin-top:28px;font-size:14px;color:rgba(246,234,230,.65);display:grid;gap:6px}
+.foot b{color:var(--champ);font-weight:400}
+@media(max-width:860px){.panel{grid-template-columns:1fr;gap:34px}.panel .pic{position:relative;top:0;max-height:420px;aspect-ratio:4/4}.row{grid-template-columns:34px 1fr auto;gap:10px}.row h4{font-size:22px}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:38px 32px 36px;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.card:hover{transform:translateY(-5px);box-shadow:0 30px 60px -38px rgba(63,15,23,.45)}
+.card .big{font-family:var(--serif);font-style:italic;font-size:64px;color:var(--rose);line-height:1}
+.card h3{font-size:32px;margin:18px 0 10px}
+.card p{color:var(--muted);font-size:15.5px}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+
+/* sizes / packages */
+#sizes{background:var(--paper)}
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px;align-items:stretch}
+.pk article{border:1px solid var(--line);border-radius:26px;padding:40px 32px 34px;display:flex;flex-direction:column;background:var(--ground);transition:transform .6s var(--ease)}
+.pk article:hover{transform:translateY(-6px)}
+.pk article.hot{background:var(--deep);color:#F6EAE6;border-color:transparent;position:relative}
+.pk .flag{position:absolute;top:-14px;left:32px;background:var(--champ);color:var(--deeper);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+.pk small{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--rose)}
+.pk h3{font-size:38px;margin:10px 0 4px}
+.pk .from{font-family:var(--serif);font-size:46px;color:var(--wine);margin:10px 0 2px}
+.pk .hot .from{color:var(--champ)}
+.pk .from span{font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-left:6px}
+.pk .hot .from span{color:rgba(246,234,230,.65)}
+.pk ul{list-style:none;margin:20px 0 30px;flex:1}
+.pk li{padding:11px 0;border-bottom:1px solid var(--line);font-size:15px;display:flex;justify-content:space-between;gap:12px}
+.pk .hot li{border-color:rgba(230,205,163,.18)}
+.pk li span:last-child{color:var(--muted);white-space:nowrap}
+.pk .hot li span:last-child{color:rgba(246,234,230,.65)}
+.pk .btn{width:100%}
+.pk .hot .btn-fill{background:var(--champ);color:var(--deeper)}
+@media(max-width:960px){.pk{grid-template-columns:1fr;gap:30px}}
+
+/* gallery */
+.gal-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:44px}
+.gal-head a{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--wine);border-bottom:1px solid currentColor;padding-bottom:4px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gal figure{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:var(--blush)}
+.gal figure:nth-child(2),.gal figure:nth-child(5){transform:translateY(40px)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.gal figure:hover img{transform:scale(1.06)}
+@media(max-width:860px){.gal{grid-template-columns:1fr 1fr;gap:12px}.gal figure:nth-child(2),.gal figure:nth-child(5){transform:none}.gal figure:nth-child(even){transform:translateY(26px)}}
+
+/* reviews */
+#reviews{padding-top:150px}
+.rv{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+.rv blockquote{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:34px 30px;display:flex;flex-direction:column;gap:18px}
+.rv blockquote:before{content:"\201C";font-family:var(--serif);font-size:70px;line-height:.5;color:var(--rose);height:22px}
+.rv p{font-family:var(--serif);font-size:23px;line-height:1.3;color:var(--ink)}
+.rv cite{font-style:normal;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:auto}
+@media(max-width:960px){.rv{grid-template-columns:1fr}}
+
+/* order */
+#order{background:radial-gradient(90% 60% at 10% 0%,#74202C 0%,var(--deep) 50%,var(--deeper) 100%)}
+.order-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;margin-top:40px;align-items:start}
+@media(max-width:960px){.order-grid{grid-template-columns:1fr;gap:34px}}
+.cal{background:rgba(255,255,255,.05);border:1px solid rgba(230,205,163,.2);border-radius:24px;padding:26px}
+.cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.cal-h b{font-family:var(--serif);font-weight:400;font-size:28px}
+.cal-h button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(230,205,163,.3);color:var(--champ);font-size:18px;transition:background .3s}
+.cal-h button:hover{background:rgba(230,205,163,.12)}
+.cal-h button:disabled{opacity:.3;cursor:default}
+.dow,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
+.dow span{font-size:10.5px;letter-spacing:.2em;color:rgba(246,234,230,.55);padding-bottom:8px}
+.days button{aspect-ratio:1;border-radius:50%;font-size:15px;min-height:38px;transition:background .3s,color .3s}
+.days button:hover:not(:disabled){background:rgba(230,205,163,.15)}
+.days button:disabled{color:rgba(246,234,230,.28);text-decoration:line-through;cursor:default}
+.days button.rush{color:rgba(246,234,230,.5);text-decoration:none;border:1px dashed rgba(230,205,163,.25)}
+.days button.sel{background:var(--champ);color:var(--deeper)}
+.days button.today{box-shadow:inset 0 0 0 1px rgba(230,205,163,.5)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px;font-size:12px;color:rgba(246,234,230,.65)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:7px;vertical-align:-1px}
+.picked{margin-top:20px;padding-top:18px;border-top:1px solid rgba(230,205,163,.18);font-family:var(--serif);font-size:24px}
+.picked small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(246,234,230,.6)}
+.rushnote{margin-top:12px;font-size:14px;color:rgba(246,234,230,.7)}
+.rushnote a{color:var(--champ);border-bottom:1px solid currentColor}
+form .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){form .grid2{grid-template-columns:1fr}}
+.f{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.f label,.lbl{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(246,234,230,.7)}
+.f input,.f select,.f textarea{width:100%;min-height:52px;background:rgba(255,255,255,.06);border:1px solid rgba(230,205,163,.22);border-radius:14px;padding:14px 16px;color:#fff;font:inherit;font-size:16px;transition:border-color .3s,background .3s}
+.f select option{color:var(--ink)}
+.f textarea{min-height:110px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--champ);background:rgba(255,255,255,.09)}
+.f input::placeholder,.f textarea::placeholder{color:rgba(246,234,230,.38)}
+.f.err input,.f.err select{border-color:#F2A3A3}
+.f .msg{font-size:12.5px;color:#F2B8B8;display:none}
+.f.err .msg{display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 18px}
+.chips button{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(230,205,163,.28);font-size:13px;letter-spacing:.08em;color:rgba(246,234,230,.85);transition:all .3s}
+.chips button.on{background:var(--champ);border-color:var(--champ);color:var(--deeper)}
+.stepper{display:inline-flex;align-items:center;border:1px solid rgba(230,205,163,.28);border-radius:999px;margin:8px 0 18px}
+.stepper button{width:48px;height:48px;font-size:20px;color:var(--champ)}
+.stepper output{min-width:70px;text-align:center;font-family:var(--serif);font-size:24px}
+.agree{display:flex;gap:14px;align-items:flex-start;padding:18px;border:1px solid rgba(230,205,163,.22);border-radius:16px;margin:8px 0 22px;cursor:pointer;font-size:15px}
+.agree input{width:22px;height:22px;accent-color:var(--champ);flex:none;margin-top:2px}
+.agree a{color:var(--champ);border-bottom:1px solid currentColor}
+.agree.err{border-color:#F2A3A3}
+.hidden{display:none!important}
+.thanks{text-align:center;padding:60px 20px;border:1px solid rgba(230,205,163,.22);border-radius:24px}
+.thanks h3{font-size:clamp(40px,5vw,60px);margin-bottom:14px}
+.thanks h3 em{color:var(--champ)}
+.thanks p{color:rgba(246,234,230,.78);max-width:460px;margin:0 auto 26px}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+@media(max-width:860px){.faq-grid{grid-template-columns:1fr;gap:20px}}
+.qa{border-bottom:1px solid var(--line)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;text-align:left;padding:24px 0;font-family:var(--serif);font-size:25px;line-height:1.2;min-height:44px}
+.qa .plus{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);position:relative;transition:background .4s,transform .5s var(--ease),border-color .4s}
+.qa .plus:before,.qa .plus:after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1px;background:var(--wine);transform:translate(-50%,-50%);transition:background .4s}
+.qa .plus:after{transform:translate(-50%,-50%) rotate(90deg)}
+.qa.open .plus{transform:rotate(135deg);background:var(--wine);border-color:var(--wine)}
+.qa.open .plus:before,.qa.open .plus:after{background:#fff}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
+.qa.open .ans{grid-template-rows:1fr}
+.qa .ans>div{overflow:hidden}
+.qa .ans p{color:var(--muted);padding:0 50px 14px 0;font-size:15.5px}
+.qa .ans p:last-child{padding-bottom:26px}
+.qa .ans b{color:var(--ink);font-weight:400}
+
+/* footer */
+.fcta{text-align:center;padding:110px 0}
+.fcta .logo{width:min(320px,70vw);margin:0 auto 26px;border-radius:24px;mask-image:radial-gradient(ellipse 72% 70% at 50% 50%,#000 60%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 72% 70% at 50% 50%,#000 60%,transparent 100%)}
+.fcta p{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3vw,36px);margin-bottom:30px}
+footer{background:var(--deeper);color:rgba(246,234,230,.75);padding:70px 0 40px;font-size:15px}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+footer h5{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--champ);font-weight:400;margin-bottom:16px}
+footer li{list-style:none;margin-bottom:8px}
+footer a:hover{color:#fff}
+footer .brand b{color:#fff}
+footer .brand small{color:rgba(246,234,230,.6)}
+footer .base{margin-top:60px;padding-top:24px;border-top:1px solid rgba(230,205,163,.15);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:13px}
+.totop{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.totop i{width:44px;height:44px;border-radius:50%;border:1px solid rgba(230,205,163,.3);display:grid;place-items:center;font-style:normal;color:var(--champ);transition:transform .4s var(--ease)}
+.totop:hover i{transform:translateY(-4px)}
+@media(max-width:860px){footer .cols{grid-template-columns:1fr 1fr}}
+
+/* reveal */
+.rv-up{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv-up.in{opacity:1;transform:none}
+.hero .rv-h{opacity:0;transform:translateY(24px)}
+body.ready .hero .rv-h{animation:fadeUp 1s var(--ease) forwards}
+body.ready .hero .rv-h:nth-child(2){animation-delay:.1s}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv-up,.hero .rv-h{opacity:1;transform:none}#loader{display:none}}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <img src="img/logo.jpg" alt="">
+  <div class="rule"></div>
+  <small>Blessed with every bite</small>
+</div>
+<div id="progress"></div>
+
+<nav class="top" id="nav">
+  <div class="wrap bar">
+    <a href="#home" class="brand"><b>Baked with Blessings</b><small>Elmont · New York</small></a>
+    <div class="links">
+      <a href="#services">Services</a><a href="#menu">Menu</a><a href="#story">Our story</a><a href="#reviews">Reviews</a><a href="#policy">Policy & FAQ</a>
+    </div>
+    <a href="#order" class="pill"><i></i>Order</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="ring"></div><div class="ring two"></div>
+  <div class="wrap grid">
+    <div>
+      <div class="rv-h"><span class="eyebrow">Custom cakes · Elmont, NY</span></div>
+      <div class="rv-h">
+        <h1><span>Every moment</span><span>deserves a little</span><span><em>sweetness.</em></span></h1>
+        <p class="lead">Custom vintage cakes, artisanal pastries and dessert tables. Handcrafted with love to make your celebrations even sweeter, blessing you with every bite.</p>
+        <div class="ctas">
+          <a href="#order" class="btn btn-fill">Place an order</a>
+          <a href="#menu" class="btn btn-ghost">View the menu</a>
+        </div>
+        <div class="strip"><span>100% halal</span><b>✦</b><span>Made from scratch</span><b>✦</b><span>Commercially insured</span></div>
+      </div>
+    </div>
+    <div class="arch rv-h">
+      <div class="frame"></div>
+      <div class="img"><img src="img/hero-vintage-ivory.jpg" alt="Ivory two tier vintage cake with piped ruffles, gold pearls and fresh white flowers"></div>
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 132 132"><defs><path id="c" d="M66,66 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs><text><textPath href="#c">Blessed with every bite ✦ Halal ✦ Handmade ✦</textPath></text></svg>
+        <div class="core">B</div>
+      </div>
+      <div class="note">Eggless, vegan &amp; gluten free cakes on request ♡</div>
+    </div>
+  </div>
+  <div class="cue" aria-hidden="true"></div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="mq"></div></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="svc-head">
+      <div class="rv-up"><span class="eyebrow">What we offer</span><h2>Made for your <em>celebration.</em></h2></div>
+      <p class="lead rv-up">Every item on our menu is 100% halal, handmade from scratch and crafted with high quality ingredients, so your desserts taste just as unforgettable as they look.</p>
+    </div>
+    <div class="svc">
+      <article class="rv-up"><div class="ph"><img src="img/pink-heart.jpg" alt="Pink and ivory heart shaped vintage cake" loading="lazy"></div><div class="tx"><small>01</small><h3>Custom vintage cakes</h3><p>Piped ruffles, pearls and romantic detail for birthdays, showers and every small moment.</p></div></article>
+      <article class="rv-up"><div class="ph"><img src="img/three-tier-florals.jpg" alt="Three tier wedding cake with wafer paper sails and baby's breath" loading="lazy"></div><div class="tx"><small>02</small><h3>Wedding cakes</h3><p>Multi tiered cakes designed around your day, with a contract for peace of mind.</p></div></article>
+      <article class="rv-up"><div class="ph"><img src="img/danishes.jpg" alt="Black sesame danishes and turkey and cheese danishes" loading="lazy"></div><div class="tx"><small>03</small><h3>Small desserts</h3><p>Cupcakes, verrines and danishes by the dozen, perfect for dessert tables and pop ups.</p></div></article>
+      <article class="rv-up"><div class="ph"><img src="img/sugar-sails.jpg" alt="Ivory cake with pink sugar sail decorations" loading="lazy"></div><div class="tx"><small>04</small><h3>Custom orders</h3><p>Have an idea or a flavor not on the menu? We would love to bring it to life.</p></div></article>
+    </div>
+    <div class="diff">
+      <div class="rv-up"><b>Pastry trained</b><p>Associate degree in Baking and Pastry Arts.</p></div>
+      <div class="rv-up"><b>Hospitality led</b><p>Bachelor's degree in Hospitality Management.</p></div>
+      <div class="rv-up"><b>Food safety certified</b><p>Fully certified in food safety handling.</p></div>
+      <div class="rv-up"><b>Venue ready</b><p>Commercially insured for event venues.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIR -->
+<section style="padding-top:0">
+  <div class="wrap pair">
+    <div class="a rv-up"><img src="img/wedding-red-roses.jpg" alt="Vintage piped wedding cake with red roses and a Mr and Mrs topper" loading="lazy"><span class="cap">Wedding · Vintage piping</span></div>
+    <div class="bw rv-up">
+      <div class="b"><img src="img/ribbed-arabic-topper.jpg" alt="Textured buttercream two tier cake with peonies and a gold Arabic topper" loading="lazy"><span class="cap">Nikah · Peonies</span></div>
+      <div class="inset"><img src="img/oh-baby.jpg" alt="Small vintage cake that reads oh baby" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="wrap grid">
+    <div class="photo rv-up"><img src="img/barakah.jpg" alt="Barakah Junaid at a Baked with Blessings pop up table" loading="lazy"></div>
+    <div class="rv-up">
+      <span class="eyebrow">Our story</span>
+      <h2>A small bakery with a <em>big</em> blessing.</h2>
+      <p>Hi, I'm Barakah Junaid, and I have been running Baked with Blessings on my own for the last three years. Barakah means blessings in Arabic, and I started with one goal: to bless the people around me and my community with quality baked goods.</p>
+      <p>I grew up making the craziest concoctions and learning from every show on the Food Network. One thing I rarely saw on TV was a fellow Muslim woman. In a male dominated field, I want to show the talent and skill a Muslim woman is capable of, serving halal and hospitality.</p>
+      <p>While earning my degrees I became Head Pastry Chef at Four Corners. Now Baked with Blessings is my main focus, and I am so grateful to God, my family, my friends, every supporter, and my siblings for being my free workers.</p>
+      <div class="sign">Barakah<small>Founder &amp; pastry chef</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="dark" id="menu">
+  <div class="wrap">
+    <div class="rv-up"><span class="eyebrow">The menu</span><h2>Sweet things to <em>order.</em></h2></div>
+    <div class="tabs rv-up" role="tablist" id="tabs"></div>
+    <div id="panels"></div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="wrap">
+    <div class="rv-up"><span class="eyebrow">How it works</span><h2>Simple, from start to <em>slice.</em></h2></div>
+    <div class="steps">
+      <div class="card rv-up"><div class="big">01</div><h3>Enquire</h3><p>Submit your order at least 2 weeks before your event with your size, flavor, design and date.</p></div>
+      <div class="card rv-up"><div class="big">02</div><h3>Confirm</h3><p>I'll confirm your order and send deposit details. A 50% deposit secures your date.</p></div>
+      <div class="card rv-up"><div class="big">03</div><h3>Celebrate</h3><p>Pick up in Elmont or arrange delivery. The balance is due 24 hours before.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIZES -->
+<section id="sizes">
+  <div class="wrap">
+    <div class="rv-up"><span class="eyebrow">Cake sizes</span><h2>Find your <em>size.</em></h2></div>
+    <div class="pk">
+      <article class="rv-up"><small>Single tier</small><h3>Intimate</h3><div class="from">$75<span>starting</span></div>
+        <ul><li><span>5″ round, 2 layer</span><span>5 to 8 guests</span></li><li><span>6″ round, 3 layer</span><span>14 to 16 guests</span></li><li><span>8″ heart, 2 layer</span><span>18 to 24 guests</span></li><li><span>9″ round, 3 layer</span><span>30 to 35 guests</span></li></ul>
+        <a href="#order" class="btn btn-ghost" data-size="5″ round, 2 layer · $75">Choose</a></article>
+      <article class="hot rv-up"><span class="flag">Showers &amp; nikahs</span><small>Two tier</small><h3>Celebration</h3><div class="from">$180<span>starting</span></div>
+        <ul><li><span>6″ + 4″</span><span>16 to 20 guests</span></li><li><span>7″ + 5″, 2 layer</span><span>24 to 30 guests</span></li><li><span>8″ + 6″ heart, 3 layer</span><span>35 to 45 guests</span></li><li><span>9″ + 7″, 3 layer</span><span>50 to 60 guests</span></li></ul>
+        <a href="#order" class="btn btn-fill" data-size="Two tier 6″ + 4″, 3 layer base, 2 layer top · $180">Choose</a></article>
+      <article class="rv-up"><small>Three tier</small><h3>Wedding</h3><div class="from">$350<span>starting</span></div>
+        <ul><li><span>8″ + 6″ + 4″, 2 layer</span><span>45 to 60 guests</span></li><li><span>8″ + 6″ + 4″, 3 layer</span><span>60 to 70 guests</span></li><li><span>9″ + 7″ + 5″, 2 layer</span><span>50 to 65 guests</span></li><li><span>9″ + 7″ + 5″, 3 layer</span><span>70 to 90 guests</span></li></ul>
+        <a href="#order" class="btn btn-ghost" data-size="Three tier 8″ + 6″ + 4″, all 2 layer · $350">Choose</a></article>
+    </div>
+    <p class="lead rv-up" style="margin-top:34px;font-size:15px">Full size list in the menu above. Designs such as edible images and premium florals are an additional fee.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="gal-head rv-up"><div><span class="eyebrow">Gallery</span><h2>Recent <em>bakes.</em></h2></div><a href="https://instagram.com/bakedwithblessings.co" target="_blank" rel="noopener">@bakedwithblessings.co</a></div>
+    <div class="gal">
+      <figure class="rv-up"><img src="img/three-tier-florals.jpg" alt="Three tier cake with wafer paper and baby's breath" loading="lazy"><span class="cap">Three tier</span></figure>
+      <figure class="rv-up"><img src="img/pink-heart.jpg" alt="Pink vintage heart cake" loading="lazy"><span class="cap">Vintage heart</span></figure>
+      <figure class="rv-up"><img src="img/hero-vintage-ivory.jpg" alt="Ivory vintage two tier cake" loading="lazy"><span class="cap">Ivory &amp; gold</span></figure>
+      <figure class="rv-up"><img src="img/oh-baby.jpg" alt="Oh baby mini cake with white roses" loading="lazy"><span class="cap">Baby shower</span></figure>
+      <figure class="rv-up"><img src="img/sugar-sails.jpg" alt="Congrats cake with pink sugar sails" loading="lazy"><span class="cap">Sugar sails</span></figure>
+      <figure class="rv-up"><img src="img/danishes.jpg" alt="Tray of danishes" loading="lazy"><span class="cap">Pop up danishes</span></figure>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="rv-up"><span class="eyebrow">Reviews</span><h2>Kind words, <em>sweet</em> people.</h2></div>
+    <div class="rv">
+      <blockquote class="rv-up"><p>The cakes were not only beautiful but delicious!!!!</p><cite>Client</cite></blockquote>
+      <blockquote class="rv-up"><p>Loved it, we got obsessed with your Matilda cake at first bite.</p><cite>Client</cite></blockquote>
+      <blockquote class="rv-up"><p>Barakah's desserts were TOO FIRE.</p><cite>Client</cite></blockquote>
+      <blockquote class="rv-up"><p>I didn't try it at the wedding but had some leftover and it was soo moist and yummy. Everyone was raving about it. May Allah put barakat in your business girl, you are so talented mashAllah ❤</p><cite>Wedding guest</cite></blockquote>
+      <blockquote class="rv-up"><p>Hi queen!! You absolutely ate down with this cake!! Everyone was raving about it! Thank you for making this day all the more special.</p><cite>Client</cite></blockquote>
+      <blockquote class="rv-up"><p>The cake was soooo good, everyone loved it. I took so many pics of the cake!</p><cite>Client</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section class="dark" id="order">
+  <div class="wrap">
+    <div class="rv-up"><span class="eyebrow">Place an order</span><h2>Claim your <em>date.</em></h2><p class="lead">Orders are confirmed by email with deposit details. Instagram and text are the quickest way to chat, so tell me which you prefer.</p></div>
+    <div class="order-grid">
+      <div class="rv-up">
+        <div class="cal">
+          <div class="cal-h"><button type="button" id="prev" aria-label="Previous month">‹</button><b id="mlabel"></b><button type="button" id="next" aria-label="Next month">›</button></div>
+          <div class="dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+          <div class="days" id="days"></div>
+          <div class="legend"><span><i style="background:var(--champ)"></i>Selected</span><span><i style="border:1px dashed rgba(230,205,163,.5)"></i>Under 2 weeks, DM to ask</span><span><i style="background:rgba(246,234,230,.2)"></i>Past</span></div>
+          <div class="picked"><small>Your event date</small><span id="pickedTxt">Choose a date</span></div>
+          <p class="rushnote" id="rush" hidden>That's a short notice date. Please message <a href="https://instagram.com/bakedwithblessings.co" target="_blank" rel="noopener">@bakedwithblessings.co</a> with your details so I can check availability.</p>
+        </div>
+      </div>
+
+      <div class="rv-up">
+        <form name="order" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="orderForm" novalidate>
+          <input type="hidden" name="form-name" value="order">
+          <p class="hidden"><label>Leave empty <input name="bot-field"></label></p>
+          <input type="hidden" name="event_date" id="event_date">
+          <input type="hidden" name="design" id="design">
+          <input type="hidden" name="contact_preference" id="contact_pref">
+          <input type="hidden" name="fulfilment" id="fulfil">
+          <input type="hidden" name="guests" id="guests">
+
+          <div class="grid2">
+            <div class="f" data-req><label for="name">Name</label><input id="name" name="name" autocomplete="name" placeholder="Your full name"><span class="msg">Please add your name.</span></div>
+            <div class="f" data-req="email"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com"><span class="msg">Please add a valid email.</span></div>
+            <div class="f" data-req><label for="phone">Number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Your phone number"><span class="msg">Please add your number.</span></div>
+            <div class="f"><label for="ig">Instagram (optional)</label><input id="ig" name="instagram" placeholder="@yourhandle"></div>
+          </div>
+          <div class="f err-date hidden" id="dateErr"><span class="msg" style="display:block">Please pick your event date on the calendar.</span></div>
+
+          <div class="grid2">
+            <div class="f" data-req><label for="size">Size</label><select id="size" name="size"></select><span class="msg">Please choose a size.</span></div>
+            <div class="f" data-req><label for="flavor">Flavor</label><select id="flavor" name="flavor"></select><span class="msg">Please choose a flavor.</span></div>
+          </div>
+          <div class="grid2">
+            <div class="f" data-req><label for="event">Event</label><input id="event" name="event" placeholder="Birthday, nikah, baby shower…"><span class="msg">Please tell me the occasion.</span></div>
+            <div class="f"><label for="writing">Writing on the cake</label><input id="writing" name="writing" placeholder="e.g. Happy birthday Amira"></div>
+          </div>
+
+          <span class="lbl">Design</span>
+          <div class="chips" data-multi data-target="design"><button type="button">Vintage</button><button type="button">Floral</button><button type="button">Fruit forward</button><button type="button">Rustic</button><button type="button">Minimal</button><button type="button">Something else</button></div>
+
+          <span class="lbl">Approximate guests</span><br>
+          <div class="stepper"><button type="button" id="gm" aria-label="Fewer guests">−</button><output id="gout">20</output><button type="button" id="gp" aria-label="More guests">+</button></div>
+
+          <div class="f"><label for="diet">Dietary restrictions / allergens</label><input id="diet" name="dietary" placeholder="Eggless, vegan, gluten free, nut allergy…"></div>
+
+          <span class="lbl">Preferred contact</span>
+          <div class="chips" data-target="contact_pref"><button type="button" class="on">Instagram</button><button type="button">Number</button><button type="button">Email</button></div>
+
+          <span class="lbl">Pickup or delivery</span>
+          <div class="chips" data-target="fulfil" id="fulfilChips"><button type="button" class="on">Pickup in Elmont</button><button type="button">Delivery</button></div>
+          <div class="grid2">
+            <div class="f"><label for="time" id="timeLbl">Pickup time</label><input id="time" name="time" type="time"></div>
+            <div class="f hidden" id="addrWrap"><label for="addr">Delivery address</label><input id="addr" name="delivery_address" placeholder="Venue or street address"></div>
+          </div>
+
+          <div class="f"><label for="notes">Anything else</label><textarea id="notes" name="notes" placeholder="Inspiration links, colors, questions…"></textarea></div>
+
+          <label class="agree" id="agreeBox"><input type="checkbox" name="agreed_policies" value="yes" id="agree"><span>I have read and agreed to the Baked with Blessings <a href="#policy">policies</a>.</span></label>
+          <button class="btn btn-fill" type="submit" style="width:100%" id="submitBtn">Place order</button>
+        </form>
+
+        <div class="thanks hidden" id="thanks">
+          <h3>Thank you, <em id="tname">friend</em>.</h3>
+          <p>Your order request is in. I'll confirm the details and send deposit information shortly. A 50% deposit secures your date.</p>
+          <button type="button" class="btn btn-ghost" id="again">Start another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLICY & FAQ -->
+<section id="policy">
+  <div class="wrap faq-grid">
+    <div class="rv-up"><span class="eyebrow">Policy &amp; FAQ</span><h2>Good <em>questions.</em></h2><p class="lead">Please read before placing your order. Large orders such as wedding cakes and bulk orders include a contract.</p></div>
+    <div class="rv-up" id="faq"></div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="fcta" style="background:var(--ground)">
+  <div class="wrap rv-up">
+    <img class="logo" src="img/logo.jpg" alt="Baked with Blessings logo">
+    <p>Let's make your celebration a little sweeter.</p>
+    <a href="#order" class="btn btn-fill">Place an order</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><a href="#home" class="brand"><b>Baked with Blessings</b><small>Blessed with every bite</small></a><p style="margin-top:18px;max-width:300px">Custom cakes, artisanal pastries and dessert tables. 100% halal and handmade from scratch.</p></div>
+      <div><h5>Explore</h5><ul><li><a href="#services">Services</a></li><li><a href="#menu">Menu</a></li><li><a href="#order">Place order</a></li><li><a href="#policy">Policy &amp; FAQ</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a href="https://instagram.com/bakedwithblessings.co" target="_blank" rel="noopener">Instagram @bakedwithblessings.co</a></li><li><a href="#order">Order form</a></li></ul></div>
+      <div><h5>Area</h5><ul><li>Pickup in Elmont, NY</li><li>Serving NYC &amp; Long Island</li><li>Delivery priced by distance</li></ul></div>
+    </div>
+    <div class="base"><span>© <span id="yr"></span> Baked with Blessings. All rights reserved.</span><a href="#home" class="totop">Back to top <i>↑</i></a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+$('#yr').textContent=new Date().getFullYear();
+
+/* loader */
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+setTimeout(()=>{$('#loader').classList.add('up');document.body.classList.add('ready')},reduce?0:2700);
+
+/* progress + nav */
+addEventListener('scroll',()=>{const h=document.documentElement;$('#progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';$('#nav').classList.toggle('scrolled',h.scrollTop>10)},{passive:true});
+
+/* marquee */
+const mq=['Vintage cakes','Wedding tiers','Dessert tables','Verrines','Danishes','Cupcakes','Heart cakes','Custom orders'];
+const once=mq.map(t=>`<span>${t}</span>`).join('');$('#mq').innerHTML=once+once;
+
+/* menu data */
+const cakes=[
+ ['Classic vanilla','A vanilla sponge with Russian buttercream'],
+ ['Chocolate','A fluffy, moist chocolate sponge with chocolate ganache filling'],
+ ['Strawberry shortcake','A vanilla sponge layered with strawberries and cream'],
+ ['Salted caramel','A vanilla sponge filled with layers of salted caramel'],
+ ['Dulce de leche','A vanilla sponge with layers of dulce de leche and dulce de leche cream'],
+ ['Red velvet','A red velvet sponge with Russian buttercream and a hint of cream cheese'],
+ ['Lemon','A moist lemon sponge filled with Russian buttercream'],
+ ['Biscoff','A vanilla sponge with layers of Biscoff and Russian buttercream'],
+ ['Cookies and cream','Chocolate sponge, vanilla Russian buttercream and crushed chocolate cream cookies']];
+const exclusive=[
+ ['Tiramisu','Vanilla sponge soaked in espresso with mascarpone chantilly cream and chocolate ganache'],
+ ['Berries and cream','A vanilla sponge with whipped custard filling and a variety of fresh berries'],
+ ['Carrot cake','Carrot cake filled with Russian buttercream and a hint of cream cheese'],
+ ['Raspberry bliss','A vanilla sponge with freeze dried raspberry buttercream and chocolate ganache'],
+ ['Cosmic brownie','A chocolate sponge with cosmic brownie chunks and cosmic sprinkles'],
+ ['Matilda cake','Multiple thin layers of chocolate cake with chocolate ganache']];
+const cup=[['Vanilla','Vanilla sponge with vanilla buttercream'],['Chocolate','Chocolate sponge with chocolate buttercream'],['Strawberry','Vanilla sponge with freeze dried strawberry buttercream'],['Salted caramel','Vanilla sponge with salted caramel buttercream and drizzle']];
+const cupEx=[['Biscoff','Vanilla sponge with Biscoff buttercream, topped with Biscoff crunch'],['Chocolate strawberry','Vanilla sponge with chocolate chunks and freeze dried strawberry buttercream'],['Fruits of Jannah','Figs, grapes and a variety of fruits on a cupcake flavor of your choice']];
+const verr=[['Classic tiramisu',''],['Chocolate hazelnut',''],['Strawberries and cream',''],['Classic cheesecake',''],['Biscoff cheesecake','']];
+const past=[['Black sesame danish','Black sesame cream with a white chocolate ganache'],['Berry chantilly danish','Almond cream with fresh berries on top'],['Turkey and cheese danish','Turkey and cheese in a flaky danish'],['Samosa danish','A spiced potato pastry']];
+const sizes={
+ 'Single tier':[['5″ round','2 layer · feeds 5 to 8',75],['6″ round','2 layer · feeds 8 to 10',120],['6″ round','3 layer · feeds 14 to 16',150],['7″ round','2 layer · feeds 10 to 14',140],['7″ round','3 layer · feeds 15 to 20',165],['8″ round','2 layer · feeds 20 to 25',160],['8″ heart','2 layer · feeds 18 to 24',175],['8″ heart','3 layer · feeds 24 to 30',200],['9″ round','2 layer · feeds 24 to 30',185],['9″ round','3 layer · feeds 30 to 35',225]],
+ 'Two tier':[['6″ + 4″','3 layer base, 2 layer top · feeds 16 to 20',180],['7″ + 5″','both 2 layer · feeds 24 to 30',215],['8″ + 6″','both 2 layer · feeds 32 to 40',300],['8″ + 6″ heart','both 3 layer · feeds 35 to 45',350],['9″ + 7″','both 3 layer · feeds 50 to 60',400]],
+ 'Three tier':[['8″ + 6″ + 4″','all 2 layer · feeds 45 to 60',350],['8″ + 6″ + 4″','all 3 layer · feeds 60 to 70',450],['9″ + 7″ + 5″','all 2 layer · feeds 50 to 65',450],['9″ + 7″ + 5″','all 3 layer · feeds 70 to 90',525]]};
+
+const cupIcon='<svg viewBox="0 0 64 64"><path d="M16 30h32l-4 24H20z"/><path d="M14 30c0-8 6-12 10-12 1-6 6-9 8-9s7 3 8 9c4 0 10 4 10 12"/><path d="M26 30l2 24M38 30l-2 24"/><circle cx="32" cy="7" r="2"/></svg>';
+const glassIcon='<svg viewBox="0 0 64 64"><path d="M20 8h24v40a12 12 0 0 1-24 0z"/><path d="M20 22h24M20 34h24"/><path d="M26 28c2 1 4 1 6 0s4-1 6 0"/></svg>';
+const rows=(arr,tag,start=1)=>arr.map((r,i)=>`<div class="row"><span class="n">${String(i+start).padStart(2,'0')}</span><div><h4>${r[0]}</h4>${r[1]?`<p>${r[1]}</p>`:''}</div><span class="${typeof tag==='function'?'pr':'tag'}">${typeof tag==='function'?tag(r):tag||''}</span></div>`).join('');
+const group=(t,sub,body)=>`<div class="group-t">${t}<small>${sub}</small></div><div class="rows">${body}</div>`;
+const panels=[
+ {id:'cakes',label:'Cakes',pic:'<img src="img/pink-heart.jpg" alt="Vintage heart cake" loading="lazy">',
+  html:group('Classic flavors','Any size',rows(cakes,''))+group('Exclusive flavors','+ $10 per tier',rows(exclusive,'Exclusive')),
+  foot:'<span>Not on the menu? <b>Request any flavor</b>, we would love to cater to your ideas.</span><span>Eggless, vegan and gluten free cakes available on request.</span>'},
+ {id:'sizes',label:'Sizes',pic:'<img src="img/three-tier-florals.jpg" alt="Three tier wedding cake" loading="lazy">',
+  html:Object.entries(sizes).map(([k,v])=>group(k,'',rows(v,r=>'$'+r[2]))).join(''),
+  foot:'<span>Additional designs such as edible images and premium florals are an <b>additional fee</b>.</span>'},
+ {id:'cupcakes',label:'Cupcakes',pic:`<div class="ph-art">${cupIcon}<span>Cupcakes by the dozen</span></div>`,
+  html:group('Cupcakes','$50 a dozen',rows(cup,''))+group('Exclusive cupcakes','$65 a dozen',rows(cupEx,'Exclusive'))},
+ {id:'verrines',label:'Verrines',pic:`<div class="ph-art">${glassIcon}<span>Verrine cups</span></div>`,
+  html:group('Verrines','$65 a dozen',rows(verr,''))},
+ {id:'pastries',label:'Pastries',pic:'<img src="img/danishes.jpg" alt="Danishes" loading="lazy">',
+  html:group('Pastries','$72 a dozen',rows(past,''))}];
+$('#tabs').innerHTML=panels.map((p,i)=>`<button role="tab" data-t="${p.id}" class="${i?'':'on'}">${p.label}</button>`).join('');
+$('#panels').innerHTML=panels.map((p,i)=>`<div class="panel ${i?'':'on'}" id="p-${p.id}"><div class="pic">${p.pic}</div><div>${p.html}${p.foot?`<div class="foot">${p.foot}</div>`:''}</div></div>`).join('');
+$$('#tabs button').forEach(b=>b.onclick=()=>{$$('#tabs button').forEach(x=>x.classList.toggle('on',x===b));$$('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.t))});
+
+/* selects */
+const sz=$('#size');sz.innerHTML='<option value="">Choose a size</option>'+Object.entries(sizes).map(([k,v])=>`<optgroup label="${k}">${v.map(r=>{const t=`${k==='Single tier'?'':k+' '}${r[0]}, ${r[1].split(' · ')[0]} · $${r[2]}`;return `<option>${t}</option>`}).join('')}</optgroup>`).join('')+'<optgroup label="Other"><option>Cupcakes (dozen)</option><option>Verrines (dozen)</option><option>Pastries (dozen)</option><option>Dessert table / custom</option></optgroup>';
+const fl=$('#flavor');fl.innerHTML='<option value="">Choose a flavor</option>'+`<optgroup label="Classic">${cakes.map(c=>`<option>${c[0]}</option>`).join('')}</optgroup><optgroup label="Exclusive (+$10 per tier)">${exclusive.map(c=>`<option>${c[0]}</option>`).join('')}</optgroup><optgroup label="Other"><option>Mixed / multiple items</option><option>Custom request</option></optgroup>`;
+$$('[data-size]').forEach(a=>a.addEventListener('click',()=>{sz.value=a.dataset.size}));
+
+/* calendar */
+const today=new Date();today.setHours(0,0,0,0);
+const minD=new Date(today);minD.setDate(minD.getDate()+14);
+let view=new Date(today.getFullYear(),today.getMonth(),1),sel=null;
+const fmt=d=>d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+function draw(){
+  $('#mlabel').textContent=view.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+  $('#prev').disabled=view<=new Date(today.getFullYear(),today.getMonth(),1);
+  const first=view.getDay(),n=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();let h='';
+  for(let i=0;i<first;i++)h+='<span></span>';
+  for(let d=1;d<=n;d++){const dt=new Date(view.getFullYear(),view.getMonth(),d);const past=dt<today,rush=!past&&dt<minD;
+    h+=`<button type="button" data-d="${dt.getTime()}" class="${rush?'rush ':''}${sel&&+sel===+dt?'sel ':''}${+dt===+today?'today':''}" ${past?'disabled':''} aria-label="${fmt(dt)}">${d}</button>`}
+  $('#days').innerHTML=h;
+  $$('#days button[data-d]').forEach(b=>b.onclick=()=>{sel=new Date(+b.dataset.d);$('#event_date').value=fmt(sel);$('#pickedTxt').textContent=fmt(sel);$('#rush').hidden=!(sel<minD);$('#dateErr').classList.add('hidden');draw()});
+}
+$('#prev').onclick=()=>{view.setMonth(view.getMonth()-1);draw()};$('#next').onclick=()=>{view.setMonth(view.getMonth()+1);draw()};draw();
+
+/* chips */
+$$('.chips').forEach(g=>{const multi=g.hasAttribute('data-multi'),t=$('#'+g.dataset.target);
+  const sync=()=>{t.value=[...g.querySelectorAll('.on')].map(b=>b.textContent).join(', ')};
+  g.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(multi)b.classList.toggle('on');else g.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));sync();if(g.id==='fulfilChips')fulfil()});sync()});
+function fulfil(){const del=$('#fulfil').value==='Delivery';$('#addrWrap').classList.toggle('hidden',!del);$('#timeLbl').textContent=del?'Deliver by (time)':'Pickup time'}
+
+/* stepper */
+let g=20;const gs=()=>{$('#gout').textContent=g;$('#guests').value=g};gs();
+$('#gm').onclick=()=>{g=Math.max(5,g-5);gs()};$('#gp').onclick=()=>{g=Math.min(300,g+5);gs()};
+
+/* form */
+const form=$('#orderForm');
+form.addEventListener('submit',e=>{e.preventDefault();let ok=true,firstBad=null;
+  $$('#orderForm [data-req]').forEach(f=>{const i=f.querySelector('input,select');const v=i.value.trim();const bad=!v||(f.dataset.req==='email'&&!/^\S+@\S+\.\S+$/.test(v));f.classList.toggle('err',bad);if(bad){ok=false;firstBad=firstBad||i}});
+  if(!sel){ok=false;$('#dateErr').classList.remove('hidden');firstBad=firstBad||$('.cal')}
+  const ag=$('#agree').checked;$('#agreeBox').classList.toggle('err',!ag);if(!ag){ok=false;firstBad=firstBad||$('#agreeBox')}
+  if(!ok){firstBad.scrollIntoView({behavior:'smooth',block:'center'});return}
+  const btn=$('#submitBtn');btn.textContent='Sending…';btn.disabled=true;
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+   .then(r=>{if(!r.ok)throw 0;$('#tname').textContent=$('#name').value.trim().split(' ')[0];form.classList.add('hidden');$('#thanks').classList.remove('hidden');$('#order').scrollIntoView({behavior:'smooth'})})
+   .catch(()=>{btn.textContent='Something went wrong, try again';btn.disabled=false});
+});
+$$('#orderForm input,#orderForm select').forEach(i=>i.addEventListener('input',()=>i.closest('.f')&&i.closest('.f').classList.remove('err')));
+$('#again').onclick=()=>{form.reset();sel=null;$('#event_date').value='';$('#pickedTxt').textContent='Choose a date';$('#rush').hidden=true;draw();$$('.chips').forEach(c=>c.querySelectorAll('button').forEach((b,i)=>b.classList.toggle('on',!c.hasAttribute('data-multi')&&i===0)));$$('.chips button').forEach(b=>{});$$('.chips').forEach(c=>{const t=$('#'+c.dataset.target);t.value=[...c.querySelectorAll('.on')].map(b=>b.textContent).join(', ')});fulfil();g=20;gs();$('#submitBtn').textContent='Place order';$('#submitBtn').disabled=false;form.classList.remove('hidden');$('#thanks').classList.add('hidden')};
+
+/* faq */
+const faq=[
+ ['How far in advance should I order?','<p>Custom cakes and event desserts need at least <b>2 to 3 weeks</b> notice. Tiered wedding cakes and large event orders need at least <b>4 to 6 weeks</b>.</p><p>Orders with less than 10 days notice are best placed through Instagram DM at @bakedwithblessings.co, since communication is quicker. Please have all your order details ready.</p>'],
+ ['How do deposits and payments work?','<p>A <b>50% non refundable deposit</b> is required at booking to secure your date and begin sourcing ingredients and custom materials.</p><p>The remaining balance is due within 24 hours before your pickup or delivery. Orders will not be started or released until the balance is paid in full.</p>'],
+ ['What if I need to cancel or reschedule?','<p><b>Cancellations:</b> each order is made from scratch with ingredients bought for you, so deposits are not refundable if cancelled within 7 days of the order. If you cancel more than 14 days before your event, the deposit will be refunded.</p><p><b>Rescheduling:</b> with at least 10 days notice, we are happy to move your deposit to a new date, subject to availability.</p><p><b>Design changes:</b> minor changes to colors, flavors or sizing can be requested up to 7 days before your event. Later changes may not be possible or may incur fees.</p>'],
+ ['Is everything halal?','<p>Yes. Every item is made with strictly <b>100% halal and alcohol free</b> ingredients, including our extracts, flavorings, gelatins and edible lusters.</p>'],
+ ['Do you handle allergies?','<p>Please tell us about any food allergies when you enquire. We take every precaution against cross contamination, but our kitchen regularly handles wheat/gluten, dairy, eggs, soy, tree nuts and peanuts. As we are not an allergen free facility, we cannot guarantee any item is 100% free of trace allergens.</p><p>Eggless, vegan and gluten free cakes are available on request.</p>'],
+ ['Do you offer pickup and delivery?','<p><b>Pickup</b> is in Elmont, NY, with the exact address shared on booking. Please arrive within your pickup window; pickups more than 30 minutes late without notice may need to be rescheduled.</p><p><b>Delivery and setup</b> are available for an additional fee based on mileage and setup complexity. Our team is not always available to deliver, so an Uber courier is also an option. Once delivered and set up, we are not responsible for damage caused by venue staff, guests or room temperature.</p>'],
+ ['How should I transport and store my cake?','<p>Once your order leaves our hands, we are not liable for damage during transport such as sudden braking, uneven surfaces or heat. Always place cakes on a flat surface like the floorboard or a flat trunk, never a slanted seat, with the air conditioning running.</p><p>Buttercream and mousse desserts must stay refrigerated until 1 to 2 hours before serving, away from sunlight, humidity and heat.</p>'],
+ ['Will my cake match my inspiration photo exactly?','<p>We love working from inspiration photos, but every cake is handcrafted art and will never be an exact replica. Buttercream and fondant colors may vary slightly from screens due to lighting and ingredients.</p><p>Tiered and tall cakes and custom toppers contain food safe dowels, rods, boards or floral wires. Please remove all non edible supports and fresh or wafer florals before cutting.</p>'],
+ ['Will you post photos of my cake?','<p>We may photograph creations for our website and social media. If you would like your design kept private until after your event, just let us know.</p>'],
+ ['Do large orders need a contract?','<p>Yes. Wedding cakes and bulk orders include a contract so every detail is agreed in writing.</p>']];
+$('#faq').innerHTML=faq.map((q,i)=>`<div class="qa${i?'':' open'}"><button type="button" aria-expanded="${!i}">${q[0]}<span class="plus"></span></button><div class="ans"><div>${q[1]}</div></div></div>`).join('');
+$$('.qa button').forEach(b=>b.onclick=()=>{const q=b.parentElement,o=!q.classList.contains('open');q.classList.toggle('open',o);b.setAttribute('aria-expanded',o)});
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+$$('.rv-up').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+})();
+</script>
+</body>
+</html>
