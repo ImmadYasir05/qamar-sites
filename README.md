@@ -28,6 +28,7 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `law-with-anoushka/` — Law with Anoushka (Canadian law and politics explainer videos, collaborations and talks)
 - `decor-by-sarah/` — Decor by Sarah LLC (Metro Detroit event designer, backdrops, stages and decor rentals)
 - `lulu-and-bloom/` — Lulu & Bloom Co (Sydney florist, baskets, bouquets, arrangements and Bloom List subscription)
+- `remember-when-gta/` — Remember When GTA (Toronto mobile matcha cart, rentals and decor, Orisen style)
 - `phylla-matcha/` — Phylla Matcha (London mobile iced matcha cart for events, weddings and pop ups)
 - `noori-nutrition/` — Noori Nutrition (UK registered associate nutritionist, 1:1 coaching, 12 week programme, women's health, workshops)
 - `asmaa-balaz/` — Asmaa Balaz (Grand Montréal residential realtor, eXp Realty, bilingual FR/EN, Les Rosiers spotlight, mortgage calculator)
