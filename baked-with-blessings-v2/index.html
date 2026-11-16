@@ -45,8 +45,8 @@ h2{font-size:clamp(38px,5.6vw,68px);margin:18px 0 18px}
 /* loader */
 #loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:opacity .8s var(--ease),visibility .8s}
 #loader.done{opacity:0;visibility:hidden}
-#loader img{width:min(300px,64vw);opacity:0;filter:blur(8px);animation:in 1.2s .1s var(--ease) forwards}
-@keyframes in{to{opacity:1;filter:none}}
+#loader img{width:min(300px,64vw);border-radius:18px;opacity:0;transform:scale(.97);animation:in .6s var(--ease) forwards}
+@keyframes in{to{opacity:1;transform:none}}
 
 /* nav */
 .nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;width:min(1100px,calc(100% - 24px));display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px;padding:0 8px 0 20px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);box-shadow:0 10px 30px -18px rgba(20,16,18,.25)}
@@ -65,18 +65,19 @@ h2{font-size:clamp(38px,5.6vw,68px);margin:18px 0 18px}
 .g1{width:620px;height:620px;background:radial-gradient(circle,#F2D2DC 0%,transparent 70%);top:-120px;left:50%;transform:translateX(-70%)}
 .g2{width:480px;height:480px;background:radial-gradient(circle,#F3E3C9 0%,transparent 70%);top:40px;left:50%;transform:translateX(10%)}
 .grain{position:absolute;inset:0;z-index:-1;opacity:.35;background-image:radial-gradient(rgba(20,16,18,.07) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000,transparent)}
-.hero h1{font-size:clamp(50px,9vw,116px);margin:26px auto 24px;max-width:1000px}
+.hero-logo{display:block;width:min(260px,62vw);height:auto;margin:26px auto 0;border-radius:20px;box-shadow:0 20px 40px -28px rgba(20,16,18,.35)}
+.hero h1{font-size:clamp(46px,8vw,104px);margin:22px auto 24px;max-width:1000px}
 .hero h1 .it{letter-spacing:-.02em}
 .hero .sub{margin:0 auto;font-size:19px}
 .hero .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:36px 0 18px}
 .hero small{color:var(--faint);font-size:13px}
-.reel{margin-top:70px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.reel .track{display:flex;gap:18px;width:max-content;animation:slide 50s linear infinite}
-.reel:hover .track{animation-play-state:paused}
+.reel{margin-top:70px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.reel .track{display:flex;gap:18px;width:max-content;padding-bottom:4px}
+.reel::-webkit-scrollbar,.rrow::-webkit-scrollbar{display:none}
 .reel figure{position:relative;width:280px;aspect-ratio:3/4;border-radius:24px;overflow:hidden;flex:none;background:var(--blush)}
 .reel figure:nth-child(odd){margin-top:36px}
 .reel img{width:100%;height:100%;object-fit:cover}
-.reel figcaption,.chip{position:absolute;left:12px;bottom:12px;height:30px;padding:0 12px;display:flex;align-items:center;border-radius:999px;background:rgba(255,255,255,.82);backdrop-filter:blur(8px);font-size:12px;font-weight:500;color:var(--ink)}
+.reel figcaption,.chip{position:absolute;left:12px;bottom:12px;height:30px;padding:0 12px;display:flex;align-items:center;border-radius:999px;background:rgba(255,255,255,.9);font-size:12px;font-weight:500;color:var(--ink)}
 @keyframes slide{to{transform:translateX(-50%)}}
 @media(max-width:760px){.reel figure{width:200px;border-radius:18px}.hero{padding:130px 0 40px}}
 
@@ -156,9 +157,10 @@ h2{font-size:clamp(38px,5.6vw,68px);margin:18px 0 18px}
 .plan .amt small{font-size:15px;letter-spacing:-.01em;color:var(--muted);font-weight:400;margin-left:6px}
 .plan ul{list-style:none;margin:24px 0 28px;flex:1;border-top:1px solid var(--line)}
 .plan li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px}
-.plan li span:last-child{color:var(--muted);white-space:nowrap}
+.plan li span:last-child{white-space:nowrap;font-weight:600}
+.plan li small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
 .plan.dark{background:var(--ink)}
-.plan.dark .k,.plan.dark .amt small,.plan.dark li span:last-child{color:rgba(255,255,255,.6)}
+.plan.dark .k,.plan.dark .amt small,.plan.dark li small{color:rgba(255,255,255,.6)}
 .plan.dark ul,.plan.dark li{border-color:rgba(255,255,255,.1)}
 .plan.dark .btn-light{background:#fff;color:var(--ink);border:0}
 .plan .top{display:flex;justify-content:space-between;align-items:center}
@@ -186,9 +188,8 @@ h2{font-size:clamp(38px,5.6vw,68px);margin:18px 0 18px}
 @media(max-width:860px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:180px;gap:12px}.gal .w2{grid-column:span 2}}
 
 /* reviews */
-.rrow{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);margin-top:16px}
-.rrow .track{display:flex;gap:16px;width:max-content;animation:slide 60s linear infinite}
-.rrow.rev .track{animation-direction:reverse}
+.rrow{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);margin-top:16px}
+.rrow .track{display:flex;gap:16px;width:max-content}
 .rcard{width:360px;flex:none;padding:26px;border-radius:24px;background:var(--card);border:1px solid var(--line)}
 .rcard .stars{color:var(--wine);letter-spacing:2px;font-size:14px;margin-bottom:12px}
 .rcard p{font-size:16px;line-height:1.5}
@@ -286,13 +287,13 @@ footer .base{display:flex;justify-content:space-between;align-items:center;gap:1
 @media(max-width:760px){footer .cols{grid-template-columns:1fr 1fr}}
 
 /* reveal */
-.rv{opacity:0;transform:translateY(24px);filter:blur(6px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)}
-.rv.in{opacity:1;transform:none;filter:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}#loader{display:none}}
 </style>
 </head>
 <body>
-<div id="loader" aria-hidden="true"><img src="img/logo.png" alt=""></div>
+<div id="loader" aria-hidden="true"><img src="img/logo.jpg" alt="" fetchpriority="high"></div>
 
 <nav class="nav">
   <a href="#top" class="logo"><b>B</b><span>Baked with Blessings</span></a>
@@ -304,7 +305,8 @@ footer .base{display:flex;justify-content:space-between;align-items:center;gap:1
   <div class="glow g1"></div><div class="glow g2"></div><div class="grain"></div>
   <div class="wrap">
     <span class="tag rv"><i></i>100% halal · Made from scratch · Elmont, NY</span>
-    <h1 class="rv">Cakes baked with <span class="it">blessings.</span></h1>
+    <img class="hero-logo rv" src="img/logo.jpg" alt="Baked with Blessings logo" width="640" height="384">
+    <h1 class="rv">Blessings in every <span class="it">sweet creation.</span></h1>
     <p class="sub rv">Custom vintage cakes, wedding tiers, pastries and dessert tables. Handcrafted with love so every celebration feels a little sweeter.</p>
     <div class="ctas rv"><a href="#order" class="btn btn-dark">Place an order <span class="arr">→</span></a><a href="#menu" class="btn btn-light">Explore the menu</a></div>
     <small class="rv">Order at least 2 weeks ahead · Eggless, vegan &amp; gluten free on request</small>
@@ -366,16 +368,16 @@ footer .base{display:flex;justify-content:space-between;align-items:center;gap:1
     <div class="center"><span class="tag rv"><i></i>Cake sizes</span><h2 class="rv">Pick your <span class="it">size.</span></h2><p class="sub rv">Starting prices below. Edible images and premium florals are an additional fee.</p></div>
     <div class="price">
       <div class="plan rv"><div class="top"><span class="k">Single tier</span></div><div class="amt">$75<small>starting</small></div>
-        <ul><li><span>5″ round, 2 layer</span><span>5 to 8</span></li><li><span>6″ round, 3 layer</span><span>14 to 16</span></li><li><span>8″ heart, 2 layer</span><span>18 to 24</span></li><li><span>9″ round, 3 layer</span><span>30 to 35</span></li></ul>
+        <ul data-tier="Single tier"></ul>
         <a href="#order" class="btn btn-light" data-size="5″ round, 2 layer · $75">Choose single tier</a></div>
-      <div class="plan dark rv"><div class="top"><span class="k">Two tier</span><span class="badge">Nikahs &amp; showers</span></div><div class="amt">$180<small>starting</small></div>
-        <ul><li><span>6″ + 4″</span><span>16 to 20</span></li><li><span>7″ + 5″, 2 layer</span><span>24 to 30</span></li><li><span>8″ + 6″ heart, 3 layer</span><span>35 to 45</span></li><li><span>9″ + 7″, 3 layer</span><span>50 to 60</span></li></ul>
+      <div class="plan dark rv"><div class="top"><span class="k">Two tier</span></div><div class="amt">$180<small>starting</small></div>
+        <ul data-tier="Two tier"></ul>
         <a href="#order" class="btn btn-light" data-size="Two tier 6″ + 4″, 3 layer base, 2 layer top · $180">Choose two tier</a></div>
       <div class="plan rv"><div class="top"><span class="k">Three tier</span></div><div class="amt">$350<small>starting</small></div>
-        <ul><li><span>8″ + 6″ + 4″, 2 layer</span><span>45 to 60</span></li><li><span>8″ + 6″ + 4″, 3 layer</span><span>60 to 70</span></li><li><span>9″ + 7″ + 5″, 2 layer</span><span>50 to 65</span></li><li><span>9″ + 7″ + 5″, 3 layer</span><span>70 to 90</span></li></ul>
+        <ul data-tier="Three tier"></ul>
         <a href="#order" class="btn btn-light" data-size="Three tier 8″ + 6″ + 4″, all 2 layer · $350">Choose three tier</a></div>
     </div>
-    <p class="center rv" style="margin-top:20px;font-size:13px;color:var(--faint)">Guest counts are approximate servings.</p>
+    <p class="center rv" style="margin-top:20px;font-size:13px;color:var(--faint)">"Feeds" is the approximate number of people each cake serves.</p>
   </div>
 </section>
 
@@ -503,7 +505,8 @@ footer .base{display:flex;justify-content:space-between;align-items:center;gap:1
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 $('#yr').textContent=new Date().getFullYear();
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-setTimeout(()=>$('#loader').classList.add('done'),reduce?0:1500);
+const hideLoader=()=>$('#loader').classList.add('done');
+if(reduce)hideLoader();else{const t0=performance.now(),go=()=>setTimeout(hideLoader,Math.max(0,900-(performance.now()-t0)));document.readyState==='complete'?go():addEventListener('load',go,{once:true});setTimeout(hideLoader,2500)}
 
 /* hero reel */
 const pics=[['hero-vintage-ivory','Vintage ivory'],['pink-heart','Heart cake'],['wedding-red-roses','Wedding'],['danishes','Danishes'],['three-tier-florals','Three tier'],['oh-baby','Oh baby'],['ribbed-arabic-topper','Nikah'],['sugar-sails','Sugar sails']];
@@ -516,6 +519,16 @@ const rc=a=>a.map(r=>`<div class="rcard"><div class="stars">★★★★★</div
 const a1=rc(R.slice(0,3).concat(R.slice(3,4))),a2=rc(R.slice(3).concat(R.slice(0,1)));
 $('#r1').innerHTML=a1+a1;$('#r2').innerHTML=a2+a2;
 
+/* auto-scrolling rows that can also be swiped */
+const drift=(el,speed)=>{let hold=false,t,last=0,x=0;const half=()=>el.scrollWidth/2;
+ const pause=()=>{hold=true;clearTimeout(t)},resume=()=>{clearTimeout(t);t=setTimeout(()=>{hold=false;x=el.scrollLeft},1800)};
+ el.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')pause()});el.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')resume()});
+ el.addEventListener('touchstart',pause,{passive:true});el.addEventListener('touchend',resume,{passive:true});el.addEventListener('wheel',()=>{pause();resume()},{passive:true});
+ el.addEventListener('scroll',()=>{if(hold){const h=half();if(el.scrollLeft>=h)el.scrollLeft-=h;else if(el.scrollLeft<=0)el.scrollLeft+=h}},{passive:true});
+ if(speed<0)x=el.scrollLeft=half()/2;
+ const step=ts=>{const dt=last?Math.min(ts-last,50):16;last=ts;if(!hold&&!reduce){const h=half();x+=speed*dt/16;if(x>=h)x-=h;if(x<0)x+=h;el.scrollLeft=x}requestAnimationFrame(step)};requestAnimationFrame(step)};
+addEventListener('load',()=>{drift($('.reel'),.5);drift($('#r1').parentElement,.45);drift($('#r2').parentElement,-.45)});
+
 /* menu */
 const cakes=[['Classic vanilla','A vanilla sponge with Russian buttercream'],['Chocolate','A fluffy, moist chocolate sponge with chocolate ganache filling'],['Strawberry shortcake','A vanilla sponge layered with strawberries and cream'],['Salted caramel','A vanilla sponge filled with layers of salted caramel'],['Dulce de leche','Vanilla sponge with dulce de leche and dulce de leche cream'],['Red velvet','Red velvet sponge, Russian buttercream and a hint of cream cheese'],['Lemon','A moist lemon sponge filled with Russian buttercream'],['Biscoff','A vanilla sponge with layers of Biscoff and Russian buttercream'],['Cookies and cream','Chocolate sponge, vanilla Russian buttercream and crushed cookies']];
 const exclusive=[['Tiramisu','Espresso soaked vanilla sponge, mascarpone chantilly and chocolate ganache'],['Berries and cream','Vanilla sponge with whipped custard and fresh berries'],['Carrot cake','Filled with Russian buttercream and a hint of cream cheese'],['Raspberry bliss','Vanilla sponge, freeze dried raspberry buttercream and chocolate ganache'],['Cosmic brownie','Chocolate sponge with cosmic brownie chunks and sprinkles'],['Matilda cake','Multiple thin layers of chocolate cake with chocolate ganache']];
@@ -526,11 +539,13 @@ const past=[['Black sesame danish','Black sesame cream with a white chocolate ga
 const sizes={'Single tier':[['5″ round','2 layer · feeds 5 to 8',75],['6″ round','2 layer · feeds 8 to 10',120],['6″ round','3 layer · feeds 14 to 16',150],['7″ round','2 layer · feeds 10 to 14',140],['7″ round','3 layer · feeds 15 to 20',165],['8″ round','2 layer · feeds 20 to 25',160],['8″ heart','2 layer · feeds 18 to 24',175],['8″ heart','3 layer · feeds 24 to 30',200],['9″ round','2 layer · feeds 24 to 30',185],['9″ round','3 layer · feeds 30 to 35',225]],
 'Two tier':[['6″ + 4″','3 layer base, 2 layer top · feeds 16 to 20',180],['7″ + 5″','both 2 layer · feeds 24 to 30',215],['8″ + 6″','both 2 layer · feeds 32 to 40',300],['8″ + 6″ heart','both 3 layer · feeds 35 to 45',350],['9″ + 7″','both 3 layer · feeds 50 to 60',400]],
 'Three tier':[['8″ + 6″ + 4″','all 2 layer · feeds 45 to 60',350],['8″ + 6″ + 4″','all 3 layer · feeds 60 to 70',450],['9″ + 7″ + 5″','all 2 layer · feeds 50 to 65',450],['9″ + 7″ + 5″','all 3 layer · feeds 70 to 90',525]]};
+const Feeds=t=>t.replace(/feeds/i,'Feeds');
+$$('[data-tier]').forEach(ul=>{ul.innerHTML=sizes[ul.dataset.tier].map(r=>{const[l,f]=r[1].split(' · ');return `<li><span>${r[0]}, ${l}<small>${Feeds(f)}</small></span><span>$${r[2]}</span></li>`}).join('')});
 const items=(arr,right)=>`<div class="items">${arr.map(r=>`<div class="item"><div><h4>${r[0]}</h4>${r[1]?`<p>${r[1]}</p>`:''}</div>${right?right(r):''}</div>`).join('')}</div>`;
 const gh=(t,p)=>`<div class="ghead"><h3>${t}</h3>${p?`<span class="pill-price">${p}</span>`:''}</div>`;
 const P=[
  {l:'Cakes',h:gh('Classic flavors','Any size')+items(cakes)+gh('Exclusive flavors','+$10 per tier')+items(exclusive,()=>'<span class="ex">Exclusive</span>')+'<div class="note"><b>Not on the menu?</b> Request any flavor. Eggless, vegan and gluten free cakes are available on request.</div>'},
- {l:'Sizes',h:Object.entries(sizes).map(([k,v])=>gh(k)+items(v.map(r=>[r[0],r[1].replace(' · ',', '),r[2]]),r=>`<span class="r">$${r[2]}</span>`)).join('')+'<div class="note">Edible images, premium florals and other additional designs are an <b>additional fee</b>.</div>'},
+ {l:'Sizes',h:Object.entries(sizes).map(([k,v])=>gh(k)+items(v.map(r=>[r[0],Feeds(r[1].replace(' · ',', ')),r[2]]),r=>`<span class="r">$${r[2]}</span>`)).join('')+'<div class="note">Edible images, premium florals and other additional designs are an <b>additional fee</b>.</div>'},
  {l:'Cupcakes',h:gh('Cupcakes','$50 a dozen')+items(cup)+gh('Exclusive cupcakes','$65 a dozen')+items(cupEx,()=>'<span class="ex">Exclusive</span>')},
  {l:'Verrines',h:gh('Verrines','$65 a dozen')+items(verr)},
  {l:'Pastries',h:gh('Pastries','$72 a dozen')+items(past)}];
