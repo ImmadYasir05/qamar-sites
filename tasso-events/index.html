@@ -257,7 +257,7 @@ html{scroll-behavior:auto}
 </style>
 </head>
 <body>
-<form name="booking" data-netlify="true" netlify-honeypot="bot-field" hidden>
+<form name="tasso-events-booking" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input name="bot-field"><input name="name"><input name="email"><input name="phone"><input name="venue"><input name="date"><input name="event_type"><input name="guests"><input name="service"><textarea name="message"></textarea>
 </form>
 
@@ -523,8 +523,8 @@ html{scroll-behavior:auto}
             </div>
           </div>
 
-          <form class="form reveal" id="bookForm" name="booking" novalidate>
-            <input type="hidden" name="form-name" value="booking">
+          <form class="form reveal" id="bookForm" name="tasso-events-booking" novalidate>
+            <input type="hidden" name="form-name" value="tasso-events-booking">
             <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
             <div class="picked"><i></i><span id="picked">Pick a date on the calendar</span></div>
             <div class="two">
@@ -724,7 +724,7 @@ html{scroll-behavior:auto}
     else if(!chosenTypes.length) err='Please choose an event type.';
     $('err').textContent = err; if(err) return;
     var data = {
-      'form-name':'booking','bot-field':f['bot-field'].value,name:name,email:email,
+      'form-name':'tasso-events-booking','bot-field':f['bot-field'].value,name:name,email:email,
       phone:f.phone.value.trim(),venue:f.venue.value.trim(),date:fmt(picked),
       event_type:chosenTypes.join(', '),guests:String(guests),service:service,message:f.message.value.trim()
     };
