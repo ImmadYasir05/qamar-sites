@@ -221,6 +221,9 @@ h2{font-size:clamp(38px,5.6vw,68px);margin:18px 0 18px}
 .picked{margin-top:18px;padding:16px;border-radius:16px;background:var(--bg);display:flex;justify-content:space-between;align-items:center;gap:10px}
 .picked small{font-size:12.5px;color:var(--muted)}
 .picked b{font-family:var(--head);font-weight:600;letter-spacing:-.02em;text-align:right}
+.shortnote{max-width:640px;margin:22px auto 0;padding:16px 20px;border:1px solid var(--line);border-radius:18px;background:var(--card);font-size:14.5px;line-height:1.6;color:var(--muted);text-align:left}
+.shortnote b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+.shortnote a{color:var(--ink);text-decoration:underline}
 .rushnote{margin-top:12px;font-size:14px;color:var(--wine)}
 .rushnote a{text-decoration:underline}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -281,7 +284,7 @@ h2{font-size:clamp(38px,5.6vw,68px);margin:18px 0 18px}
 footer{padding:60px 0 40px;font-size:14px;color:var(--muted)}
 footer .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;padding-bottom:40px;border-bottom:1px solid var(--line)}
 footer h5{font-family:var(--head);font-weight:600;font-size:14px;color:var(--ink);margin-bottom:12px;letter-spacing:-.01em}
-footer li{list-style:none;margin-bottom:8px}
+footer li{list-style:none;margin-bottom:8px;overflow-wrap:anywhere}
 footer a:hover{color:var(--ink)}
 footer .base{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px}
 .totop{display:inline-flex;align-items:center;gap:10px;color:var(--ink);font-weight:500}
@@ -419,7 +422,7 @@ footer .base{display:flex;justify-content:space-between;align-items:center;gap:1
 
 <section id="order" style="padding-top:40px">
   <div class="wrap">
-    <div class="center"><span class="tag rv"><i></i>Place an order</span><h2 class="rv">Claim your <span class="it">date.</span></h2><p class="sub rv">I'll confirm by email with deposit details. Instagram and text are quickest for chatting, so pick your favorite.</p></div>
+    <div class="center"><span class="tag rv"><i></i>Place an order</span><h2 class="rv">Claim your <span class="it">date.</span></h2><p class="sub rv">I'll confirm by email with deposit details. Instagram and text are quickest for chatting, so pick your favorite.</p><div class="shortnote rv"><b>Need it within two weeks?</b> If your order is needed within the next two weeks, we recommend placing it through <a href="https://instagram.com/bakedwithblessings.co" target="_blank" rel="noopener">Instagram</a> or <a href="mailto:bakedwithblessingss@gmail.com">email</a>. Due to the short notice, communicating directly through Instagram or email is more efficient and makes it easier to ensure your order is placed. Our standard two weeks notice is for communication and coordination, and we would still love to accommodate you even on short notice!</div></div>
     <div class="order">
       <div class="panelbox rv">
         <div class="cal-h"><button type="button" id="prev" aria-label="Previous month">‹</button><b id="mlabel"></b><button type="button" id="next" aria-label="Next month">›</button></div>
@@ -427,7 +430,7 @@ footer .base{display:flex;justify-content:space-between;align-items:center;gap:1
         <div class="days" id="days"></div>
         <div class="legend"><span><i style="background:var(--ink)"></i>Selected</span><span><i style="background:repeating-linear-gradient(45deg,#eee 0 3px,#fff 3px 6px);border:1px solid var(--line2)"></i>Under 2 weeks, DM first</span><span><i style="background:#E9E4E6"></i>Past</span></div>
         <div class="picked"><small>Event date</small><b id="pickedTxt">Choose a date</b></div>
-        <p class="rushnote" id="rush" hidden>Short notice! Please DM <a href="https://instagram.com/bakedwithblessings.co" target="_blank" rel="noopener">@bakedwithblessings.co</a> with your details to check availability.</p>
+        <p class="rushnote" id="rush" hidden>Short notice! Please DM <a href="https://instagram.com/bakedwithblessings.co" target="_blank" rel="noopener">@bakedwithblessings.co</a> or email <a href="mailto:bakedwithblessingss@gmail.com">bakedwithblessingss@gmail.com</a> with your details.</p>
       </div>
       <div class="panelbox rv">
         <form name="baked-with-blessings-order" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="orderForm" novalidate>
@@ -496,7 +499,7 @@ footer .base{display:flex;justify-content:space-between;align-items:center;gap:1
     <div class="cols">
       <div><a href="#top" class="logo" style="display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:600;color:var(--ink);font-size:17px;letter-spacing:-.03em"><b style="width:28px;height:28px;border-radius:50%;background:var(--wine);color:var(--champ);display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-weight:400">B</b>Baked with Blessings</a><p style="margin-top:14px;max-width:280px">Custom cakes, artisanal pastries and dessert tables. 100% halal, handmade from scratch.</p></div>
       <div><h5>Explore</h5><ul><li><a href="#services">Services</a></li><li><a href="#menu">Menu</a></li><li><a href="#order">Place order</a></li><li><a href="#faq">Policy &amp; FAQ</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
-      <div><h5>Contact</h5><ul><li><a href="https://instagram.com/bakedwithblessings.co" target="_blank" rel="noopener">Instagram</a></li><li><a href="#order">Order form</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a href="https://instagram.com/bakedwithblessings.co" target="_blank" rel="noopener">Instagram</a></li><li><a href="mailto:bakedwithblessingss@gmail.com">bakedwithblessingss@gmail.com</a></li><li><a href="#order">Order form</a></li></ul></div>
       <div><h5>Area</h5><ul><li>Pickup in Elmont, NY</li><li>NYC &amp; Long Island</li><li>Delivery priced by distance</li></ul></div>
     </div>
     <div class="base"><span>© <span id="yr"></span> Baked with Blessings</span><a href="#top" class="totop">Back to top <i>↑</i></a></div>
@@ -600,7 +603,7 @@ $('#again').onclick=()=>{form.reset();sel=null;$('#event_date').value='';$('#pic
 
 /* faq */
 const F=[
- ['How far in advance should I order?','<p>Custom cakes and event desserts need at least <b>2 to 3 weeks</b> notice. Tiered wedding cakes and large events need at least <b>4 to 6 weeks</b>.</p><p>Orders with less than 10 days notice are best placed by Instagram DM at @bakedwithblessings.co, since communication is quicker. Please have all your details ready.</p>'],
+ ['How far in advance should I order?','<p>Custom cakes and event desserts need at least <b>2 to 3 weeks</b> notice. Tiered wedding cakes and large events need at least <b>4 to 6 weeks</b>.</p><p>Orders with less than 14 days notice are best placed by Instagram DM at @bakedwithblessings.co, since communication is quicker. Please have all your details ready.</p>'],
  ['How do deposits and payments work?','<p>A <b>50% non refundable deposit</b> is required at booking to secure your date and begin sourcing ingredients and custom materials.</p><p>The remaining balance is due within 24 hours before pickup or delivery. Orders are not started or released until paid in full.</p>'],
  ['What if I need to cancel or reschedule?','<p><b>Cancellations:</b> each order is made from scratch with ingredients bought for you, so deposits are not refundable if cancelled within 7 days of the order. Cancel more than 14 days before your event and the deposit will be refunded.</p><p><b>Rescheduling:</b> with at least 10 days notice, we are happy to move your deposit to a new date, subject to availability.</p><p><b>Design changes:</b> minor changes to colors, flavors or sizing can be requested up to 7 days before your event. Later changes may not be possible or may incur fees.</p>'],
  ['Is everything halal?','<p>Yes. Every item uses strictly <b>100% halal and alcohol free</b> ingredients, including extracts, flavorings, gelatins and edible lusters.</p>'],
