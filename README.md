@@ -55,3 +55,4 @@ Client sites built by Qamar Agency. One folder per client; each folder deploys a
 - `baked-with-blessings-v2/` — Baked with Blessings v2 (Orisen style modern minimal version)
 - `fudgecravingss-v2/` — Fudgecravingss v2 (Orisen style modern version, Liverpool Sydney brownies)
 - `matcha-mood/` — Matcha Mood (DFW mobile matcha cart, weddings, birthdays, graduations, pop ups; Orisen style)
+- `khadijas-delights/` — Khadija's Delights (Queens NYC homemade halal bakery, vintage piped heart and tiered cakes, pick up only; Orisen style, placeholders)
