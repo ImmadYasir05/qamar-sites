@@ -180,12 +180,12 @@ h2{font-size:clamp(38px,5.6vw,68px);margin:18px 0 18px}
 @media(max-width:900px){.story{grid-template-columns:1fr}.story .ph{min-height:420px}.story .tx{padding:30px}}
 
 /* gallery */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:16px;margin-top:56px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;grid-auto-flow:row dense;gap:16px;margin-top:56px}
 .gal figure{position:relative;border-radius:24px;overflow:hidden;background:var(--blush)}
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
 .gal figure:hover img{transform:scale(1.06)}
 .gal .t2{grid-row:span 2}.gal .w2{grid-column:span 2}
-@media(max-width:860px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:180px;gap:12px}.gal .w2{grid-column:span 2}}
+@media(max-width:860px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:180px;gap:12px}.gal .w2{grid-column:span 2}.gal .mw2{grid-column:span 2;grid-row:span 2}}
 
 /* reviews */
 .rrow{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);margin-top:16px}
@@ -410,6 +410,14 @@ footer .base{display:flex;justify-content:space-between;align-items:center;gap:1
       <figure class="t2 rv"><img src="img/wedding-red-roses.jpg" alt="Wedding cake with red roses" loading="lazy"><span class="chip">Wedding</span></figure>
       <figure class="rv"><img src="img/oh-baby.jpg" alt="Oh baby mini cake" loading="lazy"><span class="chip">Baby shower</span></figure>
       <figure class="rv"><img src="img/sugar-sails.jpg" alt="Cake with pink sugar sails" loading="lazy"><span class="chip">Sugar sails</span></figure>
+      <figure class="t2 rv"><img src="img/swan-wedding.jpg" alt="Two tier wedding cake with swan topper and peonies" loading="lazy"><span class="chip">Swan wedding</span></figure>
+      <figure class="rv"><img src="img/citrus-fig.jpg" alt="Ribbed two tier cake with dried citrus and figs" loading="lazy"><span class="chip">Citrus &amp; fig</span></figure>
+      <figure class="rv"><img src="img/retro-heart.jpg" alt="Orange and pink retro heart cake" loading="lazy"><span class="chip">Retro heart</span></figure>
+      <figure class="t2 rv"><img src="img/raspberry-tiers.jpg" alt="Two tier vintage cake topped with raspberries" loading="lazy"><span class="chip">Raspberry tiers</span></figure>
+      <figure class="rv"><img src="img/silver-vintage.jpg" alt="Silver vintage piped cake" loading="lazy"><span class="chip">Silver vintage</span></figure>
+      <figure class="w2 rv"><img src="img/fig-cupcakes.jpg" alt="Box of cupcakes topped with figs and berries" loading="lazy" style="object-position:50% 40%"><span class="chip">Fig cupcakes</span></figure>
+      <figure class="t2 mw2 rv"><img src="img/pastel-heart.jpg" alt="Pastel lilac and pink heart cake" loading="lazy"><span class="chip">Pastel heart</span></figure>
+      <figure class="rv"><img src="img/rosette-tiers.jpg" alt="Two tier cake with pink rosettes and vintage piping" loading="lazy"><span class="chip">Rosette tiers</span></figure>
     </div>
   </div>
 </section>
