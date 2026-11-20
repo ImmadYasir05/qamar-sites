@@ -184,6 +184,9 @@ h2{font-size:clamp(38px,5.6vw,68px);margin:18px 0 18px}
 .gal figure{position:relative;border-radius:24px;overflow:hidden;background:var(--blush)}
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
 .gal figure:hover img{transform:scale(1.06)}
+.gal .more{display:none}.gal.open .more{display:block}
+.galmore{margin-top:28px;padding:13px 26px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:15px;font-weight:600;cursor:pointer;transition:background .3s}
+.galmore:hover{background:var(--blush)}
 .gal .t2{grid-row:span 2}.gal .w2{grid-column:span 2}
 @media(max-width:860px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:180px;gap:12px}.gal .w2{grid-column:span 2}.gal .mw2{grid-column:span 2;grid-row:span 2}}
 
@@ -418,7 +421,25 @@ footer .base{display:flex;justify-content:space-between;align-items:center;gap:1
       <figure class="w2 rv"><img src="img/fig-cupcakes.jpg" alt="Box of cupcakes topped with figs and berries" loading="lazy" style="object-position:50% 40%"><span class="chip">Fig cupcakes</span></figure>
       <figure class="t2 mw2 rv"><img src="img/pastel-heart.jpg" alt="Pastel lilac and pink heart cake" loading="lazy"><span class="chip">Pastel heart</span></figure>
       <figure class="rv"><img src="img/rosette-tiers.jpg" alt="Two tier cake with pink rosettes and vintage piping" loading="lazy"><span class="chip">Rosette tiers</span></figure>
+      <figure class="t2 more rv"><img src="img/three-tier-red-roses.jpg" alt="Three tier ribbed cake with cascading red roses" loading="lazy"><span class="chip">Red rose tiers</span></figure>
+      <figure class="more rv"><img src="img/wedding-stage.jpg" alt="Vintage wedding cake on a silver stand at a floral stage" loading="lazy"><span class="chip">Wedding stage</span></figure>
+      <figure class="more rv"><img src="img/fruit-florals.jpg" alt="Cake with dried orange, figs, strawberries and flowers" loading="lazy"><span class="chip">Fruit &amp; florals</span></figure>
+      <figure class="w2 more rv"><img src="img/sage-sheet.jpg" alt="Long sage green sheet cake with red vintage piping" loading="lazy"><span class="chip">Sage sheet cake</span></figure>
+      <figure class="more rv"><img src="img/chocolate-heart.jpg" alt="Dark chocolate vintage heart cake" loading="lazy"><span class="chip">Chocolate heart</span></figure>
+      <figure class="more rv"><img src="img/ribbed-florals.jpg" alt="Ribbed cake with tiny flowers and script writing" loading="lazy"><span class="chip">Little florals</span></figure>
+      <figure class="t2 more rv"><img src="img/vintage-tall-tiers.jpg" alt="Tall vintage tiered cake with pink accents" loading="lazy"><span class="chip">Vintage tiers</span></figure>
+      <figure class="t2 more rv"><img src="img/rainbow.jpg" alt="Pastel rainbow two tier birthday cake" loading="lazy"><span class="chip">Rainbow</span></figure>
+      <figure class="more rv"><img src="img/dessert-table.jpg" alt="Dessert table with cookies, cups and cake" loading="lazy"><span class="chip">Dessert table</span></figure>
+      <figure class="w2 more rv"><img src="img/ranunculus-sheet.jpg" alt="White sheet cake with pink ranunculus" loading="lazy"><span class="chip">Ranunculus sheet</span></figure>
+      <figure class="more rv"><img src="img/white-roses.jpg" alt="Two tier ribbed cake with white roses" loading="lazy"><span class="chip">White roses</span></figure>
+      <figure class="t2 more rv"><img src="img/lily-fruit.jpg" alt="Pink cake covered in fruit, lilies and flowers" loading="lazy"><span class="chip">Lilies &amp; fruit</span></figure>
+      <figure class="more rv"><img src="img/rose-vintage.jpg" alt="Vintage piped cake beside pink roses" loading="lazy"><span class="chip">Rose vintage</span></figure>
+      <figure class="more rv"><img src="img/pink-ruffle.jpg" alt="Tall white cake with pink ruffles and florals" loading="lazy"><span class="chip">Pink ruffles</span></figure>
+      <figure class="w2 more rv"><img src="img/floral-sheet.jpg" alt="White sheet cake with white flowers" loading="lazy"><span class="chip">Floral sheet</span></figure>
+      <figure class="more rv"><img src="img/ivory-heart.jpg" alt="Ivory vintage heart cake" loading="lazy"><span class="chip">Ivory heart</span></figure>
+      <figure class="more rv"><img src="img/red-velvet-cupcakes.jpg" alt="Red velvet cupcakes" loading="lazy"><span class="chip">Red velvet</span></figure>
     </div>
+    <div class="center"><button type="button" class="galmore" id="galmore" aria-expanded="false">See more bakes</button></div>
   </div>
 </section>
 
@@ -519,6 +540,7 @@ footer .base{display:flex;justify-content:space-between;align-items:center;gap:1
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 $('#yr').textContent=new Date().getFullYear();
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const gm=$('#galmore');if(gm)gm.addEventListener('click',()=>{const g=$('.gal');const o=g.classList.toggle('open');gm.textContent=o?'Show fewer':'See more bakes';gm.setAttribute('aria-expanded',o);g.querySelectorAll('.more').forEach(f=>f.classList.add('in'));if(!o)g.scrollIntoView({behavior:'smooth',block:'start'})});
 const hideLoader=()=>$('#loader').classList.add('done');
 if(reduce)hideLoader();else{const t0=performance.now(),go=()=>setTimeout(hideLoader,Math.max(0,900-(performance.now()-t0)));document.readyState==='complete'?go():addEventListener('load',go,{once:true});setTimeout(hideLoader,2500)}
 
